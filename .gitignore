@@ -1,0 +1,6 @@
+**/.idea
+**/out/
+*.iml
+**/META-INF/
+
+*.blend1
