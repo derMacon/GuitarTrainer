@@ -1,7 +1,7 @@
 # GuitarTrainer: 
 Modi: 
 - Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
-- Gehörte Töne / Akkordeauf Notenblatt markieren. 
+- Gehörte Töne / Akkorde auf Notenblatt markieren. 
 - Gehörte Töne / Akkorde auf Tableau markieren. 
 
 ## Usecases
