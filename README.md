@@ -15,5 +15,5 @@ Modi:
 - neu angeklickter Ton kann einzeln und im Zusammenspiel mit bereits geklickten Tönen wiedergegeben werden
 - es kann am Nacken "gescrollt" werden (Töne auf höheren Stegs erreichen, am besten mit Animation)
 ### Logik: 
-- Mehrere Schwierigkeitsgerade (Open chords vs. Barechords, etc.)
+- Mehrere Schwierigkeitsgerade (Open chords vs. Bar chords, etc.)
 - Fehler werden ähnlich wie bei Anki schwerer gewichtet
