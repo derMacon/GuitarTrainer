@@ -1,4 +1,4 @@
-package com.example.guitartrainer;
+package com.dermacon.guitartrainer;
 
 import org.junit.Test;
 

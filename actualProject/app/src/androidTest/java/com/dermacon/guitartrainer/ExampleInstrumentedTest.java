@@ -1,4 +1,4 @@
-package com.example.guitartrainer;
+package com.dermacon.guitartrainer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.guitartrainer", appContext.getPackageName());
+        assertEquals("com.dermacon.guitartrainer", appContext.getPackageName());
     }
 }

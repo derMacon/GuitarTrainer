@@ -1,4 +1,4 @@
-package com.example.guitartrainer;
+package com.dermacon.guitartrainer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
