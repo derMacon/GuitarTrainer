@@ -18,4 +18,12 @@ public class Pos {
         return fret;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(null == o || !(o instanceof Pos)) {
+            return false;
+        }
+        Pos other = (Pos) o;
+        return this.string == other.string && this.fret == other.fret;
+    }
 }

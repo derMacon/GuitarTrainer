@@ -46,4 +46,13 @@ public class Note implements Comparable {
         int diff = 0;
         return diff = p1.getGuitarString() - p2.getGuitarString() == 0 ? p1.getFret() - p2.getFret() : diff;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(null == o || !(o instanceof Note)) {
+            return false;
+        }
+        Note other = (Note) o;
+        return this.id == other.id && this.pos.equals(other.pos);
+    }
 }

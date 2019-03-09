@@ -23,6 +23,7 @@ public class GuitarTrainingDocumentController implements Initializable {
 
 
     private static final Image IMG_GUITAR_FRET = new Image("textures\\guitarBaseTexture.png");
+    public static final String RADIO_BTN_PREFIX = "rdBtn_";
 
     private Guitar guitar;
 
@@ -36,9 +37,9 @@ public class GuitarTrainingDocumentController implements Initializable {
     }
 
     private void fillFretWithButtons() {
-        for (int currString = 0; currString < 6; currString++) {
-            for (int fretNum = 0; fretNum < this.grdPnButtons.getRowConstraints().size(); fretNum++) {
-                this.grdPnButtons.add(createButton("" + currString + fretNum), currString, fretNum);
+        for (int stringIdx = 0; stringIdx < 4; stringIdx++) {
+            for (int fretIdx = 0; fretIdx < this.grdPnButtons.getRowConstraints().size(); fretIdx++) {
+                this.grdPnButtons.add(createButton(RADIO_BTN_PREFIX + stringIdx + fretIdx), fretIdx, stringIdx);
             }
         }
     }
@@ -64,6 +65,9 @@ public class GuitarTrainingDocumentController implements Initializable {
     }
 
     public void buttonPressed(String buttonId) {
+        if(buttonId.startsWith(RADIO_BTN_PREFIX)) {
+            buttonId = buttonId.substring(RADIO_BTN_PREFIX.length());
+        }
         System.out.println("Button pressed by: " + buttonId);
         this.guitar.pressNote(new Pos((int) (buttonId.charAt(0) - '0'), Integer.parseInt(buttonId.substring(1))));
     }

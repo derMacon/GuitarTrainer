@@ -17,7 +17,7 @@ public class Guitar {
 
     public Guitar(GUIConnector gui) {
         this.gui = gui;
-        this.pressedStrings = this.openStrings;
+        this.pressedStrings = this.openStrings.clone();
     }
 
     public void pressNote(Pos pos) {
@@ -35,8 +35,8 @@ public class Guitar {
             this.gui.pressNote(note.getPos());
             this.gui.pressNote(this.openStrings[idxGuitarString].getPos());
         } else {
+//            this.gui.pressNote(note.getPos());
             this.pressedStrings[idxGuitarString] = note;
-            this.gui.pressNote(note.getPos());
         }
     }
 

@@ -16,10 +16,17 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void pressNote(Pos pos) {
+//        ObservableList<Node> lst = this.pressedNotes.getChildren();
+//        for(Node curr : lst) {
+//            System.out.println(curr);
+//        }
+
+
+
         boolean noteFound = false;
-        String id = pos.getGuitarString() + "" + pos.getFret();
+        String id = GuitarTrainingDocumentController.RADIO_BTN_PREFIX + pos.getGuitarString() + pos.getFret();
         ObservableList<Node> notes = this.pressedNotes.getChildren();
-        for (int i = 0; i < notes.size(); i++) {
+        for (int i = 0; i < notes.size() && !noteFound; i++) {
             noteFound = notes.get(i).getId().equals(id);
             if (noteFound) {
                 notes.get(i).fireEvent(new ActionEvent());
