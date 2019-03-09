@@ -2,13 +2,9 @@ package logic.audio;
 
 import logic.guitar.Note;
 import logic.guitar.NoteCircle;
-import logic.guitar.NoteComparator;
-import logic.guitar.Pos;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class AudioConverter {
 
