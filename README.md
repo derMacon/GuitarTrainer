@@ -1,4 +1,8 @@
 # GuitarTrainer: 
+
+### Gui (clickable)
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/screenshots/screenshot0903.png)
+
 Modi: 
 - Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
 - Gehörte Töne / Akkorde auf Notenblatt markieren. 
