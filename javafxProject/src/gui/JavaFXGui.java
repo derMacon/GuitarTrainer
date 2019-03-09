@@ -1,5 +1,6 @@
 package gui;
 
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -29,7 +30,8 @@ public class JavaFXGui implements GUIConnector {
         for (int i = 0; i < notes.size() && !noteFound; i++) {
             noteFound = notes.get(i).getId().equals(id);
             if (noteFound) {
-                notes.get(i).fireEvent(new ActionEvent());
+                JFXRadioButton currBtn = (JFXRadioButton)notes.get(i);
+                currBtn.setSelected(!currBtn.isSelected());
             }
         }
 

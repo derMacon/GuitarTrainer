@@ -17,7 +17,11 @@ public class Guitar {
 
     public Guitar(GUIConnector gui) {
         this.gui = gui;
+        // init open strings
         this.pressedStrings = this.openStrings.clone();
+        for(Note curr : this.pressedStrings) {
+            this.gui.pressNote(curr.getPos());
+        }
     }
 
     public void pressNote(Pos pos) {
@@ -30,12 +34,19 @@ public class Guitar {
 
     private void updateString(Note note) {
         int idxGuitarString = note.getPos().getGuitarString();
-        if(note.equals(this.pressedStrings[idxGuitarString])) {
+
+        // open String selected (either muted or unmuted)
+        if (note.equals(this.openStrings[idxGuitarString])) {
             this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
-            this.gui.pressNote(note.getPos());
-            this.gui.pressNote(this.openStrings[idxGuitarString].getPos());
-        } else {
+            this.pressedStrings[idxGuitarString].setPlayed(!this.pressedStrings[idxGuitarString].isPlayed());
+            // note previously selected (selects open String)
+        } else if (note.equals(this.pressedStrings[idxGuitarString])) {
+            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
 //            this.gui.pressNote(note.getPos());
+            this.gui.pressNote(this.openStrings[idxGuitarString].getPos());
+            // no string previously selected
+        } else {
+            this.gui.pressNote(this.pressedStrings[idxGuitarString].getPos());
             this.pressedStrings[idxGuitarString] = note;
         }
     }

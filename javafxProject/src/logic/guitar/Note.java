@@ -1,14 +1,14 @@
 package logic.guitar;
 
-import java.util.Comparator;
-
 public class Note implements Comparable {
     private NoteCircle id;
     private Pos pos;
+    private boolean isPlayed;
 
     public Note(NoteCircle id, Pos pos) {
         this.id = id;
         this.pos = pos;
+        this.isPlayed = true;
     }
 
     public NoteCircle getId() {
@@ -19,12 +19,20 @@ public class Note implements Comparable {
         return pos;
     }
 
+    public boolean isPlayed() {
+        return isPlayed;
+    }
+
     public void setId(NoteCircle id) {
         this.id = id;
     }
 
     public void setPos(Pos pos) {
         this.pos = pos;
+    }
+
+    public void setPlayed(boolean played) {
+        isPlayed = played;
     }
 
     public Note incOctave() {
@@ -53,6 +61,6 @@ public class Note implements Comparable {
             return false;
         }
         Note other = (Note) o;
-        return this.id == other.id && this.pos.equals(other.pos);
+        return this.id == other.id && this.pos.equals(other.pos) && this.isPlayed == other.isPlayed;
     }
 }
