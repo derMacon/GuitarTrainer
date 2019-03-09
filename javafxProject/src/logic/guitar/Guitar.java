@@ -10,6 +10,7 @@ public class Guitar {
             new Note(NoteCircle.D, new Pos(3, 0)),
             new Note(NoteCircle.A, new Pos(4, 0)),
             new Note(NoteCircle.E, new Pos(5, 0))};
+    private final int fretCnt = 13;
 
     private Note[] pressedStrings;
 
@@ -30,6 +31,18 @@ public class Guitar {
         updateString(note);
 
 //        this.gui.pressNote(this.pressedStrings[pos.getGuitarString()]);
+    }
+
+    public Note incOctave(Note note) {
+        int modCount = NoteCircle.values().length;
+//        return NoteCircle.values()[note.getId().ordinal() + modCount % this.fretCnt];
+//        return new Note()
+        return null;
+    }
+
+    public Note decOctave(Note note) {
+        // todo
+        return null;
     }
 
     private void updateString(Note note) {

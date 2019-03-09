@@ -35,16 +35,6 @@ public class Note implements Comparable {
         isPlayed = played;
     }
 
-    public Note incOctave() {
-        // todo
-        return null;
-    }
-
-    public Note decOctave() {
-        // todo
-        return null;
-    }
-
     @Override
     public int compareTo(Object o) {
         assert null != o;
