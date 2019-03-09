@@ -1,5 +1,6 @@
 package gui;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,11 +37,10 @@ public class GuitarTrainingDocumentController implements Initializable {
         }
     }
 
-    private Button createButton(String id) {
-        Button button = new Button();
+    private JFXButton createButton(String id) {
+        JFXButton button = new JFXButton();
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         button.setId(id);
-        button.setVisible(false);
         button.setOnAction(e -> buttonPressed(id));
         return button ;
     }
