@@ -1,10 +1,12 @@
 package logic.audio;
 
+import logic.guitar.Note;
 import logic.guitar.NoteCircle;
 import logic.guitar.NoteComparator;
 import logic.guitar.Pos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -14,19 +16,14 @@ public class AudioConverter {
         System.out.println("Play " + note.name());
     }
 
-    public static void playMultipleNotes(Map<Pos, NoteCircle> notes) {
-        List<Map.Entry<Pos, NoteCircle>> orderedNotes = extractNotes(notes);
+    public static void playMultipleNotes(List<Note> notes) {
+        Collections.sort(notes);
 
         // todo
-        System.out.println("Play Board");
-        for(Map.Entry<Pos, NoteCircle> e : orderedNotes) {
-            System.out.println(e.toString());
+        System.out.println("Play chord");
+        for(Note currNote : notes) {
+            System.out.println(currNote.toString());
         }
     }
 
-    private static List<Map.Entry<Pos, NoteCircle>> extractNotes(Map<Pos, NoteCircle> notes) {
-        List<Map.Entry<Pos, NoteCircle>> lst = new ArrayList<>(notes.entrySet());
-        lst.sort(new NoteComparator());
-        return lst;
-    }
 }

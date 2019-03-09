@@ -1,39 +1,43 @@
 package logic.guitar;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.List;
 
 public class Guitar {
-    private final NoteCircle[] openStrings = new NoteCircle[]{NoteCircle.E, NoteCircle.B, NoteCircle.G, NoteCircle.D, NoteCircle.A, NoteCircle.E};
+    private final Note[] openStrings = new Note[]{
+                new Note(NoteCircle.E, new Pos(0,0)),
+                new Note(NoteCircle.B, new Pos(1, 0)),
+                new Note(NoteCircle.G, new Pos(2, 0)),
+                new Note(NoteCircle.D, new Pos(3, 0)),
+                new Note(NoteCircle.A, new Pos(4, 0)),
+                new Note(NoteCircle.E, new Pos(5, 0))};
 
-    private Map<Pos, NoteCircle> pressedStrings;
+    private List<Note> pressedStrings;
 
     public Guitar() {
-        this.pressedStrings = new HashMap<>();
-        for (int i = 0; i < this.openStrings.length; i++) {
-//            this.pressedStrings.put(new Pos(i, 0))
-        }
+        this.pressedStrings = Arrays.asList(this.openStrings);
     }
 
     public void pressNote(Pos pos) {
         assert null != pos;
-        NoteCircle note = translate(pos);
-        clearString(pos.getString());
-        this.pressedStrings.put(pos, note);
+        Note note = translate(pos);
+        clearGuitarString(pos.getGuitarString());
+        this.pressedStrings.add(note);
     }
 
-    private void clearString(int stringOrd) {
-        for(Pos pos : this.pressedStrings.keySet()) {
-            if(pos.getString() == stringOrd) {
-                this.pressedStrings.remove(pos);
+    private void clearGuitarString(int stringOrd) {
+        for(Note note : this.pressedStrings) {
+            if(note.getPos().getGuitarString() == stringOrd) {
+                this.pressedStrings.remove(note);
+                this.pressedStrings.add(this.openStrings[stringOrd]);
             }
         }
     }
 
-    private NoteCircle translate(Pos pos) {
+    private Note translate(Pos pos) {
         NoteCircle[] noteCircle = NoteCircle.values();
-        int ord = this.openStrings[pos.getString()].ordinal() + pos.getFret();
-        return noteCircle[ord % noteCircle.length];
+        int ord = noteCircle[pos.getGuitarString()].ordinal() + pos.getFret();
+        return new Note(noteCircle[ord % noteCircle.length], pos);
     }
 
     public void releaseNote(Pos pos) {

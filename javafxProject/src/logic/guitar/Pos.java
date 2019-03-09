@@ -10,7 +10,7 @@ public class Pos {
         this.fret = fret;
     }
 
-    public int getString() {
+    public int getGuitarString() {
         return string;
     }
 
