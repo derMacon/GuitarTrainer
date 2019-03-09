@@ -1,6 +1,8 @@
 package gui;
 
+import logic.guitar.Pos;
+
 public interface GUIConnector {
-    void updateString();
+    void pressNote(Pos pos);
     void getNoteName();
 }
