@@ -20,7 +20,7 @@ public class Guitar {
         this.gui = gui;
         // init open strings
         this.pressedStrings = this.openStrings.clone();
-        for(Note curr : this.pressedStrings) {
+        for (Note curr : this.pressedStrings) {
             this.gui.pressNote(curr.getPos());
         }
     }
@@ -35,9 +35,8 @@ public class Guitar {
 
     public Note incOctave(Note note) {
         int modCount = NoteCircle.values().length;
-//        return NoteCircle.values()[note.getId().ordinal() + modCount % this.fretCnt];
-//        return new Note()
-        return null;
+        return new Note(note.getId(), new Pos(note.getPos().getGuitarString() - 1,
+                note.getId().ordinal() + modCount % this.fretCnt));
     }
 
     public Note decOctave(Note note) {
