@@ -31,7 +31,7 @@ public class GuitarTrainingDocumentController implements Initializable {
 
     private void fillFretWithButtons() {
         for (int fretNum = 0; fretNum < this.grdPnButtons.getRowConstraints().size(); fretNum++) {
-            for (int currString = 0; currString < 5; currString++) {
+            for (int currString = 0; currString < 6; currString++) {
                 this.grdPnButtons.add(createButton("btn_s" + currString + "_f" + fretNum), fretNum, currString);
             }
         }
