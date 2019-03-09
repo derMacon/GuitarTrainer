@@ -1,5 +1,7 @@
 package logic.guitar;
 
+import gui.GUIConnector;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +16,10 @@ public class Guitar {
 
     private List<Note> pressedStrings;
 
-    public Guitar() {
+    private GUIConnector gui;
+
+    public Guitar(GUIConnector gui) {
+        this.gui = gui;
         this.pressedStrings = Arrays.asList(this.openStrings);
     }
 
@@ -23,6 +28,7 @@ public class Guitar {
         Note note = translate(pos);
         clearGuitarString(pos.getGuitarString());
         this.pressedStrings.add(note);
+
     }
 
     private void clearGuitarString(int stringOrd) {

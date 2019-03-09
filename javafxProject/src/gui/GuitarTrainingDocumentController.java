@@ -1,13 +1,14 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import logic.guitar.Guitar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,10 +24,15 @@ public class GuitarTrainingDocumentController implements Initializable {
 
     private static final Image IMG_GUITAR_FRET = new Image("textures\\guitarBaseTexture.png");
 
+    private Guitar guitar;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setPnWithImage(grdPnMiddleBox, this.IMG_GUITAR_FRET, false);
         fillFretWithButtons();
+
+
+        this.guitar = new Guitar();
     }
 
     private void fillFretWithButtons() {
@@ -37,12 +43,12 @@ public class GuitarTrainingDocumentController implements Initializable {
         }
     }
 
-    private JFXButton createButton(String id) {
-        JFXButton button = new JFXButton();
+    private JFXRadioButton createButton(String id) {
+        JFXRadioButton button = new JFXRadioButton();
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         button.setId(id);
         button.setOnAction(e -> buttonPressed(id));
-        return button ;
+        return button;
     }
 
     private void setPnWithImage(Pane pane, Image image, boolean addAsForeground) {

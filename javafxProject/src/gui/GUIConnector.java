@@ -1,6 +1,6 @@
 package gui;
 
 public interface GUIConnector {
-    void displayPressedNotes();
+    void updateString();
     void getNoteName();
 }
