@@ -7,7 +7,7 @@
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
 
 ### Chromatic Circle
-<img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="200">
+<img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
 
 Modi: 
 - Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
@@ -30,11 +30,11 @@ Modi:
 ---
 
 ### Todo: near-tearm
-- `inc / decOctave`: Implementation, Tests 
 - cut music to single notes (first discuss naming format)
 - test `updateString()`
 
 ### Todo: itermediate-term
+- `inc / decOctave`: Implementation, Tests 
 - Gui textures
 - Gui Menu
 
