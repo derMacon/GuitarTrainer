@@ -8,8 +8,8 @@ import java.util.List;
 
 public class AudioConverter {
 
-    public static void playSingleNote(NoteCircle note) {
-        System.out.println("Play " + note.name());
+    public static void playSingleNote(NoteCircle id) {
+        System.out.println("Play " + id.name());
     }
 
     public static void playMultipleNotes(List<Note> notes) {

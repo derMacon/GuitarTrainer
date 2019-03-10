@@ -2,16 +2,16 @@ package logic.guitar;
 
 public class Pos {
 
-    private final int string;
+    private final int guitarString;
     private final int fret;
 
     public Pos(int string, int fret) {
-        this.string = string;
+        this.guitarString = string;
         this.fret = fret;
     }
 
     public int getGuitarString() {
-        return string;
+        return guitarString;
     }
 
     public int getFret() {
@@ -24,6 +24,11 @@ public class Pos {
             return false;
         }
         Pos other = (Pos) o;
-        return this.string == other.string && this.fret == other.fret;
+        return this.guitarString == other.guitarString && this.fret == other.fret;
+    }
+
+    @Override
+    public String toString() {
+        return "(s: " + this.guitarString + ", f: " + this.fret + ")";
     }
 }

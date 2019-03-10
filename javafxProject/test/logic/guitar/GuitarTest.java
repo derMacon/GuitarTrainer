@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class GuitarTest {
 
+    /*
     @Test
     public void testIncOctave_standardSituation() throws NotOnFretException {
         Guitar guitar = new Guitar(new FakeGui());
@@ -38,6 +39,21 @@ public class GuitarTest {
         Note note = new Note(NoteCircle.F, new Pos(0, 1));
         guitar.incOctave(note);
     }
+    */
 
+    @Test
+    public void testUpdateString() {
+        Guitar guitar = new Guitar(new FakeGui());
+        Note[] expOutput = guitar.openStrings.clone();
+        Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
+
+        guitar.pressNote(new Pos(0, 1));
+        expOutput[0] = new Note(NoteCircle.F, new Pos(0,1));
+        Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
+
+        guitar.pressNote(new Pos(0, 1));
+        expOutput = guitar.openStrings.clone();
+        Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
+    }
 
 }

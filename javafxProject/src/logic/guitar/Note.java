@@ -19,6 +19,10 @@ public class Note implements Comparable {
         return pos;
     }
 
+    public int getBaseString() {
+        return this.pos.getGuitarString();
+    }
+
     public boolean isPlayed() {
         return isPlayed;
     }
@@ -31,8 +35,8 @@ public class Note implements Comparable {
         this.pos = pos;
     }
 
-    public void setPlayed(boolean played) {
-        isPlayed = played;
+    public void invertPlayable() {
+        this.isPlayed = !this.isPlayed;
     }
 
     @Override
@@ -51,6 +55,12 @@ public class Note implements Comparable {
             return false;
         }
         Note other = (Note) o;
-        return this.id == other.id && this.pos.equals(other.pos) && this.isPlayed == other.isPlayed;
+        return this.id == other.id && this.pos.equals(other.pos);
     }
+
+    @Override
+    public String toString() {
+        return this.id.name() + " -> " + this.pos.toString() + ", isPlayed: " + this.isPlayed;
+    }
+
 }

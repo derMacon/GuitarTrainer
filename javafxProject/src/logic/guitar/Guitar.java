@@ -3,7 +3,7 @@ package logic.guitar;
 import gui.GUIConnector;
 
 public class Guitar {
-    private final Note[] openStrings = new Note[]{
+    protected final Note[] openStrings = new Note[]{
             new Note(NoteCircle.E, new Pos(0, 0)),
             new Note(NoteCircle.B, new Pos(1, 0)),
             new Note(NoteCircle.G, new Pos(2, 0)),
@@ -12,7 +12,7 @@ public class Guitar {
             new Note(NoteCircle.E, new Pos(5, 0))};
     private final int fretCnt = 13;
 
-    private Note[] pressedStrings;
+    protected Note[] pressedStrings;
 
     private GUIConnector gui;
 
@@ -20,25 +20,21 @@ public class Guitar {
         this.gui = gui;
         // init open strings
         this.pressedStrings = this.openStrings.clone();
-        for (Note curr : this.pressedStrings) {
-            this.gui.pressNote(curr.getPos());
-        }
+        this.gui.initGui(this.openStrings);
     }
 
     public void pressNote(Pos pos) {
         assert null != pos;
         Note note = translate(pos);
         updateString(note);
-
-//        this.gui.pressNote(this.pressedStrings[pos.getGuitarString()]);
     }
 
     public Note incOctave(Note note) throws NotOnFretException {
         Note output = findOnSameString(note);
         if (output == null) {
-            findOnHigherString(note);
+            output = findOnHigherString(note);
         }
-        if(output == null) {
+        if (output == null) {
             throw new NotOnFretException("Not on fret");
         }
         return output;
@@ -49,7 +45,7 @@ public class Guitar {
         NoteCircle[] notes = NoteCircle.values();
         int currNoteOrd = baseNote.getId().ordinal();
         int counter = 0;
-        while(notes[currNoteOrd + counter] != note.getId()) {
+        while (notes[currNoteOrd + counter] != note.getId()) {
             counter++;
         }
         return new Note(note.getId(), new Pos(note.getPos().getGuitarString(), counter));
@@ -65,28 +61,52 @@ public class Guitar {
     }
 
     private void updateString(Note note) {
-        int idxGuitarString = note.getPos().getGuitarString();
+        Note oldPressed = this.pressedStrings[note.getBaseString()];
+        Note newPressed = updateStrings(note);
+        this.gui.updateGui(newPressed, oldPressed);
 
-        // open String selected (either muted or unmuted)
-        if (note.equals(this.openStrings[idxGuitarString])) {
-            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
-            this.pressedStrings[idxGuitarString].setPlayed(!this.pressedStrings[idxGuitarString].isPlayed());
-            // note previously selected (selects open String)
-        } else if (note.equals(this.pressedStrings[idxGuitarString])) {
-            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
-//            this.gui.pressNote(note.getPos());
-            this.gui.pressNote(this.openStrings[idxGuitarString].getPos());
-            // no string previously selected
-        } else {
-            this.gui.pressNote(this.pressedStrings[idxGuitarString].getPos());
-            this.pressedStrings[idxGuitarString] = note;
-        }
+
+//        int idxGuitarString = note.getPos().getGuitarString();
+//        // open String selected (either muted or unmuted)
+//        if (note.equals(this.openStrings[idxGuitarString])) {
+//            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
+//            this.pressedStrings[idxGuitarString].setPlayed(!this.pressedStrings[idxGuitarString].isPlayed());
+//            this.gui.setOpenStringPlayable(this.pressedStrings[idxGuitarString].isPlayed(), this
+// .pressedStrings[idxGuitarString]);
+//            // note previously selected (selects open String)
+//        } else if (note.equals(this.pressedStrings[idxGuitarString])) {
+//            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
+//            this.gui.pressNote(this.openStrings[idxGuitarString]);
+//            // no string previously selected
+//        } else {
+//            this.gui.pressNote(this.pressedStrings[idxGuitarString]);
+//            this.pressedStrings[idxGuitarString] = note;
+//        }
     }
+
+    private Note updateStrings(Note note) {
+        int baseGuitarString = note.getBaseString();
+        Note pressedNote = this.pressedStrings[baseGuitarString];
+        if (note.equals(pressedNote)) {
+            pressedNote.invertPlayable();
+        } else {
+            this.pressedStrings[baseGuitarString] = note;
+        }
+
+        if (!this.pressedStrings[baseGuitarString].isPlayed()
+                && !this.pressedStrings[baseGuitarString].equals(this.openStrings[baseGuitarString])) {
+            this.pressedStrings[baseGuitarString] = this.openStrings[baseGuitarString];
+        }
+        return this.pressedStrings[baseGuitarString];
+    }
+
 
     private Note translate(Pos pos) {
         NoteCircle[] noteCircle = NoteCircle.values();
-        int ord = noteCircle[pos.getGuitarString()].ordinal() + pos.getFret();
-        return new Note(noteCircle[ord % noteCircle.length], pos);
+        int ord = openStrings[pos.getGuitarString()].getId().ordinal() + pos.getFret();
+        Note output = new Note(noteCircle[ord % noteCircle.length], pos);
+        System.out.println("Translated: " + output);
+        return output;
     }
 
     public void playDownStrum() {

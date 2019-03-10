@@ -4,12 +4,17 @@ import gui.GUIConnector;
 
 public class FakeGui implements GUIConnector {
     @Override
-    public void pressNote(Pos pos) {
+    public void updateGui(Note currNote, Note prevNote) {
 
     }
 
     @Override
-    public void getNoteName() {
+    public void initGui(Note[] openStrings) {
 
+    }
+
+    @Override
+    public String getNoteName() {
+        return null;
     }
 }

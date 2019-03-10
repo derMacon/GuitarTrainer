@@ -13,7 +13,7 @@ public class Main {
             Thread fstThread = new Thread(fstRunner);
             Thread sndThread = new Thread(sndRunner);
             fstThread.start();
-            Thread.sleep(500);
+            Thread.sleep(200);
             sndThread.start();
 
             fstThread.join();
