@@ -3,4 +3,6 @@
 *.iml
 **/META-INF/
 
+.flooignore
+.floo
 *.blend1
