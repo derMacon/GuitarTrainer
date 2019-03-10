@@ -5,6 +5,12 @@ public class Note implements Comparable {
     private Pos pos;
     private boolean isPlayed;
 
+    /**
+     * Default constructor
+     *
+     * @param id  Note circle identifier
+     * @param pos position on the fretboard
+     */
     public Note(NoteCircle id, Pos pos) {
         this.id = id;
         this.pos = pos;
@@ -51,7 +57,7 @@ public class Note implements Comparable {
 
     @Override
     public boolean equals(Object o) {
-        if(null == o || !(o instanceof Note)) {
+        if (null == o || !(o instanceof Note)) {
             return false;
         }
         Note other = (Note) o;
@@ -62,5 +68,6 @@ public class Note implements Comparable {
     public String toString() {
         return this.id.name() + " -> " + this.pos.toString() + ", isPlayed: " + this.isPlayed;
     }
+
 
 }

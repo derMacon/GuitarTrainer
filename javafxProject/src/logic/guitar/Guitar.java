@@ -64,24 +64,6 @@ public class Guitar {
         Note oldPressed = this.pressedStrings[note.getBaseString()];
         Note newPressed = updateStrings(note);
         this.gui.updateGui(newPressed, oldPressed);
-
-
-//        int idxGuitarString = note.getPos().getGuitarString();
-//        // open String selected (either muted or unmuted)
-//        if (note.equals(this.openStrings[idxGuitarString])) {
-//            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
-//            this.pressedStrings[idxGuitarString].setPlayed(!this.pressedStrings[idxGuitarString].isPlayed());
-//            this.gui.setOpenStringPlayable(this.pressedStrings[idxGuitarString].isPlayed(), this
-// .pressedStrings[idxGuitarString]);
-//            // note previously selected (selects open String)
-//        } else if (note.equals(this.pressedStrings[idxGuitarString])) {
-//            this.pressedStrings[idxGuitarString] = this.openStrings[idxGuitarString];
-//            this.gui.pressNote(this.openStrings[idxGuitarString]);
-//            // no string previously selected
-//        } else {
-//            this.gui.pressNote(this.pressedStrings[idxGuitarString]);
-//            this.pressedStrings[idxGuitarString] = note;
-//        }
     }
 
     private Note updateStrings(Note note) {
@@ -93,8 +75,8 @@ public class Guitar {
             this.pressedStrings[baseGuitarString] = note;
         }
 
-        if (!this.pressedStrings[baseGuitarString].isPlayed()
-                && !this.pressedStrings[baseGuitarString].equals(this.openStrings[baseGuitarString])) {
+        if (!pressedNote.isPlayed()
+                && !pressedNote.equals(this.openStrings[baseGuitarString])) {
             this.pressedStrings[baseGuitarString] = this.openStrings[baseGuitarString];
         }
         return this.pressedStrings[baseGuitarString];

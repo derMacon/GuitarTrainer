@@ -16,37 +16,30 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void updateGui(Note currNote, Note prevNote) {
-        // only for open strings possible due to the radio buttons
         if (!currNote.equals(prevNote)) {
-            pressNote(prevNote);
-            pressNote(currNote);
+            findBtn(prevNote).setSelected(false);
+            findBtn(currNote).setSelected(true);
         }
     }
 
     @Override
     public void initGui(Note[] openStrings) {
-        for(Note curr : openStrings) {
-            pressNote(curr);
+        for (Note curr : openStrings) {
+            findBtn(curr).setSelected(true);
         }
     }
 
-    public void pressNote(Note note) {
-//        ObservableList<Node> lst = this.pressedNotes.getChildren();
-//        for(Node curr : lst) {
-//            System.out.println(curr);
-//        }
-
-        boolean noteFound = false;
+    public JFXRadioButton findBtn(Note note) {
+        JFXRadioButton output = null;
         String id =
                 GuitarTrainingDocumentController.RADIO_BTN_PREFIX + note.getPos().getGuitarString() + note.getPos().getFret();
         ObservableList<Node> notes = this.pressedNotes.getChildren();
-        for (int i = 0; i < notes.size() && !noteFound; i++) {
-            noteFound = notes.get(i).getId().equals(id);
-            if (noteFound) {
-                JFXRadioButton currBtn = (JFXRadioButton) notes.get(i);
-                currBtn.setSelected(!currBtn.isSelected());
+        for (int i = 0; i < notes.size() && output == null; i++) {
+            if (notes.get(i).getId().equals(id)) {
+                output = (JFXRadioButton) notes.get(i);
             }
         }
+        return output;
     }
 
     @Override
