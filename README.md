@@ -21,3 +21,20 @@ Modi:
 ### Logik: 
 - Mehrere Schwierigkeitsgerade (Open chords vs. Bar chords, etc.)
 - Fehler werden ähnlich wie bei Anki schwerer gewichtet
+---
+
+### Todo: near-tearm
+- `inc / decOctave`: Implementation, Tests 
+- cut music to single notes (first discuss naming format)
+- test `updateString()`
+
+### Todo: itermediate-term
+- Gui textures
+- Gui Menu
+
+### Todo: long-term
+- Gui textures
+- Gui Menu
+- combining guitar with AudioConverter
+- Implement Excercise mode
+- scale to bigger texture on gui (min. 12 frets)
