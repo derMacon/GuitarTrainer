@@ -3,6 +3,12 @@
 ### Gui (clickable)
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/screenshots/screenshot0903.png)
 
+### Chromatic Circle
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png)
+
+### Fretboard 
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
+
 Modi: 
 - Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
 - Gehörte Töne / Akkorde auf Notenblatt markieren. 
