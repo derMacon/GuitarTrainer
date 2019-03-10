@@ -7,7 +7,7 @@
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
 
 ### Chromatic Circle
-![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png =250x)
+<img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="200">
 
 Modi: 
 - Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
