@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import logic.audio.AudioConverter;
 import logic.guitar.Guitar;
 import logic.guitar.Pos;
 
@@ -31,9 +32,7 @@ public class GuitarTrainingDocumentController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setPnWithImage(grdPnMiddleBox, this.IMG_GUITAR_FRET, false);
         fillFretWithButtons();
-
-
-        this.guitar = new Guitar(new JavaFXGui(this.grdPnButtons));
+        this.guitar = new Guitar(new JavaFXGui(this.grdPnButtons), new AudioConverter("res\\audioFiles"));
     }
 
     private void fillFretWithButtons() {

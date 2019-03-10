@@ -41,6 +41,8 @@ public class GuitarTest {
     }
     */
 
+    // --- updateString ---
+
     @Test
     public void testUpdateString_clickingNonOpenString2x_sameStr() {
         Guitar guitar = new Guitar(new FakeGui());
@@ -48,7 +50,7 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new Pos(0, 1));
-        expOutput[0] = new Note(NoteCircle.F, new Pos(0,1));
+        expOutput[0] = new Note(NoteCircle.F, 2, new Pos(0,1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
@@ -65,12 +67,12 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new Pos(0, 1));
-        expOutput[0] = new Note(NoteCircle.F, new Pos(0,1));
+        expOutput[0] = new Note(NoteCircle.F, 2, new Pos(0,1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new Pos(0, 2));
-        expOutput[0] = new Note(NoteCircle.F_SHARP, new Pos(0,2));
+        expOutput[0] = new Note(NoteCircle.F_SHARP, 2, new Pos(0,2));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
     }
@@ -97,7 +99,7 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new Pos(0, 1));
-        expOutput[0] = new Note(NoteCircle.F, new Pos(0,1));
+        expOutput[0] = new Note(NoteCircle.F, 2, new Pos(0,1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
@@ -119,9 +121,66 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new Pos(0, 1));
-        expOutput[0] = new Note(NoteCircle.F, new Pos(0,1));
+        expOutput[0] = new Note(NoteCircle.F, 2, new Pos(0,1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
     }
+
+
+    // --- translate ---
+    @Test
+    public void testTranslate_openStrings() {
+        Guitar guitar = new Guitar(new FakeGui());
+        Assert.assertEquals(guitar.openStrings[0], guitar.translate(new Pos(0,0)));
+        Assert.assertEquals(guitar.openStrings[1], guitar.translate(new Pos(1,0)));
+        Assert.assertEquals(guitar.openStrings[2], guitar.translate(new Pos(2,0)));
+        Assert.assertEquals(guitar.openStrings[3], guitar.translate(new Pos(3,0)));
+        Assert.assertEquals(guitar.openStrings[4], guitar.translate(new Pos(4,0)));
+        Assert.assertEquals(guitar.openStrings[5], guitar.translate(new Pos(5,0)));
+    }
+
+    @Test
+    public void testTranslate_lowEString() {
+        Guitar guitar = new Guitar(new FakeGui());
+
+        // lowest possible val apart from open string
+        Pos inputPos = new Pos(5, 1);
+        Note expNote = new Note(NoteCircle.F, 0, inputPos);
+        Note actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+
+        // changing octave
+        inputPos = new Pos(5, 8);
+        expNote = new Note(NoteCircle.C, 1, inputPos);
+        actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+
+        // highest possible value
+        inputPos = new Pos(5, 8);
+        expNote = new Note(NoteCircle.C, 1, inputPos);
+        actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+    }
+
+    @Test
+    public void testTranslate_highEString() {
+        Guitar guitar = new Guitar(new FakeGui());
+
+        Pos inputPos = new Pos(0, 7);
+        Note expNote = new Note(NoteCircle.B, 2, inputPos);
+        Note actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+
+        inputPos = new Pos(0, 8);
+        expNote = new Note(NoteCircle.C, 3, inputPos);
+        actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+
+        inputPos = new Pos(0, 12);
+        expNote = new Note(NoteCircle.E, 3, inputPos);
+        actNote = guitar.translate(inputPos);
+        Assert.assertEquals(expNote, actNote);
+    }
+
 
 }

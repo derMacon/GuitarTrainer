@@ -1,19 +1,34 @@
 package logic.guitar;
 
 public class Note implements Comparable {
-    private NoteCircle id;
-    private Pos pos;
+    private final NoteCircle id;
+    private final Pos pos;
+    private final int octave;
     private boolean isPlayed;
 
     /**
-     * Default constructor
+     * Testing constructor
      *
      * @param id  Note circle identifier
      * @param pos position on the fretboard
      */
     public Note(NoteCircle id, Pos pos) {
         this.id = id;
+        this.octave = 0;
         this.pos = pos;
+        this.isPlayed = true;
+    }
+
+    /**
+     * Default constructor
+     * @param id
+     * @param octave
+     * @param pos
+     */
+    public Note(NoteCircle id, int octave, Pos pos) {
+        this.id = id;
+        this.pos = pos;
+        this.octave = octave;
         this.isPlayed = true;
     }
 
@@ -29,16 +44,12 @@ public class Note implements Comparable {
         return this.pos.getGuitarString();
     }
 
+    public int getOctave() {
+        return octave;
+    }
+
     public boolean isPlayed() {
         return isPlayed;
-    }
-
-    public void setId(NoteCircle id) {
-        this.id = id;
-    }
-
-    public void setPos(Pos pos) {
-        this.pos = pos;
     }
 
     public void invertPlayable() {
@@ -61,12 +72,13 @@ public class Note implements Comparable {
             return false;
         }
         Note other = (Note) o;
-        return this.id == other.id && this.pos.equals(other.pos);
+        return this.id == other.id && this.octave == other.octave && this.pos.equals(other.pos);
     }
 
     @Override
     public String toString() {
-        return this.id.name() + " -> " + this.pos.toString() + ", isPlayed: " + this.isPlayed;
+        return this.id.name() + " -> " + this.pos.toString() + ", octave: " + this.octave
+                + ", isPlayed: " + this.isPlayed;
     }
 
 
