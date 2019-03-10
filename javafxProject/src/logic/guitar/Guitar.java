@@ -33,10 +33,30 @@ public class Guitar {
 //        this.gui.pressNote(this.pressedStrings[pos.getGuitarString()]);
     }
 
-    public Note incOctave(Note note) {
-        int modCount = NoteCircle.values().length;
-        return new Note(note.getId(), new Pos(note.getPos().getGuitarString() - 1,
-                note.getId().ordinal() + modCount % this.fretCnt));
+    public Note incOctave(Note note) throws NotOnFretException {
+        Note output = findOnSameString(note);
+        if (output == null) {
+            findOnHigherString(note);
+        }
+        if(output == null) {
+            throw new NotOnFretException("Not on fret");
+        }
+        return output;
+    }
+
+    private Note findOnSameString(Note note) {
+        Note baseNote = this.openStrings[note.getPos().getGuitarString()];
+        NoteCircle[] notes = NoteCircle.values();
+        int currNoteOrd = baseNote.getId().ordinal();
+        int counter = 0;
+        while(notes[currNoteOrd + counter] != note.getId()) {
+            counter++;
+        }
+        return new Note(note.getId(), new Pos(note.getPos().getGuitarString(), counter));
+    }
+
+    private Note findOnHigherString(Note note) {
+        return null;
     }
 
     public Note decOctave(Note note) {
