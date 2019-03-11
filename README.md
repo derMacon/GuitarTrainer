@@ -14,6 +14,9 @@ Modi:
 - Gehörte Töne / Akkorde auf Notenblatt markieren. 
 - Gehörte Töne / Akkorde auf Tableau markieren. 
 
+### UML-Diagram
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
+
 ## Usecases
 ### Benutzer:
 - soll einzelne Töne auf Griffbrett anklicken
