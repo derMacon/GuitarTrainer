@@ -24,7 +24,7 @@ public class GuitarTrainingDocumentController implements Initializable {
     private GridPane grdPnButtons;
 
 
-    private static final Image IMG_GUITAR_FRET = new Image("textures\\guitarBaseTexture.png");
+    private static final Image IMG_GUITAR_FRET = new Image("textures\\guitarBaseTexture_minimalistic.png");
     public static final String RADIO_BTN_PREFIX = "rdBtn_";
 
     private Guitar guitar;
@@ -34,6 +34,8 @@ public class GuitarTrainingDocumentController implements Initializable {
         setPnWithImage(grdPnMiddleBox, this.IMG_GUITAR_FRET, false);
         fillFretWithButtons();
         this.guitar = new Guitar(new JavaFXGui(this.grdPnButtons), new AudioConverter(SoundPack.NYLON));
+//        this.grdPnButtons.setGridLinesVisible(true);
+
     }
 
     private void fillFretWithButtons() {
