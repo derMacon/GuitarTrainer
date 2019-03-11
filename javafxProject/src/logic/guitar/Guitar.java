@@ -2,6 +2,7 @@ package logic.guitar;
 
 import gui.GUIConnector;
 import logic.audio.AudioConverter;
+import logic.audio.SoundPack;
 
 public class Guitar {
     protected final Note[] openStrings = new Note[]{
@@ -11,7 +12,7 @@ public class Guitar {
             new Note(NoteCircle.D, 1,  new Pos(3, 0)),
             new Note(NoteCircle.A, 0, new Pos(4, 0)),
             new Note(NoteCircle.E, 0,  new Pos(5, 0))};
-    private final int fretCnt = 13;
+    public final static int fretCnt = 13;
 
     protected Note[] pressedStrings;
 
@@ -27,7 +28,7 @@ public class Guitar {
     }
 
     public Guitar(GUIConnector gui) {
-        this(gui, new AudioConverter("res\\audioFiles"));
+        this(gui, new AudioConverter(SoundPack.NYLON));
     }
 
     public void pressNote(Pos pos) {
