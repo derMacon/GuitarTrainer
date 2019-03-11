@@ -9,15 +9,16 @@
 ### Chromatic Circle
 <img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
 
-Modi: 
-- Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
-- Gehörte Töne / Akkorde auf Notenblatt markieren. 
-- Gehörte Töne / Akkorde auf Tableau markieren. 
 
 ### UML-Diagram
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
 
 ## Usecases
+### Modi: 
+- Gehörte Töne / Akkorde auf dem Griffbrett einzeichnen. 
+- Gehörte Töne / Akkorde auf Notenblatt markieren. 
+- Gehörte Töne / Akkorde auf Tableau markieren. 
+
 ### Benutzer:
 - soll einzelne Töne auf Griffbrett anklicken
 - soll gehörte Töne auf einer Tableau Darstellung einzeichnen
