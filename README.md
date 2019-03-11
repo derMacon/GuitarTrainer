@@ -33,10 +33,11 @@
 - Fehler werden ähnlich wie bei Anki schwerer gewichtet
 
 ## Links
-- *Converter:* https://www.zamzar.com/
-- *Note reading excercises:* https://www.bonedo.de/artikel/einzelansicht/noten-lesen-lernen-fuer-gitarristen-1-das-notensystem-grundlagen-und-leersaitenspiel.html
-- *Note reading lesson:* https://www.youtube.com/watch?v=8Mj6305Rr2w&t=418s
-- *Uml-Editor:* http://www.umlet.com/umletino/umletino.html
+- [MIDI-Converter](https://www.zamzar.com/)
+- [Note reading excercises](https://www.bonedo.de/artikel/einzelansicht/noten-lesen-lernen-fuer-gitarristen-1-das-notensystem-grundlagen-und-leersaitenspiel.html)
+- [Note reading lesson](https://www.youtube.com/watch?v=8Mj6305Rr2w&t=418s)
+- [Uml-Editor](http://www.umlet.com/umletino/umletino.html)
+- [Octave summary](http://www.musikkunde.info/notenlehre/oktavraeume)
 ---
 
 ### Todo: near-tearm
