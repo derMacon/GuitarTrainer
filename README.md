@@ -31,6 +31,12 @@
 ### Logik: 
 - Mehrere Schwierigkeitsgerade (Open chords vs. Bar chords, etc.)
 - Fehler werden ähnlich wie bei Anki schwerer gewichtet
+
+## Links
+- *Converter:* https://www.zamzar.com/
+- *Note reading excercises:* https://www.bonedo.de/artikel/einzelansicht/noten-lesen-lernen-fuer-gitarristen-1-das-notensystem-grundlagen-und-leersaitenspiel.html
+- *Note reading lesson:* https://www.youtube.com/watch?v=8Mj6305Rr2w&t=418s
+
 ---
 
 ### Todo: near-tearm
