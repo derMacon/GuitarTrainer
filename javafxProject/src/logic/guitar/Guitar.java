@@ -1,10 +1,11 @@
 package logic.guitar;
 
-import gui.GUIConnector;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
 
 public class Guitar {
+    public final static int fretCnt = 13;
+
     protected final Note[] openStrings = new Note[]{
             new Note(NoteCircle.E, 2, new Pos(0, 0)),
             new Note(NoteCircle.B, 1, new Pos(1, 0)),
@@ -12,7 +13,6 @@ public class Guitar {
             new Note(NoteCircle.D, 1,  new Pos(3, 0)),
             new Note(NoteCircle.A, 0, new Pos(4, 0)),
             new Note(NoteCircle.E, 0,  new Pos(5, 0))};
-    public final static int fretCnt = 13;
 
     protected Note[] pressedStrings;
 
@@ -71,11 +71,11 @@ public class Guitar {
 
     private void updateString(Note note) {
         Note oldPressed = this.pressedStrings[note.getBaseString()];
-        Note newPressed = updateStrings(note);
+        Note newPressed = updateNote(note);
         this.gui.updateGui(newPressed, oldPressed);
     }
 
-    private Note updateStrings(Note note) {
+    private Note updateNote(Note note) {
         int baseGuitarString = note.getBaseString();
         Note pressedNote = this.pressedStrings[baseGuitarString];
         if (note.equals(pressedNote)) {
@@ -91,7 +91,6 @@ public class Guitar {
         return this.pressedStrings[baseGuitarString];
     }
 
-
     protected Note translate(Pos pos) {
         NoteCircle[] noteCircle = NoteCircle.values();
         int sum = openStrings[pos.getGuitarString()].getId().ordinal() + pos.getFret();
@@ -103,7 +102,7 @@ public class Guitar {
     }
 
     public void playDownStrum() {
-        // todo
+        this.audioConv.playMultipleNotes(this.pressedStrings);
     }
 
 }

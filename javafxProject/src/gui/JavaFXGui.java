@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
+import logic.guitar.GUIConnector;
 import logic.guitar.Note;
 
 public class JavaFXGui implements GUIConnector {

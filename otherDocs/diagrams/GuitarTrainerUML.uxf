@@ -1,0 +1,65 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>Converter
+--</help_text><element><id>UMLPackage</id><coordinates><x>336</x><y>340</y><w>1090</w><h>390</h></coordinates><panel_attributes>logic
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>336</x><y>150</y><w>430</w><h>160</h></coordinates><panel_attributes>gui
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>366</x><y>210</y><w>140</w><h>50</h></coordinates><panel_attributes>JavaFX
+--
+- pressedNotes : GridPane</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>356</x><y>380</y><w>600</w><h>330</h></coordinates><panel_attributes>guitar
+--
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>586</x><y>420</y><w>130</w><h>100</h></coordinates><panel_attributes>Note
+--
+- id : NoteCircle
+- octave : int
+- pos : pos
+- isPlayed : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>376</x><y>600</y><w>140</w><h>90</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+NoteCircle
+--
+Enum members represent 
+the unique notes in the 
+chromatic circle</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>376</x><y>420</y><w>170</w><h>100</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+GUIConnector
+--
+- updateGui(note : Note) : void
+- intGui(notes : Note[]) : void
+- getNote() : String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>646</x><y>510</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>506</x><y>550</y><w>170</w><h>110</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>150;10;50;10;50;90;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>706</x><y>450</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>50;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>420</y><w>180</w><h>110</h></coordinates><panel_attributes>Guitar
+--
+- pressedStrings : Note[]
+- gui : GUIConnector
+- audioConv : AudioConverter
+--
++ pressNote(Pos pos) : void 
++ playDownStrum() : void
+- updateString(note : Note) : void
+- translate(pos : Pos) : Note</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>976</x><y>380</y><w>430</w><h>330</h></coordinates><panel_attributes>guitar
+--
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1006</x><y>590</y><w>150</w><h>90</h></coordinates><panel_attributes>Player
+--
+- audioFile : File
+- playCompleted : boolean
+--
+Plays a single given note</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1176</x><y>590</y><w>90</w><h>70</h></coordinates><panel_attributes>MusicRunner
+--
+- player  Player
+--
+- run() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>996</x><y>420</y><w>240</w><h>60</h></coordinates><panel_attributes>AudioConverter
+--
+- playSingleNote(id : NoteCircle) : void
+- playMultipleNotes(notes : List&lt;Note&gt;) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>1306</x><y>590</y><w>60</w><h>70</h></coordinates><panel_attributes>Runnable</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1276</x><y>420</y><w>110</w><h>90</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Soundpack
+--
+- name
+- path
+- highestOctave : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>586</x><y>600</y><w>130</w><h>90</h></coordinates><panel_attributes>Pos
+--
+- string : int
+- fret : int
+--
+Position of a note on the 
+fretboard</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>450</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>926</x><y>450</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;70;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>536</x><y>190</y><w>210</w><h>100</h></coordinates><panel_attributes>GuitarTrainingDocumentController
+--
+- gridPnMiddleBox : GridPane
+- grdPnButtons : GridPane
+- guitar : Guitar
+--
++ buttonPressed(buttonId : String) : boid</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>250</y><w>30</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>496</x><y>230</y><w>60</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1070</x><y>470</y><w>30</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1226</x><y>450</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1260</x><y>600</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1210</x><y>470</y><w>30</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element></diagram>

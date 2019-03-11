@@ -1,7 +1,5 @@
 package logic.guitar;
 
-import gui.GUIConnector;
-
 public class FakeGui implements GUIConnector {
     @Override
     public void updateGui(Note currNote, Note prevNote) {

@@ -1,4 +1,4 @@
-package gui;
+package logic.guitar;
 
 import logic.guitar.Note;
 

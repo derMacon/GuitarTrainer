@@ -16,16 +16,18 @@ public class AudioConverter {
 
     public AudioConverter(SoundPack sPack) {
         String prefix = sPack.name().toLowerCase();
-        String fileName = null;
         NoteCircle[] notes = NoteCircle.values();
+        String fileName;
         for (int i = 0; i < notes.length; i++) {
             this.audioFiles.add(new ArrayList<>());
             fileName = String.format(TEMPLATE_BLUEPRINT, prefix, notes[i].name());
-            int j = 0;
-            File file = new File(sPack.getPath() + "\\" + fileName + j + ".wav");
-            while (file.exists()) {
-                audioFiles.get(i).add(file);
-                file = new File(sPack.getPath() + "\\" + fileName + ++j);
+            for (int j = 0; j < sPack.getHighestOctave(); j++) {
+                File file = new File(sPack.getPath() + "\\" + fileName + j + ".wav");
+                if (file.exists()) {
+                    audioFiles.get(i).add(this.audioFiles.get(i).size(), file);
+                } else {
+                    this.audioFiles.get(i).add(new File(sPack.getPath() + "\\" + "empty.wav"));
+                }
             }
         }
     }
@@ -41,14 +43,10 @@ public class AudioConverter {
         return this.audioFiles.get(note.getId().ordinal()).get(note.getOctave());
     }
 
-    public void playMultipleNotes(List<Note> notes) {
-        Collections.sort(notes);
-
-        // todo
-        System.out.println("Play chord");
-        for (Note currNote : notes) {
-            System.out.println(currNote.toString());
+    public void playMultipleNotes(Note[] notes) {
+        System.out.println("Play downstrum");
+        for (int i = notes.length - 1; i >= 0; i--) {
+            System.out.println(notes[i]);
         }
     }
-
 }
