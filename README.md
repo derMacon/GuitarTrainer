@@ -1,7 +1,7 @@
 # GuitarTrainer: 
 
 ### Gui (WIP)
-![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/gui/guitarGui2.png)
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/gui/guitarGui3.png)
 
 ### Fretboard 
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
