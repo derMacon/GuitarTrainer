@@ -1,5 +1,8 @@
 # GuitarTrainer: 
 
+### Gui (WIP)
+![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/gui/guitarGui1.png)
+
 ### Fretboard 
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
 
@@ -36,9 +39,6 @@
 - [Octave summary](http://www.musikkunde.info/notenlehre/oktavraeume)
 
 ---
-
-### Gui (clickable)
-![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/screenshots/screenshot0903.png)
 
 ### Todo: near-tearm
 - cut music to single notes (first discuss naming format)
