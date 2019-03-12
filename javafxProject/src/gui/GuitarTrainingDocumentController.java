@@ -3,6 +3,8 @@ package gui;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -39,9 +41,14 @@ public class GuitarTrainingDocumentController implements Initializable {
     }
 
     private void fillFretWithButtons() {
-        for (int stringIdx = 0; stringIdx < this.grdPnButtons.getColumnConstraints().size(); stringIdx++) {
-            for (int fretIdx = 0; fretIdx < this.grdPnButtons.getRowConstraints().size(); fretIdx++) {
-                this.grdPnButtons.add(createButton(RADIO_BTN_PREFIX + stringIdx + fretIdx), fretIdx, stringIdx);
+        for (int stringIdx = 0; stringIdx < this.grdPnButtons.getRowConstraints().size(); stringIdx++) {
+            for (int fretIdx = 0; fretIdx < this.grdPnButtons.getColumnConstraints().size(); fretIdx++) {
+                JFXRadioButton rdBtn = createButton(RADIO_BTN_PREFIX + stringIdx + fretIdx);
+                rdBtn.setScaleX(1.5);
+                rdBtn.setScaleY(1.5);
+                GridPane.setValignment(rdBtn, VPos.CENTER);
+                GridPane.setHalignment(rdBtn, HPos.CENTER);
+                this.grdPnButtons.add(rdBtn, fretIdx, stringIdx);
             }
         }
     }

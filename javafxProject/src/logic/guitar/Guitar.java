@@ -34,8 +34,8 @@ public class Guitar {
     public void pressNote(Pos pos) {
         assert null != pos;
         Note note = translate(pos);
-        updateString(note);
-        audioConv.playSingleNote(note);
+        Note oldNote = updateString(note);
+        audioConv.playSingleNote(oldNote);
     }
 
     public Note incOctave(Note note) throws NotOnFretException {
@@ -69,10 +69,11 @@ public class Guitar {
         return null;
     }
 
-    private void updateString(Note note) {
+    private Note updateString(Note note) {
         Note oldPressed = this.pressedStrings[note.getBaseString()];
         Note newPressed = updateNote(note);
         this.gui.updateGui(newPressed, oldPressed);
+        return newPressed;
     }
 
     private Note updateNote(Note note) {
