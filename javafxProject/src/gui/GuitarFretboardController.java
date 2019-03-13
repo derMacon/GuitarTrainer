@@ -1,5 +1,6 @@
 package gui;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -10,6 +11,9 @@ import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
 import logic.guitar.Guitar;
 import logic.guitar.Pos;
+
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -82,6 +86,11 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_fret14;
 
+    @FXML
+    private GridPane grpPn_Buttons;
+
+    @FXML
+    private JFXButton btn_replay;
 
     private final static String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
 
@@ -91,6 +100,9 @@ public class GuitarFretboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btn_replay.setButtonType(JFXButton.ButtonType.RAISED);
+
+
         initGuitarTexture();
         initFrets();
 
