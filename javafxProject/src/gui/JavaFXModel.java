@@ -18,37 +18,13 @@ public class JavaFXModel implements GUIConnector {
 
     @Override
     public void updateGui(Note currNote, Note prevNote) {
-//        ((GuitarJFXButton)this.panes[0].getChildren().get(2)).pressNote(true);
-//        findBtn(currNote).invertGraphic();
-//        findBtn(prevNote).invertGraphic();
-
         GuitarJFXButton prev = findBtn(prevNote);
         GuitarJFXButton curr = findBtn(currNote);
 
-
-//        findBtn(currNote).invertGraphic();
-//        if (!currNote.equals(prevNote)) {
-//            findBtn(prevNote).invertGraphic();
-//        }
-
-        curr.pressNote(true);
-        prev.pressNote(true);
-
-//        if(!prevNote.equals(currNote)) {
-//            prev.pressNote(false);
-//        }
-
-
-//
-//        if (!currNote.equals(prevNote)) {
-//            findBtn(prevNote).pressNote(false);
-//            findBtn(currNote).pressNote(true);
-//        } else {
-//            findBtn(prevNote).pressNote(true);
-//            findBtn(currNote).pressNote(false);
-//
-////            findBtn(currNote).invertGraphic();
-//        }
+        prev.invertGraphic();
+        if(!prevNote.equals(currNote)) {
+            curr.invertGraphic();
+        }
     }
 
     @Override

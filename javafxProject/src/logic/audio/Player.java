@@ -71,11 +71,11 @@ public class Player implements LineListener {
         LineEvent.Type type = event.getType();
 
         if (type == LineEvent.Type.START) {
-            System.out.println("Playback started.");
+//            System.out.println("Playback started.");
 
         } else if (type == LineEvent.Type.STOP) {
             playCompleted = true;
-            System.out.println("Playback completed.");
+//            System.out.println("Playback completed.");
         }
 
     }

@@ -149,10 +149,13 @@ public class GuitarFretboardController implements Initializable {
 
     private void buttonPressed(GuitarJFXButton button) {
         System.out.println(button.getGuitarString() + " " + button.getGuitarFret());
-
         this.guitar.pressNote(new Pos(button.getGuitarString(), button.getGuitarFret()));
-        button.invertGraphic();
     }
 
+
+    @FXML
+    public void playDownStrum() {
+        this.guitar.playDownStrum();
+    }
 
 }

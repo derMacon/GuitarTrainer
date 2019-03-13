@@ -33,7 +33,6 @@ public class AudioConverter {
     }
 
     public void playSingleNote(Note note) {
-        System.out.println("Play " + note);
         MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
         Thread fstThread = new Thread(fstRunner);
         fstThread.start();
@@ -46,7 +45,7 @@ public class AudioConverter {
     public void playMultipleNotes(Note[] notes) {
         System.out.println("Play downstrum");
         for (int i = notes.length - 1; i >= 0; i--) {
-            System.out.println(notes[i]);
+            playSingleNote(notes[i]);
         }
     }
 }
