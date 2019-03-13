@@ -16,6 +16,8 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setMinWidth(1346);
+        stage.setMaxWidth(1346);
         stage.setTitle("Guitar Trainer");
         stage.show();
     }

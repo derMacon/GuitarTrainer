@@ -36,7 +36,6 @@ public class GuitarTrainingDocumentController implements Initializable {
         setPnWithImage(grdPnMiddleBox, this.IMG_GUITAR_FRET, false);
         fillFretWithButtons();
         this.guitar = new Guitar(new JavaFXGui(this.grdPnButtons), new AudioConverter(SoundPack.NYLON));
-//        this.grdPnButtons.setGridLinesVisible(true);
 
     }
 
