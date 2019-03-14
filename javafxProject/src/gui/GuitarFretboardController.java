@@ -1,19 +1,21 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import de.jensd.fx.glyphs.GlyphIcon;
+import de.jensd.fx.glyphs.GlyphsBuilder;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
 import logic.guitar.Guitar;
 import logic.guitar.Pos;
-
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -92,6 +94,12 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private JFXButton btn_replay;
 
+    @FXML
+    private JFXButton btn_strum;
+
+    @FXML
+    private JFXButton btn_checkIn;
+
     private final static String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
 
 
@@ -100,8 +108,12 @@ public class GuitarFretboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btn_replay.setButtonType(JFXButton.ButtonType.RAISED);
-
+//        initReplayButton();
+//        initStrumButton();
+//        initCheckInButton();
+        initMainButtons(this.btn_replay, FontAwesomeIcon.UNDO);
+        initMainButtons(this.btn_strum, FontAwesomeIcon.MUSIC);
+        initMainButtons(this.btn_checkIn, FontAwesomeIcon.CERTIFICATE);
 
         initGuitarTexture();
         initFrets();
@@ -114,16 +126,34 @@ public class GuitarFretboardController implements Initializable {
         this.guitar = new Guitar(new JavaFXModel(panes), new AudioConverter(SoundPack.NYLON));
     }
 
+      private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
+        btn.setStyle(
+                "-fx-background-color: #d6e1fc;\n" +
+                        "-fx-font-family: \"Forte\";\n" +
+                        "-fx-graphic-text-gap: 15;\n" +
+                        "-fx-font-size: 35;");
+        btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        btn.setButtonType(JFXButton.ButtonType.RAISED);
+        btn.setRipplerFill(Paint.valueOf("#ffffff"));
+        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
+                .glyph(icon)
+                .build();
+        glypIcon.setSize("4em");
+        btn.setGraphic(glypIcon);
+    }
+
+
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
         double parentHeight = this.imgParent.getBoundsInParent().getHeight();
 
-        this.imgParent.setMinHeight(parentHeight);
-        this.imgParent.setMinWidth(parentWidth);
+//        this.imgParent.setMinHeight(parentHeight);
+//        this.imgParent.setMinWidth(parentWidth);
         this.imgBase.setImage(new Image("textures\\guitarGui3.png", parentWidth, parentHeight, true, true));
         // https://stackoverflow.com/questions/12630296/resizing-images-to-fit-the-parent-node
         this.imgBase.fitWidthProperty().bind(this.imgParent.widthProperty());
         this.imgBase.fitHeightProperty().bind(this.imgParent.heightProperty());
+        this.imgBase.setY(this.imgParent.getTranslateY());
     }
 
     private void initFrets() {

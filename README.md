@@ -24,6 +24,7 @@ A program that trains you to recognize heard notes / chords. There will be three
 - [Note reading lesson](https://www.youtube.com/watch?v=8Mj6305Rr2w&t=418s)
 - [Uml-Editor](http://www.umlet.com/umletino/umletino.html)
 - [Octave summary](http://www.musikkunde.info/notenlehre/oktavraeume)
+- [Fontflipper](https://fontflipper.com/flip-or-flop)
 
 ---
 
