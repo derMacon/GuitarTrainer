@@ -10,7 +10,6 @@ A program that trains you to recognize heard notes / chords. There will be three
 ### UML-Diagram
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
 
-
 ## Help
 ### Fretboard 
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
