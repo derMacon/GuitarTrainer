@@ -306,14 +306,14 @@
    <center>
       <GridPane prefHeight="438.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="330.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="1016.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="357.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="989.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="439.0" prefWidth="310.0">
+            <VBox prefHeight="353.0" prefWidth="294.0">
                <children>
                   <JFXButton fx:id="btn_replay" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
                      <font>
@@ -341,17 +341,17 @@
                   </JFXButton>
                </children>
                <GridPane.margin>
-                  <Insets left="20.0" top="20.0" />
+                  <Insets left="60.0" right="20.0" top="50.0" />
                </GridPane.margin>
             </VBox>
             <AnchorPane prefHeight="421.0" prefWidth="1016.0" GridPane.columnIndex="1">
                <children>
-                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="508.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="475.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/textures/paper.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutX="32.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/textures/paper3.png" />
                      </image>
