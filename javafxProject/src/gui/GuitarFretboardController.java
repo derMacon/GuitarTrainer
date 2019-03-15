@@ -100,7 +100,17 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private JFXButton btn_checkIn;
 
+    @FXML
+    private ImageView img_sticky_right;
+
+    @FXML
+    private ImageView img_sticky_left;
+
     private final static String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
+
+    private static final String FRETBOARD_TEXUTURE_PATH =  "textures\\guitarGui4.png";
+    private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH =  "textures\\paper.png";
+    private static final String STICKY_NOTE_LEFT_TEXTURE_PATH =  "textures\\paper3.png";
 
 
     private Guitar guitar;
@@ -108,14 +118,12 @@ public class GuitarFretboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        initReplayButton();
-//        initStrumButton();
-//        initCheckInButton();
         initMainButtons(this.btn_replay, FontAwesomeIcon.UNDO);
         initMainButtons(this.btn_strum, FontAwesomeIcon.MUSIC);
         initMainButtons(this.btn_checkIn, FontAwesomeIcon.CERTIFICATE);
 
         initGuitarTexture();
+        initNotePadTexture();
         initFrets();
 
         GridPane[] panes = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
@@ -149,12 +157,21 @@ public class GuitarFretboardController implements Initializable {
 
 //        this.imgParent.setMinHeight(parentHeight);
 //        this.imgParent.setMinWidth(parentWidth);
-        this.imgBase.setImage(new Image("textures\\guitarGui3.png", parentWidth, parentHeight, true, true));
+        this.imgBase.setImage(new Image(FRETBOARD_TEXUTURE_PATH, parentWidth, parentHeight, true, true));
         // https://stackoverflow.com/questions/12630296/resizing-images-to-fit-the-parent-node
         this.imgBase.fitWidthProperty().bind(this.imgParent.widthProperty());
         this.imgBase.fitHeightProperty().bind(this.imgParent.heightProperty());
-        this.imgBase.setY(this.imgParent.getTranslateY());
+        this.imgBase.setY(this.imgBase.getParent().getTranslateY());
+//        this.imgBase.setY(this.imgParent.getTranslateY());
     }
+
+    private void initNotePadTexture() {
+        this.img_sticky_right.setImage(new Image(STICKY_NOTE_RIGHT_TEXTURE_PATH));
+        this.img_sticky_left.setImage(new Image(STICKY_NOTE_LEFT_TEXTURE_PATH));
+//        this.img_notepad.setY(this.img_notepad.getTranslateY());
+    }
+
+
 
     private void initFrets() {
         int guitarStringCnt = 6;

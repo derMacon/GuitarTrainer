@@ -12,8 +12,20 @@
 }
 
 .root {
-    -fx-background-color: #e6f3da;
+    /* -fx-background-color: #e6f3da; */
+    -fx-background-image: url("stockPhotos/largeWood.jpg");
+    -fx-background-position: top left;
+    -fx-background-size: cover;
+    -fx-background-repeat: stretch;
 
+}
+
+#pane{
+    -fx-background-image: url("stockPhotos/largeWood.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
 
 .menu {
