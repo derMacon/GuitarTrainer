@@ -28,15 +28,15 @@ A program that trains you to recognize heard notes / chords. There will be three
 ---
 
 ### Todo: near-tearm
-- Implement gui interface for the new model
-- test project with Checkstyle
+- update UML Diagram 
+- cut height from fretboard texture
+- merge feature branch with master
+- Gui Menu (including icons)
 
 ### Todo: itermediate-term
 - `inc / decOctave`: Implementation, Tests 
-- Gui textures
-- Gui Menu
 - Javadoc
+- test project with Checkstyle
 
 ### Todo: long-term
-- Gui Menu
 - Implement Excercise mode
