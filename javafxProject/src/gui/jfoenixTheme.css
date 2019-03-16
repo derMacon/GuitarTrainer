@@ -1,7 +1,3 @@
-/*
- *	Apply google Roboto font to all UI components
- */
-
 {
     -fx-primary: #222222
 ;
@@ -12,7 +8,6 @@
 }
 
 .root {
-    /* -fx-background-color: #e6f3da; */
     -fx-background-image: url("stockPhotos/largeWood.jpg");
     -fx-background-position: top left;
     -fx-background-size: cover;
@@ -32,8 +27,6 @@
     -fx-font-family: "Roboto Medium";
     -fx-font-size: 12;
 }
-
-
 
 /*
 .text-field{

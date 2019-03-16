@@ -16,17 +16,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#playDownStrum" text="About" />
+              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" onAction="#playDownStrum" text="About" />
+                  <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#playDownStrum" text="Github" />
             </items>
           </Menu>
         </menus>
@@ -354,6 +350,16 @@
                   <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/textures/paper3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgVw_clefTexture" fitHeight="285.0" fitWidth="388.0" layoutX="37.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/textures/clefTexture.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgVw_tabTexture" fitHeight="319.0" fitWidth="405.0" layoutX="512.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/textures/tabTexture.png" />
                      </image>
                   </ImageView>
                </children>
