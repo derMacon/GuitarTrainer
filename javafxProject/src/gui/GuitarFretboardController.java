@@ -128,7 +128,7 @@ public class GuitarFretboardController implements Initializable {
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH =  "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH =  "textures\\paper3.png";
     private static final String CLEF_TEXTURE_PATH = "textures\\clefTexture.png";
-    private static final String TAB_TEXTURE_PATH = "textures\\tabTexture.png"; 
+    private static final String TAB_TEXTURE_PATH = "textures\\tabTexture.png";
 
 
     private Guitar guitar;
