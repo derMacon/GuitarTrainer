@@ -33,9 +33,11 @@ public class AudioConverter {
     }
 
     public void playSingleNote(Note note) {
-        MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
-        Thread fstThread = new Thread(fstRunner);
-        fstThread.start();
+        if(note.isPlayed()) {
+            MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
+            Thread fstThread = new Thread(fstRunner);
+            fstThread.start();
+        }
     }
 
     private File loadAudioFile(Note note) {

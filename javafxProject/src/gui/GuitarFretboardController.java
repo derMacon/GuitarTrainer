@@ -108,7 +108,7 @@ public class GuitarFretboardController implements Initializable {
 
     private final static String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
 
-    private static final String FRETBOARD_TEXUTURE_PATH =  "textures\\guitarGui4.png";
+    private static final String FRETBOARD_TEXUTURE_PATH =  "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH =  "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH =  "textures\\paper3.png";
 
