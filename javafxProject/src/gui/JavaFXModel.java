@@ -1,7 +1,5 @@
 package gui;
 
-import com.jfoenix.controls.JFXRadioButton;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import logic.guitar.GUIConnector;
@@ -9,27 +7,28 @@ import logic.guitar.Note;
 
 public class JavaFXModel implements GUIConnector {
 
+    private final GridPane[] panes;
+
+    public JavaFXModel(GridPane[] panes) {
+        this.panes = panes;
+    }
 
     @Override
     public void updateGui(Note currNote, Note prevNote) {
-        if (!currNote.equals(prevNote)) {
-            showGraphic(findBtn(prevNote), false);
-            showGraphic(findBtn(currNote), true);
+        GuitarJFXButton currBtn = null;
+        for (int idxFret = 0; idxFret < this.panes.length; idxFret++) {
+            currBtn = (GuitarJFXButton) this.panes[idxFret].getChildren().get(currNote.getBaseString());
+            currBtn.pressNote(currNote.isPlayed() && currNote.getPos().getFret() == idxFret);
         }
-    }
-
-    private void showGraphic(GuitarJFXButton btn, boolean val) {
-        // todo
     }
 
     @Override
     public void initGui(Note[] openStrings) {
-        // todo
-    }
-
-    public GuitarJFXButton findBtn(Note note) {
-        // todo
-        return null;
+        // todo delete args
+        for (Node curr : panes[0].getChildren()) {
+            assert curr instanceof GuitarJFXButton;
+            ((GuitarJFXButton) curr).pressNote(true);
+        }
     }
 
     @Override

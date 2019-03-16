@@ -1,0 +1,47 @@
+/*
+ *	Apply google Roboto font to all UI components
+ */
+
+{
+    -fx-primary: #222222
+;
+    -fx-secondary: #39393b
+;
+    -fx-primarytext: #e4e9f3
+;
+}
+
+.root {
+    /* -fx-background-color: #e6f3da; */
+    -fx-background-image: url("stockPhotos/largeWood.jpg");
+    -fx-background-position: top left;
+    -fx-background-size: cover;
+    -fx-background-repeat: stretch;
+
+}
+
+#pane{
+    -fx-background-image: url("stockPhotos/largeWood.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+.menu {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 12;
+}
+
+
+
+/*
+.text-field{
+    -fx-alignment: center;
+}
+.text-field:empty{
+    -fx-alignment: center-left;
+}
+.text-field:focused{
+    -fx-alignment: center;
+}*/

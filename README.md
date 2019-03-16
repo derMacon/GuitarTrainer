@@ -5,11 +5,10 @@ A program that trains you to recognize heard notes / chords. There will be three
 - a classical note scale
 
 ### Gui (WIP)
-![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/screenshots/schreenshot1303.png)
+<img src="https://github.com/derMacon/GuitarTrainer/blob/feature/otherDocs/screenshots/screenshot1503.png" alt="drawing" width="2000"/>
 
 ### UML-Diagram
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
-
 
 ## Help
 ### Fretboard 
@@ -24,19 +23,20 @@ A program that trains you to recognize heard notes / chords. There will be three
 - [Note reading lesson](https://www.youtube.com/watch?v=8Mj6305Rr2w&t=418s)
 - [Uml-Editor](http://www.umlet.com/umletino/umletino.html)
 - [Octave summary](http://www.musikkunde.info/notenlehre/oktavraeume)
+- [Fontflipper](https://fontflipper.com/flip-or-flop)
 
 ---
 
 ### Todo: near-tearm
-- Implement gui interface for the new model
-- test project with Checkstyle
+- update UML Diagram 
+- cut height from fretboard texture
+- merge feature branch with master
+- Gui Menu (including icons)
 
 ### Todo: itermediate-term
 - `inc / decOctave`: Implementation, Tests 
-- Gui textures
-- Gui Menu
 - Javadoc
+- test project with Checkstyle
 
 ### Todo: long-term
-- Gui Menu
 - Implement Excercise mode

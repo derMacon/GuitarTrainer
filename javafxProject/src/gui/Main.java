@@ -14,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("GuitarFretboard.fxml"));
 
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("gui/jfoenixTheme.css");
 
         stage.setScene(scene);
         stage.setMinWidth(1346);

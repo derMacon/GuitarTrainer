@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -8,29 +10,50 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1346.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuitarFretboardController">
-   <center>
-      <AnchorPane fx:id="imgParent" prefHeight="321.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1346.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuitarFretboardController">
+   <top>
+      <MenuBar prefHeight="0.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#playDownStrum" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <AnchorPane fx:id="imgParent" prefHeight="237.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="imgBase" fitHeight="432.0" fitWidth="1346.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@../../res/textures/guitarGui3.png" />
+                  <Image url="@../../res/textures/guitarGui4_smallHeight.png" />
                </image>
             </ImageView>
-            <GridPane fx:id="grdPn_fret0" layoutX="-3.0" layoutY="112.0" prefHeight="144.0" prefWidth="35.0">
+            <GridPane fx:id="grdPn_fret0" layoutX="-3.0" layoutY="54.0" prefHeight="144.0" prefWidth="35.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret1" layoutX="42.0" layoutY="112.0" prefHeight="144.0" prefWidth="100.0">
+            <GridPane fx:id="grdPn_fret1" layoutX="42.0" layoutY="54.0" prefHeight="144.0" prefWidth="100.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -43,7 +66,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret2" layoutX="148.0" layoutY="112.0" prefHeight="144.0" prefWidth="100.0">
+            <GridPane fx:id="grdPn_fret2" layoutX="148.0" layoutY="54.0" prefHeight="144.0" prefWidth="100.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -56,7 +79,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret3" layoutX="248.0" layoutY="112.0" prefHeight="144.0" prefWidth="93.0">
+            <GridPane fx:id="grdPn_fret3" layoutX="248.0" layoutY="54.0" prefHeight="144.0" prefWidth="93.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -69,7 +92,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret4" layoutX="341.0" layoutY="112.0" prefHeight="144.0" prefWidth="90.0">
+            <GridPane fx:id="grdPn_fret4" layoutX="341.0" layoutY="54.0" prefHeight="144.0" prefWidth="90.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -82,7 +105,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret5" layoutX="431.0" layoutY="112.0" prefHeight="144.0" prefWidth="84.0">
+            <GridPane fx:id="grdPn_fret5" layoutX="431.0" layoutY="54.0" prefHeight="144.0" prefWidth="84.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -95,7 +118,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret6" layoutX="515.0" layoutY="112.0" prefHeight="144.0" prefWidth="80.0">
+            <GridPane fx:id="grdPn_fret6" layoutX="515.0" layoutY="54.0" prefHeight="144.0" prefWidth="80.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -108,7 +131,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret7" layoutX="595.0" layoutY="105.0" prefHeight="151.0" prefWidth="76.0">
+            <GridPane fx:id="grdPn_fret7" layoutX="595.0" layoutY="51.0" prefHeight="151.0" prefWidth="76.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -121,7 +144,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret8" layoutX="671.0" layoutY="104.0" prefHeight="152.0" prefWidth="68.0">
+            <GridPane fx:id="grdPn_fret8" layoutX="671.0" layoutY="50.0" prefHeight="152.0" prefWidth="68.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -134,7 +157,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret9" layoutX="739.0" layoutY="105.0" prefHeight="151.0" prefWidth="65.0">
+            <GridPane fx:id="grdPn_fret9" layoutX="739.0" layoutY="48.0" prefHeight="151.0" prefWidth="65.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -147,7 +170,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret10" layoutX="804.0" layoutY="103.0" prefHeight="153.0" prefWidth="65.0">
+            <GridPane fx:id="grdPn_fret10" layoutX="804.0" layoutY="50.0" prefHeight="153.0" prefWidth="65.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -160,7 +183,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret11" layoutX="869.0" layoutY="103.0" prefHeight="153.0" prefWidth="57.0">
+            <GridPane fx:id="grdPn_fret11" layoutX="869.0" layoutY="47.0" prefHeight="153.0" prefWidth="57.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -173,7 +196,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret12" layoutX="926.0" layoutY="104.0" prefHeight="152.0" prefWidth="57.0">
+            <GridPane fx:id="grdPn_fret12" layoutX="926.0" layoutY="50.0" prefHeight="152.0" prefWidth="57.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -186,7 +209,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret13" layoutX="983.0" layoutY="105.0" prefHeight="151.0" prefWidth="53.0">
+            <GridPane fx:id="grdPn_fret13" layoutX="983.0" layoutY="51.0" prefHeight="151.0" prefWidth="53.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -199,7 +222,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret14" layoutX="1036.0" layoutY="99.0" prefHeight="157.0" prefWidth="53.0">
+            <GridPane fx:id="grdPn_fret14" layoutX="1036.0" layoutY="48.0" prefHeight="157.0" prefWidth="53.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -212,7 +235,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret15" layoutX="1089.0" layoutY="97.0" prefHeight="159.0" prefWidth="47.0">
+            <GridPane fx:id="grdPn_fret15" layoutX="1089.0" layoutY="47.0" prefHeight="159.0" prefWidth="47.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -225,7 +248,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret16" layoutX="1136.0" layoutY="104.0" prefHeight="152.0" prefWidth="47.0">
+            <GridPane fx:id="grdPn_fret16" layoutX="1136.0" layoutY="51.0" prefHeight="152.0" prefWidth="47.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -238,7 +261,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret17" layoutX="1183.0" layoutY="98.0" prefHeight="158.0" prefWidth="38.0">
+            <GridPane fx:id="grdPn_fret17" layoutX="1183.0" layoutY="44.0" prefHeight="158.0" prefWidth="38.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -251,7 +274,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret18" layoutX="1221.0" layoutY="98.0" prefHeight="158.0" prefWidth="38.0">
+            <GridPane fx:id="grdPn_fret18" layoutX="1221.0" layoutY="40.0" prefHeight="158.0" prefWidth="38.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -264,7 +287,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="grdPn_fret19" layoutX="1259.0" layoutY="96.0" prefHeight="170.0" prefWidth="67.0">
+            <GridPane fx:id="grdPn_fret19" layoutX="1259.0" layoutY="39.0" prefHeight="170.0" prefWidth="67.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -279,5 +302,63 @@
             </GridPane>
          </children>
       </AnchorPane>
+   </bottom>
+   <center>
+      <GridPane prefHeight="438.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="357.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="989.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="353.0" prefWidth="294.0">
+               <children>
+                  <JFXButton fx:id="btn_replay" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_strum" onAction="#playDownStrum" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Strum">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_checkIn" onAction="#playDownStrum" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Check-In">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <GridPane.margin>
+                  <Insets left="60.0" right="20.0" top="50.0" />
+               </GridPane.margin>
+            </VBox>
+            <AnchorPane prefHeight="399.0" prefWidth="989.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="475.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/textures/paper.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/textures/paper3.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
    </center>
 </BorderPane>
