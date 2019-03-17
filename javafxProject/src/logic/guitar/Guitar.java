@@ -2,6 +2,7 @@ package logic.guitar;
 
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
+import logic.dataPreservation.Logger;
 
 public class Guitar {
     public final static int fretCnt = 19;
@@ -23,7 +24,7 @@ public class Guitar {
     public Guitar(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
         this.pressedStrings = this.STANDARD_E_TUNING.clone();
-        this.gui.initGui(this.STANDARD_E_TUNING);
+        this.gui.initGui();
         this.audioConv = audioConverter;
     }
 
@@ -36,7 +37,8 @@ public class Guitar {
         Note inputNote = translate(pos);
         Note prevNote = updateString(inputNote);
         Note currNote = this.pressedStrings[pos.getGuitarString()];
-        this.gui.updateGui(currNote, prevNote);
+        Logger.getInstance().printAndSafe(currNote.toString());
+        this.gui.updateGui(currNote);
         if(!inputNote.equals(prevNote)) {
             playSinglePressedNote(prevNote, currNote);
         }

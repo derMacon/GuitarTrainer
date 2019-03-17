@@ -14,7 +14,7 @@ public class JavaFXModel implements GUIConnector {
     }
 
     @Override
-    public void updateGui(Note currNote, Note prevNote) {
+    public void updateGui(Note currNote) {
         GuitarJFXButton currBtn = null;
         for (int idxFret = 0; idxFret < this.panes.length; idxFret++) {
             currBtn = (GuitarJFXButton) this.panes[idxFret].getChildren().get(currNote.getBaseString());
@@ -23,7 +23,7 @@ public class JavaFXModel implements GUIConnector {
     }
 
     @Override
-    public void initGui(Note[] openStrings) {
+    public void initGui() {
         // todo delete args
         for (Node curr : panes[0].getChildren()) {
             assert curr instanceof GuitarJFXButton;
