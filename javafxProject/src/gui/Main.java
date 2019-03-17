@@ -9,7 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+<<<<<<< HEAD
 import javafx.scene.image.ImageView;
+=======
+>>>>>>> c5bdcd5c1bf5325939205f01bb3e47528a39b66f
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -26,7 +29,7 @@ public class Main extends Application {
         stage.setMinWidth(1346);
         stage.setMaxWidth(1346);
         stage.setTitle("Guitar Trainer");
-
+        stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
         stage.show();
     }
 

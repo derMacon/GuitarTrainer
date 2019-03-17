@@ -5,11 +5,17 @@ import logic.guitar.NoteCircle;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AudioConverter {
 
+    /**
+     * List of list of audio files used to play single notes.
+     * - octave: first dimension
+     * - NoteId: second dimension
+     * e.g. A C in the second octave would be available with the following method call:
+     * audioFiles.get(2).get(0)
+     */
     private List<List<File>> audioFiles = new ArrayList<>();
 
     private static final String TEMPLATE_BLUEPRINT = "%s_%s_octave";

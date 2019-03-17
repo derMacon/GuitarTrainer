@@ -5,6 +5,7 @@ import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
@@ -18,6 +19,10 @@ import logic.audio.SoundPack;
 import logic.guitar.Guitar;
 import logic.guitar.Pos;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -122,17 +127,14 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private MenuItem mnTm_info;
 
-    private final static String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
-
-    private static final String FRETBOARD_TEXUTURE_PATH =  "textures\\guitarGui4_smallHeight.png";
-    private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH =  "textures\\paper.png";
-    private static final String STICKY_NOTE_LEFT_TEXTURE_PATH =  "textures\\paper3.png";
+    private static final String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
+    private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
+    private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
+    private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
     private static final String CLEF_TEXTURE_PATH = "textures\\clefTexture.png";
     private static final String TAB_TEXTURE_PATH = "textures\\tabTexture.png";
 
-
     private Guitar guitar;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -158,7 +160,10 @@ public class GuitarFretboardController implements Initializable {
         this.guitar = new Guitar(new JavaFXModel(panes), new AudioConverter(SoundPack.NYLON));
     }
 
-      private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
+
+    // --- initializing gui with textures / buttons ---
+
+    private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
         btn.setStyle(
                 "-fx-background-color: #d6e1fc;\n" +
                         "-fx-font-family: \"Forte\";\n" +
@@ -174,7 +179,6 @@ public class GuitarFretboardController implements Initializable {
         btn.setGraphic(glypIcon);
     }
 
-
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
         double parentHeight = this.imgParent.getBoundsInParent().getHeight();
@@ -186,7 +190,6 @@ public class GuitarFretboardController implements Initializable {
         this.imgBase.fitWidthProperty().bind(this.imgParent.widthProperty());
         this.imgBase.fitHeightProperty().bind(this.imgParent.heightProperty());
         this.imgBase.setY(this.imgBase.getParent().getTranslateY());
-//        this.imgBase.setY(this.imgParent.getTranslateY());
     }
 
     private void initNotePadTexture() {
@@ -210,8 +213,9 @@ public class GuitarFretboardController implements Initializable {
         this.imgVw_tabTexture.setImage(new Image(TAB_TEXTURE_PATH));
     }
 
-
-
+    /**
+     * Loads up all transparent buttons on the fretboard
+     */
     private void initFrets() {
         int guitarStringCnt = 6;
         for (int i = 0; i < guitarStringCnt; i++) {
@@ -238,6 +242,13 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Creates a button with given string and fret position
+     *
+     * @param guitarString guitar string on which the button will be located
+     * @param fret         fret on which the button will be located
+     * @return a button with given string and fret position
+     */
     private GuitarJFXButton createButton(int guitarString, int fret) {
         GuitarJFXButton button = new GuitarJFXButton(guitarString, fret);
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
@@ -245,15 +256,54 @@ public class GuitarFretboardController implements Initializable {
         return button;
     }
 
+    /**
+     * presses a note on the guitar attribut of this class
+     *
+     * @param button Button that is being pressed by the user
+     */
     private void buttonPressed(GuitarJFXButton button) {
-        System.out.println(button.getGuitarString() + " " + button.getGuitarFret());
         this.guitar.pressNote(new Pos(button.getGuitarString(), button.getGuitarFret()));
     }
 
-
+    /**
+     * Plays a down strum with the selected notes
+     */
     @FXML
     public void playDownStrum() {
         this.guitar.playDownStrum();
+    }
+
+    /**
+     * shuts down the whole program
+     *
+     * @param event Actionevent called by the user
+     */
+    @FXML
+    void endProgramm(ActionEvent event) {
+        System.exit(0);
+    }
+
+    /**
+     * Opens git repository in browser
+     *
+     * @param event Actionevent called by the user
+     */
+    @FXML
+    void openRepo(ActionEvent event) {
+        openWebpage("https://github.com/derMacon/GuitarTrainer");
+    }
+
+    /**
+     * Opens a given URL in the users default browser
+     *
+     * @param url url to open in the browser
+     */
+    private void openWebpage(String url) {
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e) {
+            System.out.println("Could not open git repo");
+        }
     }
 
 }
