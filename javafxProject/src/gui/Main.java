@@ -1,9 +1,15 @@
 package gui;
 
+import de.jensd.fx.glyphs.GlyphIcon;
+import de.jensd.fx.glyphs.GlyphsBuilder;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -20,6 +26,7 @@ public class Main extends Application {
         stage.setMinWidth(1346);
         stage.setMaxWidth(1346);
         stage.setTitle("Guitar Trainer");
+
         stage.show();
     }
 
