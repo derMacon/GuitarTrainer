@@ -2,6 +2,7 @@
 **/out/
 *.iml
 **/META-INF/
+**/dataOutput/
 
 .flooignore
 .floo

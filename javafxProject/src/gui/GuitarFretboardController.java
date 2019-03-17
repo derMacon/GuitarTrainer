@@ -131,7 +131,7 @@ public class GuitarFretboardController implements Initializable {
     private MenuItem mnTm_info;
 
     @FXML
-    private GridPane sheet;
+    private GridPane grdPn_sheet;
 
     private static final String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
@@ -157,14 +157,14 @@ public class GuitarFretboardController implements Initializable {
         initClefTexture();
         initTabTexture();
         initFrets();
+        initSheet();
 
-
-        GridPane[] panes = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
+        GridPane[] frets = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
                 grdPn_fret5, grdPn_fret6, grdPn_fret7, grdPn_fret8, grdPn_fret9, grdPn_fret10, grdPn_fret11,
                 grdPn_fret12, grdPn_fret13, grdPn_fret14, grdPn_fret15, grdPn_fret16, grdPn_fret17, grdPn_fret18,
                 grdPn_fret19};
 
-        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(panes), new AudioConverter(SoundPack.NYLON));
+        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, this.grdPn_sheet), new AudioConverter());
     }
 
 
@@ -246,6 +246,11 @@ public class GuitarFretboardController implements Initializable {
             this.grdPn_fret18.add(createButton(i, 18), 0, i);
             this.grdPn_fret19.add(createButton(i, 19), 0, i);
         }
+    }
+
+    private void initSheet() {
+        // todo create helping method for creating SheetJFXButton
+        this.grdPn_sheet.add(new SheetJFXButton(0), 0, 0);
     }
 
     /**
