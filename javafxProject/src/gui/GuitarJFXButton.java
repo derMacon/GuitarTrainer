@@ -23,8 +23,6 @@ public class GuitarJFXButton extends JFXButton {
 
     public void pressNote(boolean bool) {
         Node graphic = bool ? new ImageView(SELECTED_SYMBOL) : null;
-//        Node graphic = bool ?
-//                new ImageView(new Image(IMG_PATH_SELECTED, SELECTED_PIXEL, SELECTED_PIXEL, true, true)) : null;
         this.setGraphic(graphic);
     }
 

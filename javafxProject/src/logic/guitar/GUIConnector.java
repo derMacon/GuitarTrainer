@@ -1,9 +1,7 @@
 package logic.guitar;
 
-import logic.guitar.Note;
-
 public interface GUIConnector {
-    void updateGui(Note currNote, Note prevNote);
-    void initGui(Note[] openStrings);
+    void updateGui(Note currNote);
+    void initGui();
     String getNoteName();
 }
