@@ -16,8 +16,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
+import logic.excercise.Trainer;
 import logic.guitar.Guitar;
-import logic.guitar.Pos;
+import logic.guitar.FretboardPos;
+import logic.organization.FlowOrganizer;
+import logic.organization.Organized;
 
 import java.awt.*;
 import java.io.IOException;
@@ -127,6 +130,9 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private MenuItem mnTm_info;
 
+    @FXML
+    private GridPane sheet;
+
     private static final String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
@@ -134,7 +140,7 @@ public class GuitarFretboardController implements Initializable {
     private static final String CLEF_TEXTURE_PATH = "textures\\clefTexture.png";
     private static final String TAB_TEXTURE_PATH = "textures\\tabTexture.png";
 
-    private Guitar guitar;
+    private Organized flowOrganizer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -152,12 +158,13 @@ public class GuitarFretboardController implements Initializable {
         initTabTexture();
         initFrets();
 
+
         GridPane[] panes = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
                 grdPn_fret5, grdPn_fret6, grdPn_fret7, grdPn_fret8, grdPn_fret9, grdPn_fret10, grdPn_fret11,
                 grdPn_fret12, grdPn_fret13, grdPn_fret14, grdPn_fret15, grdPn_fret16, grdPn_fret17, grdPn_fret18,
                 grdPn_fret19};
 
-        this.guitar = new Guitar(new JavaFXModel(panes), new AudioConverter(SoundPack.NYLON));
+        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(panes), new AudioConverter(SoundPack.NYLON));
     }
 
 
@@ -182,7 +189,6 @@ public class GuitarFretboardController implements Initializable {
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
         double parentHeight = this.imgParent.getBoundsInParent().getHeight();
-
 //        this.imgParent.setMinHeight(parentHeight);
 //        this.imgParent.setMinWidth(parentWidth);
         this.imgBase.setImage(new Image(FRETBOARD_TEXUTURE_PATH, parentWidth, parentHeight, true, true));
@@ -262,7 +268,8 @@ public class GuitarFretboardController implements Initializable {
      * @param button Button that is being pressed by the user
      */
     private void buttonPressed(GuitarJFXButton button) {
-        this.guitar.pressNote(new Pos(button.getGuitarString(), button.getGuitarFret()));
+//        this.guitar.pressNote(new FretboardPos(button.getGuitarString(), button.getGuitarFret()));
+        this.flowOrganizer.pressNoteOnFretboard(new FretboardPos(button.getGuitarString(), button.getGuitarFret()));
     }
 
     /**
@@ -270,7 +277,7 @@ public class GuitarFretboardController implements Initializable {
      */
     @FXML
     public void playDownStrum() {
-        this.guitar.playDownStrum();
+        this.flowOrganizer.playDownStrum();
     }
 
     /**

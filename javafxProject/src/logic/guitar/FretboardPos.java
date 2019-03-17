@@ -1,11 +1,11 @@
 package logic.guitar;
 
-public class Pos {
+public class FretboardPos {
 
     private final int guitarString;
     private final int fret;
 
-    public Pos(int string, int fret) {
+    public FretboardPos(int string, int fret) {
         this.guitarString = string;
         this.fret = fret;
     }
@@ -20,10 +20,10 @@ public class Pos {
 
     @Override
     public boolean equals(Object o) {
-        if(null == o || !(o instanceof Pos)) {
+        if(null == o || !(o instanceof FretboardPos)) {
             return false;
         }
-        Pos other = (Pos) o;
+        FretboardPos other = (FretboardPos) o;
         return this.guitarString == other.guitarString && this.fret == other.fret;
     }
 

@@ -16,13 +16,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" onAction="#endProgramm" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" onAction="#playDownStrum" text="About" />
-                  <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#playDownStrum" text="Github" />
+              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#openRepo" text="Github" />
             </items>
           </Menu>
         </menus>
