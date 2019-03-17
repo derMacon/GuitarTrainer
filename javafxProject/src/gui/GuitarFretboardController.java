@@ -5,6 +5,7 @@ import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
@@ -18,6 +19,10 @@ import logic.audio.SoundPack;
 import logic.guitar.Guitar;
 import logic.guitar.Pos;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -254,6 +259,29 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     public void playDownStrum() {
         this.guitar.playDownStrum();
+    }
+
+    @FXML
+    void endProgramm(ActionEvent event) {
+        System.exit(0);
+    }
+
+    @FXML
+    void openRepo(ActionEvent event) {
+        openWebpage("https://github.com/derMacon/GuitarTrainer");
+    }
+
+    /**
+     * Opens a given URL in the users default browser
+     *
+     * @param url url to open in the browser
+     */
+    private void openWebpage(String url) {
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e) {
+            System.out.println("Could not open git repo");
+        }
     }
 
 }
