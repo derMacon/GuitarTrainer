@@ -1,4 +1,4 @@
-package logic.excercises;
+package logic.excercise;
 
 public enum Difficulty {
     singleNotes_OneToFive, simpleChords_OneToFive, barChords_OneToFive,

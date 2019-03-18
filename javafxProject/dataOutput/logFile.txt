@@ -1,0 +1,14 @@
+G_SHARP -> (s: 2, f: 1), octave: 1, isPlayed: true
+E -> (s: 3, f: 2), octave: 1, isPlayed: true
+B -> (s: 4, f: 2), octave: 0, isPlayed: true
+E -> (s: 5, f: 0), octave: 0, isPlayed: false
+B -> (s: 1, f: 0), octave: 1, isPlayed: false
+E -> (s: 0, f: 0), octave: 2, isPlayed: false
+A -> (s: 2, f: 2), octave: 1, isPlayed: true
+A -> (s: 2, f: 2), octave: 1, isPlayed: true
+G_SHARP -> (s: 2, f: 1), octave: 1, isPlayed: true
+E -> (s: 3, f: 2), octave: 1, isPlayed: true
+B -> (s: 4, f: 2), octave: 0, isPlayed: true
+G_SHARP -> (s: 2, f: 1), octave: 1, isPlayed: true
+E -> (s: 3, f: 2), octave: 1, isPlayed: true
+B -> (s: 4, f: 2), octave: 0, isPlayed: true

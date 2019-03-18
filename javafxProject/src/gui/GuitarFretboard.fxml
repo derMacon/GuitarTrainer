@@ -16,13 +16,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" onAction="#endProgramm" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" onAction="#playDownStrum" text="About" />
-                  <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#playDownStrum" text="Github" />
+              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#openRepo" text="Github" />
             </items>
           </Menu>
         </menus>
@@ -302,14 +302,15 @@
    <center>
       <GridPane prefHeight="438.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="357.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="989.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="490.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="359.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="501.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="353.0" prefWidth="294.0">
+            <VBox prefHeight="353.0" prefWidth="294.0" GridPane.columnIndex="1">
                <children>
                   <JFXButton fx:id="btn_replay" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
                      <font>
@@ -335,33 +336,50 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXButton>
+                  <JFXButton fx:id="btn_reset" onAction="#reset" prefHeight="40.0" prefWidth="290.0" ripplerFill="#fabc98" text="Reset">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
                </children>
                <GridPane.margin>
-                  <Insets left="60.0" right="20.0" top="50.0" />
+                  <Insets left="40.0" top="50.0" />
                </GridPane.margin>
             </VBox>
-            <AnchorPane prefHeight="399.0" prefWidth="989.0" GridPane.columnIndex="1">
+            <AnchorPane prefHeight="396.0" prefWidth="494.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="475.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../res/textures/paper.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/textures/paper3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imgVw_clefTexture" fitHeight="285.0" fitWidth="388.0" layoutX="37.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                  <AnchorPane fx:id="nchrPn_sheetImg" layoutX="37.0" layoutY="69.0">
+                     <children>
+                        <ImageView fx:id="imgVw_clefTexture" fitHeight="285.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/textures/clefTexture.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="24.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../res/textures/clefTexture.png" />
+                        <Image url="@../../res/textures/paper.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imgVw_tabTexture" fitHeight="319.0" fitWidth="405.0" layoutX="512.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../res/textures/tabTexture.png" />
-                     </image>
-                  </ImageView>
+                  <Label fx:id="lbl_description" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="48.0" prefHeight="90.0" prefWidth="362.0" text="Guitar Trainer">
+                     <font>
+                        <Font name="Forte" size="39.0" />
+                     </font>
+                  </Label>
+                  <Pagination fx:id="pgn_modes" layoutX="78.0" layoutY="112.0" prefHeight="219.0" prefWidth="355.0" />
                </children>
             </AnchorPane>
          </children>

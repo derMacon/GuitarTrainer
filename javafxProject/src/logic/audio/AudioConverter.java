@@ -9,6 +9,8 @@ import java.util.List;
 
 public class AudioConverter {
 
+    private static final String TEMPLATE_BLUEPRINT = "%s_%s_octave";
+
     /**
      * List of list of audio files used to play single notes.
      * - octave: first dimension
@@ -18,7 +20,9 @@ public class AudioConverter {
      */
     private List<List<File>> audioFiles = new ArrayList<>();
 
-    private static final String TEMPLATE_BLUEPRINT = "%s_%s_octave";
+    public AudioConverter() {
+        this(SoundPack.NYLON);
+    }
 
     public AudioConverter(SoundPack sPack) {
         String prefix = sPack.name().toLowerCase();

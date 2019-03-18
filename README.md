@@ -1,11 +1,11 @@
 # GuitarTrainer: 
-A program that trains you to recognize heard notes / chords. There will be three modes where the notes will be selected on:
+A program that trains you to recognize heard notes / chords. There will be three modes where the notes can be selected on:
 - a virtual fretboard from a guitar
 - a tableau in the standard guitar format
 - a classical note scale
 
 ### Gui (WIP)
-<img src="otherDocs/screenshots/screenshot1603.png" alt="drawing" width="2000"/>
+<img src="otherDocs/screenshots/screenshot1803.png" alt="drawing" width="2000"/>
 
 ### UML-Diagram
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
