@@ -336,6 +336,14 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </JFXButton>
+                  <JFXButton fx:id="btn_reset" onAction="#reset" prefHeight="40.0" prefWidth="290.0" ripplerFill="#fabc98" text="Reset">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
                </children>
                <GridPane.margin>
                   <Insets left="40.0" top="50.0" />
@@ -348,11 +356,15 @@
                         <Image url="@../../res/textures/paper3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imgVw_clefTexture" fitHeight="285.0" fitWidth="388.0" layoutX="37.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../res/textures/clefTexture.png" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane fx:id="nchrPn_sheetImg" layoutX="37.0" layoutY="69.0">
+                     <children>
+                        <ImageView fx:id="imgVw_clefTexture" fitHeight="285.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/textures/clefTexture.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">

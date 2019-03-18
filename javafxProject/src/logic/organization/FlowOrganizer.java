@@ -39,4 +39,8 @@ public class FlowOrganizer implements Organized {
         this.guitar.pressNote(fretboardPos);
     }
 
+    @Override
+    public void reset() {
+
+    }
 }

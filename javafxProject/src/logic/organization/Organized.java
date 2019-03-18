@@ -7,4 +7,5 @@ public interface Organized {
     void checkInResult();
     void playDownStrum();
     void pressNoteOnFretboard(FretboardPos fretboardPos);
+    void reset();
 }

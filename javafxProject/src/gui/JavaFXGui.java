@@ -2,6 +2,7 @@ package gui;
 
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import logic.organization.GUIConnector;
 import logic.guitar.Note;
 
@@ -13,9 +14,9 @@ public class JavaFXGui implements GUIConnector {
      */
     private final GridPane[] frets;
 
-    private final GridPane sheet;
+    private final Pane sheet;
 
-    public JavaFXGui(GridPane[] fretboard, GridPane sheet) {
+    public JavaFXGui(GridPane[] fretboard, Pane sheet) {
         this.frets = fretboard;
         this.sheet = sheet;
     }
