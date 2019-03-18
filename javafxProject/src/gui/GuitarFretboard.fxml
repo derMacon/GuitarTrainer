@@ -302,14 +302,15 @@
    <center>
       <GridPane prefHeight="438.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="357.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="989.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="490.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="359.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1037.0" minWidth="10.0" prefWidth="501.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="353.0" prefWidth="294.0">
+            <VBox prefHeight="353.0" prefWidth="294.0" GridPane.columnIndex="1">
                <children>
                   <JFXButton fx:id="btn_replay" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
                      <font>
@@ -337,16 +338,11 @@
                   </JFXButton>
                </children>
                <GridPane.margin>
-                  <Insets left="60.0" right="20.0" top="50.0" />
+                  <Insets left="40.0" top="50.0" />
                </GridPane.margin>
             </VBox>
-            <AnchorPane prefHeight="399.0" prefWidth="989.0" GridPane.columnIndex="1">
+            <AnchorPane prefHeight="396.0" prefWidth="494.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="475.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../res/textures/paper.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/textures/paper3.png" />
@@ -357,19 +353,21 @@
                         <Image url="@../../res/textures/clefTexture.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imgVw_tabTexture" fitHeight="319.0" fitWidth="405.0" layoutX="512.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="24.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../res/textures/tabTexture.png" />
+                        <Image url="@../../res/textures/paper.png" />
                      </image>
                   </ImageView>
-                  <GridPane fx:id="grdPn_sheet" layoutX="204.0" layoutY="66.0" prefHeight="270.0" prefWidth="146.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
+                  <Label fx:id="lbl_description" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="48.0" prefHeight="90.0" prefWidth="362.0" text="Guitar Trainer">
+                     <font>
+                        <Font name="Forte" size="39.0" />
+                     </font>
+                  </Label>
+                  <Pagination fx:id="pgn_modes" layoutX="78.0" layoutY="112.0" prefHeight="219.0" prefWidth="355.0" />
                </children>
             </AnchorPane>
          </children>

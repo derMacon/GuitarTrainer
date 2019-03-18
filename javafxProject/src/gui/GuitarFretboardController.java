@@ -8,16 +8,15 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import logic.audio.AudioConverter;
-import logic.audio.SoundPack;
-import logic.excercise.Trainer;
-import logic.guitar.Guitar;
 import logic.guitar.FretboardPos;
 import logic.organization.FlowOrganizer;
 import logic.organization.Organized;
@@ -116,7 +115,7 @@ public class GuitarFretboardController implements Initializable {
     private ImageView img_sticky_left;
 
     @FXML
-    private ImageView imgVw_tabTexture;
+    private Pagination pgn_modes;
 
     @FXML
     private ImageView imgVw_clefTexture;
@@ -133,12 +132,13 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_sheet;
 
-    private static final String BUTTON_NAME_TEMPLATE = "btn_%s_%s";
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
     private static final String CLEF_TEXTURE_PATH = "textures\\clefTexture.png";
     private static final String TAB_TEXTURE_PATH = "textures\\tabTexture.png";
+
+    private static final int SHEET_MAX_OFFSET = 23;
 
     private Organized flowOrganizer;
 
@@ -155,7 +155,6 @@ public class GuitarFretboardController implements Initializable {
         initGuitarTexture();
         initNotePadTexture();
         initClefTexture();
-        initTabTexture();
         initFrets();
         initSheet();
 
@@ -215,42 +214,52 @@ public class GuitarFretboardController implements Initializable {
         this.imgVw_clefTexture.setImage(new Image(CLEF_TEXTURE_PATH));
     }
 
-    private void initTabTexture() {
-        this.imgVw_tabTexture.setImage(new Image(TAB_TEXTURE_PATH));
-    }
-
     /**
      * Loads up all transparent buttons on the fretboard
      */
     private void initFrets() {
         int guitarStringCnt = 6;
         for (int i = 0; i < guitarStringCnt; i++) {
-            this.grdPn_fret0.add(createButton(i, 0), 0, i);
-            this.grdPn_fret1.add(createButton(i, 1), 0, i);
-            this.grdPn_fret2.add(createButton(i, 2), 0, i);
-            this.grdPn_fret3.add(createButton(i, 3), 0, i);
-            this.grdPn_fret4.add(createButton(i, 4), 0, i);
-            this.grdPn_fret5.add(createButton(i, 5), 0, i);
-            this.grdPn_fret6.add(createButton(i, 6), 0, i);
-            this.grdPn_fret7.add(createButton(i, 7), 0, i);
-            this.grdPn_fret8.add(createButton(i, 8), 0, i);
-            this.grdPn_fret9.add(createButton(i, 9), 0, i);
-            this.grdPn_fret10.add(createButton(i, 10), 0, i);
-            this.grdPn_fret11.add(createButton(i, 11), 0, i);
-            this.grdPn_fret12.add(createButton(i, 12), 0, i);
-            this.grdPn_fret13.add(createButton(i, 13), 0, i);
-            this.grdPn_fret14.add(createButton(i, 14), 0, i);
-            this.grdPn_fret15.add(createButton(i, 15), 0, i);
-            this.grdPn_fret16.add(createButton(i, 16), 0, i);
-            this.grdPn_fret17.add(createButton(i, 17), 0, i);
-            this.grdPn_fret18.add(createButton(i, 18), 0, i);
-            this.grdPn_fret19.add(createButton(i, 19), 0, i);
+            this.grdPn_fret0.add(createGuitarButton(i, 0), 0, i);
+            this.grdPn_fret1.add(createGuitarButton(i, 1), 0, i);
+            this.grdPn_fret2.add(createGuitarButton(i, 2), 0, i);
+            this.grdPn_fret3.add(createGuitarButton(i, 3), 0, i);
+            this.grdPn_fret4.add(createGuitarButton(i, 4), 0, i);
+            this.grdPn_fret5.add(createGuitarButton(i, 5), 0, i);
+            this.grdPn_fret6.add(createGuitarButton(i, 6), 0, i);
+            this.grdPn_fret7.add(createGuitarButton(i, 7), 0, i);
+            this.grdPn_fret8.add(createGuitarButton(i, 8), 0, i);
+            this.grdPn_fret9.add(createGuitarButton(i, 9), 0, i);
+            this.grdPn_fret10.add(createGuitarButton(i, 10), 0, i);
+            this.grdPn_fret11.add(createGuitarButton(i, 11), 0, i);
+            this.grdPn_fret12.add(createGuitarButton(i, 12), 0, i);
+            this.grdPn_fret13.add(createGuitarButton(i, 13), 0, i);
+            this.grdPn_fret14.add(createGuitarButton(i, 14), 0, i);
+            this.grdPn_fret15.add(createGuitarButton(i, 15), 0, i);
+            this.grdPn_fret16.add(createGuitarButton(i, 16), 0, i);
+            this.grdPn_fret17.add(createGuitarButton(i, 17), 0, i);
+            this.grdPn_fret18.add(createGuitarButton(i, 18), 0, i);
+            this.grdPn_fret19.add(createGuitarButton(i, 19), 0, i);
         }
     }
 
     private void initSheet() {
-        // todo create helping method for creating SheetJFXButton
-        this.grdPn_sheet.add(new SheetJFXButton(0), 0, 0);
+        // todo implementation
+    }
+
+    private SheetNoteJFXButton createSheetButton(int noteOffset) {
+        SheetNoteJFXButton button = new SheetNoteJFXButton(noteOffset);
+        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        button.setOnAction(e -> sheetButtonPressed(button));
+        button.invertGraphic();
+        return button;
+    }
+
+
+    private void sheetButtonPressed(SheetNoteJFXButton btn) {
+        System.out.println("sheet Btn pressed");
+        System.out.println(btn.getLineOffset());
+        btn.invertGraphic();
     }
 
     /**
@@ -260,10 +269,10 @@ public class GuitarFretboardController implements Initializable {
      * @param fret         fret on which the button will be located
      * @return a button with given string and fret position
      */
-    private GuitarJFXButton createButton(int guitarString, int fret) {
+    private GuitarJFXButton createGuitarButton(int guitarString, int fret) {
         GuitarJFXButton button = new GuitarJFXButton(guitarString, fret);
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        button.setOnAction(e -> buttonPressed(button));
+        button.setOnAction(e -> guitarButtonPressed(button));
         return button;
     }
 
@@ -272,7 +281,7 @@ public class GuitarFretboardController implements Initializable {
      *
      * @param button Button that is being pressed by the user
      */
-    private void buttonPressed(GuitarJFXButton button) {
+    private void guitarButtonPressed(GuitarJFXButton button) {
 //        this.guitar.pressNote(new FretboardPos(button.getGuitarString(), button.getGuitarFret()));
         this.flowOrganizer.pressNoteOnFretboard(new FretboardPos(button.getGuitarString(), button.getGuitarFret()));
     }

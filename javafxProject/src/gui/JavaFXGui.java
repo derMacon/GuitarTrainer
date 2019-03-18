@@ -25,7 +25,7 @@ public class JavaFXGui implements GUIConnector {
         GuitarJFXButton currBtn = null;
         for (int idxFret = 0; idxFret < this.frets.length; idxFret++) {
             currBtn = (GuitarJFXButton) this.frets[idxFret].getChildren().get(currNote.getBaseString());
-            currBtn.pressNote(currNote.isPlayed() && currNote.getFretboardPos().getFret() == idxFret);
+            currBtn.selectButton(currNote.isPlayed() && currNote.getFretboardPos().getFret() == idxFret);
         }
     }
 
@@ -33,7 +33,7 @@ public class JavaFXGui implements GUIConnector {
     public void initGui() {
         for (Node curr : frets[0].getChildren()) {
             assert curr instanceof GuitarJFXButton;
-            ((GuitarJFXButton) curr).pressNote(true);
+            ((GuitarJFXButton) curr).selectButton(true);
         }
     }
 
