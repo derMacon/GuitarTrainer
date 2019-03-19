@@ -8,6 +8,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
@@ -159,10 +160,20 @@ public class GuitarFretboardController implements Initializable {
 
         initGuitarTexture();
         initNotePadTexture();
-        initClefTexture();
+//        initClefTexture();
         initFrets();
-        initSheet();
+//        initSheet();
         initDescription();
+
+        // todo delete - only for testing
+
+//        Group sheetNotes = new Group(
+//
+//
+//        );
+
+//        this.imgVw_clefTexture.set
+
 
         GridPane[] frets = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
                 grdPn_fret5, grdPn_fret6, grdPn_fret7, grdPn_fret8, grdPn_fret9, grdPn_fret10, grdPn_fret11,
