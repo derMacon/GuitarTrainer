@@ -8,7 +8,6 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
@@ -137,12 +136,13 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private AnchorPane nchrPn_sheetImg;
 
+    @FXML
+    private GridPane grdPn_sheetNotes_betweenLines;
+
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
-    private static final String CLEF_TEXTURE_PATH = "textures\\clefTexture.png";
-
-    private static final int SHEET_MAX_OFFSET = 23;
+    private static final String CLEF_TEXTURE_PATH = "sheetNotes\\background_withHelpingLines.png";
 
     private Organized flowOrganizer;
 
@@ -160,19 +160,10 @@ public class GuitarFretboardController implements Initializable {
 
         initGuitarTexture();
         initNotePadTexture();
-//        initClefTexture();
+        initClefTexture();
         initFrets();
-//        initSheet();
+        initSheet();
         initDescription();
-
-        // todo delete - only for testing
-
-//        Group sheetNotes = new Group(
-//
-//
-//        );
-
-//        this.imgVw_clefTexture.set
 
 
         GridPane[] frets = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
@@ -277,7 +268,10 @@ public class GuitarFretboardController implements Initializable {
     }
 
     private void initSheet() {
-        // todo implementation
+        for (int i = 0; i < 12; i++) {
+            this.grdPn_sheetNotes_betweenLines.add(createSheetPrefixButton(12 - i), 0, i);
+            this.grdPn_sheetNotes_betweenLines.add(createSheetNoteButton(12 - i), 1, i);
+        }
     }
 
     private void initDescription() {
@@ -289,20 +283,31 @@ public class GuitarFretboardController implements Initializable {
         return new Label(Mode.values()[idx].getDescr());
     }
 
-    private SheetNoteJFXButton createSheetButton(int noteOffset) {
+    private SheetNoteJFXButton createSheetNoteButton(int noteOffset) {
         SheetNoteJFXButton button = new SheetNoteJFXButton(noteOffset);
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        button.setOnAction(e -> sheetButtonPressed(button));
-        button.invertGraphic();
+        button.setOnAction(e -> sheetNoteButtonPressed(button));
         return button;
     }
 
-
-    private void sheetButtonPressed(SheetNoteJFXButton btn) {
+    private void sheetNoteButtonPressed(SheetNoteJFXButton btn) {
         System.out.println("sheet Btn pressed");
         System.out.println(btn.getLineOffset());
         btn.invertGraphic();
     }
+
+    private SheetDelimiterJFXButton createSheetPrefixButton(int noteOffset) {
+        SheetDelimiterJFXButton button = new SheetDelimiterJFXButton(noteOffset);
+        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        button.setOnAction(e -> sheetPrefixButtonPressed(button));
+        return button;
+    }
+
+    private void sheetPrefixButtonPressed(SheetDelimiterJFXButton btn) {
+        // todo
+        btn.iterateButton();
+    }
+
 
     /**
      * Creates a button with given string and fret position

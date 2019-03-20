@@ -18,4 +18,11 @@ public class SheetDelimiterJFXButton extends JFXButton {
         this.setGraphic(new ImageView(del.getImg()));
     }
 
+    public int getLineOffset() {
+        return lineOffset;
+    }
+
+    public NotePrefix getDel() {
+        return del;
+    }
 }
