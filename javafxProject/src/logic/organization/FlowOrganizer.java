@@ -1,6 +1,8 @@
 package logic.organization;
 
+import gui.NotePrefix;
 import logic.audio.AudioConverter;
+import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.guitar.Guitar;
 import logic.guitar.FretboardPos;
@@ -16,7 +18,12 @@ public class FlowOrganizer implements Organized {
 
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
         this.guitar = new Guitar(gui, audioConv);
-        this.trainer = trainer;
+        this.trainer = new GuitarTrainer(gui, audioConv);
+    }
+
+    @Override
+    public void interpretMode(Mode mode) {
+        trainer.setMode(mode);
     }
 
     @Override
@@ -40,7 +47,17 @@ public class FlowOrganizer implements Organized {
     }
 
     @Override
-    public void reset() {
+    public void sheetPrefixPressed(int offset, NotePrefix prefix) {
+        // todo
+    }
 
+    @Override
+    public void sheetNotePressed(int offset, boolean isPlayed) {
+        // todo
+    }
+
+    @Override
+    public void reset() {
+        this.guitar.reset();
     }
 }

@@ -139,6 +139,9 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_sheetNotes_betweenLines;
 
+    @FXML
+    private GridPane grdPn_sheetNotes_aboveLines;
+
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
@@ -171,7 +174,8 @@ public class GuitarFretboardController implements Initializable {
                 grdPn_fret12, grdPn_fret13, grdPn_fret14, grdPn_fret15, grdPn_fret16, grdPn_fret17, grdPn_fret18,
                 grdPn_fret19};
 
-        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, this.nchrPn_sheetImg), new AudioConverter());
+        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, this.grdPn_sheetNotes_betweenLines, this.btn_replay),
+                new AudioConverter());
     }
 
 
@@ -291,9 +295,8 @@ public class GuitarFretboardController implements Initializable {
     }
 
     private void sheetNoteButtonPressed(SheetNoteJFXButton btn) {
-        System.out.println("sheet Btn pressed");
-        System.out.println(btn.getLineOffset());
         btn.invertGraphic();
+        this.flowOrganizer.sheetNotePressed(btn.getLineOffset(), btn.isPressed());
     }
 
     private SheetDelimiterJFXButton createSheetPrefixButton(int noteOffset) {
@@ -304,10 +307,9 @@ public class GuitarFretboardController implements Initializable {
     }
 
     private void sheetPrefixButtonPressed(SheetDelimiterJFXButton btn) {
-        // todo
         btn.iterateButton();
+        this.flowOrganizer.sheetPrefixPressed(btn.getLineOffset(), btn.getPrefix());
     }
-
 
     /**
      * Creates a button with given string and fret position
@@ -376,6 +378,11 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private void reset(ActionEvent event) {
         this.flowOrganizer.reset();
+    }
+
+    @FXML
+    private void replayExcercise(ActionEvent event) {
+        System.out.println("Replay btn pressed [FretContr. l. 386]");
     }
 
 }

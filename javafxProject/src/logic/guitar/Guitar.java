@@ -6,9 +6,8 @@ import logic.dataPreservation.Logger;
 import logic.organization.GUIConnector;
 
 public class Guitar {
-    public final static int fretCnt = 19;
 
-    protected static final Note[] STANDARD_E_TUNING = new Note[]{
+    protected final static Note[] OPEN_STRINGS = new Note[]{
             new Note(NoteCircle.E, 2, new FretboardPos(0, 0)),
             new Note(NoteCircle.B, 1, new FretboardPos(1, 0)),
             new Note(NoteCircle.G, 1, new FretboardPos(2, 0)),
@@ -24,7 +23,7 @@ public class Guitar {
 
     public Guitar(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
-        this.pressedStrings = this.STANDARD_E_TUNING.clone();
+        this.pressedStrings = this.OPEN_STRINGS.clone();
         this.gui.initGui();
         this.audioConv = audioConverter;
     }
@@ -39,7 +38,7 @@ public class Guitar {
         Note prevNote = updateString(inputNote);
         Note currNote = this.pressedStrings[fretboardPos.getGuitarString()];
         Logger.getInstance().printAndSafe(currNote.toString());
-        this.gui.updateGui(currNote);
+        this.gui.updateGuitar(currNote);
         if(!inputNote.equals(prevNote)) {
             playSinglePressedNote(prevNote, currNote);
         }
@@ -47,8 +46,8 @@ public class Guitar {
 
     protected Note translate(FretboardPos fretboardPos) {
         NoteCircle[] noteCircle = NoteCircle.values();
-        int sum = STANDARD_E_TUNING[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
-        int octave = (sum / noteCircle.length) + this.STANDARD_E_TUNING[fretboardPos.getGuitarString()].getOctave();
+        int sum = OPEN_STRINGS[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
+        int octave = (sum / noteCircle.length) + this.OPEN_STRINGS[fretboardPos.getGuitarString()].getOctave();
         int ordinalVal = sum % noteCircle.length;
         Note output = new Note(noteCircle[ordinalVal], octave, fretboardPos);
         System.out.println("Translated: " + output);
@@ -65,18 +64,18 @@ public class Guitar {
      * Current selected Note will be played if
      * - the prevNote and the currNote are unequal
      * - or if the currNote is the open String and the note is actually supposed to be played
-     * @param prevNote
-     * @param currNote
+     * @param prevNote note previously selected
+     * @param currNote current note selected by the user
      */
     private void playSinglePressedNote(Note prevNote, Note currNote) {
         if (!prevNote.equals(currNote)
-                || currNote.equals(this.STANDARD_E_TUNING[currNote.getBaseString()]) && currNote.isPlayed()) {
+                || currNote.equals(this.OPEN_STRINGS[currNote.getBaseString()]) && currNote.isPlayed()) {
             this.audioConv.playSingleNote(currNote);
         }
     }
 
     private Note findOnSameString(Note note) {
-        Note baseNote = this.STANDARD_E_TUNING[note.getFretboardPos().getGuitarString()];
+        Note baseNote = OPEN_STRINGS[note.getFretboardPos().getGuitarString()];
         NoteCircle[] notes = NoteCircle.values();
         int currNoteOrd = baseNote.getId().ordinal();
         int counter = 0;
@@ -96,14 +95,26 @@ public class Guitar {
         }
 
         if (!pressedNote.isPlayed()
-                && !pressedNote.equals(this.STANDARD_E_TUNING[baseGuitarString])) {
-            this.pressedStrings[baseGuitarString] = this.STANDARD_E_TUNING[baseGuitarString];
+                && !pressedNote.equals(OPEN_STRINGS[baseGuitarString])) {
+            this.pressedStrings[baseGuitarString] = OPEN_STRINGS[baseGuitarString];
         }
         return this.pressedStrings[baseGuitarString];
     }
 
     public void playDownStrum() {
         this.audioConv.playMultipleNotes(this.pressedStrings);
+    }
+
+    public void reset() {
+        Note curr;
+        for (int i = 0; i < this.pressedStrings.length; i++) {
+            curr = this.pressedStrings[i];
+            if(!curr.equals(OPEN_STRINGS[i]) || !curr.isPlayed()) {
+                pressNote(new FretboardPos(i, 0));
+            } else {
+                this.audioConv.playSingleNote(curr);
+            }
+        }
     }
 
 

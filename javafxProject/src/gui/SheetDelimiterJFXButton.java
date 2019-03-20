@@ -22,7 +22,7 @@ public class SheetDelimiterJFXButton extends JFXButton {
         return lineOffset;
     }
 
-    public NotePrefix getDel() {
+    public NotePrefix getPrefix() {
         return del;
     }
 }

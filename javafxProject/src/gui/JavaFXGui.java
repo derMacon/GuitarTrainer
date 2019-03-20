@@ -1,5 +1,6 @@
 package gui;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -13,21 +14,32 @@ public class JavaFXGui implements GUIConnector {
      * fret num
      */
     private final GridPane[] frets;
+    private final GridPane sheetNotes;
+    private final JFXButton replayBtn;
 
-    private final Pane sheet;
-
-    public JavaFXGui(GridPane[] fretboard, Pane sheet) {
+    public JavaFXGui(GridPane[] fretboard, GridPane sheet, JFXButton replayBtn) {
         this.frets = fretboard;
-        this.sheet = sheet;
+        this.sheetNotes = sheet;
+        this.replayBtn = replayBtn;
     }
 
     @Override
-    public void updateGui(Note currNote) {
+    public void updateGuitar(Note currNote) {
         GuitarJFXButton currBtn = null;
         for (int idxFret = 0; idxFret < this.frets.length; idxFret++) {
             currBtn = (GuitarJFXButton) this.frets[idxFret].getChildren().get(currNote.getBaseString());
             currBtn.selectButton(currNote.isPlayed() && currNote.getFretboardPos().getFret() == idxFret);
         }
+    }
+
+    @Override
+    public void updateSheetNotes(Note currNote) {
+        // todo
+    }
+
+    @Override
+    public void setReplayButtonGrayedout(boolean isGrayedout) {
+        replayBtn.setDisable(isGrayedout);
     }
 
     @Override

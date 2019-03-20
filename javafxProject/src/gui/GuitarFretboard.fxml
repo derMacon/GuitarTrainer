@@ -312,7 +312,7 @@
          <children>
             <VBox prefHeight="353.0" prefWidth="294.0" GridPane.columnIndex="1">
                <children>
-                  <JFXButton fx:id="btn_replay" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
+                  <JFXButton fx:id="btn_replay" onAction="#replayExcercise" prefHeight="68.0" prefWidth="290.0" ripplerFill="#bfb67c" text="Replay">
                      <font>
                         <Font size="35.0" />
                      </font>

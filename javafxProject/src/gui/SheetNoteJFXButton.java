@@ -22,4 +22,5 @@ public class SheetNoteJFXButton extends ImageButton {
         return lineOffset;
     }
 
+
 }
