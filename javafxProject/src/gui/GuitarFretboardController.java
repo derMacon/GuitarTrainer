@@ -280,14 +280,18 @@ public class GuitarFretboardController implements Initializable {
         // inits buttons user interacts with
         int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
         for (int i = 0; i < rowCnt; i++) {
+
             this.grdPn_totalSumNotes.add(createSheetPrefixButton(rowCnt -i), 0, i);
             this.grdPn_totalSumNotes.add(createSheetNoteButton(rowCnt - i), 1, i);
         }
 
-        // inits image buttons
+        // inits images in Gridpanes
         for (int i = 0; i < 12; i++) {
-            this.grdPn_sheetNotes_betweenLines.add(createSheetPrefixButton(12 - i), 0, i);
-            this.grdPn_sheetNotes_betweenLines.add(createSheetNoteButton(12 - i), 1, i);
+            this.grdPn_sheetNotes_betweenLines.add(new ImageView(), 0, i);
+            this.grdPn_sheetNotes_betweenLines.add(new ImageView(), 1, i);
+
+            this.grdPn_sheetNotes_onLines.add(new ImageView(), 0, i);
+            this.grdPn_sheetNotes_onLines.add(new ImageView(), 1, i);
         }
     }
 
@@ -303,7 +307,8 @@ public class GuitarFretboardController implements Initializable {
 
     private SheetNoteJFXButton createSheetNoteButton(int noteOffset) {
         SheetNoteJFXButton button = new SheetNoteJFXButton(noteOffset);
-        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        button.setScaleY(0.7);
         button.setOnAction(e -> sheetNoteButtonPressed(button));
         return button;
     }
@@ -323,6 +328,7 @@ public class GuitarFretboardController implements Initializable {
     private SheetPrefixJFXButton createSheetPrefixButton(int noteOffset) {
         SheetPrefixJFXButton button = new SheetPrefixJFXButton(noteOffset);
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        button.setDisable(true);
         button.setOnAction(e -> sheetPrefixButtonPressed(button));
         return button;
     }

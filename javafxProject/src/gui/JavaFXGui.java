@@ -2,16 +2,20 @@ package gui;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import logic.guitar.FretboardNote;
 import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
-import logic.guitar.FretboardNote;
 
 public class JavaFXGui implements GUIConnector {
 
     private static final int NOTES_BETWEEN_LINES = 0;
     private static final int NOTES_ONTOP_LINES = 1;
-
+    private static final int SELECTED_PIXEL = 20;
+    private static final Image NOTE_SHEET_MUSIC = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
+            SELECTED_PIXEL, true, true);
     /**
      * Gridpane array of one dimensional gridpanes representing the frets of the users guitar on the gui. Index mirrors
      * fret num
@@ -37,20 +41,17 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
-        // note below / between lines
-        if(sheetNote.getId().ordinal() % 2 == 0) {
-            int spaceCnt = this.sheetNotes[0].getRowConstraints().size();
-            int invertedOffset = spaceCnt - 1 - sheetNote.getOffsetToLowerE();
-            Node node = getNodeFromGridPane(this.sheetNotes[0], 1, invertedOffset);
-            ((SheetNoteJFXButton)node).invertGraphic();
-        } else {
-            System.out.println("Wrong branch");
-        }
-
+        GridPane currGrdPn = sheetNote.getId().ordinal() % 2 == 0 ?
+                this.sheetNotes[0] : this.sheetNotes[1];
+        int spaceCnt = currGrdPn.getRowConstraints().size();
+        int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowerE() / 2);
+        Node node = getNodeFromGridPane(currGrdPn, 1, invertedOffset);
+        ((ImageView) node).setImage(NOTE_SHEET_MUSIC);
     }
 
     /**
      * https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
+     *
      * @param gridPane
      * @param col
      * @param row
