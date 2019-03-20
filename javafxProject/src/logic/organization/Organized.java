@@ -9,7 +9,7 @@ public interface Organized {
     void playDownStrum();
     void pressNoteOnFretboard(FretboardPos fretboardPos);
     void sheetPrefixPressed(int offset, NotePrefix prefix);
-    void sheetNotePressed(int offset, boolean isPlayed);
+    void sheetNotePressed(int offset);
 
     /**
      * Refreshes the gui appropriately to the given Mode.

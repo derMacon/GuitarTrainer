@@ -2,6 +2,7 @@ package logic.excercise;
 
 import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
+import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
 import logic.organization.Mode;
 
@@ -15,6 +16,11 @@ public class GuitarTrainer implements Trainer {
         this.gui = gui;
         this.audioConv = audioConverter;
         setMode(Mode.values()[0]);
+    }
+
+    @Override
+    public void userPressedSheetNote(SheetNote note) {
+        this.gui.updateSheetNotes(note);
     }
 
     @Override

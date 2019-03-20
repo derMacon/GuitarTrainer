@@ -7,15 +7,15 @@ import logic.organization.GUIConnector;
 
 public class Guitar {
 
-    protected final static Note[] OPEN_STRINGS = new Note[]{
-            new Note(NoteCircle.E, 2, new FretboardPos(0, 0)),
-            new Note(NoteCircle.B, 1, new FretboardPos(1, 0)),
-            new Note(NoteCircle.G, 1, new FretboardPos(2, 0)),
-            new Note(NoteCircle.D, 1, new FretboardPos(3, 0)),
-            new Note(NoteCircle.A, 0, new FretboardPos(4, 0)),
-            new Note(NoteCircle.E, 0, new FretboardPos(5, 0))};
+    protected final static FretboardNote[] OPEN_STRINGS = new FretboardNote[]{
+            new FretboardNote(NoteCircle.E, 2, new FretboardPos(0, 0)),
+            new FretboardNote(NoteCircle.B, 1, new FretboardPos(1, 0)),
+            new FretboardNote(NoteCircle.G, 1, new FretboardPos(2, 0)),
+            new FretboardNote(NoteCircle.D, 1, new FretboardPos(3, 0)),
+            new FretboardNote(NoteCircle.A, 0, new FretboardPos(4, 0)),
+            new FretboardNote(NoteCircle.E, 0, new FretboardPos(5, 0))};
 
-    protected Note[] pressedStrings;
+    protected FretboardNote[] pressedStrings;
 
     private final GUIConnector gui;
 
@@ -34,68 +34,68 @@ public class Guitar {
 
     public void pressNote(FretboardPos fretboardPos) {
         assert null != fretboardPos;
-        Note inputNote = translate(fretboardPos);
-        Note prevNote = updateString(inputNote);
-        Note currNote = this.pressedStrings[fretboardPos.getGuitarString()];
-        Logger.getInstance().printAndSafe(currNote.toString());
-        this.gui.updateGuitar(currNote);
-        if(!inputNote.equals(prevNote)) {
-            playSinglePressedNote(prevNote, currNote);
+        FretboardNote inputFretboardNote = translate(fretboardPos);
+        FretboardNote prevFretboardNote = updateString(inputFretboardNote);
+        FretboardNote currFretboardNote = this.pressedStrings[fretboardPos.getGuitarString()];
+        Logger.getInstance().printAndSafe(currFretboardNote.toString());
+        this.gui.updateGuitar(currFretboardNote);
+        if(!inputFretboardNote.equals(prevFretboardNote)) {
+            playSinglePressedNote(prevFretboardNote, currFretboardNote);
         }
     }
 
-    protected Note translate(FretboardPos fretboardPos) {
+    protected FretboardNote translate(FretboardPos fretboardPos) {
         NoteCircle[] noteCircle = NoteCircle.values();
         int sum = OPEN_STRINGS[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
         int octave = (sum / noteCircle.length) + this.OPEN_STRINGS[fretboardPos.getGuitarString()].getOctave();
         int ordinalVal = sum % noteCircle.length;
-        Note output = new Note(noteCircle[ordinalVal], octave, fretboardPos);
+        FretboardNote output = new FretboardNote(noteCircle[ordinalVal], octave, fretboardPos);
         System.out.println("Translated: " + output);
         return output;
     }
 
-    private Note updateString(Note note) {
-        Note oldPressed = this.pressedStrings[note.getBaseString()];
-        updateNote(note);
+    private FretboardNote updateString(FretboardNote fretboardNote) {
+        FretboardNote oldPressed = this.pressedStrings[fretboardNote.getBaseString()];
+        updateNote(fretboardNote);
         return oldPressed;
     }
 
     /**
-     * Current selected Note will be played if
-     * - the prevNote and the currNote are unequal
-     * - or if the currNote is the open String and the note is actually supposed to be played
-     * @param prevNote note previously selected
-     * @param currNote current note selected by the user
+     * Current selected FretboardNote will be played if
+     * - the prevFretboardNote and the currFretboardNote are unequal
+     * - or if the currFretboardNote is the open String and the note is actually supposed to be played
+     * @param prevFretboardNote note previously selected
+     * @param currFretboardNote current note selected by the user
      */
-    private void playSinglePressedNote(Note prevNote, Note currNote) {
-        if (!prevNote.equals(currNote)
-                || currNote.equals(this.OPEN_STRINGS[currNote.getBaseString()]) && currNote.isPlayed()) {
-            this.audioConv.playSingleNote(currNote);
+    private void playSinglePressedNote(FretboardNote prevFretboardNote, FretboardNote currFretboardNote) {
+        if (!prevFretboardNote.equals(currFretboardNote)
+                || currFretboardNote.equals(this.OPEN_STRINGS[currFretboardNote.getBaseString()]) && currFretboardNote.isPlayed()) {
+            this.audioConv.playSingleNote(currFretboardNote);
         }
     }
 
-    private Note findOnSameString(Note note) {
-        Note baseNote = OPEN_STRINGS[note.getFretboardPos().getGuitarString()];
+    private FretboardNote findOnSameString(FretboardNote fretboardNote) {
+        FretboardNote baseFretboardNote = OPEN_STRINGS[fretboardNote.getFretboardPos().getGuitarString()];
         NoteCircle[] notes = NoteCircle.values();
-        int currNoteOrd = baseNote.getId().ordinal();
+        int currNoteOrd = baseFretboardNote.getId().ordinal();
         int counter = 0;
-        while (notes[currNoteOrd + counter] != note.getId()) {
+        while (notes[currNoteOrd + counter] != fretboardNote.getId()) {
             counter++;
         }
-        return new Note(note.getId(), 0, new FretboardPos(note.getFretboardPos().getGuitarString(), counter));
+        return new FretboardNote(fretboardNote.getId(), 0, new FretboardPos(fretboardNote.getFretboardPos().getGuitarString(), counter));
     }
 
-    private Note updateNote(Note note) {
-        int baseGuitarString = note.getBaseString();
-        Note pressedNote = this.pressedStrings[baseGuitarString];
-        if (note.equals(pressedNote)) {
-            pressedNote.invertPlayable();
+    private FretboardNote updateNote(FretboardNote fretboardNote) {
+        int baseGuitarString = fretboardNote.getBaseString();
+        FretboardNote pressedFretboardNote = this.pressedStrings[baseGuitarString];
+        if (fretboardNote.equals(pressedFretboardNote)) {
+            pressedFretboardNote.invertPlayable();
         } else {
-            this.pressedStrings[baseGuitarString] = note;
+            this.pressedStrings[baseGuitarString] = fretboardNote;
         }
 
-        if (!pressedNote.isPlayed()
-                && !pressedNote.equals(OPEN_STRINGS[baseGuitarString])) {
+        if (!pressedFretboardNote.isPlayed()
+                && !pressedFretboardNote.equals(OPEN_STRINGS[baseGuitarString])) {
             this.pressedStrings[baseGuitarString] = OPEN_STRINGS[baseGuitarString];
         }
         return this.pressedStrings[baseGuitarString];
@@ -106,7 +106,7 @@ public class Guitar {
     }
 
     public void reset() {
-        Note curr;
+        FretboardNote curr;
         for (int i = 0; i < this.pressedStrings.length; i++) {
             curr = this.pressedStrings[i];
             if(!curr.equals(OPEN_STRINGS[i]) || !curr.isPlayed()) {
@@ -120,19 +120,19 @@ public class Guitar {
 
     // --- excercise mode ---
 
-    private Note findOnHigherString(Note note) {
+    private FretboardNote findOnHigherString(FretboardNote fretboardNote) {
         return null;
     }
 
-    public Note decOctave(Note note) {
+    public FretboardNote decOctave(FretboardNote fretboardNote) {
         // todo
         return null;
     }
 
-    public Note incOctave(Note note) throws NotOnFretException {
-        Note output = findOnSameString(note);
+    public FretboardNote incOctave(FretboardNote fretboardNote) throws NotOnFretException {
+        FretboardNote output = findOnSameString(fretboardNote);
         if (output == null) {
-            output = findOnHigherString(note);
+            output = findOnHigherString(fretboardNote);
         }
         if (output == null) {
             throw new NotOnFretException("Not on fret");

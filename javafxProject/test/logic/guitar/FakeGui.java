@@ -5,12 +5,12 @@ import logic.organization.GUIConnector;
 public class FakeGui implements GUIConnector {
 
     @Override
-    public void updateGuitar(Note currNote) {
+    public void updateGuitar(FretboardNote currFretboardNote) {
 
     }
 
     @Override
-    public void updateSheetNotes(Note currNote) {
+    public void updateSheetNotes(SheetNote currFretboardNote) {
 
     }
 

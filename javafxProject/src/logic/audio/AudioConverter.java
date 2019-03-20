@@ -1,6 +1,6 @@
 package logic.audio;
 
-import logic.guitar.Note;
+import logic.guitar.FretboardNote;
 import logic.guitar.NoteCircle;
 
 import java.io.File;
@@ -42,22 +42,22 @@ public class AudioConverter {
         }
     }
 
-    public void playSingleNote(Note note) {
-        if(note.isPlayed()) {
-            MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
+    public void playSingleNote(FretboardNote fretboardNote) {
+        if(fretboardNote.isPlayed()) {
+            MusicRunner fstRunner = new MusicRunner(loadAudioFile(fretboardNote));
             Thread fstThread = new Thread(fstRunner);
             fstThread.start();
         }
     }
 
-    private File loadAudioFile(Note note) {
-        return this.audioFiles.get(note.getId().ordinal()).get(note.getOctave());
+    private File loadAudioFile(FretboardNote fretboardNote) {
+        return this.audioFiles.get(fretboardNote.getId().ordinal()).get(fretboardNote.getOctave());
     }
 
-    public void playMultipleNotes(Note[] notes) {
+    public void playMultipleNotes(FretboardNote[] fretboardNotes) {
         System.out.println("Play downstrum");
-        for (int i = notes.length - 1; i >= 0; i--) {
-            playSingleNote(notes[i]);
+        for (int i = fretboardNotes.length - 1; i >= 0; i--) {
+            playSingleNote(fretboardNotes[i]);
         }
     }
 }

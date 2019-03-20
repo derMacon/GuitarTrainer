@@ -142,6 +142,9 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_sheetNotes_onLines;
 
+    @FXML
+    private GridPane grdPn_totalSumNotes;
+
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
@@ -174,7 +177,9 @@ public class GuitarFretboardController implements Initializable {
                 grdPn_fret12, grdPn_fret13, grdPn_fret14, grdPn_fret15, grdPn_fret16, grdPn_fret17, grdPn_fret18,
                 grdPn_fret19};
 
-        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, this.grdPn_sheetNotes_betweenLines, this.btn_replay),
+        GridPane[] sheetNotes = new GridPane[]{this.grdPn_sheetNotes_onLines, this.grdPn_sheetNotes_betweenLines};
+
+        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, sheetNotes, this.btn_replay),
                 new AudioConverter());
     }
 
@@ -272,6 +277,14 @@ public class GuitarFretboardController implements Initializable {
     }
 
     private void initSheet() {
+        // inits buttons user interacts with
+        int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
+        for (int i = 0; i < rowCnt; i++) {
+            this.grdPn_totalSumNotes.add(createSheetPrefixButton(rowCnt -i), 0, i);
+            this.grdPn_totalSumNotes.add(createSheetNoteButton(rowCnt - i), 1, i);
+        }
+
+        // inits image buttons
         for (int i = 0; i < 12; i++) {
             this.grdPn_sheetNotes_betweenLines.add(createSheetPrefixButton(12 - i), 0, i);
             this.grdPn_sheetNotes_betweenLines.add(createSheetNoteButton(12 - i), 1, i);
@@ -295,20 +308,27 @@ public class GuitarFretboardController implements Initializable {
         return button;
     }
 
+//    private JFXButton createSheetNoteUserBtn() {
+//        SheetNoteJFXButton btn = new SheetNoteJFXButton();
+//        btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+//        btn.setOnAction(e -> sheetNoteButtonPressed(btn));
+//
+//    }
+
     private void sheetNoteButtonPressed(SheetNoteJFXButton btn) {
-        btn.invertGraphic();
-        this.flowOrganizer.sheetNotePressed(btn.getLineOffset(), btn.isPressed());
+//        btn.invertGraphic();
+        this.flowOrganizer.sheetNotePressed(btn.getLineOffset());
     }
 
-    private SheetDelimiterJFXButton createSheetPrefixButton(int noteOffset) {
-        SheetDelimiterJFXButton button = new SheetDelimiterJFXButton(noteOffset);
+    private SheetPrefixJFXButton createSheetPrefixButton(int noteOffset) {
+        SheetPrefixJFXButton button = new SheetPrefixJFXButton(noteOffset);
         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         button.setOnAction(e -> sheetPrefixButtonPressed(button));
         return button;
     }
 
-    private void sheetPrefixButtonPressed(SheetDelimiterJFXButton btn) {
-        btn.iterateButton();
+    private void sheetPrefixButtonPressed(SheetPrefixJFXButton btn) {
+//        btn.iterateButton();
         this.flowOrganizer.sheetPrefixPressed(btn.getLineOffset(), btn.getPrefix());
     }
 

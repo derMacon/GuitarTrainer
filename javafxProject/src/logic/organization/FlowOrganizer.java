@@ -6,6 +6,7 @@ import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.guitar.Guitar;
 import logic.guitar.FretboardPos;
+import logic.guitar.SheetNote;
 
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
@@ -52,8 +53,8 @@ public class FlowOrganizer implements Organized {
     }
 
     @Override
-    public void sheetNotePressed(int offset, boolean isPlayed) {
-        // todo
+    public void sheetNotePressed(int offset) {
+        this.trainer.userPressedSheetNote(new SheetNote(offset));
     }
 
     @Override

@@ -1,13 +1,11 @@
 package logic.excercise;
 
-import logic.guitar.Guitar;
-import logic.guitar.Note;
+import logic.guitar.SheetNote;
 import logic.organization.Mode;
-
-import java.util.List;
 
 public interface Trainer {
     void giveExcercise();
+    void userPressedSheetNote(SheetNote note);
     void checkResult();
     void setMode(Mode mode);
 }
