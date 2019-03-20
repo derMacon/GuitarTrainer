@@ -145,6 +145,79 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_totalSumNotes;
 
+
+    @FXML
+    private JFXButton btn_sheet_00;
+
+    @FXML
+    private JFXButton btn_sheet_01;
+
+    @FXML
+    private JFXButton btn_sheet_02;
+
+    @FXML
+    private JFXButton btn_sheet_03;
+
+    @FXML
+    private JFXButton btn_sheet_04;
+
+    @FXML
+    private JFXButton btn_sheet_05;
+
+    @FXML
+    private JFXButton btn_sheet_06;
+
+    @FXML
+    private JFXButton btn_sheet_07;
+
+    @FXML
+    private JFXButton btn_sheet_08;
+
+    @FXML
+    private JFXButton btn_sheet_09;
+
+    @FXML
+    private JFXButton btn_sheet_10;
+
+    @FXML
+    private JFXButton btn_sheet_11;
+
+    @FXML
+    private JFXButton btn_sheet_12;
+
+    @FXML
+    private JFXButton btn_sheet_13;
+
+    @FXML
+    private JFXButton btn_sheet_14;
+
+    @FXML
+    private JFXButton btn_sheet_15;
+
+    @FXML
+    private JFXButton btn_sheet_16;
+
+    @FXML
+    private JFXButton btn_sheet_17;
+
+    @FXML
+    private JFXButton btn_sheet_18;
+
+    @FXML
+    private JFXButton btn_sheet_19;
+
+    @FXML
+    private JFXButton btn_sheet_20;
+
+    @FXML
+    private JFXButton btn_sheet_21;
+
+    @FXML
+    private JFXButton btn_sheet_22;
+
+    @FXML
+    private JFXButton btn_sheet_23;
+
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
@@ -278,12 +351,12 @@ public class GuitarFretboardController implements Initializable {
 
     private void initSheet() {
         // inits buttons user interacts with
-        int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
-        for (int i = 0; i < rowCnt; i++) {
-
-            this.grdPn_totalSumNotes.add(createSheetPrefixButton(rowCnt -i), 0, i);
-            this.grdPn_totalSumNotes.add(createSheetNoteButton(rowCnt - i), 1, i);
-        }
+//        int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
+//        for (int i = 0; i < rowCnt; i++) {
+//
+//            this.grdPn_totalSumNotes.add(createSheetPrefixButton(rowCnt -i), 0, i);
+//            this.grdPn_totalSumNotes.add(createSheetNoteButton(rowCnt - i), 1, i);
+//        }
 
         // inits images in Gridpanes
         for (int i = 0; i < 12; i++) {
@@ -323,6 +396,12 @@ public class GuitarFretboardController implements Initializable {
     private void sheetNoteButtonPressed(SheetNoteJFXButton btn) {
 //        btn.invertGraphic();
         this.flowOrganizer.sheetNotePressed(btn.getLineOffset());
+    }
+
+    @FXML
+    public void sheetNoteBtnPressed(ActionEvent event) {
+        int offset = Integer.parseInt(((JFXButton)event.getSource()).getId().split("_")[2]);
+        this.flowOrganizer.sheetNotePressed(offset);
     }
 
     private SheetPrefixJFXButton createSheetPrefixButton(int noteOffset) {

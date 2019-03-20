@@ -42,7 +42,7 @@ public class JavaFXGui implements GUIConnector {
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
         GridPane currGrdPn = sheetNote.getId().ordinal() % 2 == 0 ?
-                this.sheetNotes[0] : this.sheetNotes[1];
+                this.sheetNotes[1] : this.sheetNotes[0];
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowerE() / 2);
         Node node = getNodeFromGridPane(currGrdPn, 1, invertedOffset);
