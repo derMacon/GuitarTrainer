@@ -280,10 +280,11 @@ public class GuitarFretboardController implements Initializable {
 
     private void initDescription() {
         this.pgn_modes.setPageCount(Mode.values().length);
-        this.pgn_modes.setPageFactory((Integer pageIdx) -> createLabelDescr(pageIdx));
+        this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
     }
 
-    private Label createLabelDescr(Integer idx) {
+    private Label changeMode(Integer idx) {
+        this.flowOrganizer.interpretMode(Mode.values()[idx]);
         return new Label(Mode.values()[idx].getDescr());
     }
 
@@ -384,5 +385,6 @@ public class GuitarFretboardController implements Initializable {
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");
     }
+
 
 }
