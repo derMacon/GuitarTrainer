@@ -140,7 +140,7 @@ public class GuitarFretboardController implements Initializable {
     private GridPane grdPn_sheetNotes_betweenLines;
 
     @FXML
-    private GridPane grdPn_sheetNotes_aboveLines;
+    private GridPane grdPn_sheetNotes_onLines;
 
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
