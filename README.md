@@ -5,7 +5,7 @@ A program that trains you to recognize heard notes / chords. There will be three
 - a classical note scale
 
 ### Gui (WIP)
-<img src="otherDocs/screenshots/screenshot1803.png" alt="drawing" width="2000"/>
+<img src="otherDocs/screenshots/screenshot2003.png" alt="drawing" width="2000"/>
 
 ### UML-Diagram
 ![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/GuitarTrainerUML.png)
