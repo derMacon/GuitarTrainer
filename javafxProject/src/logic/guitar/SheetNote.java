@@ -21,7 +21,11 @@ public class SheetNote extends Note {
 
 
     private static NoteCircle generateId(int offset) {
-        return NoteCircle.values()[offset % NoteCircle.values().length];
+        NoteCircle output = NoteCircle.E;
+        for (int i = 0; i < offset; i++) {
+            output = output.nextMajorTone();
+        }
+        return output;
     }
 
     private static int generateOctave(int offset) {

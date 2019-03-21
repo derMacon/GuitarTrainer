@@ -4,6 +4,7 @@ import gui.NotePrefix;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static gui.NotePrefix.*;
@@ -26,7 +27,7 @@ public enum NoteCircle {
 
     NoteCircle(NoteId[] id, NotePrefix[] notePrefix) {
         assert id.length == notePrefix.length;
-        this.notes = new HashMap<>();
+        this.notes = new LinkedHashMap<>();
         for (int i = 0; i < id.length; i++) {
             this.notes.put(id[i], notePrefix[i]);
         }
@@ -41,13 +42,17 @@ public enum NoteCircle {
     }
 
     public NoteCircle nextSemiTone() {
-        return values()[(getPrimaryNote().ordinal() + 1) % values().length];
+        return values()[(ordinal() + 1) % values().length];
     }
 
     public NoteCircle nextMajorTone() {
-        // todo implementation
-        System.out.println("todo next full note");
-        return null;
+        NoteCircle output = nextSemiTone();
+        while(this.getPrimaryNote().equals(output.getPrimaryNote())) {
+            output = output.nextSemiTone();
+        }
+        return output;
     }
+
+
 
 }

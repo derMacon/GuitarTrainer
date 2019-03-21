@@ -5,6 +5,7 @@ import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.guitar.FretboardPos;
 import logic.guitar.Guitar;
+import logic.guitar.NoteId;
 import logic.guitar.SheetNote;
 
 import java.util.HashMap;
@@ -54,12 +55,19 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
+        NoteId newId = getPrimaryNote(offset);
+
+
         if (sheetNotes.containsKey(offset)) {
             sheetNotes.get(offset).iteratePrefix();
         } else {
             this.sheetNotes.put(offset, new SheetNote(offset));
         }
         this.trainer.userPressedSheetNote(this.sheetNotes.get(offset));
+    }
+
+    private NoteId getPrimaryNote(int offset) {
+        return NoteId.values()[(offset + NoteId.E.ordinal()) % NoteId.values().length];
     }
 
     @Override
