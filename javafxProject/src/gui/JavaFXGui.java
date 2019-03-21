@@ -42,11 +42,15 @@ public class JavaFXGui implements GUIConnector {
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
         GridPane currGrdPn = sheetNote.getId().ordinal() % 2 == 0 ?
-                this.sheetNotes[1] : this.sheetNotes[0];
+                this.sheetNotes[NOTES_ONTOP_LINES] : this.sheetNotes[NOTES_BETWEEN_LINES];
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowerE() / 2);
-        Node node = getNodeFromGridPane(currGrdPn, 1, invertedOffset);
-        ((ImageView) node).setImage(NOTE_SHEET_MUSIC);
+        ImageView img = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
+        if(img.getImage() == null) {
+            img.setImage(NOTE_SHEET_MUSIC);
+        } else {
+            img.setImage(null);
+        }
     }
 
     /**
