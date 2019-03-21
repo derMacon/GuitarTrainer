@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 public class SheetNoteJFXButton extends ImageButton {
 
     private final static int SELECTED_PIXEL = 20;
-    private final static Image SELECTED_SYMBOL = new Image("textures\\selected.png", SELECTED_PIXEL,
+    private final static Image SELECTED_SYMBOL = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
             SELECTED_PIXEL,true, true);
 
     /**
@@ -21,5 +21,6 @@ public class SheetNoteJFXButton extends ImageButton {
     public int getLineOffset() {
         return lineOffset;
     }
+
 
 }

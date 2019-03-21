@@ -1,8 +1,11 @@
 package logic.organization;
 
-import logic.guitar.Note;
+import logic.guitar.FretboardNote;
+import logic.guitar.SheetNote;
 
 public interface GUIConnector {
-    void updateGui(Note currNote);
+    void updateGuitar(FretboardNote currFretboardNote);
+    void updateSheetNotes(SheetNote currFretboardNote);
+    void setReplayButtonGrayedout(boolean isGrayedout);
     void initGui();
 }

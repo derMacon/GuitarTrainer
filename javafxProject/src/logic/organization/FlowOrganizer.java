@@ -1,9 +1,12 @@
 package logic.organization;
 
+import gui.NotePrefix;
 import logic.audio.AudioConverter;
+import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.guitar.Guitar;
 import logic.guitar.FretboardPos;
+import logic.guitar.SheetNote;
 
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
@@ -16,7 +19,12 @@ public class FlowOrganizer implements Organized {
 
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
         this.guitar = new Guitar(gui, audioConv);
-        this.trainer = trainer;
+        this.trainer = new GuitarTrainer(gui, audioConv);
+    }
+
+    @Override
+    public void interpretMode(Mode mode) {
+        trainer.setMode(mode);
     }
 
     @Override
@@ -40,7 +48,17 @@ public class FlowOrganizer implements Organized {
     }
 
     @Override
-    public void reset() {
+    public void sheetPrefixPressed(int offset, NotePrefix prefix) {
+        // todo
+    }
 
+    @Override
+    public void sheetNotePressed(int offset) {
+        this.trainer.userPressedSheetNote(new SheetNote(offset));
+    }
+
+    @Override
+    public void reset() {
+        this.guitar.reset();
     }
 }

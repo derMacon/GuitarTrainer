@@ -2,16 +2,32 @@ package logic.excercise;
 
 import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
+import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
+import logic.organization.Mode;
 
 public class GuitarTrainer implements Trainer {
 
     private GUIConnector gui;
     private AudioConverter audioConv;
+    private Mode mode;
 
     public GuitarTrainer(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
         this.audioConv = audioConverter;
+        setMode(Mode.values()[0]);
+    }
+
+    @Override
+    public void userPressedSheetNote(SheetNote note) {
+        this.gui.updateSheetNotes(note);
+    }
+
+    @Override
+    public void setMode(Mode mode) {
+        this.mode = mode;
+        gui.setReplayButtonGrayedout(this.mode == Mode.FREEPLAY);
+
     }
 
     @Override

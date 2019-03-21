@@ -3,12 +3,12 @@ package gui;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.ImageView;
 
-public class SheetDelimiterJFXButton extends JFXButton {
+public class SheetPrefixJFXButton extends JFXButton {
 
     private int lineOffset;
     private NotePrefix del;
 
-    public SheetDelimiterJFXButton(int offset) {
+    public SheetPrefixJFXButton(int offset) {
         this.lineOffset = offset;
         del = NotePrefix.NEUTRAL;
     }
@@ -18,4 +18,11 @@ public class SheetDelimiterJFXButton extends JFXButton {
         this.setGraphic(new ImageView(del.getImg()));
     }
 
+    public int getLineOffset() {
+        return lineOffset;
+    }
+
+    public NotePrefix getPrefix() {
+        return del;
+    }
 }

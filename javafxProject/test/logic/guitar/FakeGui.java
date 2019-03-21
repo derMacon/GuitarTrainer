@@ -3,8 +3,19 @@ package logic.guitar;
 import logic.organization.GUIConnector;
 
 public class FakeGui implements GUIConnector {
+
     @Override
-    public void updateGui(Note currNote) {
+    public void updateGuitar(FretboardNote currFretboardNote) {
+
+    }
+
+    @Override
+    public void updateSheetNotes(SheetNote currFretboardNote) {
+
+    }
+
+    @Override
+    public void setReplayButtonGrayedout(boolean isGrayedout) {
 
     }
 
