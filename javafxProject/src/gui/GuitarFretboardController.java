@@ -413,8 +413,9 @@ public class GuitarFretboardController implements Initializable {
     }
 
     private void sheetPrefixButtonPressed(SheetPrefixJFXButton btn) {
+        // todo delete this
 //        btn.iterateButton();
-        this.flowOrganizer.sheetPrefixPressed(btn.getLineOffset(), btn.getPrefix());
+//        this.flowOrganizer.sheetPrefixPressed(btn.getLineOffset(), btn.getPrefix());
     }
 
     /**

@@ -19,15 +19,14 @@ public class GuitarTrainer implements Trainer {
     }
 
     @Override
-    public void userPressedSheetNote(SheetNote note) {
-        this.gui.updateSheetNotes(note);
+    public void userPressedSheetNote(SheetNote sheetNote) {
+        this.gui.updateSheetNotes(sheetNote);
     }
 
     @Override
     public void setMode(Mode mode) {
         this.mode = mode;
         gui.setReplayButtonGrayedout(this.mode == Mode.FREEPLAY);
-
     }
 
     @Override

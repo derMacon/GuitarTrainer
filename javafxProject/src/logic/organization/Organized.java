@@ -8,7 +8,6 @@ public interface Organized {
     void checkInResult();
     void playDownStrum();
     void pressNoteOnFretboard(FretboardPos fretboardPos);
-    void sheetPrefixPressed(int offset, NotePrefix prefix);
     void sheetNotePressed(int offset);
 
     /**

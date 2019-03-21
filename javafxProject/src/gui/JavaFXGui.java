@@ -9,6 +9,12 @@ import logic.guitar.FretboardNote;
 import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 public class JavaFXGui implements GUIConnector {
 
     private static final int NOTES_BETWEEN_LINES = 0;
@@ -45,11 +51,15 @@ public class JavaFXGui implements GUIConnector {
                 this.sheetNotes[NOTES_ONTOP_LINES] : this.sheetNotes[NOTES_BETWEEN_LINES];
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowerE() / 2);
-        ImageView img = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
-        if(img.getImage() == null) {
-            img.setImage(NOTE_SHEET_MUSIC);
+        ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);
+        ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
+        if(note.getImage() == null) {
+            NotePrefix currPrefix = new ArrayList<>(sheetNote.getId().getNotes().values()).get(0);
+            prefix.setImage(currPrefix.getImg());
+            note.setImage(NOTE_SHEET_MUSIC);
         } else {
-            img.setImage(null);
+            note.setImage(null);
+            prefix.setImage(null);
         }
     }
 

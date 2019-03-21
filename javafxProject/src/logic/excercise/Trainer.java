@@ -5,7 +5,7 @@ import logic.organization.Mode;
 
 public interface Trainer {
     void giveExcercise();
-    void userPressedSheetNote(SheetNote note);
+    void userPressedSheetNote(SheetNote sheetNote);
     void checkResult();
     void setMode(Mode mode);
 }
