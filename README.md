@@ -17,6 +17,9 @@ A program that trains you to recognize heard notes / chords. There will be three
 ### Chromatic Circle
 <img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
 
+### Open strings as sheet notes 
+![alt text](otherDocs/diagrams/sheetNotes_openStrings.png)
+
 ## Links
 - [MIDI-Converter](https://www.zamzar.com/)
 - [Note reading excercises](https://www.bonedo.de/artikel/einzelansicht/noten-lesen-lernen-fuer-gitarristen-1-das-notensystem-grundlagen-und-leersaitenspiel.html)
