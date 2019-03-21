@@ -47,9 +47,9 @@ public class SheetNote extends Note {
             searchBasePosition();
         }
         // todo maybe offsettoLowerE is redundant ???
-        NoteCircle currNoteId = this.id.nextNoteInCircle();
+        NoteCircle currNoteId = this.id.nextSemiTone();
         while(!currNoteId.getNotes().containsKey(this.id.getPrimaryNote())) {
-            currNoteId = currNoteId.nextNoteInCircle();
+            currNoteId = currNoteId.nextSemiTone();
         }
         return new SheetNote(currNoteId, this.octave, this.isPlayed, this.offsetToLowerE);
     }

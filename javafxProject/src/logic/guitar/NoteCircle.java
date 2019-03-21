@@ -1,6 +1,5 @@
 package logic.guitar;
 
-
 import gui.NotePrefix;
 
 import java.util.ArrayList;
@@ -41,11 +40,11 @@ public enum NoteCircle {
         return new ArrayList<>(this.notes.keySet()).get(0);
     }
 
-    public NoteCircle nextNoteInCircle() {
+    public NoteCircle nextSemiTone() {
         return values()[(getPrimaryNote().ordinal() + 1) % values().length];
     }
 
-    public NoteCircle getNextFullNote() {
+    public NoteCircle nextMajorTone() {
         // todo implementation
         System.out.println("todo next full note");
         return null;
