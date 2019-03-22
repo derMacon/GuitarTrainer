@@ -29,200 +29,139 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of the gui
+ */
 public class GuitarFretboardController implements Initializable {
-
-    @FXML
-    private GridPane grdPn_fret0;
-
-    @FXML
-    private GridPane grdPn_fret1;
-
-    @FXML
-    private GridPane grdPn_fret2;
-
-    @FXML
-    private ImageView imgBase;
-
-    @FXML
-    private AnchorPane imgParent;
-
-    @FXML
-    private GridPane grdPn_fret17;
-
-    @FXML
-    private GridPane grdPn_fret16;
-
-    @FXML
-    private GridPane grdPn_fret18;
-
-    @FXML
-    private GridPane grdPn_fret9;
-
-    @FXML
-    private GridPane grdPn_fret7;
-
-    @FXML
-    private GridPane grdPn_fret11;
-
-    @FXML
-    private GridPane grdPn_fret8;
-
-    @FXML
-    private GridPane grdPn_fret10;
-
-    @FXML
-    private GridPane grdPn_fret19;
-
-    @FXML
-    private GridPane grdPn_fret5;
-
-    @FXML
-    private GridPane grdPn_fret13;
-
-    @FXML
-    private GridPane grdPn_fret6;
-
-    @FXML
-    private GridPane grdPn_fret12;
-
-    @FXML
-    private GridPane grdPn_fret3;
-
-    @FXML
-    private GridPane grdPn_fret15;
-
-    @FXML
-    private GridPane grdPn_fret4;
-
-    @FXML
-    private GridPane grdPn_fret14;
-
-    @FXML
-    private GridPane grpPn_Buttons;
-
-    @FXML
-    private JFXButton btn_replay;
-
-    @FXML
-    private JFXButton btn_strum;
-
-    @FXML
-    private JFXButton btn_checkIn;
-
-    @FXML
-    private JFXButton btn_reset;
-
-    @FXML
-    private ImageView img_sticky_right;
-
-    @FXML
-    private ImageView img_sticky_left;
-
-    @FXML
-    private Pagination pgn_modes;
-
-    @FXML
-    private ImageView imgVw_clefTexture;
-
-    @FXML
-    private MenuItem mnTm_github;
-
-    @FXML
-    private MenuItem mnTm_close;
-
-    @FXML
-    private MenuItem mnTm_info;
-
-    @FXML
-    private AnchorPane nchrPn_sheetImg;
-
-    @FXML
-    private GridPane grdPn_sheetNotes_betweenLines;
-
-    @FXML
-    private GridPane grdPn_sheetNotes_onLines;
-
-    @FXML
-    private GridPane grdPn_totalSumNotes;
-
-
-    @FXML
-    private JFXButton btn_sheet_00;
-
-    @FXML
-    private JFXButton btn_sheet_01;
-
-    @FXML
-    private JFXButton btn_sheet_02;
-
-    @FXML
-    private JFXButton btn_sheet_03;
-
-    @FXML
-    private JFXButton btn_sheet_04;
-
-    @FXML
-    private JFXButton btn_sheet_05;
-
-    @FXML
-    private JFXButton btn_sheet_06;
-
-    @FXML
-    private JFXButton btn_sheet_07;
-
-    @FXML
-    private JFXButton btn_sheet_08;
-
-    @FXML
-    private JFXButton btn_sheet_09;
-
-    @FXML
-    private JFXButton btn_sheet_10;
-
-    @FXML
-    private JFXButton btn_sheet_11;
-
-    @FXML
-    private JFXButton btn_sheet_12;
-
-    @FXML
-    private JFXButton btn_sheet_13;
-
-    @FXML
-    private JFXButton btn_sheet_14;
-
-    @FXML
-    private JFXButton btn_sheet_15;
-
-    @FXML
-    private JFXButton btn_sheet_16;
-
-    @FXML
-    private JFXButton btn_sheet_17;
-
-    @FXML
-    private JFXButton btn_sheet_18;
-
-    @FXML
-    private JFXButton btn_sheet_19;
-
-    @FXML
-    private JFXButton btn_sheet_20;
-
-    @FXML
-    private JFXButton btn_sheet_21;
-
-    @FXML
-    private JFXButton btn_sheet_22;
-
-    @FXML
-    private JFXButton btn_sheet_23;
 
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
     private static final String CLEF_TEXTURE_PATH = "sheetNotes\\background_withHelpingLines.png";
-
+    @FXML
+    private GridPane grdPn_fret0;
+    @FXML
+    private GridPane grdPn_fret1;
+    @FXML
+    private GridPane grdPn_fret2;
+    @FXML
+    private ImageView imgBase;
+    @FXML
+    private AnchorPane imgParent;
+    @FXML
+    private GridPane grdPn_fret17;
+    @FXML
+    private GridPane grdPn_fret16;
+    @FXML
+    private GridPane grdPn_fret18;
+    @FXML
+    private GridPane grdPn_fret9;
+    @FXML
+    private GridPane grdPn_fret7;
+    @FXML
+    private GridPane grdPn_fret11;
+    @FXML
+    private GridPane grdPn_fret8;
+    @FXML
+    private GridPane grdPn_fret10;
+    @FXML
+    private GridPane grdPn_fret19;
+    @FXML
+    private GridPane grdPn_fret5;
+    @FXML
+    private GridPane grdPn_fret13;
+    @FXML
+    private GridPane grdPn_fret6;
+    @FXML
+    private GridPane grdPn_fret12;
+    @FXML
+    private GridPane grdPn_fret3;
+    @FXML
+    private GridPane grdPn_fret15;
+    @FXML
+    private GridPane grdPn_fret4;
+    @FXML
+    private GridPane grdPn_fret14;
+    @FXML
+    private GridPane grpPn_Buttons;
+    @FXML
+    private JFXButton btn_replay;
+    @FXML
+    private JFXButton btn_strum;
+    @FXML
+    private JFXButton btn_checkIn;
+    @FXML
+    private JFXButton btn_reset;
+    @FXML
+    private ImageView img_sticky_right;
+    @FXML
+    private ImageView img_sticky_left;
+    @FXML
+    private Pagination pgn_modes;
+    @FXML
+    private ImageView imgVw_clefTexture;
+    @FXML
+    private MenuItem mnTm_github;
+    @FXML
+    private MenuItem mnTm_close;
+    @FXML
+    private MenuItem mnTm_info;
+    @FXML
+    private AnchorPane nchrPn_sheetImg;
+    @FXML
+    private GridPane grdPn_sheetNotes_betweenLines;
+    @FXML
+    private GridPane grdPn_sheetNotes_onLines;
+    @FXML
+    private GridPane grdPn_totalSumNotes;
+    @FXML
+    private JFXButton btn_sheet_00;
+    @FXML
+    private JFXButton btn_sheet_01;
+    @FXML
+    private JFXButton btn_sheet_02;
+    @FXML
+    private JFXButton btn_sheet_03;
+    @FXML
+    private JFXButton btn_sheet_04;
+    @FXML
+    private JFXButton btn_sheet_05;
+    @FXML
+    private JFXButton btn_sheet_06;
+    @FXML
+    private JFXButton btn_sheet_07;
+    @FXML
+    private JFXButton btn_sheet_08;
+    @FXML
+    private JFXButton btn_sheet_09;
+    @FXML
+    private JFXButton btn_sheet_10;
+    @FXML
+    private JFXButton btn_sheet_11;
+    @FXML
+    private JFXButton btn_sheet_12;
+    @FXML
+    private JFXButton btn_sheet_13;
+    @FXML
+    private JFXButton btn_sheet_14;
+    @FXML
+    private JFXButton btn_sheet_15;
+    @FXML
+    private JFXButton btn_sheet_16;
+    @FXML
+    private JFXButton btn_sheet_17;
+    @FXML
+    private JFXButton btn_sheet_18;
+    @FXML
+    private JFXButton btn_sheet_19;
+    @FXML
+    private JFXButton btn_sheet_20;
+    @FXML
+    private JFXButton btn_sheet_21;
+    @FXML
+    private JFXButton btn_sheet_22;
+    @FXML
+    private JFXButton btn_sheet_23;
     private Organized flowOrganizer;
 
     @Override
@@ -400,7 +339,7 @@ public class GuitarFretboardController implements Initializable {
 
     @FXML
     public void sheetNoteBtnPressed(ActionEvent event) {
-        int offset = Integer.parseInt(((JFXButton)event.getSource()).getId().split("_")[2]);
+        int offset = Integer.parseInt(((JFXButton) event.getSource()).getId().split("_")[2]);
         this.flowOrganizer.sheetNotePressed(offset);
     }
 

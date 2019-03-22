@@ -15,7 +15,7 @@
 
 }
 
-#pane{
+#pane {
     -fx-background-image: url("stockPhotos/largeWood.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 900 506;
@@ -27,9 +27,6 @@
     -fx-font-family: "Roboto Medium";
     -fx-font-size: 12;
 }
-
-
-
 
 /* pagination styling: https://stackoverflow.com/questions/46563798/javafx-pagination-button-sizes-and-style */
 
@@ -63,7 +60,7 @@
 
 /* Selected toggle color */
 .pagination > .pagination-control > .control-box > .number-button:selected,
-.pagination > .pagination-control > .control-box > .bullet-button:selected{
+.pagination > .pagination-control > .control-box > .bullet-button:selected {
     -fx-background-insets: 0;
     -fx-background-color: #677e9a;
     -fx-text-fill: white;

@@ -50,7 +50,7 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new FretboardPos(0, 1));
-        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0,1));
+        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0, 1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
@@ -67,12 +67,12 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new FretboardPos(0, 1));
-        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0,1));
+        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0, 1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new FretboardPos(0, 2));
-        expOutput[0] = new FretboardNote(NoteCircle.F_SHARP, 2, new FretboardPos(0,2));
+        expOutput[0] = new FretboardNote(NoteCircle.F_SHARP, 2, new FretboardPos(0, 2));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
     }
@@ -99,7 +99,7 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new FretboardPos(0, 1));
-        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0,1));
+        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0, 1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
@@ -121,7 +121,7 @@ public class GuitarTest {
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
 
         guitar.pressNote(new FretboardPos(0, 1));
-        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0,1));
+        expOutput[0] = new FretboardNote(NoteCircle.F, 2, new FretboardPos(0, 1));
         Assert.assertTrue(guitar.pressedStrings[0].isPlayed());
         Assert.assertArrayEquals(guitar.pressedStrings, expOutput);
     }
@@ -131,12 +131,12 @@ public class GuitarTest {
     @Test
     public void testTranslate_openStrings() {
         Guitar guitar = new Guitar(new FakeGui());
-        Assert.assertEquals(guitar.OPEN_STRINGS[0], guitar.translate(new FretboardPos(0,0)));
-        Assert.assertEquals(guitar.OPEN_STRINGS[1], guitar.translate(new FretboardPos(1,0)));
-        Assert.assertEquals(guitar.OPEN_STRINGS[2], guitar.translate(new FretboardPos(2,0)));
-        Assert.assertEquals(guitar.OPEN_STRINGS[3], guitar.translate(new FretboardPos(3,0)));
-        Assert.assertEquals(guitar.OPEN_STRINGS[4], guitar.translate(new FretboardPos(4,0)));
-        Assert.assertEquals(guitar.OPEN_STRINGS[5], guitar.translate(new FretboardPos(5,0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[0], guitar.translate(new FretboardPos(0, 0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[1], guitar.translate(new FretboardPos(1, 0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[2], guitar.translate(new FretboardPos(2, 0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[3], guitar.translate(new FretboardPos(3, 0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[4], guitar.translate(new FretboardPos(4, 0)));
+        Assert.assertEquals(guitar.OPEN_STRINGS[5], guitar.translate(new FretboardPos(5, 0)));
     }
 
     @Test

@@ -10,10 +10,6 @@ import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class JavaFXGui implements GUIConnector {
 
@@ -53,7 +49,7 @@ public class JavaFXGui implements GUIConnector {
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowerE() / 2);
         ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);
         ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
-        if(note.getImage() == null) {
+        if (note.getImage() == null) {
             NotePrefix currPrefix = new ArrayList<>(sheetNote.getId().getNotes().values()).get(0);
             prefix.setImage(currPrefix.getImg());
             note.setImage(NOTE_SHEET_MUSIC);

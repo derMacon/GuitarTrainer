@@ -15,11 +15,6 @@ public class SheetNote extends Note {
         this.offsetToLowerE = offsetToLowerE;
     }
 
-    public int getOffsetToLowerE() {
-        return offsetToLowerE;
-    }
-
-
     private static NoteCircle generateId(int offset) {
         NoteCircle output = NoteCircle.E;
         for (int i = 0; i < offset; i++) {
@@ -30,6 +25,10 @@ public class SheetNote extends Note {
 
     private static int generateOctave(int offset) {
         return offset / NoteCircle.values().length;
+    }
+
+    public int getOffsetToLowerE() {
+        return offsetToLowerE;
     }
 
     /**
@@ -47,12 +46,12 @@ public class SheetNote extends Note {
      * @return new SheetNote instance
      */
     public SheetNote iteratePrefix() {
-        if(!this.isPlayed) {
+        if (!this.isPlayed) {
             searchBasePosition();
         }
         // todo maybe offsettoLowerE is redundant ???
         NoteCircle currNoteId = this.id.nextSemiTone();
-        while(!currNoteId.getNotes().containsKey(this.id.getPrimaryNote())) {
+        while (!currNoteId.getNotes().containsKey(this.id.getPrimaryNote())) {
             currNoteId = currNoteId.nextSemiTone();
         }
         return new SheetNote(currNoteId, this.octave, this.isPlayed, this.offsetToLowerE);

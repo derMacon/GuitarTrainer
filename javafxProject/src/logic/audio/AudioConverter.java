@@ -7,8 +7,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class implementing all audio related functions
+ */
 public class AudioConverter {
 
+    /**
+     * Format string serving as blueprint for the file name.
+     * Needed when loading up the audiofile into the list attribut
+     * Needed when loading up the audiofile into the list attribute
+     */
     private static final String TEMPLATE_BLUEPRINT = "%s_%s_octave";
 
     /**
@@ -20,10 +28,18 @@ public class AudioConverter {
      */
     private List<List<File>> audioFiles = new ArrayList<>();
 
+    /**
+     * Default constructor setting the nylon sound pack as the default
+     */
     public AudioConverter() {
         this(SoundPack.NYLON);
     }
 
+    /**
+     * Constructor loading up audio files from a given sound pack
+     *
+     * @param sPack sound pack to load audio files from
+     */
     public AudioConverter(SoundPack sPack) {
         String prefix = sPack.name().toLowerCase();
         NoteCircle[] notes = NoteCircle.values();
@@ -42,18 +58,34 @@ public class AudioConverter {
         }
     }
 
+    /**
+     * Plays single given note
+     *
+     * @param fretboardNote note to play
+     */
     public void playSingleNote(FretboardNote fretboardNote) {
-        if(fretboardNote.isPlayed()) {
+        if (fretboardNote.isPlayed()) {
             MusicRunner fstRunner = new MusicRunner(loadAudioFile(fretboardNote));
             Thread fstThread = new Thread(fstRunner);
             fstThread.start();
         }
     }
 
+    /**
+     * loads up specific audio file corresponding to a given note
+     *
+     * @param fretboardNote note to load
+     * @return specific audio file corresponding to a given note
+     */
     private File loadAudioFile(FretboardNote fretboardNote) {
         return this.audioFiles.get(fretboardNote.getId().ordinal()).get(fretboardNote.getOctave());
     }
 
+    /**
+     * Plays multiple notes of a given array at once
+     *
+     * @param fretboardNotes array of notes to play
+     */
     public void playMultipleNotes(FretboardNote[] fretboardNotes) {
         System.out.println("Play downstrum");
         for (int i = fretboardNotes.length - 1; i >= 0; i--) {

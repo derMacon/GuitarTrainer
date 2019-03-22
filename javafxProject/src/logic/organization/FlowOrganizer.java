@@ -21,6 +21,12 @@ public class FlowOrganizer implements Organized {
     private Trainer trainer;
     private Map<Integer, SheetNote> sheetNotes;
 
+    /**
+     * Constructor setting all necessary attributes
+     *
+     * @param gui       gui attribute connecting the logic with the gui
+     * @param audioConv audio converter making it possible to play given notes
+     */
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
@@ -66,6 +72,13 @@ public class FlowOrganizer implements Organized {
         this.trainer.userPressedSheetNote(this.sheetNotes.get(offset));
     }
 
+    /**
+     * Gets the primary note of a given note.
+     * E.g. D_SHARP == E_FLAT the primary note is always the one with the SHARP prefix -> in this case D
+     *
+     * @param offset offset from the lower E note (octave == 0)
+     * @return primary noteId with the given note offset
+     */
     private NoteId getPrimaryNote(int offset) {
         return NoteId.values()[(offset + NoteId.E.ordinal()) % NoteId.values().length];
     }
