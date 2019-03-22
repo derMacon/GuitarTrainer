@@ -1,8 +1,9 @@
 # GuitarTrainer: 
-A program that trains you to recognize heard notes / chords. There will be three modes where the notes can be selected on:
-- a virtual fretboard from a guitar
-- a tableau in the standard guitar format
-- a classical note scale
+A program that trains you to recognize heard notes / chords. There will be four modes:
+- hearing a note and selecting it on the fretboard and the sheets
+- translating a sheet note to the possible positions on the fretboard
+- translating a position on the fretboard to a sheet note
+- freeplay (clicking on the either sheets or fretboard updates both)
 
 ### Gui (WIP)
 <img src="otherDocs/screenshots/screenshot2003.png" alt="drawing" width="2000"/>
