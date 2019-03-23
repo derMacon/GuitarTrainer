@@ -22,7 +22,6 @@ public class NoteCircleTest {
         Assert.assertEquals(NoteCircle.C, NoteCircle.B.nextSemiTone());
         Assert.assertEquals(NoteCircle.C_SHARP, NoteCircle.C.nextSemiTone());
         Assert.assertEquals(NoteCircle.D_SHARP, NoteCircle.D.nextSemiTone());
-
     }
 
 }

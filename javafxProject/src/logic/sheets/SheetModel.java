@@ -1,0 +1,117 @@
+package logic.sheets;
+
+import logic.audio.AudioConnector;
+import logic.guitar.SheetNote;
+import logic.guitar.Tone;
+import logic.organization.GUIConnector;
+
+public class SheetModel {
+
+    private SheetNote[] sheetNotes;
+    private final GUIConnector gui;
+    private final AudioConnector audioConv;
+
+    public SheetModel(GUIConnector gui, AudioConnector audioConv) {
+        this(new SheetNote[23], gui, audioConv);
+    }
+
+    public SheetModel(SheetNote[] sheetNotes, GUIConnector gui, AudioConnector audioConv) {
+        this.sheetNotes = sheetNotes;
+        this.gui = gui;
+        this.audioConv = audioConv;
+    }
+
+    public SheetNote[] getSheetNotes() {
+        return sheetNotes;
+    }
+
+
+    public void pressNote(int offset) {
+        if (this.sheetNotes[offset] == null) {
+            this.sheetNotes[offset] = new SheetNote(offset);
+        } else if (!this.sheetNotes[offset].isPlayed()) {
+            this.sheetNotes[offset] = this.sheetNotes[offset].getLowestNoteOfTone();
+        } else {
+            iterate(offset);
+        }
+        this.gui.updateSheetNotes(this.sheetNotes[offset]);
+    }
+
+    private void iterate(int offset) {
+        Tone tone = Tone.translateToTone(offset);
+        SheetNote note = this.sheetNotes[offset];
+        note = note.nextSemiTone();
+        if(!note.getId().getTones().contains(tone)) {
+            note = new SheetNote(offset);
+            note.setPlayed(false);
+        }
+        this.sheetNotes[offset] = note;
+    }
+
+
+//    public void pressNote(int offset) {
+//        Tone baseTone = Tone.translateToTone(offset);
+//        SheetNote updatedSheetNote;
+//        if (containsTone(baseTone)) {
+//            updatedSheetNote = iteratePrefix(baseTone);
+//        } else {
+//            updatedSheetNote = new SheetNote(offset);
+//        }
+//        this.sheetNotes.add(updatedSheetNote);
+//        this.gui.updateSheetNotes(updatedSheetNote);
+//    }
+//
+//    private boolean containsTone(Tone baseTone) {
+//        for(SheetNote note : this.sheetNotes) {
+//            if(note.getId().getTones().contains(baseTone)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
+
+    /**
+     * Iterates the prefix of the current note.
+     * e.g. the prefix is:
+     * NEUTRAL -> SHARP
+     * SHARP -> FLAT
+     * FLAT -> NEUTRAL
+     * <p>
+     * But only if it is possible for the note (e.g. for F, C, etc. it is not possible since there is no semitone in
+     * between them -> not possible to flatten)
+     * <p>
+     * Used to make it possible for the user to iterate through the variations with only on button.
+     *
+     * @return new SheetNote instance
+     */
+//    public SheetNote iteratePrefix(Tone baseTone) {
+//        SheetNote note = this.sheetNotes.get(baseTone);
+//        SheetNote output = incPrefix(baseTone);
+//        if (!output.getId().getTones().contains(baseTone)) {
+//            output = note.getLowestNoteOfTone();
+//        }
+//        this.sheetNotes.put(baseTone, output);
+//        return output;
+//    }
+//
+//    private SheetNote incPrefix(Tone baseTone) {
+//        SheetNote note = this.sheetNotes.get(baseTone);
+//        if (!note.isPlayed()) {
+//            note.setPlayed(true);
+//            return note;
+//        }
+//        note = new SheetNote(note.getId().nextSemiTone(), note.getOctave(), true);
+//        if (!note.getId().getTones().contains(baseTone)) {
+//            // mute note
+//            note = new SheetNote(note.getId(), note.getOctave(), false);
+//        }
+////        this.sheetNotes.put(baseTone, note);
+//        return note;
+//    }
+//
+//    public void reset() {
+//        this.sheetNotes.clear();
+//    }
+
+}

@@ -1,5 +1,6 @@
 package logic.guitar;
 
+import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
 import logic.dataPreservation.Logger;
@@ -20,7 +21,7 @@ public class Guitar {
 
     protected FretboardNote[] pressedStrings;
     private final GUIConnector gui;
-    private final AudioConverter audioConv;
+    private final AudioConnector audioConv;
 
     /**
      * Constructor setting gui and the audio converter component
@@ -126,7 +127,7 @@ public class Guitar {
     /**
      * Plays a down strum of all previously selected notes on the guitar fretboard
      */
-    public void playDownStrum() {
+    public void playStrum() {
         this.audioConv.playMultipleNotes(this.pressedStrings);
     }
 

@@ -1,5 +1,6 @@
 package logic.excercise;
 
+import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
 import logic.guitar.SheetNote;
@@ -9,7 +10,7 @@ import logic.organization.Mode;
 public class GuitarTrainer implements Trainer {
 
     private GUIConnector gui;
-    private AudioConverter audioConv;
+    private AudioConnector audioConv;
     private Mode mode;
 
     public GuitarTrainer(GUIConnector gui, AudioConverter audioConverter) {

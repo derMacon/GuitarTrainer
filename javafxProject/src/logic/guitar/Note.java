@@ -23,8 +23,26 @@ public abstract class Note {
         return isPlayed;
     }
 
+    public void setPlayed(boolean played) {
+        isPlayed = played;
+    }
+
     public void invertPlayable() {
         this.isPlayed = !this.isPlayed;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Note)) {
+            return false;
+        }
+        Note other = (Note) o;
+        return this.id == other.id && this.octave == other.octave
+                && this.isPlayed == other.isPlayed;
+    }
+
+    @Override
+    public String toString() {
+        return "id -> " + this.id + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
+    }
 }

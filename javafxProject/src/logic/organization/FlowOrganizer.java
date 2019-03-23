@@ -5,11 +5,7 @@ import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.guitar.FretboardPos;
 import logic.guitar.Guitar;
-import logic.guitar.NoteId;
-import logic.guitar.SheetNote;
-
-import java.util.HashMap;
-import java.util.Map;
+import logic.sheets.SheetModel;
 
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
@@ -19,7 +15,8 @@ public class FlowOrganizer implements Organized {
 
     private Guitar guitar;
     private Trainer trainer;
-    private Map<Integer, SheetNote> sheetNotes;
+    private SheetModel sheets;
+
 
     /**
      * Constructor setting all necessary attributes
@@ -30,7 +27,7 @@ public class FlowOrganizer implements Organized {
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
-        this.sheetNotes = new HashMap<>();
+        this.sheets = new SheetModel(gui, audioConv);
     }
 
     @Override
@@ -45,7 +42,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void playDownStrum() {
-        this.guitar.playDownStrum();
+        this.guitar.playStrum();
     }
 
     @Override
@@ -61,27 +58,9 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
-        NoteId newId = getPrimaryNote(offset);
-
-
-        if (sheetNotes.containsKey(offset)) {
-            sheetNotes.get(offset).iteratePrefix();
-        } else {
-            this.sheetNotes.put(offset, new SheetNote(offset));
-        }
-        this.trainer.userPressedSheetNote(this.sheetNotes.get(offset));
+        this.sheets.pressNote(offset);
     }
 
-    /**
-     * Gets the primary note of a given note.
-     * E.g. D_SHARP == E_FLAT the primary note is always the one with the SHARP prefix -> in this case D
-     *
-     * @param offset offset from the lower E note (octave == 0)
-     * @return primary noteId with the given note offset
-     */
-    private NoteId getPrimaryNote(int offset) {
-        return NoteId.values()[(offset + NoteId.E.ordinal()) % NoteId.values().length];
-    }
 
     @Override
     public void reset() {
