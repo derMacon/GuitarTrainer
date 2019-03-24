@@ -28,6 +28,7 @@ public class SheetNote extends Note {
     }
 
     public int getOffsetToLowestE() {
+        // todo throw unreported exception for out of bound notes
         SheetNote lowestENote = new SheetNote(0);
         int counter = 0;
         while(this.id.getPrimaryTone() != lowestENote.getId().getPrimaryTone() || this.octave != lowestENote.getOctave()) {

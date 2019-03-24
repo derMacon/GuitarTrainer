@@ -121,4 +121,13 @@ public class SheetNoteTest {
         Assert.assertEquals(expNote, input.nextMajorTone());
     }
 
+    @Test
+    public void testGetLowestNoteOfTone() {
+        SheetNote input = new SheetNote(NoteCircle.D, 0, true);
+        Assert.assertEquals(new SheetNote(NoteCircle.C_SHARP, 0, true), input.getLowestNoteOfTone());
+
+        input = new SheetNote(NoteCircle.E, 0, true);
+        Assert.assertEquals(new SheetNote(NoteCircle.D_SHARP, 0, true), input.getLowestNoteOfTone());
+    }
+
 }

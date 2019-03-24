@@ -1,9 +1,14 @@
 package logic.sheets;
 
+import gui.NotePrefix;
 import logic.audio.AudioConnector;
+import logic.guitar.NoteCircle;
 import logic.guitar.SheetNote;
 import logic.guitar.Tone;
 import logic.organization.GUIConnector;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class SheetModel {
 
@@ -12,25 +17,33 @@ public class SheetModel {
     private final AudioConnector audioConv;
 
     public SheetModel(GUIConnector gui, AudioConnector audioConv) {
-        this(new SheetNote[23], gui, audioConv);
-    }
-
-    public SheetModel(SheetNote[] sheetNotes, GUIConnector gui, AudioConnector audioConv) {
-        this.sheetNotes = sheetNotes;
         this.gui = gui;
         this.audioConv = audioConv;
+        initSheetNoteArray();
+    }
+
+    /**
+     * Initializes sheet note array with muted notes
+     */
+    private void initSheetNoteArray() {
+        SheetNote currNote;
+        int noteCnt = 23;
+        this.sheetNotes = new SheetNote[noteCnt];
+        for (int i = 0; i < noteCnt; i++) {
+            currNote = new SheetNote(i);
+            currNote.setPlayed(false);
+            this.sheetNotes[i] = currNote;
+        }
     }
 
     public SheetNote[] getSheetNotes() {
-        return sheetNotes;
+        return this.sheetNotes;
     }
 
 
     public void pressNote(int offset) {
-        if (this.sheetNotes[offset] == null) {
-            this.sheetNotes[offset] = new SheetNote(offset);
-        } else if (!this.sheetNotes[offset].isPlayed()) {
-            this.sheetNotes[offset] = this.sheetNotes[offset].getLowestNoteOfTone();
+        if (!this.sheetNotes[offset].isPlayed()) {
+            this.sheetNotes[offset].setPlayed(true);
         } else {
             iterate(offset);
         }
@@ -38,15 +51,52 @@ public class SheetModel {
     }
 
     private void iterate(int offset) {
-        Tone tone = Tone.translateToTone(offset);
-        SheetNote note = this.sheetNotes[offset];
-        note = note.nextSemiTone();
-        if(!note.getId().getTones().contains(tone)) {
-            note = new SheetNote(offset);
-            note.setPlayed(false);
+        List<NoteCircle> iteratingNotes = genTraversablePrefix(offset);
+
+        int idxSelectedNote = iteratingNotes.indexOf(this.sheetNotes[offset].getId());
+        NoteCircle newId = iteratingNotes.get((idxSelectedNote + 1) % iteratingNotes.size());
+
+        if(newId == null) {
+            SheetNote mutedNote = new SheetNote(offset);
+            mutedNote.setPlayed(false);
+            this.sheetNotes[offset] = mutedNote;
+        } else {
+            SheetNote newNote = new SheetNote(newId, this.sheetNotes[offset].getOctave(),
+                    this.sheetNotes[offset].isPlayed());
+            this.sheetNotes[offset] = newNote;
         }
-        this.sheetNotes[offset] = note;
+
     }
+
+    protected List<NoteCircle> genTraversablePrefix(int offset) {
+        Tone baseTone = Tone.translateToTone(offset);
+        LinkedList<NoteCircle> iteratingNotes = new LinkedList<>();
+        for(NoteCircle note : NoteCircle.values()) {
+            if(note.getTones().contains(baseTone)) {
+                if(note.getNotes().get(baseTone) == NotePrefix.MAJOR) {
+                    iteratingNotes.add(1, note);
+                } else {
+                    iteratingNotes.add(0, note);
+                }
+            }
+        }
+        iteratingNotes.add(null);
+        return iteratingNotes;
+    }
+
+
+
+
+//    private void iterate(int offset) {
+//        Tone tone = Tone.translateToTone(offset);
+//        SheetNote note = this.sheetNotes[offset];
+//        note = note.nextSemiTone();
+//        if(!note.getId().getTones().contains(tone)) {
+//            note = new SheetNote(offset);
+//            note.setPlayed(false);
+//        }
+//        this.sheetNotes[offset] = note;
+//    }
 
 
 //    public void pressNote(int offset) {

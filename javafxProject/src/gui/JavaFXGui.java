@@ -43,14 +43,16 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
-        GridPane currGrdPn = sheetNote.getId().ordinal() % 2 == 0 ?
+        GridPane currGrdPn = sheetNote.getId().getPrimaryTone().ordinal() % 2 == 0 ?
                 this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
         System.out.println(sheetNote);
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowestE() / 2);
-        ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, generateInvertedOffset(0, sheetNote));
-        ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, generateInvertedOffset(1, sheetNote));
-        if (note.getImage() == null) {
+        System.out.println("invertoffset: " + invertedOffset + ", spaceCnt: " + spaceCnt + ", id: " + sheetNote.getId());
+        ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);
+        ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
+
+        if (sheetNote.isPlayed()) {
             NotePrefix currPrefix = new ArrayList<>(sheetNote.getId().getNotes().values()).get(0);
             prefix.setImage(currPrefix.getImg());
             note.setImage(NOTE_SHEET_MUSIC);
@@ -60,11 +62,11 @@ public class JavaFXGui implements GUIConnector {
         }
     }
 
-    private int generateInvertedOffset(int colIdx, SheetNote sheetNote) {
-        assert colIdx == 0 || colIdx == 1;
-        System.out.println("todo implementation generate inverted offset");
-        return 0;
-    }
+//    private int generateInvertedOffset(int colIdx, SheetNote sheetNote) {
+//        assert colIdx == 0 || colIdx == 1;
+//        System.out.println("todo implementation generate inverted offset");
+//        return 0;
+//    }
 
     /**
      * https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
