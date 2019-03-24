@@ -3,9 +3,10 @@ package gui;
 import javafx.scene.image.Image;
 
 public enum NotePrefix {
+    FLAT("sheetNotes\\prefix_flat.png"),
     NEUTRAL("sheetNotes\\prefix_neutral.png"),
-    MAJOR("sheetNotes\\prefix_sharp.png"),
-    FLAT("sheetNotes\\prefix_flat.png");
+    SHARP("sheetNotes\\prefix_sharp.png"),
+    MUTED(null);
 
     private final static int SELECTED_PIXEL = 20;
 

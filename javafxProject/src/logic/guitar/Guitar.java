@@ -65,13 +65,15 @@ public class Guitar {
      * @return note at the specified position
      */
     protected FretboardNote translate(FretboardPos fretboardPos) {
-        NoteCircle[] noteCircle = NoteCircle.values();
-        int sum = OPEN_STRINGS[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
-        int octave = (sum / noteCircle.length) + this.OPEN_STRINGS[fretboardPos.getGuitarString()].getOctave();
-        int ordinalVal = sum % noteCircle.length;
-        FretboardNote output = new FretboardNote(noteCircle[ordinalVal], octave, fretboardPos);
-        System.out.println("Translated: " + output);
-        return output;
+//        NoteCircle[] noteCircle = NoteCircle.values();
+//        int sum = OPEN_STRINGS[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
+//        int octave = (sum / noteCircle.length) + this.OPEN_STRINGS[fretboardPos.getGuitarString()].getOctave();
+//        int ordinalVal = sum % noteCircle.length;
+//        FretboardNote output = new FretboardNote(noteCircle[ordinalVal], octave, fretboardPos);
+//        System.out.println("Translated: " + output);
+//        return output;
+
+        return null;
     }
 
     /**

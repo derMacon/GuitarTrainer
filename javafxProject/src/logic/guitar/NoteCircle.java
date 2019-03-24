@@ -11,16 +11,16 @@ import static gui.NotePrefix.*;
 
 public enum NoteCircle {
     C(new Tone[]{Tone.C}, new NotePrefix[]{NEUTRAL}),
-    C_SHARP(new Tone[]{Tone.C, Tone.D}, new NotePrefix[]{MAJOR, FLAT}),
+    C_SHARP(new Tone[]{Tone.C, Tone.D}, new NotePrefix[]{SHARP, FLAT}),
     D(new Tone[]{Tone.D}, new NotePrefix[]{NEUTRAL}),
-    D_SHARP(new Tone[]{Tone.D, Tone.E}, new NotePrefix[]{MAJOR, FLAT}),
+    D_SHARP(new Tone[]{Tone.D, Tone.E}, new NotePrefix[]{SHARP, FLAT}),
     E(new Tone[]{Tone.E}, new NotePrefix[]{NEUTRAL}),
     F(new Tone[]{Tone.F}, new NotePrefix[]{NEUTRAL}),
-    F_SHARP(new Tone[]{Tone.F, Tone.G}, new NotePrefix[]{MAJOR, FLAT}),
+    F_SHARP(new Tone[]{Tone.F, Tone.G}, new NotePrefix[]{SHARP, FLAT}),
     G(new Tone[]{Tone.G}, new NotePrefix[]{NEUTRAL}),
-    G_SHARP(new Tone[]{Tone.G, Tone.A}, new NotePrefix[]{MAJOR, FLAT}),
+    G_SHARP(new Tone[]{Tone.G, Tone.A}, new NotePrefix[]{SHARP, FLAT}),
     A(new Tone[]{Tone.A}, new NotePrefix[]{NEUTRAL}),
-    A_SHARP(new Tone[]{Tone.A, Tone.B}, new NotePrefix[]{MAJOR, FLAT}),
+    A_SHARP(new Tone[]{Tone.A, Tone.B}, new NotePrefix[]{SHARP, FLAT}),
     B(new Tone[]{Tone.B}, new NotePrefix[]{NEUTRAL});
 
     private Map<Tone, NotePrefix> notes;

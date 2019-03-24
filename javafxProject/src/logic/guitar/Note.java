@@ -1,22 +1,30 @@
 package logic.guitar;
 
+import gui.NotePrefix;
+
 public abstract class Note {
-    protected final NoteCircle id;
+    protected final Tone tone;
+    protected final NotePrefix prefix;
     protected final int octave;
     protected boolean isPlayed;
 
-    public Note(NoteCircle id, int octave, boolean isPlayed) {
-        this.id = id;
+    public Note(Tone tone, NotePrefix prefix, int octave, boolean isPlayed) {
+        this.tone = tone;
+        this.prefix = prefix;
         this.octave = octave;
         this.isPlayed = isPlayed;
     }
 
-    public NoteCircle getId() {
-        return id;
+    public Tone getTone() {
+        return tone;
     }
 
     public int getOctave() {
         return octave;
+    }
+
+    public NotePrefix getPrefix() {
+        return prefix;
     }
 
     public boolean isPlayed() {
@@ -37,12 +45,12 @@ public abstract class Note {
             return false;
         }
         Note other = (Note) o;
-        return this.id == other.id && this.octave == other.octave
+        return this.tone == other.tone && this.octave == other.octave
                 && this.isPlayed == other.isPlayed;
     }
 
     @Override
     public String toString() {
-        return "id -> " + this.id + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
+        return "tone -> " + this.tone + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
     }
 }

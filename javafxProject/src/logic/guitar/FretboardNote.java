@@ -18,7 +18,8 @@ public class FretboardNote extends Note implements Comparable {
      * @param fretboardPos position on the fretboard
      */
     public FretboardNote(NoteCircle id, int octave, FretboardPos fretboardPos) {
-        super(id, octave, true);
+//        super(id, octave, true);
+        super(null, null, 0, true);
         this.fretboardPos = fretboardPos;
     }
 
@@ -50,19 +51,19 @@ public class FretboardNote extends Note implements Comparable {
         return diff == 0 ? p1.getFret() - p2.getFret() : diff;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (null == o || !(o instanceof FretboardNote)) {
-            return false;
-        }
-        FretboardNote other = (FretboardNote) o;
-        return this.id == other.id && this.octave == other.octave && this.fretboardPos.equals(other.fretboardPos);
-    }
-
-    @Override
-    public String toString() {
-        return this.id.name() + " -> " + this.fretboardPos.toString() + ", octave: " + this.octave
-                + ", isPlayed: " + this.isPlayed;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (null == o || !(o instanceof FretboardNote)) {
+//            return false;
+//        }
+//        FretboardNote other = (FretboardNote) o;
+//        return this.id == other.id && this.octave == other.octave && this.fretboardPos.equals(other.fretboardPos);
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return this.id.name() + " -> " + this.fretboardPos.toString() + ", octave: " + this.octave
+//                + ", isPlayed: " + this.isPlayed;
+//    }
 
 }

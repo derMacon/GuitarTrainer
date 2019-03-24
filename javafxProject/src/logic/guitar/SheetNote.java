@@ -1,5 +1,10 @@
 package logic.guitar;
 
+import gui.NotePrefix;
+
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Class implementing bahavior of a sheet note. In contrast to a guitar note this note does not have a fret position
  * and also is able to iterate it's prefix.
@@ -7,20 +12,16 @@ package logic.guitar;
 public class SheetNote extends Note {
 
 
-    public SheetNote(NoteCircle id, int octave, boolean isPlayed) {
-        super(id, octave, isPlayed);
-    }
-
     public SheetNote(int offsetToLowerE) {
-        super(generateId(offsetToLowerE), generateOctave(offsetToLowerE), true);
+        super(generateId(offsetToLowerE), NotePrefix.NEUTRAL, generateOctave(offsetToLowerE), true);
     }
 
-    private static NoteCircle generateId(int offset) {
-        NoteCircle output = NoteCircle.E;
-        for (int i = 0; i < offset; i++) {
-            output = output.nextMajorTone();
-        }
-        return output;
+    public SheetNote(Tone tone, NotePrefix prefix, int octave, boolean isPlayed) {
+        super(tone, prefix, octave, isPlayed);
+    }
+
+    private static Tone generateId(int offset) {
+        return Tone.values()[offset % Tone.values().length];
     }
 
     private static int generateOctave(int offset) {
@@ -28,38 +29,40 @@ public class SheetNote extends Note {
     }
 
     public int getOffsetToLowestE() {
-        // todo throw unreported exception for out of bound notes
-        SheetNote lowestENote = new SheetNote(0);
-        int counter = 0;
-        while(this.id.getPrimaryTone() != lowestENote.getId().getPrimaryTone() || this.octave != lowestENote.getOctave()) {
-            lowestENote = lowestENote.nextMajorTone();
-            counter++;
-        }
-        return counter;
+        return this.tone.ordinal() + this.prefix.ordinal() * this.octave;
     }
 
     public SheetNote getLowestNoteOfTone() {
-        Tone baseTone = this.id.getTones().get(0);
-        NoteCircle outputId = NoteCircle.values()[0];
-        while (!outputId.getTones().contains(baseTone)) {
-            outputId = NoteCircle.values()[outputId.ordinal() + 1];
-        }
-        return new SheetNote(outputId, this.octave, this.isPlayed);
+        NotePrefix lowestPrefix = Collections.min(this.tone.getPossiblePrefix());
+        return new SheetNote(this.tone, lowestPrefix, this.octave, this.isPlayed);
     }
 
     public SheetNote nextSemiTone() {
-        NoteCircle note = this.getId().nextSemiTone();
-        return note == NoteCircle.values()[0] ?
-                new SheetNote(note, this.octave + 1, this.isPlayed)
-                : new SheetNote(note, this.octave, this.isPlayed);
+        List<NotePrefix> possiblePrefix = this.tone.getPossiblePrefix();
+        int idxNewPrefix = possiblePrefix.indexOf(this.prefix) + 1;
+        if (idxNewPrefix != possiblePrefix.size()) {
+            return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
+        }
+
+        Tone newTone = this.tone.next();
+        if (newTone.ordinal() == 0) {
+            return new SheetNote(newTone, NotePrefix.NEUTRAL, this.octave + 1, this.isPlayed);
+        } else {
+            NotePrefix newPrefix = possiblePrefix.get(idxNewPrefix % possiblePrefix.size());
+            return new SheetNote(newTone, newPrefix, this.octave, this.isPlayed);
+        }
     }
 
-    public SheetNote nextMajorTone() {
-        NoteCircle note = this.getId().nextMajorTone();
-        return note == NoteCircle.values()[0] ?
-                new SheetNote(note, this.octave + 1, this.isPlayed)
-                : new SheetNote(note, this.octave, this.isPlayed);
+    public SheetNote clearPrefix() {
+        return new SheetNote(this.tone, NotePrefix.NEUTRAL, this.octave, this.isPlayed);
     }
-
-
 }
+
+//    public SheetNote nextMajorTone() {
+//        NoteCircle note = this.getId().nextMajorTone();
+//        return note == NoteCircle.values()[0] ?
+//                new SheetNote(note, this.octave + 1, this.isPlayed)
+//                : new SheetNote(note, this.octave, this.isPlayed);
+//    }
+
+

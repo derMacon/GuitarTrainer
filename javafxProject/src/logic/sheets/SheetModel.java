@@ -42,30 +42,19 @@ public class SheetModel {
 
 
     public void pressNote(int offset) {
-        if (!this.sheetNotes[offset].isPlayed()) {
-            this.sheetNotes[offset].setPlayed(true);
+        SheetNote prevNote = this.sheetNotes[offset];
+        SheetNote currNote = prevNote;
+        if(!prevNote.isPlayed()) {
+            prevNote.setPlayed(true);
         } else {
-            iterate(offset);
+            currNote = prevNote.nextSemiTone();
+            if (prevNote.getTone() != currNote.getTone()) {
+                currNote = currNote.clearPrefix();
+                currNote.setPlayed(false);
+                this.sheetNotes[offset] = currNote;
+            }
         }
-        this.gui.updateSheetNotes(this.sheetNotes[offset]);
-    }
-
-    private void iterate(int offset) {
-        List<NoteCircle> iteratingNotes = genTraversablePrefix(offset);
-
-        int idxSelectedNote = iteratingNotes.indexOf(this.sheetNotes[offset].getId());
-        NoteCircle newId = iteratingNotes.get((idxSelectedNote + 1) % iteratingNotes.size());
-
-        if(newId == null) {
-            SheetNote mutedNote = new SheetNote(offset);
-            mutedNote.setPlayed(false);
-            this.sheetNotes[offset] = mutedNote;
-        } else {
-            SheetNote newNote = new SheetNote(newId, this.sheetNotes[offset].getOctave(),
-                    this.sheetNotes[offset].isPlayed());
-            this.sheetNotes[offset] = newNote;
-        }
-
+        this.gui.updateSheetNotes(currNote);
     }
 
     protected List<NoteCircle> genTraversablePrefix(int offset) {
@@ -73,7 +62,7 @@ public class SheetModel {
         LinkedList<NoteCircle> iteratingNotes = new LinkedList<>();
         for(NoteCircle note : NoteCircle.values()) {
             if(note.getTones().contains(baseTone)) {
-                if(note.getNotes().get(baseTone) == NotePrefix.MAJOR) {
+                if(note.getNotes().get(baseTone) == NotePrefix.SHARP) {
                     iteratingNotes.add(1, note);
                 } else {
                     iteratingNotes.add(0, note);
