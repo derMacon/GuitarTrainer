@@ -1,6 +1,7 @@
 package logic.guitar;
 
 import gui.NotePrefix;
+import logic.sheets.PrefixComparator;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +22,7 @@ public class SheetNote extends Note {
     }
 
     private static Tone generateId(int offset) {
-        return Tone.values()[offset % Tone.values().length];
+        return Tone.values()[(Tone.E.ordinal() + offset) % Tone.values().length];
     }
 
     private static int generateOctave(int offset) {
@@ -29,7 +30,7 @@ public class SheetNote extends Note {
     }
 
     public int getOffsetToLowestE() {
-        return this.tone.ordinal() + this.prefix.ordinal() * this.octave;
+        return (this.tone.ordinal() + this.octave * Tone.values().length) - Tone.E.ordinal();
     }
 
     public SheetNote getLowestNoteOfTone() {
@@ -53,16 +54,26 @@ public class SheetNote extends Note {
         }
     }
 
+    public SheetNote iteratePrefix() {
+        if(!isPlayed) {
+            this.isPlayed = true;
+            return this;
+        }
+
+        List<NotePrefix> possiblePrefix = this.tone.getPossiblePrefix();
+        Collections.sort(possiblePrefix, new PrefixComparator());
+        int idxNewPrefix = possiblePrefix.indexOf(this.prefix) + 1;
+        if (idxNewPrefix == possiblePrefix.size()) {
+            return new SheetNote(this.tone, NotePrefix.NEUTRAL, this.octave, false);
+        } else {
+            return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
+        }
+    }
+
     public SheetNote clearPrefix() {
         return new SheetNote(this.tone, NotePrefix.NEUTRAL, this.octave, this.isPlayed);
     }
 }
 
-//    public SheetNote nextMajorTone() {
-//        NoteCircle note = this.getId().nextMajorTone();
-//        return note == NoteCircle.values()[0] ?
-//                new SheetNote(note, this.octave + 1, this.isPlayed)
-//                : new SheetNote(note, this.octave, this.isPlayed);
-//    }
 
 

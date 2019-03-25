@@ -51,6 +51,6 @@ public abstract class Note {
 
     @Override
     public String toString() {
-        return "tone -> " + this.tone + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
+        return "tone -> " + this.tone + "_" + this.prefix.name() + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
     }
 }

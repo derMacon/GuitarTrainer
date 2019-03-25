@@ -73,6 +73,8 @@ public class Guitar {
 //        System.out.println("Translated: " + output);
 //        return output;
 
+        System.out.println("todo guitar - translate");
+
         return null;
     }
 

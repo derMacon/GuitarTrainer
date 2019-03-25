@@ -131,4 +131,17 @@ public class SheetNoteTest {
         Assert.assertEquals(new SheetNote(Tone.D, NotePrefix.SHARP, 0, true), input.getLowestNoteOfTone());
     }
 
+
+    @Test
+    public void testIteratePrefix() {
+        SheetNote note = new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, true);
+        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.SHARP, 0, true), note);
+        note = note.iteratePrefix();
+        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.FLAT, 0, true), note);
+        note = note.iteratePrefix();
+        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, false), note);
+        note = note.iteratePrefix();
+        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.SHARP, 0, true), note);
+    }
+
 }

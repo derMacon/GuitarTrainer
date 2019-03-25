@@ -1,5 +1,7 @@
 package logic.guitar;
 
+import gui.NotePrefix;
+
 /**
  * Note on the fret board of a the guitar
  */
@@ -20,6 +22,11 @@ public class FretboardNote extends Note implements Comparable {
     public FretboardNote(NoteCircle id, int octave, FretboardPos fretboardPos) {
 //        super(id, octave, true);
         super(null, null, 0, true);
+        this.fretboardPos = fretboardPos;
+    }
+
+    public FretboardNote(Tone tone, NotePrefix prefix, int octave, boolean isPlayed, FretboardPos fretboardPos) {
+        super(tone, prefix, octave, isPlayed);
         this.fretboardPos = fretboardPos;
     }
 

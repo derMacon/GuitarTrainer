@@ -1,14 +1,8 @@
 package logic.sheets;
 
-import gui.NotePrefix;
 import logic.audio.AudioConnector;
-import logic.guitar.NoteCircle;
 import logic.guitar.SheetNote;
-import logic.guitar.Tone;
 import logic.organization.GUIConnector;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class SheetModel {
 
@@ -42,38 +36,26 @@ public class SheetModel {
 
 
     public void pressNote(int offset) {
-        SheetNote prevNote = this.sheetNotes[offset];
-        SheetNote currNote = prevNote;
-        if(!prevNote.isPlayed()) {
-            prevNote.setPlayed(true);
-        } else {
-            currNote = prevNote.nextSemiTone();
-            if (prevNote.getTone() != currNote.getTone()) {
-                currNote = currNote.clearPrefix();
-                currNote.setPlayed(false);
-                this.sheetNotes[offset] = currNote;
-            }
-        }
-        this.gui.updateSheetNotes(currNote);
-    }
-
-    protected List<NoteCircle> genTraversablePrefix(int offset) {
-        Tone baseTone = Tone.translateToTone(offset);
-        LinkedList<NoteCircle> iteratingNotes = new LinkedList<>();
-        for(NoteCircle note : NoteCircle.values()) {
-            if(note.getTones().contains(baseTone)) {
-                if(note.getNotes().get(baseTone) == NotePrefix.SHARP) {
-                    iteratingNotes.add(1, note);
-                } else {
-                    iteratingNotes.add(0, note);
-                }
-            }
-        }
-        iteratingNotes.add(null);
-        return iteratingNotes;
+        this.sheetNotes[offset] = this.sheetNotes[offset].iteratePrefix();
+        this.gui.updateSheetNotes(this.sheetNotes[offset]);
     }
 
 
+//    protected List<NoteCircle> genTraversablePrefix(int offset) {
+//        Tone baseTone = Tone.translateToTone(offset);
+//        LinkedList<NoteCircle> iteratingNotes = new LinkedList<>();
+//        for(NoteCircle note : NoteCircle.values()) {
+//            if(note.getTones().contains(baseTone)) {
+//                if(note.getNotes().get(baseTone) == NotePrefix.SHARP) {
+//                    iteratingNotes.add(1, note);
+//                } else {
+//                    iteratingNotes.add(0, note);
+//                }
+//            }
+//        }
+//        iteratingNotes.add(null);
+//        return iteratingNotes;
+//    }
 
 
 //    private void iterate(int offset) {
