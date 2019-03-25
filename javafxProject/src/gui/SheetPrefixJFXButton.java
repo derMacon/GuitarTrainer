@@ -6,15 +6,15 @@ import javafx.scene.image.ImageView;
 public class SheetPrefixJFXButton extends JFXButton {
 
     private int lineOffset;
-    private NotePrefix del;
+    private Prefix del;
 
     public SheetPrefixJFXButton(int offset) {
         this.lineOffset = offset;
-        del = NotePrefix.NEUTRAL;
+        del = Prefix.NEUTRAL;
     }
 
     public void iterateButton() {
-        del = NotePrefix.values()[(del.ordinal() + 1) % NotePrefix.values().length];
+        del = Prefix.values()[(del.ordinal() + 1) % Prefix.values().length];
         this.setGraphic(new ImageView(del.getImg()));
     }
 
@@ -22,7 +22,7 @@ public class SheetPrefixJFXButton extends JFXButton {
         return lineOffset;
     }
 
-    public NotePrefix getPrefix() {
+    public Prefix getPrefix() {
         return del;
     }
 }

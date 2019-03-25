@@ -9,8 +9,6 @@ import logic.guitar.FretboardNote;
 import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
 
-import java.util.ArrayList;
-
 public class JavaFXGui implements GUIConnector {
 
     private static final int NOTES_BETWEEN_LINES = 0;
@@ -53,7 +51,7 @@ public class JavaFXGui implements GUIConnector {
         ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
 
         if (sheetNote.isPlayed()) {
-            NotePrefix currPrefix = sheetNote.getPrefix();
+            Prefix currPrefix = sheetNote.getPrefix();
             prefix.setImage(currPrefix.getImg());
             note.setImage(NOTE_SHEET_MUSIC);
         } else {

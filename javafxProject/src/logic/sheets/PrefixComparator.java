@@ -1,38 +1,38 @@
 package logic.sheets;
 
-import gui.NotePrefix;
+import gui.Prefix;
 
 import java.util.Comparator;
 
-public class PrefixComparator implements Comparator<NotePrefix> {
+public class PrefixComparator implements Comparator<Prefix> {
 
 
     @Override
-    public int compare(NotePrefix o1, NotePrefix o2) {
+    public int compare(Prefix o1, Prefix o2) {
         assert null != o1 && null != o2;
 
-        if(o1 == NotePrefix.FLAT) {
+        if(o1 == Prefix.FLAT) {
             return 1;
         }
-        if(o2 == NotePrefix.FLAT) {
+        if(o2 == Prefix.FLAT) {
             return -1;
         }
 
-        if(o1 == NotePrefix.SHARP) {
+        if(o1 == Prefix.SHARP) {
             return 1;
         }
-        if(o2 == NotePrefix.SHARP) {
+        if(o2 == Prefix.SHARP) {
             return -1;
         }
 
-        if(o1 == NotePrefix.NEUTRAL) {
+        if(o1 == Prefix.NEUTRAL) {
             return 1;
         }
-        if(o2 == NotePrefix.NEUTRAL) {
+        if(o2 == Prefix.NEUTRAL) {
             return -1;
         }
 
-        if(o1 == NotePrefix.MUTED) {
+        if(o1 == Prefix.MUTED) {
             return 1;
         } else {
             return -1;

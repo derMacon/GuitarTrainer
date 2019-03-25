@@ -1,5 +1,6 @@
 package logic.guitar;
 
+import gui.Prefix;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
@@ -12,12 +13,12 @@ import logic.organization.GUIConnector;
 public class Guitar {
 
     protected static final FretboardNote[] OPEN_STRINGS = new FretboardNote[]{
-            new FretboardNote(NoteCircle.E, 2, new FretboardPos(0, 0)),
-            new FretboardNote(NoteCircle.B, 1, new FretboardPos(1, 0)),
-            new FretboardNote(NoteCircle.G, 1, new FretboardPos(2, 0)),
-            new FretboardNote(NoteCircle.D, 1, new FretboardPos(3, 0)),
-            new FretboardNote(NoteCircle.A, 0, new FretboardPos(4, 0)),
-            new FretboardNote(NoteCircle.E, 0, new FretboardPos(5, 0))};
+            new FretboardNote(Tone.E, Prefix.NEUTRAL, 2, true, new FretboardPos(0, 0)),
+            new FretboardNote(Tone.B, Prefix.NEUTRAL, 1, true, new FretboardPos(1, 0)),
+            new FretboardNote(Tone.G, Prefix.NEUTRAL, 1, true, new FretboardPos(2, 0)),
+            new FretboardNote(Tone.D, Prefix.NEUTRAL, 1, true, new FretboardPos(3, 0)),
+            new FretboardNote(Tone.A, Prefix.NEUTRAL, 0, true, new FretboardPos(4, 0)),
+            new FretboardNote(Tone.E, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 0))};
 
     protected FretboardNote[] pressedStrings;
     private final GUIConnector gui;
@@ -25,7 +26,8 @@ public class Guitar {
 
     /**
      * Constructor setting gui and the audio converter component
-     * @param gui GuiConnector component connecting logic to the gui
+     *
+     * @param gui            GuiConnector component connecting logic to the gui
      * @param audioConverter audio converter to make it possible to play notes from the guitar
      */
     public Guitar(GUIConnector gui, AudioConverter audioConverter) {
@@ -37,6 +39,7 @@ public class Guitar {
 
     /**
      * Default constructor
+     *
      * @param gui GuiConnector component connecting logic to the gui
      */
     public Guitar(GUIConnector gui) {
@@ -45,6 +48,7 @@ public class Guitar {
 
     /**
      * Presses a note on the guitar
+     *
      * @param fretboardPos note to be pressed
      */
     public void pressNote(FretboardPos fretboardPos) {
@@ -61,6 +65,7 @@ public class Guitar {
 
     /**
      * Translates a given position to a note
+     *
      * @param fretboardPos position of the note
      * @return note at the specified position
      */
@@ -73,13 +78,16 @@ public class Guitar {
 //        System.out.println("Translated: " + output);
 //        return output;
 
-        System.out.println("todo guitar - translate");
-
-        return null;
+        FretboardNote note = OPEN_STRINGS[fretboardPos.getGuitarString()];
+        for (int i = 0; i < fretboardPos.getFret(); i++) {
+            note = note.nextSemiTone();
+        }
+        return note;
     }
 
     /**
      * Updates a given guitaar string
+     *
      * @param fretboardNote note on the guitar neck from which the base string will be updated
      * @return the previously selected note from the input note's base string
      */
@@ -109,6 +117,7 @@ public class Guitar {
      * Updates the pressed notes of the instance according to the given input note.
      * When the input note is already in the set of previously selected notes the same notes play status will be
      * inverted (muted, etc.)
+     *
      * @param fretboardNote note the user selected on the guitar
      * @return the newly pressed / updated note
      */

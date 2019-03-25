@@ -1,26 +1,26 @@
 package logic.guitar;
 
-import gui.NotePrefix;
+import gui.Prefix;
 
 import java.util.Arrays;
 import java.util.List;
 
 public enum Tone {
-    C(NotePrefix.NEUTRAL, NotePrefix.SHARP),
-    D(NotePrefix.FLAT, NotePrefix.NEUTRAL, NotePrefix.SHARP),
-    E(NotePrefix.FLAT, NotePrefix.NEUTRAL),
-    F(NotePrefix.NEUTRAL, NotePrefix.SHARP),
-    G(NotePrefix.FLAT, NotePrefix.NEUTRAL, NotePrefix.SHARP),
-    A(NotePrefix.FLAT, NotePrefix.NEUTRAL, NotePrefix.SHARP),
-    B(NotePrefix.FLAT, NotePrefix.NEUTRAL);
+    C(Prefix.NEUTRAL, Prefix.SHARP),
+    D(Prefix.FLAT, Prefix.NEUTRAL, Prefix.SHARP),
+    E(Prefix.FLAT, Prefix.NEUTRAL),
+    F(Prefix.NEUTRAL, Prefix.SHARP),
+    G(Prefix.FLAT, Prefix.NEUTRAL, Prefix.SHARP),
+    A(Prefix.FLAT, Prefix.NEUTRAL, Prefix.SHARP),
+    B(Prefix.FLAT, Prefix.NEUTRAL);
 
-    private final List<NotePrefix> possiblePrefix;
+    private final List<Prefix> possiblePrefix;
 
-    Tone(NotePrefix... possiblePrefix) {
+    Tone(Prefix... possiblePrefix) {
         this.possiblePrefix = Arrays.asList(possiblePrefix);
     }
 
-    public List<NotePrefix> getPossiblePrefix() {
+    public List<Prefix> getPossiblePrefix() {
         return possiblePrefix;
     }
 

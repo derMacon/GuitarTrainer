@@ -1,6 +1,6 @@
 package logic.guitar;
 
-import gui.NotePrefix;
+import gui.Prefix;
 
 /**
  * Note on the fret board of a the guitar
@@ -33,7 +33,7 @@ public class FretboardNote extends Note implements Comparable {
      * @param isPlayed flag to state if note is muted or not
      * @param fretboardPos fretboard position of the note
      */
-    public FretboardNote(Tone tone, NotePrefix prefix, int octave, boolean isPlayed, FretboardPos fretboardPos) {
+    public FretboardNote(Tone tone, Prefix prefix, int octave, boolean isPlayed, FretboardPos fretboardPos) {
         super(tone, prefix, octave, isPlayed);
         this.fretboardPos = fretboardPos;
     }
@@ -55,6 +55,20 @@ public class FretboardNote extends Note implements Comparable {
     public int getBaseString() {
         return this.fretboardPos.getGuitarString();
     }
+
+
+    public FretboardNote nextSemiTone() {
+        int this_noteOrd = NoteCircle.getId(tone, prefix).ordinal();
+
+        NoteCircle next_id = NoteCircle.values()[(this_noteOrd + 1) % NoteCircle.values().length];
+        Tone next_tone = next_id.getPrimaryTone();
+        Prefix next_prefix = next_id.getNotes().get(next_tone);
+        int next_octave = next_tone.ordinal() == 0 ? this.octave + 1 : this.octave;
+        boolean next_isPlayed = this.isPlayed;
+
+        return new FretboardNote(next_tone, next_prefix, next_octave, next_isPlayed, this.fretboardPos.incFret());
+    }
+
 
     @Override
     public int compareTo(Object o) {

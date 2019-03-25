@@ -1,6 +1,6 @@
 package logic.guitar;
 
-import gui.NotePrefix;
+import gui.Prefix;
 import logic.sheets.PrefixComparator;
 
 import java.util.Collections;
@@ -14,10 +14,10 @@ public class SheetNote extends Note {
 
 
     public SheetNote(int offsetToLowerE) {
-        super(generateId(offsetToLowerE), NotePrefix.NEUTRAL, generateOctave(offsetToLowerE), true);
+        super(generateId(offsetToLowerE), Prefix.NEUTRAL, generateOctave(offsetToLowerE), true);
     }
 
-    public SheetNote(Tone tone, NotePrefix prefix, int octave, boolean isPlayed) {
+    public SheetNote(Tone tone, Prefix prefix, int octave, boolean isPlayed) {
         super(tone, prefix, octave, isPlayed);
     }
 
@@ -34,12 +34,12 @@ public class SheetNote extends Note {
     }
 
     public SheetNote getLowestNoteOfTone() {
-        NotePrefix lowestPrefix = Collections.min(this.tone.getPossiblePrefix());
+        Prefix lowestPrefix = Collections.min(this.tone.getPossiblePrefix());
         return new SheetNote(this.tone, lowestPrefix, this.octave, this.isPlayed);
     }
 
     public SheetNote nextSemiTone() {
-        List<NotePrefix> possiblePrefix = this.tone.getPossiblePrefix();
+        List<Prefix> possiblePrefix = this.tone.getPossiblePrefix();
         int idxNewPrefix = possiblePrefix.indexOf(this.prefix) + 1;
         if (idxNewPrefix != possiblePrefix.size()) {
             return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
@@ -47,9 +47,9 @@ public class SheetNote extends Note {
 
         Tone newTone = this.tone.next();
         if (newTone.ordinal() == 0) {
-            return new SheetNote(newTone, NotePrefix.NEUTRAL, this.octave + 1, this.isPlayed);
+            return new SheetNote(newTone, Prefix.NEUTRAL, this.octave + 1, this.isPlayed);
         } else {
-            NotePrefix newPrefix = possiblePrefix.get(idxNewPrefix % possiblePrefix.size());
+            Prefix newPrefix = possiblePrefix.get(idxNewPrefix % possiblePrefix.size());
             return new SheetNote(newTone, newPrefix, this.octave, this.isPlayed);
         }
     }
@@ -60,18 +60,18 @@ public class SheetNote extends Note {
             return this;
         }
 
-        List<NotePrefix> possiblePrefix = this.tone.getPossiblePrefix();
+        List<Prefix> possiblePrefix = this.tone.getPossiblePrefix();
         Collections.sort(possiblePrefix, new PrefixComparator());
         int idxNewPrefix = possiblePrefix.indexOf(this.prefix) + 1;
         if (idxNewPrefix == possiblePrefix.size()) {
-            return new SheetNote(this.tone, NotePrefix.NEUTRAL, this.octave, false);
+            return new SheetNote(this.tone, Prefix.NEUTRAL, this.octave, false);
         } else {
             return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
         }
     }
 
     public SheetNote clearPrefix() {
-        return new SheetNote(this.tone, NotePrefix.NEUTRAL, this.octave, this.isPlayed);
+        return new SheetNote(this.tone, Prefix.NEUTRAL, this.octave, this.isPlayed);
     }
 }
 

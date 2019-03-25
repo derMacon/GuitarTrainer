@@ -82,7 +82,6 @@ public class AudioConverter implements AudioConnector {
      * @return specific audio file corresponding to a given note
      */
     private File loadAudioFile(Note note) {
-//        return this.audioFiles.get(note.getId().ordinal()).get(note.getOctave());
-        return null;
+        return this.audioFiles.get(NoteCircle.getId(note).ordinal()).get(note.getOctave());
     }
 }

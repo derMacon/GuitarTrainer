@@ -1,6 +1,6 @@
 package logic.guitar;
 
-import gui.NotePrefix;
+import gui.Prefix;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -124,24 +124,24 @@ public class SheetNoteTest {
 //
     @Test
     public void testGetLowestNoteOfTone() {
-        SheetNote input = new SheetNote(Tone.D, NotePrefix.NEUTRAL, 0, true);
-        Assert.assertEquals(new SheetNote(Tone.C, NotePrefix.SHARP, 0, true), input.getLowestNoteOfTone());
+        SheetNote input = new SheetNote(Tone.D, Prefix.NEUTRAL, 0, true);
+        Assert.assertEquals(new SheetNote(Tone.C, Prefix.SHARP, 0, true), input.getLowestNoteOfTone());
 
-        input = new SheetNote(Tone.E, NotePrefix.NEUTRAL, 0, true);
-        Assert.assertEquals(new SheetNote(Tone.D, NotePrefix.SHARP, 0, true), input.getLowestNoteOfTone());
+        input = new SheetNote(Tone.E, Prefix.NEUTRAL, 0, true);
+        Assert.assertEquals(new SheetNote(Tone.D, Prefix.SHARP, 0, true), input.getLowestNoteOfTone());
     }
 
 
     @Test
     public void testIteratePrefix() {
-        SheetNote note = new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, true);
-        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.SHARP, 0, true), note);
+        SheetNote note = new SheetNote(Tone.G, Prefix.NEUTRAL, 0, true);
+        Assert.assertEquals(new SheetNote(Tone.G, Prefix.SHARP, 0, true), note);
         note = note.iteratePrefix();
-        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.FLAT, 0, true), note);
+        Assert.assertEquals(new SheetNote(Tone.G, Prefix.FLAT, 0, true), note);
         note = note.iteratePrefix();
-        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, false), note);
+        Assert.assertEquals(new SheetNote(Tone.G, Prefix.NEUTRAL, 0, false), note);
         note = note.iteratePrefix();
-        Assert.assertEquals(new SheetNote(Tone.G, NotePrefix.SHARP, 0, true), note);
+        Assert.assertEquals(new SheetNote(Tone.G, Prefix.SHARP, 0, true), note);
     }
 
 }

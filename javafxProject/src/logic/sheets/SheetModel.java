@@ -46,7 +46,7 @@ public class SheetModel {
 //        LinkedList<NoteCircle> iteratingNotes = new LinkedList<>();
 //        for(NoteCircle note : NoteCircle.values()) {
 //            if(note.getTones().contains(baseTone)) {
-//                if(note.getNotes().get(baseTone) == NotePrefix.SHARP) {
+//                if(note.getNotes().get(baseTone) == Prefix.SHARP) {
 //                    iteratingNotes.add(1, note);
 //                } else {
 //                    iteratingNotes.add(0, note);

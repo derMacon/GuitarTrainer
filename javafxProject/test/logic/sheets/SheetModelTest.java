@@ -1,21 +1,12 @@
 package logic.sheets;
 
-import gui.NotePrefix;
+import gui.Prefix;
 import logic.guitar.FakeAudioConverter;
 import logic.guitar.FakeGui;
-import logic.guitar.Note;
-import logic.guitar.NoteCircle;
 import logic.guitar.SheetNote;
 import logic.guitar.Tone;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class SheetModelTest {
 
@@ -40,7 +31,7 @@ public class SheetModelTest {
         sheets.pressNote(0);
         SheetNote[] actOutput = sheets.getSheetNotes();
         SheetNote[] expOutput = initSheetNoteArray();
-        SheetNote pressedNote = new SheetNote(Tone.E, NotePrefix.NEUTRAL, 0, true);
+        SheetNote pressedNote = new SheetNote(Tone.E, Prefix.NEUTRAL, 0, true);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
 
@@ -62,7 +53,7 @@ public class SheetModelTest {
         sheets.pressNote(2);
         SheetNote[] actOutput = sheets.getSheetNotes();
         SheetNote[] expOutput = initSheetNoteArray();
-        SheetNote pressedNote = new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, true);
+        SheetNote pressedNote = new SheetNote(Tone.G, Prefix.NEUTRAL, 0, true);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
 
@@ -70,7 +61,7 @@ public class SheetModelTest {
         sheets.pressNote(2);
         actOutput = sheets.getSheetNotes();
         expOutput = initSheetNoteArray();
-        pressedNote = new SheetNote(Tone.G, NotePrefix.SHARP, 0, true);
+        pressedNote = new SheetNote(Tone.G, Prefix.SHARP, 0, true);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
 
@@ -78,7 +69,7 @@ public class SheetModelTest {
         sheets.pressNote(2);
         actOutput = sheets.getSheetNotes();
         expOutput = initSheetNoteArray();
-        pressedNote = new SheetNote(Tone.G, NotePrefix.FLAT, 0, true);
+        pressedNote = new SheetNote(Tone.G, Prefix.FLAT, 0, true);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
 
@@ -86,7 +77,7 @@ public class SheetModelTest {
         sheets.pressNote(2);
         actOutput = sheets.getSheetNotes();
         expOutput = initSheetNoteArray();
-        pressedNote = new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, false);
+        pressedNote = new SheetNote(Tone.G, Prefix.NEUTRAL, 0, false);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
 
@@ -94,7 +85,7 @@ public class SheetModelTest {
         sheets.pressNote(2);
         actOutput = sheets.getSheetNotes();
         expOutput = initSheetNoteArray();
-        pressedNote = new SheetNote(Tone.G, NotePrefix.NEUTRAL, 0, true);
+        pressedNote = new SheetNote(Tone.G, Prefix.NEUTRAL, 0, true);
         expOutput[pressedNote.getOffsetToLowestE()] = pressedNote;
         Assert.assertArrayEquals(expOutput, actOutput);
     }

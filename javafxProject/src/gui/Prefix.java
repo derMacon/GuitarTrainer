@@ -2,7 +2,7 @@ package gui;
 
 import javafx.scene.image.Image;
 
-public enum NotePrefix {
+public enum Prefix {
     FLAT("sheetNotes\\prefix_flat.png"),
     NEUTRAL("sheetNotes\\prefix_neutral.png"),
     SHARP("sheetNotes\\prefix_sharp.png"),
@@ -12,7 +12,7 @@ public enum NotePrefix {
 
     private String imgPath;
 
-    NotePrefix(String imgPath) {
+    Prefix(String imgPath) {
         this.imgPath = imgPath;
     }
 

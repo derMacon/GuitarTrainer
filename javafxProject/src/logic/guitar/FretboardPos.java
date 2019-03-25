@@ -44,6 +44,10 @@ public class FretboardPos {
         return fret;
     }
 
+    public FretboardPos incFret() {
+        return new FretboardPos(this.guitarString, this.fret + 1);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (null == o || !(o instanceof FretboardPos)) {

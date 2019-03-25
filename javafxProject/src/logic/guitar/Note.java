@@ -1,14 +1,14 @@
 package logic.guitar;
 
-import gui.NotePrefix;
+import gui.Prefix;
 
 public abstract class Note {
     protected final Tone tone;
-    protected final NotePrefix prefix;
+    protected final Prefix prefix;
     protected final int octave;
     protected boolean isPlayed;
 
-    public Note(Tone tone, NotePrefix prefix, int octave, boolean isPlayed) {
+    public Note(Tone tone, Prefix prefix, int octave, boolean isPlayed) {
         this.tone = tone;
         this.prefix = prefix;
         this.octave = octave;
@@ -23,7 +23,7 @@ public abstract class Note {
         return octave;
     }
 
-    public NotePrefix getPrefix() {
+    public Prefix getPrefix() {
         return prefix;
     }
 
