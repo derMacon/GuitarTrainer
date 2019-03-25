@@ -192,7 +192,7 @@ public class GuitarFretboardController implements Initializable {
         GridPane[] sheetNotes = new GridPane[]{this.grdPn_sheetNotes_onLines, this.grdPn_sheetNotes_betweenLines};
 
         this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, sheetNotes, this.btn_replay),
-                new AudioConverter());
+                new AudioConverter(), Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
     }
 
 

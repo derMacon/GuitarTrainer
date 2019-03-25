@@ -16,6 +16,7 @@ public class FlowOrganizer implements Organized {
     private Guitar guitar;
     private Trainer trainer;
     private SheetModel sheets;
+    private Mode mode;
 
 
     /**
@@ -24,14 +25,17 @@ public class FlowOrganizer implements Organized {
      * @param gui       gui attribute connecting the logic with the gui
      * @param audioConv audio converter making it possible to play given notes
      */
-    public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
+    public FlowOrganizer(GUIConnector gui, AudioConverter audioConv, Mode mode) {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
         this.sheets = new SheetModel(gui, audioConv);
+        this.mode = mode;
     }
 
     @Override
     public void interpretMode(Mode mode) {
+        this.mode = mode;
+        // todo maybe reavaluate if trainer needs mode...
         trainer.setMode(mode);
     }
 
