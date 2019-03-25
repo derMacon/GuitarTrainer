@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.TextAlignment;
 import logic.audio.AudioConverter;
 import logic.guitar.FretboardPos;
 import logic.organization.FlowOrganizer;
@@ -183,7 +184,6 @@ public class GuitarFretboardController implements Initializable {
         initSheet();
         initDescription();
 
-
         GridPane[] frets = new GridPane[]{grdPn_fret0, grdPn_fret1, grdPn_fret2, grdPn_fret3, grdPn_fret4,
                 grdPn_fret5, grdPn_fret6, grdPn_fret7, grdPn_fret8, grdPn_fret9, grdPn_fret10, grdPn_fret11,
                 grdPn_fret12, grdPn_fret13, grdPn_fret14, grdPn_fret15, grdPn_fret16, grdPn_fret17, grdPn_fret18,
@@ -200,10 +200,10 @@ public class GuitarFretboardController implements Initializable {
 
     private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
         btn.setStyle(
-                "-fx-background-color: #d6e1fc;\n" +
-                        "-fx-font-family: \"Forte\";\n" +
-                        "-fx-graphic-text-gap: 15;\n" +
-                        "-fx-font-size: 35;");
+                "-fx-background-color: #d6e1fc;\n"
+                        + "-fx-font-family: \"Forte\";\n"
+                        + "-fx-graphic-text-gap: 15;\n"
+                        + "-fx-font-size: 35;");
         btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
         btn.setButtonType(JFXButton.ButtonType.RAISED);
         btn.setRipplerFill(Paint.valueOf("#ffffff"));
@@ -214,12 +214,15 @@ public class GuitarFretboardController implements Initializable {
         btn.setGraphic(glypIcon);
     }
 
+    /**
+     * Initializes the reset button
+     */
     private void initResetButton() {
         this.btn_reset.setStyle(
-                "-fx-background-color: transparent;\n" +
-                        "-fx-font-family: \"Forte\";\n" +
-                        "-fx-graphic-text-gap: 15;\n" +
-                        "-fx-font-size: 28;");
+                "-fx-background-color: transparent;\n"
+                        + "-fx-font-family: \"Forte\";\n"
+                        + "-fx-graphic-text-gap: 15;\n"
+                        + "-fx-font-size: 28;");
         this.btn_reset.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
         this.btn_reset.setButtonType(JFXButton.ButtonType.FLAT);
         this.btn_reset.setRipplerFill(Paint.valueOf("#ffffff"));
@@ -230,6 +233,9 @@ public class GuitarFretboardController implements Initializable {
         this.btn_reset.setGraphic(glypIcon);
     }
 
+    /**
+     * Initializes the guitar fret texture
+     */
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
         double parentHeight = this.imgParent.getBoundsInParent().getHeight();
@@ -242,11 +248,19 @@ public class GuitarFretboardController implements Initializable {
         this.imgBase.setY(this.imgBase.getParent().getTranslateY());
     }
 
+    /**
+     * Initializes the note pad texture
+     */
     private void initNotePadTexture() {
         this.img_sticky_right.setImage(new Image(STICKY_NOTE_RIGHT_TEXTURE_PATH));
         this.img_sticky_left.setImage(new Image(STICKY_NOTE_LEFT_TEXTURE_PATH));
     }
 
+    /**
+     * Inits the givin menu item with the a given icon
+     * @param mnItem menu item to initialize
+     * @param icon icon that will be shown on the menu item
+     */
     private void initMenu(MenuItem mnItem, FontAwesomeIcon icon) {
         GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
                 .glyph(icon)
@@ -255,6 +269,9 @@ public class GuitarFretboardController implements Initializable {
         mnItem.setGraphic(glypIcon);
     }
 
+    /**
+     * Initializes the clef texture
+     */
     private void initClefTexture() {
         this.imgVw_clefTexture.setImage(new Image(CLEF_TEXTURE_PATH));
     }
@@ -288,6 +305,9 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Initializes sheet gridpanes
+     */
     private void initSheet() {
         // inits buttons user interacts with
 //        int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
@@ -307,16 +327,27 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Initializes the pagination
+     */
     private void initDescription() {
         this.pgn_modes.setPageCount(Mode.values().length);
         this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
     }
 
+    /**
+     * Page factory for the pagination
+     * @param idx index of the page
+     * @return page for the given index
+     */
     private Label changeMode(Integer idx) {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
-        return new Label(Mode.values()[idx].getDescr());
+        Label label = new Label(Mode.values()[idx].getDescr());
+        label.setTextAlignment(TextAlignment.CENTER);
+        return label;
     }
 
+    // todo maybe delete this button
     private SheetNoteJFXButton createSheetNoteButton(int noteOffset) {
         SheetNoteJFXButton button = new SheetNoteJFXButton(noteOffset);
 //        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
@@ -324,13 +355,6 @@ public class GuitarFretboardController implements Initializable {
         button.setOnAction(e -> sheetNoteButtonPressed(button));
         return button;
     }
-
-//    private JFXButton createSheetNoteUserBtn() {
-//        SheetNoteJFXButton btn = new SheetNoteJFXButton();
-//        btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//        btn.setOnAction(e -> sheetNoteButtonPressed(btn));
-//
-//    }
 
     private void sheetNoteButtonPressed(SheetNoteJFXButton btn) {
 //        btn.invertGraphic();

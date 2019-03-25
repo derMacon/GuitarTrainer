@@ -25,6 +25,14 @@ public class FretboardNote extends Note implements Comparable {
         this.fretboardPos = fretboardPos;
     }
 
+    /**
+     * Constructor setting all attribute
+     * @param tone tone to set
+     * @param prefix prefix of the note
+     * @param octave octave of the note
+     * @param isPlayed flag to state if note is muted or not
+     * @param fretboardPos fretboard position of the note
+     */
     public FretboardNote(Tone tone, NotePrefix prefix, int octave, boolean isPlayed, FretboardPos fretboardPos) {
         super(tone, prefix, octave, isPlayed);
         this.fretboardPos = fretboardPos;

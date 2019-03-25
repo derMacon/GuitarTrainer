@@ -5,6 +5,9 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Super type for buttons with images on them
+ */
 public class ImageButton extends JFXButton {
     private final int imgPixelLength;
     private final Image selectedImg;

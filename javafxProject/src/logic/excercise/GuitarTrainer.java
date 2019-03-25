@@ -7,12 +7,20 @@ import logic.guitar.SheetNote;
 import logic.organization.GUIConnector;
 import logic.organization.Mode;
 
+/**
+ * Implementation of the guitar trainer interface needed for the excercise modes
+ */
 public class GuitarTrainer implements Trainer {
 
     private GUIConnector gui;
     private AudioConnector audioConv;
     private Mode mode;
 
+    /**
+     * Constructor setting up the gui and audioocnverter
+     * @param gui Guiconnector needed to display the steps of the logic on the gui
+     * @param audioConverter audioconverter needed to play the corresponding audio file
+     */
     public GuitarTrainer(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
         this.audioConv = audioConverter;
