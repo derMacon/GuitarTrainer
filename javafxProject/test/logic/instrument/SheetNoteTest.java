@@ -1,6 +1,9 @@
-package logic.guitar;
+package logic.instrument;
 
-import gui.Prefix;
+import logic.note.Prefix;
+import logic.note.NoteFactory;
+import logic.note.SheetNote;
+import logic.note.Tone;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,99 +18,99 @@ public class SheetNoteTest {
     @Test
     public void testGetLowestE() {
         int inputOffset = 0;
-        SheetNote note = new SheetNote(inputOffset);
+        SheetNote note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 1;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 2;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 3;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 4;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 5;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 6;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 7;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 8;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 9;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 10;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 11;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 12;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 13;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 14;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 15;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 16;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 17;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 18;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 19;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 20;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 21;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 22;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
 
         inputOffset = 23;
-        note = new SheetNote(inputOffset);
+        note = NoteFactory.createSheetNote(inputOffset);
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
     }
 

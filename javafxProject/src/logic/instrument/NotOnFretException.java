@@ -1,4 +1,4 @@
-package logic.guitar;
+package logic.instrument;
 
 public class NotOnFretException extends Exception {
 

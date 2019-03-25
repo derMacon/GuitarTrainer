@@ -1,6 +1,6 @@
 package logic.organization;
 
-import logic.guitar.FretboardPos;
+import logic.instrument.FretboardPos;
 
 public interface Organized {
     void playExcercise();

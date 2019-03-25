@@ -3,9 +3,13 @@ package logic.organization;
 import logic.audio.AudioConverter;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
-import logic.guitar.FretboardPos;
-import logic.guitar.Guitar;
-import logic.sheets.SheetModel;
+import logic.instrument.FretboardNote;
+import logic.instrument.FretboardPos;
+import logic.instrument.Guitar;
+import logic.note.SheetNote;
+import logic.instrument.Instrument;
+import logic.note.NoteFactory;
+import logic.instrument.SheetModel;
 
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
@@ -13,9 +17,9 @@ import logic.sheets.SheetModel;
  */
 public class FlowOrganizer implements Organized {
 
-    private Guitar guitar;
+    private Instrument<FretboardNote> guitar;
+    private Instrument<SheetNote> sheets;
     private Trainer trainer;
-    private SheetModel sheets;
     private Mode mode;
 
 
@@ -56,13 +60,13 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
-        this.guitar.pressNote(fretboardPos);
+        this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
     }
 
 
     @Override
     public void sheetNotePressed(int offset) {
-        this.sheets.pressNote(offset);
+        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
     }
 
 

@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.scene.image.Image;
+import logic.note.Prefix;
 
 public class NoteImage extends Image {
 

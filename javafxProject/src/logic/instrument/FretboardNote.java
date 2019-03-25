@@ -1,9 +1,12 @@
-package logic.guitar;
+package logic.instrument;
 
-import gui.Prefix;
+import logic.note.Prefix;
+import logic.note.Note;
+import logic.note.NoteCircle;
+import logic.note.Tone;
 
 /**
- * Note on the fret board of a the guitar
+ * Note on the fret board of a the instrument
  */
 public class FretboardNote extends Note implements Comparable {
 
@@ -20,6 +23,7 @@ public class FretboardNote extends Note implements Comparable {
      * @param fretboardPos position on the fretboard
      */
     public FretboardNote(NoteCircle id, int octave, FretboardPos fretboardPos) {
+        // todo delete this constructor
 //        super(id, octave, true);
         super(null, null, 0, true);
         this.fretboardPos = fretboardPos;

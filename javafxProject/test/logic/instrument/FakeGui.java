@@ -1,5 +1,6 @@
-package logic.guitar;
+package logic.instrument;
 
+import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 
 public class FakeGui implements GUIConnector {

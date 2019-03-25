@@ -1,5 +1,6 @@
-package logic.guitar;
+package logic.instrument;
 
+import logic.note.NoteCircle;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,36 +9,36 @@ public class GuitarTest {
     /*
     @Test
     public void testIncOctave_standardSituation() throws NotOnFretException {
-        Guitar guitar = new Guitar(new FakeGui());
+        Guitar instrument = new Guitar(new FakeGui());
         FretboardNote note = new FretboardNote(NoteCircle.F, new FretboardPos(1, 6));
-        FretboardNote actOutput = guitar.incOctave(note);
+        FretboardNote actOutput = instrument.incOctave(note);
         FretboardNote expOutput = new FretboardNote(NoteCircle.F, new FretboardPos(0, 1));
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testIncOctave_highestBasePosition() throws NotOnFretException {
-        Guitar guitar = new Guitar(new FakeGui());
+        Guitar instrument = new Guitar(new FakeGui());
         FretboardNote note = new FretboardNote(NoteCircle.E, new FretboardPos(1, 5));
-        FretboardNote actOutput = guitar.incOctave(note);
+        FretboardNote actOutput = instrument.incOctave(note);
         FretboardNote expOutput = new FretboardNote(NoteCircle.E, new FretboardPos(0, 0));
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testIncOctave_highestPossibleNum() throws NotOnFretException {
-        Guitar guitar = new Guitar(new FakeGui());
+        Guitar instrument = new Guitar(new FakeGui());
         FretboardNote note = new FretboardNote(NoteCircle.E, new FretboardPos(0, 0));
-        FretboardNote actOutput = guitar.incOctave(note);
+        FretboardNote actOutput = instrument.incOctave(note);
         FretboardNote expOutput = new FretboardNote(NoteCircle.E, new FretboardPos(0, 12));
         Assert.assertEquals(expOutput, actOutput);
     }
 
-    @Test(expected = logic.guitar.NotOnFretException.class)
+    @Test(expected = logic.instrument.NotOnFretException.class)
     public void testIncOctave_errorTooHigh() throws NotOnFretException {
-        Guitar guitar = new Guitar(new FakeGui());
+        Guitar instrument = new Guitar(new FakeGui());
         FretboardNote note = new FretboardNote(NoteCircle.F, new FretboardPos(0, 1));
-        guitar.incOctave(note);
+        instrument.incOctave(note);
     }
     */
 

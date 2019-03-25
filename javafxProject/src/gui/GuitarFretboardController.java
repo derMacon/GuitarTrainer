@@ -18,7 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
 import logic.audio.AudioConverter;
-import logic.guitar.FretboardPos;
+import logic.instrument.FretboardPos;
 import logic.organization.FlowOrganizer;
 import logic.organization.Mode;
 import logic.organization.Organized;
@@ -234,7 +234,7 @@ public class GuitarFretboardController implements Initializable {
     }
 
     /**
-     * Initializes the guitar fret texture
+     * Initializes the instrument fret texture
      */
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
@@ -384,7 +384,7 @@ public class GuitarFretboardController implements Initializable {
     /**
      * Creates a button with given string and fret position
      *
-     * @param guitarString guitar string on which the button will be located
+     * @param guitarString instrument string on which the button will be located
      * @param fret         fret on which the button will be located
      * @return a button with given string and fret position
      */
@@ -396,7 +396,7 @@ public class GuitarFretboardController implements Initializable {
     }
 
     /**
-     * presses a note on the guitar attribut of this class
+     * presses a note on the instrument attribut of this class
      *
      * @param button Button that is being pressed by the user
      */

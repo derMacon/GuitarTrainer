@@ -1,7 +1,7 @@
 package logic.audio;
 
-import logic.guitar.Note;
-import logic.guitar.NoteCircle;
+import logic.note.Note;
+import logic.note.NoteCircle;
 
 import java.io.File;
 import java.util.ArrayList;

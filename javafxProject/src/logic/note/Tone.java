@@ -1,6 +1,4 @@
-package logic.guitar;
-
-import gui.Prefix;
+package logic.note;
 
 import java.util.Arrays;
 import java.util.List;

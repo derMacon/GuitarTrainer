@@ -1,18 +1,19 @@
-package logic.guitar;
+package logic.instrument;
 
-import gui.Prefix;
+import logic.note.Prefix;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
 import logic.dataPreservation.Logger;
+import logic.note.Tone;
 import logic.organization.GUIConnector;
 
 /**
- * Class implementing a guitar with the ability to play notes / chords
+ * Class implementing a instrument with the ability to play notes / chords
  */
-public class Guitar {
+public class Guitar implements Instrument<FretboardNote> {
 
-    protected static final FretboardNote[] OPEN_STRINGS = new FretboardNote[]{
+    public static final FretboardNote[] OPEN_STRINGS = new FretboardNote[]{
             new FretboardNote(Tone.E, Prefix.NEUTRAL, 2, true, new FretboardPos(0, 0)),
             new FretboardNote(Tone.B, Prefix.NEUTRAL, 1, true, new FretboardPos(1, 0)),
             new FretboardNote(Tone.G, Prefix.NEUTRAL, 1, true, new FretboardPos(2, 0)),
@@ -28,7 +29,7 @@ public class Guitar {
      * Constructor setting gui and the audio converter component
      *
      * @param gui            GuiConnector component connecting logic to the gui
-     * @param audioConverter audio converter to make it possible to play notes from the guitar
+     * @param audioConverter audio converter to make it possible to play notes from the instrument
      */
     public Guitar(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
@@ -47,7 +48,42 @@ public class Guitar {
     }
 
     /**
-     * Presses a note on the guitar
+     * Plays a down strum of all previously selected notes on the instrument fretboard
+     */
+    @Override
+    public void playStrum() {
+        this.audioConv.playMultipleNotes(this.pressedStrings);
+    }
+
+    /**
+     * Resets all pressed notes on the instrument
+     */
+    @Override
+    public void reset() {
+        FretboardNote curr;
+        for (int i = 0; i < this.pressedStrings.length; i++) {
+            curr = this.pressedStrings[i];
+            if (!curr.equals(OPEN_STRINGS[i]) || !curr.isPlayed()) {
+                pressNote(new FretboardPos(i, 0));
+            } else {
+                this.audioConv.playSingleNote(curr);
+            }
+        }
+    }
+
+    @Override
+    public void pressNote(FretboardNote note) {
+        FretboardNote prevFretboardNote = updateString(note);
+        FretboardNote currFretboardNote = this.pressedStrings[note.getBaseString()];
+        Logger.getInstance().printAndSafe(currFretboardNote.toString());
+        this.gui.updateGuitar(currFretboardNote);
+        if (!note.equals(prevFretboardNote)) {
+            playSinglePressedNote(prevFretboardNote, currFretboardNote);
+        }
+    }
+
+    /**
+     * Presses a note on the instrument
      *
      * @param fretboardPos note to be pressed
      */
@@ -88,7 +124,7 @@ public class Guitar {
     /**
      * Updates a given guitaar string
      *
-     * @param fretboardNote note on the guitar neck from which the base string will be updated
+     * @param fretboardNote note on the instrument neck from which the base string will be updated
      * @return the previously selected note from the input note's base string
      */
     private FretboardNote updateString(FretboardNote fretboardNote) {
@@ -118,7 +154,7 @@ public class Guitar {
      * When the input note is already in the set of previously selected notes the same notes play status will be
      * inverted (muted, etc.)
      *
-     * @param fretboardNote note the user selected on the guitar
+     * @param fretboardNote note the user selected on the instrument
      * @return the newly pressed / updated note
      */
     private FretboardNote updateNote(FretboardNote fretboardNote) {
@@ -135,28 +171,6 @@ public class Guitar {
             this.pressedStrings[baseGuitarString] = OPEN_STRINGS[baseGuitarString];
         }
         return this.pressedStrings[baseGuitarString];
-    }
-
-    /**
-     * Plays a down strum of all previously selected notes on the guitar fretboard
-     */
-    public void playStrum() {
-        this.audioConv.playMultipleNotes(this.pressedStrings);
-    }
-
-    /**
-     * Resets all pressed notes on the guitar
-     */
-    public void reset() {
-        FretboardNote curr;
-        for (int i = 0; i < this.pressedStrings.length; i++) {
-            curr = this.pressedStrings[i];
-            if (!curr.equals(OPEN_STRINGS[i]) || !curr.isPlayed()) {
-                pressNote(new FretboardPos(i, 0));
-            } else {
-                this.audioConv.playSingleNote(curr);
-            }
-        }
     }
 
 }

@@ -2,7 +2,7 @@ package logic.organization;
 
 public enum Mode {
     FREEPLAY("Freeplay mode:" +
-            "\nAll selected notes will be displayed on the guitar " +
+            "\nAll selected notes will be displayed on the instrument " +
             "\nfretboard as  well as on  the sheet page.  In this " +
             "\nmode there are no excercises so the replay and the " +
             "\ncheck in buttons are grayed out."),

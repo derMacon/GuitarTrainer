@@ -1,7 +1,7 @@
-package logic.guitar;
+package logic.instrument;
 
 /**
- * Position on the guitar fretboard
+ * Position on the instrument fretboard
  */
 public class FretboardPos {
 

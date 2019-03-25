@@ -1,6 +1,7 @@
-package logic.guitar;
+package logic.instrument;
 
 import logic.audio.AudioConnector;
+import logic.note.Note;
 
 public class FakeAudioConverter implements AudioConnector {
 
