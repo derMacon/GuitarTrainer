@@ -39,7 +39,6 @@ public class FlowOrganizer implements Organized {
     @Override
     public void interpretMode(Mode mode) {
         this.mode = mode;
-        // todo maybe reavaluate if trainer needs mode...
         trainer.setMode(mode);
     }
 
@@ -61,14 +60,18 @@ public class FlowOrganizer implements Organized {
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
         this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
+        if(this.mode == Mode.FREEPLAY) {
+            this.sheets.reset();
+            for(FretboardNote currNote : this.guitar.getPressedNotes()) {
+                this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
+            }
+        }
     }
-
 
     @Override
     public void sheetNotePressed(int offset) {
         this.sheets.pressNote(NoteFactory.createSheetNote(offset));
     }
-
 
     @Override
     public void reset() {

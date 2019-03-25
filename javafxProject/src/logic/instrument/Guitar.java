@@ -47,6 +47,11 @@ public class Guitar implements Instrument<FretboardNote> {
         this(gui, new AudioConverter(SoundPack.NYLON));
     }
 
+    @Override
+    public FretboardNote[] getPressedNotes() {
+        return this.pressedStrings;
+    }
+
     /**
      * Plays a down strum of all previously selected notes on the instrument fretboard
      */

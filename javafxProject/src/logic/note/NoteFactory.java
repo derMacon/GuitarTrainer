@@ -29,4 +29,8 @@ public class NoteFactory {
         return new SheetNote(tone, prefix, octave, isPlayed);
     }
 
+    public static SheetNote createSheetNote(FretboardNote note) {
+        return new SheetNote(note.getTone(), note.getPrefix(), note.getOctave(), note.isPlayed());
+    }
+
 }

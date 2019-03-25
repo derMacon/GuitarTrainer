@@ -27,6 +27,6 @@ public class PrefixComparator implements Comparator<Prefix> {
         } else {
             return -1;
         }
-
     }
+
 }

@@ -2,7 +2,6 @@ package logic.instrument;
 
 import logic.audio.AudioConnector;
 import logic.note.SheetNote;
-import logic.instrument.Instrument;
 import logic.note.NoteFactory;
 import logic.organization.GUIConnector;
 
@@ -44,13 +43,22 @@ public class SheetModel implements Instrument<SheetNote> {
     }
 
     @Override
+    public SheetNote[] getPressedNotes() {
+        return this.sheetNotes;
+    }
+
+    @Override
     public void playStrum() {
         System.out.println("todo strum");
     }
 
     @Override
     public void reset() {
-        System.out.println("todo reset");
+        for (int i = 0; i < this.sheetNotes.length; i++) {
+            if(this.sheetNotes[i].isPlayed()) {
+               this.sheetNotes[i] = NoteFactory.createSheetNote(i);
+            }
+        }
     }
 
 
