@@ -9,6 +9,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("GuitarFretboard.fxml"));
@@ -22,13 +29,6 @@ public class Main extends Application {
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
         stage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }

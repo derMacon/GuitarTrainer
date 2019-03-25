@@ -6,7 +6,7 @@ public class SheetNoteJFXButton extends ImageButton {
 
     private final static int SELECTED_PIXEL = 20;
     private final static Image SELECTED_SYMBOL = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
-            SELECTED_PIXEL,true, true);
+            SELECTED_PIXEL, true, true);
 
     /**
      * Offset of the button compared to the lowest possible note e (octave = 0)

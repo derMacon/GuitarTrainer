@@ -1,29 +1,45 @@
 package logic.audio;
 
-import logic.guitar.FretboardNote;
+import logic.guitar.Note;
 import logic.guitar.NoteCircle;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AudioConverter {
+/**
+ * Class implementing all audio related functions
+ */
+public class AudioConverter implements AudioConnector {
 
+    /**
+     * Format string serving as blueprint for the file name.
+     * Needed when loading up the audiofile into the list attribut
+     * Needed when loading up the audiofile into the list attribute
+     */
     private static final String TEMPLATE_BLUEPRINT = "%s_%s_octave";
 
     /**
      * List of list of audio files used to play single notes.
      * - octave: first dimension
-     * - NoteId: second dimension
+     * - Tone: second dimension
      * e.g. A C in the second octave would be available with the following method call:
      * audioFiles.get(2).get(0)
      */
     private List<List<File>> audioFiles = new ArrayList<>();
 
+    /**
+     * Default constructor setting the nylon sound pack as the default
+     */
     public AudioConverter() {
         this(SoundPack.NYLON);
     }
 
+    /**
+     * Constructor loading up audio files from a given sound pack
+     *
+     * @param sPack sound pack to load audio files from
+     */
     public AudioConverter(SoundPack sPack) {
         String prefix = sPack.name().toLowerCase();
         NoteCircle[] notes = NoteCircle.values();
@@ -42,22 +58,30 @@ public class AudioConverter {
         }
     }
 
-    public void playSingleNote(FretboardNote fretboardNote) {
-        if(fretboardNote.isPlayed()) {
-            MusicRunner fstRunner = new MusicRunner(loadAudioFile(fretboardNote));
+    @Override
+    public void playSingleNote(Note note) {
+        if (note.isPlayed()) {
+            MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
             Thread fstThread = new Thread(fstRunner);
             fstThread.start();
         }
     }
 
-    private File loadAudioFile(FretboardNote fretboardNote) {
-        return this.audioFiles.get(fretboardNote.getId().ordinal()).get(fretboardNote.getOctave());
+    @Override
+    public void playMultipleNotes(Note[] notes) {
+        System.out.println("Play downstrum");
+        for (int i = notes.length - 1; i >= 0; i--) {
+            playSingleNote(notes[i]);
+        }
     }
 
-    public void playMultipleNotes(FretboardNote[] fretboardNotes) {
-        System.out.println("Play downstrum");
-        for (int i = fretboardNotes.length - 1; i >= 0; i--) {
-            playSingleNote(fretboardNotes[i]);
-        }
+    /**
+     * loads up specific audio file corresponding to a given note
+     *
+     * @param note note to load
+     * @return specific audio file corresponding to a given note
+     */
+    private File loadAudioFile(Note note) {
+        return this.audioFiles.get(NoteCircle.getId(note).ordinal()).get(note.getOctave());
     }
 }

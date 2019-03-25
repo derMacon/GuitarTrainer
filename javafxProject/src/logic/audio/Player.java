@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * Class to play a given audio file
- *
+ * <p>
  * https://www.codejava.net/coding/how-to-play-back-audio-in-java-with-examples
  */
 public class Player implements LineListener {

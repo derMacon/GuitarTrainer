@@ -1,12 +1,11 @@
 package logic.organization;
 
-import gui.NotePrefix;
 import logic.audio.AudioConverter;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
-import logic.guitar.Guitar;
 import logic.guitar.FretboardPos;
-import logic.guitar.SheetNote;
+import logic.guitar.Guitar;
+import logic.sheets.SheetModel;
 
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
@@ -16,10 +15,19 @@ public class FlowOrganizer implements Organized {
 
     private Guitar guitar;
     private Trainer trainer;
+    private SheetModel sheets;
 
+
+    /**
+     * Constructor setting all necessary attributes
+     *
+     * @param gui       gui attribute connecting the logic with the gui
+     * @param audioConv audio converter making it possible to play given notes
+     */
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv) {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
+        this.sheets = new SheetModel(gui, audioConv);
     }
 
     @Override
@@ -34,7 +42,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void playDownStrum() {
-        this.guitar.playDownStrum();
+        this.guitar.playStrum();
     }
 
     @Override
@@ -47,15 +55,12 @@ public class FlowOrganizer implements Organized {
         this.guitar.pressNote(fretboardPos);
     }
 
-    @Override
-    public void sheetPrefixPressed(int offset, NotePrefix prefix) {
-        // todo
-    }
 
     @Override
     public void sheetNotePressed(int offset) {
-        this.trainer.userPressedSheetNote(new SheetNote(offset));
+        this.sheets.pressNote(offset);
     }
+
 
     @Override
     public void reset() {
