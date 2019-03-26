@@ -57,6 +57,8 @@ public class SheetModel implements Instrument<SheetNote> {
         for (int i = 0; i < this.sheetNotes.length; i++) {
             if(this.sheetNotes[i].isPlayed()) {
                this.sheetNotes[i] = NoteFactory.createSheetNote(i);
+               this.sheetNotes[i].setPlayed(false);
+               this.gui.updateSheetNotes(this.sheetNotes[i]);
             }
         }
     }

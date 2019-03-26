@@ -76,5 +76,6 @@ public class FlowOrganizer implements Organized {
     @Override
     public void reset() {
         this.guitar.reset();
+        this.sheets.reset();
     }
 }
