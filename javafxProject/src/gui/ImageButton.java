@@ -24,7 +24,7 @@ public class ImageButton extends JFXButton {
 
     /**
      * Sets the flag for the selected image
-     * @param bool
+     * @param bool flag to be set
      */
     public void selectButton(boolean bool) {
         Node graphic = bool ? new ImageView(selectedImg) : null;

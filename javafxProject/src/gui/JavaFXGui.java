@@ -10,6 +10,9 @@ import logic.note.Prefix;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 
+/**
+ * Implementation of the interface needed for the logic to display its content on the gui
+ */
 public class JavaFXGui implements GUIConnector {
 
     public static final String[] PREFIX_IMG_PATH = new String[]{
@@ -29,9 +32,26 @@ public class JavaFXGui implements GUIConnector {
      * fret num
      */
     private final GridPane[] frets;
+
+    /**
+     * array containing two gridpanes, on for the sheet notes between and one for the notes on top
+     * of the lines on the sheet page
+     */
     private final GridPane[] sheetNotes;
+
+    /**
+     * Replay button for the excercise
+     */
     private final JFXButton replayBtn;
 
+    /**
+     * Constructor setting up all necessary gui components
+     *
+     * @param fretboard  array of gridpanes each representing one fret of the fretboard from the guitar
+     * @param sheetNotes array containing two gridpanes, on for the sheet notes between and one for the notes on top
+     *                   of the lines on the sheet page
+     * @param replayBtn  replay button for the excercise
+     */
     public JavaFXGui(GridPane[] fretboard, GridPane[] sheetNotes, JFXButton replayBtn) {
         this.frets = fretboard;
         this.sheetNotes = sheetNotes;
@@ -43,18 +63,18 @@ public class JavaFXGui implements GUIConnector {
         GuitarJFXButton currBtn = null;
         for (int idxFret = 0; idxFret < this.frets.length; idxFret++) {
             currBtn = (GuitarJFXButton) this.frets[idxFret].getChildren().get(currFretboardNote.getBaseString());
-            currBtn.selectButton(currFretboardNote.isPlayed() && currFretboardNote.getFretboardPos().getFret() == idxFret);
+            currBtn.selectButton(currFretboardNote.isPlayed()
+                    && currFretboardNote.getFretboardPos().getFret() == idxFret);
         }
     }
 
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
-        GridPane currGrdPn = sheetNote.getOffsetToLowestE() % 2 == 0 ?
-                this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
+        GridPane currGrdPn = sheetNote.getOffsetToLowestE() % 2 == 0
+                ? this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
         System.out.println(sheetNote);
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowestE() / 2);
-        System.out.println("invertoffset: " + invertedOffset + ", spaceCnt: " + spaceCnt + ", id: " + sheetNote.getTone());
         ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);
         ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
 
@@ -77,11 +97,12 @@ public class JavaFXGui implements GUIConnector {
 
     /**
      * https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
+     * Returns the node at the given column / row
      *
-     * @param gridPane
-     * @param col
-     * @param row
-     * @return
+     * @param gridPane gridpane from which the node should be returned
+     * @param col column index of the node
+     * @param row row index of the node
+     * @return the node at the given column / row
      */
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
         for (Node node : gridPane.getChildren()) {
