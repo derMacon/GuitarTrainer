@@ -1,5 +1,6 @@
 package logic.instrument;
 
+import logic.note.NoteFactory;
 import logic.note.Prefix;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
@@ -73,38 +74,29 @@ public class Guitar implements Instrument<FretboardNote> {
         for (int i = 0; i < this.pressedStrings.length; i++) {
             curr = this.pressedStrings[i];
             if (!curr.equals(OPEN_STRINGS[i]) || !curr.isPlayed()) {
-                pressNote(new FretboardPos(i, 0));
-            } else {
-                this.audioConv.playSingleNote(curr);
+                updateNotes(NoteFactory.createFretboardNote(new FretboardPos(i, 0)));
             }
-        }
-    }
-
-    @Override
-    public void pressNote(FretboardNote note) {
-        FretboardNote prevFretboardNote = updateString(note);
-        FretboardNote currFretboardNote = this.pressedStrings[note.getBaseString()];
-        Logger.getInstance().printAndSafe(currFretboardNote.toString());
-        this.gui.updateGuitar(currFretboardNote);
-        if (!note.equals(prevFretboardNote)) {
-            playSinglePressedNote(prevFretboardNote, currFretboardNote);
         }
     }
 
     /**
      * Presses a note on the instrument
      *
-     * @param fretboardPos note to be pressed
+     * @param inputFretboardNote note to be pressed
      */
-    public void pressNote(FretboardPos fretboardPos) {
-        assert null != fretboardPos;
-        FretboardNote inputFretboardNote = translate(fretboardPos);
+    protected FretboardNote updateNotes(FretboardNote inputFretboardNote) {
+        assert inputFretboardNote != null;
         FretboardNote prevFretboardNote = updateString(inputFretboardNote);
-        FretboardNote currFretboardNote = this.pressedStrings[fretboardPos.getGuitarString()];
-        Logger.getInstance().printAndSafe(currFretboardNote.toString());
+        FretboardNote currFretboardNote = this.pressedStrings[inputFretboardNote.getBaseString()];
         this.gui.updateGuitar(currFretboardNote);
-        if (!inputFretboardNote.equals(prevFretboardNote)) {
-            playSinglePressedNote(prevFretboardNote, currFretboardNote);
+        return prevFretboardNote;
+    }
+
+    @Override
+    public void pressNote(FretboardNote note) {
+        FretboardNote prevNote = updateNotes(note);
+        if (!note.equals(prevNote)) {
+            playSinglePressedNote(prevNote, note);
         }
     }
 
@@ -115,14 +107,6 @@ public class Guitar implements Instrument<FretboardNote> {
      * @return note at the specified position
      */
     protected FretboardNote translate(FretboardPos fretboardPos) {
-//        NoteCircle[] noteCircle = NoteCircle.values();
-//        int sum = OPEN_STRINGS[fretboardPos.getGuitarString()].getId().ordinal() + fretboardPos.getFret();
-//        int octave = (sum / noteCircle.length) + this.OPEN_STRINGS[fretboardPos.getGuitarString()].getOctave();
-//        int ordinalVal = sum % noteCircle.length;
-//        FretboardNote output = new FretboardNote(noteCircle[ordinalVal], octave, fretboardPos);
-//        System.out.println("Translated: " + output);
-//        return output;
-
         FretboardNote note = OPEN_STRINGS[fretboardPos.getGuitarString()];
         for (int i = 0; i < fretboardPos.getFret(); i++) {
             note = note.nextSemiTone();
@@ -151,10 +135,13 @@ public class Guitar implements Instrument<FretboardNote> {
      * @param currFretboardNote current note selected by the user
      */
     private void playSinglePressedNote(FretboardNote prevFretboardNote, FretboardNote currFretboardNote) {
+        System.out.println(prevFretboardNote + " " + currFretboardNote);
         if (!prevFretboardNote.equals(currFretboardNote)
                 || currFretboardNote.equals(this.OPEN_STRINGS[currFretboardNote.getBaseString()])
                 && currFretboardNote.isPlayed()) {
             this.audioConv.playSingleNote(currFretboardNote);
+        } else {
+            this.audioConv.playSingleNote(prevFretboardNote);
         }
     }
 
