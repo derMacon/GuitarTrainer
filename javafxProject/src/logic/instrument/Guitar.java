@@ -21,6 +21,8 @@ public class Guitar implements Instrument<FretboardNote> {
             new FretboardNote(Tone.A, Prefix.NEUTRAL, 0, true, new FretboardPos(4, 0)),
             new FretboardNote(Tone.E, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 0))};
 
+    public static int FRET_CNT = 20;
+
     protected FretboardNote[] pressedStrings;
     private final GUIConnector gui;
     private final AudioConnector audioConv;

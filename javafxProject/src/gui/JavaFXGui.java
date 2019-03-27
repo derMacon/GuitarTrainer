@@ -18,8 +18,8 @@ public class JavaFXGui implements GUIConnector {
             "sheetNotes\\prefix_sharp.png"
     };
 
-    private static final int NOTES_BETWEEN_LINES = 0;
-    private static final int NOTES_ONTOP_LINES = 1;
+    private static final int NOTES_ONTOP_LINES = 0;
+    private static final int NOTES_BETWEEN_LINES = 1;
     private static final int SELECTED_PIXEL = 20;
     private static final Image NOTE_SHEET_MUSIC = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
             SELECTED_PIXEL, true, true);
@@ -49,8 +49,8 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
-        GridPane currGrdPn = sheetNote.getTone().ordinal() % 2 == 0 ?
-                this.sheetNotes[NOTES_ONTOP_LINES] : this.sheetNotes[NOTES_BETWEEN_LINES];
+        GridPane currGrdPn = sheetNote.getOffsetToLowestE() % 2 == 0 ?
+                this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
         System.out.println(sheetNote);
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowestE() / 2);
@@ -62,7 +62,6 @@ public class JavaFXGui implements GUIConnector {
             Prefix currPrefix = sheetNote.getPrefix();
             prefix.setImage(new Image(PREFIX_IMG_PATH[currPrefix.ordinal()], SELECTED_PIXEL, SELECTED_PIXEL, true,
                     true));
-//            prefix.setImage(currPrefix.getImg());
             note.setImage(NOTE_SHEET_MUSIC);
         } else {
             note.setImage(null);

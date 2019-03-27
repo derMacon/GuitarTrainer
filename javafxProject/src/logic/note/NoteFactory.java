@@ -4,6 +4,9 @@ import logic.instrument.FretboardNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NoteFactory {
 
     /**
@@ -18,6 +21,21 @@ public class NoteFactory {
             note = note.nextSemiTone();
         }
         return note;
+    }
+
+    public static List<FretboardNote> createFretboardNote(SheetNote note) {
+        List<FretboardNote> output = new ArrayList<>();
+        FretboardNote currNote;
+        for(FretboardNote currOpenString : Guitar.OPEN_STRINGS) {
+            currNote = currOpenString;
+            for (int i = 0; i < Guitar.FRET_CNT - 1; i++) {
+                if(note.equals(currNote)) {
+                    output.add(currNote);
+                }
+                currNote = currNote.nextSemiTone();
+            }
+        }
+        return output;
     }
 
     public static SheetNote createSheetNote(int offset) {

@@ -43,8 +43,8 @@ public abstract class Note {
             return false;
         }
         Note other = (Note) o;
-        return this.tone == other.tone && this.octave == other.octave
-                && this.isPlayed == other.isPlayed;
+        return this.tone == other.tone && this.prefix == other.prefix
+                && this.octave == other.octave && this.isPlayed == other.isPlayed;
     }
 
     @Override

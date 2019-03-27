@@ -38,7 +38,10 @@ public class SheetModel implements Instrument<SheetNote> {
     @Override
     public void pressNote(SheetNote note) {
         int noteOrd = note.getOffsetToLowestE();
-        this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
+        for (int i = 0; i < note.getPrefix().ordinal(); i++) {
+            this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
+        }
+
         this.gui.updateSheetNotes(this.sheetNotes[noteOrd]);
     }
 

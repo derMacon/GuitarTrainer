@@ -309,14 +309,6 @@ public class GuitarFretboardController implements Initializable {
      * Initializes sheet gridpanes
      */
     private void initSheet() {
-        // inits buttons user interacts with
-//        int rowCnt = this.grdPn_totalSumNotes.getRowConstraints().size();
-//        for (int i = 0; i < rowCnt; i++) {
-//
-//            this.grdPn_totalSumNotes.add(createSheetPrefixButton(rowCnt -i), 0, i);
-//            this.grdPn_totalSumNotes.add(createSheetNoteButton(rowCnt - i), 1, i);
-//        }
-
         // inits images in Gridpanes
         for (int i = 0; i < 12; i++) {
             this.grdPn_sheetNotes_betweenLines.add(new ImageView(), 0, i);
@@ -365,20 +357,6 @@ public class GuitarFretboardController implements Initializable {
     public void sheetNoteBtnPressed(ActionEvent event) {
         int offset = Integer.parseInt(((JFXButton) event.getSource()).getId().split("_")[2]);
         this.flowOrganizer.sheetNotePressed(offset);
-    }
-
-    private SheetPrefixJFXButton createSheetPrefixButton(int noteOffset) {
-        SheetPrefixJFXButton button = new SheetPrefixJFXButton(noteOffset);
-        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        button.setDisable(true);
-        button.setOnAction(e -> sheetPrefixButtonPressed(button));
-        return button;
-    }
-
-    private void sheetPrefixButtonPressed(SheetPrefixJFXButton btn) {
-        // todo delete this
-//        btn.iterateButton();
-//        this.flowOrganizer.sheetPrefixPressed(btn.getLineOffset(), btn.getPrefix());
     }
 
     /**

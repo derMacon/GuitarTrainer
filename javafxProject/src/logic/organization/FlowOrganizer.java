@@ -34,6 +34,10 @@ public class FlowOrganizer implements Organized {
         this.trainer = new GuitarTrainer(gui, audioConv);
         this.sheets = new SheetModel(gui, audioConv);
         this.mode = mode;
+
+        if(this.mode == Mode.GUITAR_FREEPLAY) {
+            syncSheetWithGuitar();
+        }
     }
 
     @Override
@@ -60,17 +64,33 @@ public class FlowOrganizer implements Organized {
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
         this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
-        if(this.mode == Mode.FREEPLAY) {
-            this.sheets.reset();
-            for(FretboardNote currNote : this.guitar.getPressedNotes()) {
-                this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
-            }
+        if(this.mode == Mode.GUITAR_FREEPLAY) {
+            syncSheetWithGuitar();
+        }
+    }
+
+    private void syncSheetWithGuitar() {
+        this.sheets.reset();
+        for(FretboardNote currNote : this.guitar.getPressedNotes()) {
+            this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
         }
     }
 
     @Override
     public void sheetNotePressed(int offset) {
         this.sheets.pressNote(NoteFactory.createSheetNote(offset));
+        if(this.mode == Mode.SHEET_FREEPLAY) {
+            syncGuitarWithSheet();
+        }
+    }
+
+    private void syncGuitarWithSheet() {
+        assert 0 == this.sheets.getPressedNotes().length;
+        this.guitar.reset();
+        SheetNote singlePressedNote = this.sheets.getPressedNotes()[0];
+        for(FretboardNote currPossiblity : NoteFactory.createFretboardNote(singlePressedNote)) {
+            this.guitar.pressNote(currPossiblity);
+        }
     }
 
     @Override

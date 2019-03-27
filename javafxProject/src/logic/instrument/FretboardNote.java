@@ -5,6 +5,8 @@ import logic.note.Note;
 import logic.note.NoteCircle;
 import logic.note.Tone;
 
+import java.io.PrintWriter;
+
 /**
  * Note on the fret board of a the instrument
  */
@@ -67,7 +69,7 @@ public class FretboardNote extends Note implements Comparable {
         NoteCircle next_id = NoteCircle.values()[(this_noteOrd + 1) % NoteCircle.values().length];
         Tone next_tone = next_id.getPrimaryTone();
         Prefix next_prefix = next_id.getNotes().get(next_tone);
-        int next_octave = next_tone.ordinal() == 0 ? this.octave + 1 : this.octave;
+        int next_octave = next_tone.ordinal() == 0 && next_prefix == Prefix.NEUTRAL ? this.octave + 1 : this.octave;
         boolean next_isPlayed = this.isPlayed;
 
         return new FretboardNote(next_tone, next_prefix, next_octave, next_isPlayed, this.fretboardPos.incFret());

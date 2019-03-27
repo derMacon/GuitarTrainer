@@ -35,7 +35,7 @@ public class GuitarTrainer implements Trainer {
     @Override
     public void setMode(Mode mode) {
         this.mode = mode;
-        gui.setReplayButtonGrayedout(this.mode == Mode.FREEPLAY);
+        gui.setReplayButtonGrayedout(this.mode == Mode.GUITAR_FREEPLAY);
     }
 
     @Override
