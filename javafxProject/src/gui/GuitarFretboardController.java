@@ -300,6 +300,10 @@ public class GuitarFretboardController implements Initializable {
         return label;
     }
 
+    /**
+     * User presses / selects a note on the sheet page
+     * @param event Action event called by the user / gui
+     */
     @FXML
     public void sheetNoteBtnPressed(ActionEvent event) {
         int offset = Integer.parseInt(((JFXButton) event.getSource()).getId().split("_")[2]);
@@ -370,11 +374,19 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Resets the notes on the guitar / sheet page
+     * @param event Action event called by the user / gui
+     */
     @FXML
     private void reset(ActionEvent event) {
         this.flowOrganizer.reset();
     }
 
+    /**
+     * Replays the excercise
+     * @param event Action event called by the user / gui
+     */
     @FXML
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");

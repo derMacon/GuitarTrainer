@@ -19,9 +19,14 @@ import java.io.IOException;
  */
 public class Player implements LineListener {
 
+    private static final int DELAY_TIME = 1000;
     private File audioFile;
     private boolean playCompleted = false;
 
+    /**
+     * Constructor
+     * @param audioFile audio file to play
+     */
     public Player(File audioFile) {
         this.audioFile = audioFile;
     }
@@ -42,7 +47,7 @@ public class Player implements LineListener {
             while (!playCompleted) {
                 // wait for the playback completes
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(DELAY_TIME);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }

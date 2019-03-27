@@ -6,8 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
+/**
+ * Main method starting the gui application
+ */
 public class Main extends Application {
+
+    private static final int WIDTH = 1346;
 
     /**
      * @param args the command line arguments
@@ -24,8 +30,8 @@ public class Main extends Application {
         scene.getStylesheets().add("gui/jfoenixTheme.css");
 
         stage.setScene(scene);
-        stage.setMinWidth(1346);
-        stage.setMaxWidth(1346);
+        stage.setMinWidth(WIDTH);
+        stage.setMaxWidth(WIDTH);
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
         stage.show();

@@ -9,14 +9,29 @@ import java.util.List;
  */
 public class SheetNote extends Note {
 
+    /**
+     * Constructor
+     * @param tone tone of the note
+     * @param prefix prefix of the note
+     * @param octave octave of the note
+     * @param isPlayed flag determining if the note is played or not
+     */
     public SheetNote(Tone tone, Prefix prefix, int octave, boolean isPlayed) {
         super(tone, prefix, octave, isPlayed);
     }
 
+    /**
+     * Generates the offset measured in tones to the note new Note(Tone.E, Prefix.NEUTRAL, 0, true);
+     * @return offset to the lowest note E with the octave 0
+     */
     public int getOffsetToLowestE() {
         return (this.tone.ordinal() + this.octave * Tone.values().length) - Tone.E.ordinal();
     }
 
+    /**
+     * Generates the lowest possible note of a the notes tone
+     * @return lowest possible note of a the notes tone
+     */
     public SheetNote getLowestNoteOfTone() {
         Prefix lowestPrefix = Collections.min(this.tone.getPossiblePrefix());
         return new SheetNote(this.tone, lowestPrefix, this.octave, this.isPlayed);
@@ -37,7 +52,7 @@ public class SheetNote extends Note {
      * @return new SheetNote instance
      */
     public SheetNote iteratePrefix() {
-        if(!isPlayed) {
+        if (!isPlayed) {
             this.isPlayed = true;
             return this;
         }
