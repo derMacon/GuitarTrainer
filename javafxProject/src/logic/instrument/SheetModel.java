@@ -5,6 +5,9 @@ import logic.note.NoteFactory;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class implements the sheet pages as an instrument where the user can select and play notes on.
  */
@@ -51,7 +54,14 @@ public class SheetModel implements Instrument<SheetNote> {
 
     @Override
     public SheetNote[] getPressedNotes() {
-        return this.sheetNotes;
+         List<SheetNote> outputLst = new ArrayList<>();
+         for(SheetNote currNote : this.sheetNotes) {
+             if(currNote.isPlayed()) {
+                 outputLst.add(currNote);
+             }
+         }
+         SheetNote[] outputArr = new SheetNote[0];
+         return outputLst.size() == 0 ? outputArr : outputLst.toArray(outputArr);
     }
 
     @Override

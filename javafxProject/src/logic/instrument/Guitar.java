@@ -79,6 +79,14 @@ public class Guitar implements Instrument<FretboardNote> {
         }
     }
 
+    @Override
+    public void pressNote(FretboardNote note) {
+        FretboardNote prevNote = updateNotes(note);
+        if (!note.equals(prevNote)) {
+            playSinglePressedNote(prevNote, this.pressedStrings[note.getBaseString()]);
+        }
+    }
+
     /**
      * Presses a note on the instrument
      *
@@ -90,28 +98,6 @@ public class Guitar implements Instrument<FretboardNote> {
         FretboardNote currFretboardNote = this.pressedStrings[inputFretboardNote.getBaseString()];
         this.gui.updateGuitar(currFretboardNote);
         return prevFretboardNote;
-    }
-
-    @Override
-    public void pressNote(FretboardNote note) {
-        FretboardNote prevNote = updateNotes(note);
-        if (!note.equals(prevNote)) {
-            playSinglePressedNote(prevNote, note);
-        }
-    }
-
-    /**
-     * Translates a given position to a note
-     *
-     * @param fretboardPos position of the note
-     * @return note at the specified position
-     */
-    protected FretboardNote translate(FretboardPos fretboardPos) {
-        FretboardNote note = OPEN_STRINGS[fretboardPos.getGuitarString()];
-        for (int i = 0; i < fretboardPos.getFret(); i++) {
-            note = note.nextSemiTone();
-        }
-        return note;
     }
 
     /**

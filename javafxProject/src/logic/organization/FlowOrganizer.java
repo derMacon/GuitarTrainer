@@ -22,7 +22,6 @@ public class FlowOrganizer implements Organized {
     private Trainer trainer;
     private Mode mode;
 
-
     /**
      * Constructor setting all necessary attributes
      *
@@ -34,17 +33,72 @@ public class FlowOrganizer implements Organized {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
         this.sheets = new SheetModel(gui, audioConv);
-        this.mode = mode;
-
-        if (this.mode == Mode.GUITAR_FREEPLAY) {
-            syncSheetWithGuitar();
-        }
+        interpretMode(mode);
     }
 
     @Override
     public void interpretMode(Mode mode) {
         this.mode = mode;
         trainer.setMode(mode);
+        this.guitar.reset();
+        this.sheets.reset();
+        synchronize();
+    }
+
+    @Override
+    public void sheetNotePressed(int offset) {
+        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
+        synchronize();
+    }
+
+    @Override
+    public void pressNoteOnFretboard(FretboardPos fretboardPos) {
+        this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
+        synchronize();
+    }
+
+    private void synchronize() {
+        switch (mode) {
+            case GUITAR_FREEPLAY:
+                syncSheetWithGuitar();
+                break;
+            case SHEET_FREEPLAY:
+                syncGuitarWithSheet();
+                break;
+            default:
+                System.out.println("not implemented yet [interpret mode - floworg]");
+        }
+    }
+
+    /**
+     * Synchronizes the sheet notes with the pressed notes on the guitar
+     */
+    private void syncSheetWithGuitar() {
+        this.sheets.reset();
+        for (FretboardNote currNote : this.guitar.getPressedNotes()) {
+            this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
+        }
+    }
+
+    /**
+     * Synchronizes the guitar notes with the selected notes on the sheet page
+     */
+    private void syncGuitarWithSheet() {
+        this.guitar.reset();
+        SheetNote[] selectedSheetNotes = this.sheets.getPressedNotes();
+
+        if(1 == selectedSheetNotes.length) {
+            SheetNote singlePressedNote = selectedSheetNotes[0];
+            for (FretboardNote currPossiblity : NoteFactory.createFretboardNote(singlePressedNote)) {
+                this.guitar.pressNote(currPossiblity);
+            }
+        }
+    }
+
+    @Override
+    public void reset() {
+        this.guitar.reset();
+        this.sheets.reset();
     }
 
     @Override
@@ -60,49 +114,5 @@ public class FlowOrganizer implements Organized {
     @Override
     public void checkInResult() {
         this.trainer.checkResult();
-    }
-
-    @Override
-    public void pressNoteOnFretboard(FretboardPos fretboardPos) {
-        this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
-        if (this.mode == Mode.GUITAR_FREEPLAY) {
-            syncSheetWithGuitar();
-        }
-    }
-
-    /**
-     * Synchronizes the sheet notes with the pressed notes on the guitar
-     */
-    private void syncSheetWithGuitar() {
-        this.sheets.reset();
-        for (FretboardNote currNote : this.guitar.getPressedNotes()) {
-            this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
-        }
-    }
-
-    @Override
-    public void sheetNotePressed(int offset) {
-        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
-        if (this.mode == Mode.SHEET_FREEPLAY) {
-            syncGuitarWithSheet();
-        }
-    }
-
-    /**
-     * Synchronizes the guitar notes with the selected notes on the sheet page
-     */
-    private void syncGuitarWithSheet() {
-        assert 0 == this.sheets.getPressedNotes().length;
-        this.guitar.reset();
-        SheetNote singlePressedNote = this.sheets.getPressedNotes()[0];
-        for (FretboardNote currPossiblity : NoteFactory.createFretboardNote(singlePressedNote)) {
-            this.guitar.pressNote(currPossiblity);
-        }
-    }
-
-    @Override
-    public void reset() {
-        this.guitar.reset();
-        this.sheets.reset();
     }
 }

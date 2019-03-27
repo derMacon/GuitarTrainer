@@ -78,6 +78,8 @@ public class JavaFXGui implements GUIConnector {
         ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);
         ImageView note = (ImageView) getNodeFromGridPane(currGrdPn, 1, invertedOffset);
 
+//        note.setTranslateX(20);
+
         if (sheetNote.isPlayed()) {
             Prefix currPrefix = sheetNote.getPrefix();
             prefix.setImage(new Image(PREFIX_IMG_PATH[currPrefix.ordinal()], SELECTED_PIXEL, SELECTED_PIXEL, true,
