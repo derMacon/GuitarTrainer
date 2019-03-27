@@ -1,9 +1,12 @@
-package logic.guitar;
+package logic.instrument;
 
-import gui.Prefix;
+import logic.note.Prefix;
+import logic.note.Note;
+import logic.note.NoteCircle;
+import logic.note.Tone;
 
 /**
- * Note on the fret board of a the guitar
+ * Note on the fret board of a the instrument
  */
 public class FretboardNote extends Note implements Comparable {
 
@@ -20,6 +23,7 @@ public class FretboardNote extends Note implements Comparable {
      * @param fretboardPos position on the fretboard
      */
     public FretboardNote(NoteCircle id, int octave, FretboardPos fretboardPos) {
+        // todo delete this constructor
 //        super(id, octave, true);
         super(null, null, 0, true);
         this.fretboardPos = fretboardPos;
@@ -56,19 +60,21 @@ public class FretboardNote extends Note implements Comparable {
         return this.fretboardPos.getGuitarString();
     }
 
-
+    /**
+     * Generates a new fretboardnote instance of the next semi tone
+     * @return a new fretboardnote instance of the next semi tone
+     */
     public FretboardNote nextSemiTone() {
         int this_noteOrd = NoteCircle.getId(tone, prefix).ordinal();
 
         NoteCircle next_id = NoteCircle.values()[(this_noteOrd + 1) % NoteCircle.values().length];
         Tone next_tone = next_id.getPrimaryTone();
         Prefix next_prefix = next_id.getNotes().get(next_tone);
-        int next_octave = next_tone.ordinal() == 0 ? this.octave + 1 : this.octave;
+        int next_octave = next_tone.ordinal() == 0 && next_prefix == Prefix.NEUTRAL ? this.octave + 1 : this.octave;
         boolean next_isPlayed = this.isPlayed;
 
         return new FretboardNote(next_tone, next_prefix, next_octave, next_isPlayed, this.fretboardPos.incFret());
     }
-
 
     @Override
     public int compareTo(Object o) {
@@ -79,20 +85,5 @@ public class FretboardNote extends Note implements Comparable {
         int diff = p1.getGuitarString() - p2.getGuitarString();
         return diff == 0 ? p1.getFret() - p2.getFret() : diff;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (null == o || !(o instanceof FretboardNote)) {
-//            return false;
-//        }
-//        FretboardNote other = (FretboardNote) o;
-//        return this.id == other.id && this.octave == other.octave && this.fretboardPos.equals(other.fretboardPos);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return this.id.name() + " -> " + this.fretboardPos.toString() + ", octave: " + this.octave
-//                + ", isPlayed: " + this.isPlayed;
-//    }
 
 }

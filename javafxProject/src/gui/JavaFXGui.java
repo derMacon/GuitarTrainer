@@ -5,19 +5,27 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import logic.guitar.FretboardNote;
-import logic.guitar.SheetNote;
+import logic.instrument.FretboardNote;
+import logic.note.Prefix;
+import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 
 public class JavaFXGui implements GUIConnector {
 
-    private static final int NOTES_BETWEEN_LINES = 0;
-    private static final int NOTES_ONTOP_LINES = 1;
+    public static final String[] PREFIX_IMG_PATH = new String[]{
+            "sheetNotes\\prefix_flat.png",
+            "sheetNotes\\prefix_neutral.png",
+            "sheetNotes\\prefix_sharp.png"
+    };
+
+    private static final int NOTES_ONTOP_LINES = 0;
+    private static final int NOTES_BETWEEN_LINES = 1;
     private static final int SELECTED_PIXEL = 20;
     private static final Image NOTE_SHEET_MUSIC = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
             SELECTED_PIXEL, true, true);
     /**
-     * Gridpane array of one dimensional gridpanes representing the frets of the users guitar on the gui. Index mirrors
+     * Gridpane array of one dimensional gridpanes representing the frets of the users instrument on the gui. Index
+     * mirrors
      * fret num
      */
     private final GridPane[] frets;
@@ -41,8 +49,8 @@ public class JavaFXGui implements GUIConnector {
 
     @Override
     public void updateSheetNotes(SheetNote sheetNote) {
-        GridPane currGrdPn = sheetNote.getTone().ordinal() % 2 == 0 ?
-                this.sheetNotes[NOTES_ONTOP_LINES] : this.sheetNotes[NOTES_BETWEEN_LINES];
+        GridPane currGrdPn = sheetNote.getOffsetToLowestE() % 2 == 0 ?
+                this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
         System.out.println(sheetNote);
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowestE() / 2);
@@ -52,7 +60,8 @@ public class JavaFXGui implements GUIConnector {
 
         if (sheetNote.isPlayed()) {
             Prefix currPrefix = sheetNote.getPrefix();
-            prefix.setImage(currPrefix.getImg());
+            prefix.setImage(new Image(PREFIX_IMG_PATH[currPrefix.ordinal()], SELECTED_PIXEL, SELECTED_PIXEL, true,
+                    true));
             note.setImage(NOTE_SHEET_MUSIC);
         } else {
             note.setImage(null);

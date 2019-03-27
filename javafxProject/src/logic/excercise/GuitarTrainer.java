@@ -3,12 +3,12 @@ package logic.excercise;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
-import logic.guitar.SheetNote;
+import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 import logic.organization.Mode;
 
 /**
- * Implementation of the guitar trainer interface needed for the excercise modes
+ * Implementation of the instrument trainer interface needed for the excercise modes
  */
 public class GuitarTrainer implements Trainer {
 
@@ -35,7 +35,7 @@ public class GuitarTrainer implements Trainer {
     @Override
     public void setMode(Mode mode) {
         this.mode = mode;
-        gui.setReplayButtonGrayedout(this.mode == Mode.FREEPLAY);
+        gui.setReplayButtonGrayedout(this.mode == Mode.GUITAR_FREEPLAY);
     }
 
     @Override

@@ -1,7 +1,7 @@
-package logic.guitar;
+package logic.instrument;
 
 /**
- * Position on the guitar fretboard
+ * Position on the instrument fretboard
  */
 public class FretboardPos {
 
@@ -44,6 +44,10 @@ public class FretboardPos {
         return fret;
     }
 
+    /**
+     * Generates a new fretboardpos instance with an incremented fret id
+     * @return a new fretboardpos instance with an incremented fret id
+     */
     public FretboardPos incFret() {
         return new FretboardPos(this.guitarString, this.fret + 1);
     }

@@ -3,7 +3,7 @@ package gui;
 import javafx.scene.image.Image;
 
 /**
- * Class implementing the buttons on the guitar fretboard. Provides the necessary mehtods to invert the graphic.
+ * Class implementing the buttons on the instrument fretboard. Provides the necessary mehtods to invert the graphic.
  */
 public class GuitarJFXButton extends ImageButton {
 
@@ -15,9 +15,9 @@ public class GuitarJFXButton extends ImageButton {
     private int guitarFret;
 
     /**
-     * Constructor setting the guitar string and fret
-     * @param guitarString guitar string the button is located on
-     * @param guitarFret guitar fret the button is located on
+     * Constructor setting the instrument string and fret
+     * @param guitarString instrument string the button is located on
+     * @param guitarFret instrument fret the button is located on
      */
     GuitarJFXButton(int guitarString, int guitarFret) {
         super(SELECTED_PIXEL, SELECTED_SYMBOL);
@@ -26,16 +26,16 @@ public class GuitarJFXButton extends ImageButton {
     }
 
     /**
-     * Getter for the guitar string
-     * @return the guitar string the button is located on
+     * Getter for the instrument string
+     * @return the instrument string the button is located on
      */
     public int getGuitarString() {
         return guitarString;
     }
 
     /**
-     * Getter for the guitar fret
-     * @return the guitar fret the button is located on
+     * Getter for the instrument fret
+     * @return the instrument fret the button is located on
      */
     public int getGuitarFret() {
         return guitarFret;

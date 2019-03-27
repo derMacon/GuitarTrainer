@@ -1,6 +1,6 @@
 package logic.excercise;
 
-import logic.guitar.SheetNote;
+import logic.note.SheetNote;
 import logic.organization.Mode;
 
 public interface Trainer {

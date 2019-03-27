@@ -1,7 +1,7 @@
 package logic.organization;
 
-import logic.guitar.FretboardNote;
-import logic.guitar.SheetNote;
+import logic.instrument.FretboardNote;
+import logic.note.SheetNote;
 
 /**
  * Interface connects logic with the gui
@@ -9,9 +9,9 @@ import logic.guitar.SheetNote;
 public interface GUIConnector {
 
     /**
-     * Updates the guitar on the gui with a given note
+     * Updates the instrument on the gui with a given note
      *
-     * @param currFretboardNote note to set on the guitar on the gui
+     * @param currFretboardNote note to set on the instrument on the gui
      */
     void updateGuitar(FretboardNote currFretboardNote);
 

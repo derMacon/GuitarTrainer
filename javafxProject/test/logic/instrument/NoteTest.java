@@ -1,6 +1,8 @@
-package logic.guitar;
+package logic.instrument;
 
-import gui.Prefix;
+import logic.note.Prefix;
+import logic.note.Note;
+import logic.note.Tone;
 import org.junit.Assert;
 import org.junit.Test;
 

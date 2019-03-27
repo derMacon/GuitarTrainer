@@ -1,13 +1,11 @@
-package logic.guitar;
-
-import gui.Prefix;
+package logic.note;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static gui.Prefix.*;
+import static logic.note.Prefix.*;
 
 public enum NoteCircle {
     C(new Tone[]{Tone.C}, new Prefix[]{NEUTRAL}),

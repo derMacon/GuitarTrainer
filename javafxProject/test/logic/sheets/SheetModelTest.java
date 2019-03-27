@@ -1,10 +1,12 @@
 package logic.sheets;
 
-import gui.Prefix;
-import logic.guitar.FakeAudioConverter;
-import logic.guitar.FakeGui;
-import logic.guitar.SheetNote;
-import logic.guitar.Tone;
+import logic.note.Prefix;
+import logic.instrument.FakeAudioConverter;
+import logic.instrument.FakeGui;
+import logic.instrument.SheetModel;
+import logic.note.SheetNote;
+import logic.note.Tone;
+import logic.note.NoteFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class SheetModelTest {
         int noteCnt = 23;
         SheetNote[] output = new SheetNote[noteCnt];
         for (int i = 0; i < noteCnt; i++) {
-            currNote = new SheetNote(i);
+            currNote = NoteFactory.createSheetNote(i);
             currNote.setPlayed(false);
             output[i] = currNote;
         }

@@ -1,6 +1,4 @@
-package logic.guitar;
-
-import gui.Prefix;
+package logic.note;
 
 public abstract class Note {
     protected final Tone tone;
@@ -45,12 +43,13 @@ public abstract class Note {
             return false;
         }
         Note other = (Note) o;
-        return this.tone == other.tone && this.octave == other.octave
-                && this.isPlayed == other.isPlayed;
+        return this.tone == other.tone && this.prefix == other.prefix
+                && this.octave == other.octave && this.isPlayed == other.isPlayed;
     }
 
     @Override
     public String toString() {
         return "tone -> " + this.tone + "_" + this.prefix.name() + ", octave -> " + this.octave + ", isPlayed -> " + this.isPlayed;
     }
+
 }

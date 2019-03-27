@@ -1,6 +1,6 @@
 package logic.audio;
 
-import logic.guitar.Note;
+import logic.note.Note;
 
 /**
  * Interface necessary to play audio files
