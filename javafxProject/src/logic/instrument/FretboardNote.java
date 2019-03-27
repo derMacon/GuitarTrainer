@@ -5,8 +5,6 @@ import logic.note.Note;
 import logic.note.NoteCircle;
 import logic.note.Tone;
 
-import java.io.PrintWriter;
-
 /**
  * Note on the fret board of a the instrument
  */
@@ -62,7 +60,10 @@ public class FretboardNote extends Note implements Comparable {
         return this.fretboardPos.getGuitarString();
     }
 
-
+    /**
+     * Generates a new fretboardnote instance of the next semi tone
+     * @return a new fretboardnote instance of the next semi tone
+     */
     public FretboardNote nextSemiTone() {
         int this_noteOrd = NoteCircle.getId(tone, prefix).ordinal();
 
@@ -75,7 +76,6 @@ public class FretboardNote extends Note implements Comparable {
         return new FretboardNote(next_tone, next_prefix, next_octave, next_isPlayed, this.fretboardPos.incFret());
     }
 
-
     @Override
     public int compareTo(Object o) {
         assert null != o;
@@ -85,20 +85,5 @@ public class FretboardNote extends Note implements Comparable {
         int diff = p1.getGuitarString() - p2.getGuitarString();
         return diff == 0 ? p1.getFret() - p2.getFret() : diff;
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (null == o || !(o instanceof FretboardNote)) {
-//            return false;
-//        }
-//        FretboardNote other = (FretboardNote) o;
-//        return this.id == other.id && this.octave == other.octave && this.fretboardPos.equals(other.fretboardPos);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return this.id.name() + " -> " + this.fretboardPos.toString() + ", octave: " + this.octave
-//                + ", isPlayed: " + this.isPlayed;
-//    }
 
 }
