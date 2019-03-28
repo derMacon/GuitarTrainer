@@ -20,6 +20,12 @@ public class SheetNote extends Note {
         super(tone, prefix, octave, isPlayed);
     }
 
+
+    @Override
+    public SheetNote setPlayed(boolean bool) {
+        return new SheetNote(this.tone, this.prefix, this.octave, bool);
+    }
+
     /**
      * Generates the offset measured in tones to the note new Note(Tone.E, Prefix.NEUTRAL, 0, true);
      * @return offset to the lowest note E with the octave 0
@@ -53,8 +59,7 @@ public class SheetNote extends Note {
      */
     public SheetNote iteratePrefix() {
         if (!isPlayed) {
-            this.isPlayed = true;
-            return this;
+            return setPlayed(true);
         }
 
         List<Prefix> possiblePrefix = this.tone.getPossiblePrefix();
@@ -66,6 +71,8 @@ public class SheetNote extends Note {
             return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
         }
     }
+
+
 
 }
 

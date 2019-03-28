@@ -37,7 +37,7 @@ public class SheetModel implements Instrument<SheetNote> {
         this.sheetNotes = new SheetNote[noteCnt];
         for (int i = 0; i < noteCnt; i++) {
             currNote = NoteFactory.createSheetNote(i);
-            currNote.setPlayed(false);
+            currNote = currNote.setPlayed(false);
             this.sheetNotes[i] = currNote;
         }
     }
@@ -65,6 +65,11 @@ public class SheetModel implements Instrument<SheetNote> {
     }
 
     @Override
+    public void playSingleNote(SheetNote sheetNote) {
+
+    }
+
+    @Override
     public void playStrum() {
         System.out.println("todo strum");
     }
@@ -73,8 +78,7 @@ public class SheetModel implements Instrument<SheetNote> {
     public void reset() {
         for (int i = 0; i < this.sheetNotes.length; i++) {
             if (this.sheetNotes[i].isPlayed()) {
-                this.sheetNotes[i] = NoteFactory.createSheetNote(i);
-                this.sheetNotes[i].setPlayed(false);
+                this.sheetNotes[i] = NoteFactory.createSheetNote(i).setPlayed(false);
                 this.gui.updateSheetNotes(this.sheetNotes[i]);
             }
         }

@@ -1,5 +1,6 @@
 package logic.instrument;
 
+import logic.note.FretboardNote;
 import logic.note.Prefix;
 import logic.note.Tone;
 import org.junit.Assert;

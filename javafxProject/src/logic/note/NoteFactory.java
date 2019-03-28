@@ -1,6 +1,5 @@
 package logic.note;
 
-import logic.instrument.FretboardNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 

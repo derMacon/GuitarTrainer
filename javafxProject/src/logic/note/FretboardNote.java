@@ -1,9 +1,6 @@
-package logic.instrument;
+package logic.note;
 
-import logic.note.Prefix;
-import logic.note.Note;
-import logic.note.NoteCircle;
-import logic.note.Tone;
+import logic.instrument.FretboardPos;
 
 /**
  * Note on the fret board of a the instrument
@@ -86,4 +83,16 @@ public class FretboardNote extends Note implements Comparable {
         return diff == 0 ? p1.getFret() - p2.getFret() : diff;
     }
 
+    public FretboardNote copy() {
+        return new FretboardNote(this.tone, this.prefix, this.octave, this.isPlayed, this.fretboardPos);
+    }
+
+    @Override
+    public FretboardNote setPlayed(boolean played) {
+        return new FretboardNote(this.tone, this.prefix, this.octave, played, this.fretboardPos);
+    }
+
+    public FretboardNote invertPlayable() {
+        return setPlayed(!isPlayed);
+    }
 }

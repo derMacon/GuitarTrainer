@@ -19,6 +19,12 @@ public interface Instrument<Note> {
     Note[] getPressedNotes();
 
     /**
+     * Plays a single specified note without saving it in the internal data structure
+     * @param note note to be played
+     */
+    void playSingleNote(Note note);
+
+    /**
      * Plays all pressed notes in one strum
      */
     void playStrum();

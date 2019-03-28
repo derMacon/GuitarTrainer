@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import logic.instrument.FretboardNote;
+import logic.note.FretboardNote;
 import logic.note.Prefix;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
@@ -91,12 +91,6 @@ public class JavaFXGui implements GUIConnector {
         }
     }
 
-//    private int generateInvertedOffset(int colIdx, SheetNote sheetNote) {
-//        assert colIdx == 0 || colIdx == 1;
-//        System.out.println("todo implementation generate inverted offset");
-//        return 0;
-//    }
-
     /**
      * https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
      * Returns the node at the given column / row
@@ -114,7 +108,6 @@ public class JavaFXGui implements GUIConnector {
         }
         return null;
     }
-
 
     @Override
     public void setReplayButtonGrayedout(boolean isGrayedout) {

@@ -1,9 +1,10 @@
 package logic.organization;
 
+import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
-import logic.instrument.FretboardNote;
+import logic.note.FretboardNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 import logic.instrument.Instrument;
@@ -17,9 +18,10 @@ import logic.note.SheetNote;
  */
 public class FlowOrganizer implements Organized {
 
-    private Instrument<FretboardNote> guitar;
-    private Instrument<SheetNote> sheets;
-    private Trainer trainer;
+    private final Instrument<FretboardNote> guitar;
+    private final Instrument<SheetNote> sheets;
+    private final Trainer trainer;
+    private final AudioConnector audioConv;
     private Mode mode;
 
     /**
@@ -33,6 +35,7 @@ public class FlowOrganizer implements Organized {
         this.guitar = new Guitar(gui, audioConv);
         this.trainer = new GuitarTrainer(gui, audioConv);
         this.sheets = new SheetModel(gui, audioConv);
+        this.audioConv = audioConv;
         interpretMode(mode);
     }
 
@@ -47,15 +50,28 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
-        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
+        resetFromMode();
+        SheetNote pressedNote = NoteFactory.createSheetNote(offset);
+        this.sheets.pressNote(pressedNote);
+        this.audioConv.playSingleNote(pressedNote);
         synchronize();
     }
 
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
         this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
+        this.audioConv.playSingleNote(this.guitar.getPressedNotes()[fretboardPos.getGuitarString()]);
         synchronize();
     }
+
+
+    private void resetFromMode() {
+        switch (this.mode) {
+            case SHEET_FREEPLAY:
+                this.guitar.reset();
+        }
+    }
+
 
     private void synchronize() {
         switch (mode) {
@@ -84,10 +100,9 @@ public class FlowOrganizer implements Organized {
      * Synchronizes the guitar notes with the selected notes on the sheet page
      */
     private void syncGuitarWithSheet() {
-        this.guitar.reset();
         SheetNote[] selectedSheetNotes = this.sheets.getPressedNotes();
-
         if(1 == selectedSheetNotes.length) {
+            this.guitar.reset();
             SheetNote singlePressedNote = selectedSheetNotes[0];
             for (FretboardNote currPossiblity : NoteFactory.createFretboardNote(singlePressedNote)) {
                 this.guitar.pressNote(currPossiblity);

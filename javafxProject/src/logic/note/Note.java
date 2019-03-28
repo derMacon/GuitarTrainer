@@ -7,7 +7,7 @@ public abstract class Note {
     protected final Tone tone;
     protected final Prefix prefix;
     protected final int octave;
-    protected boolean isPlayed;
+    protected final boolean isPlayed;
 
     /**
      * Constructor
@@ -63,16 +63,7 @@ public abstract class Note {
      * Setter for the is played flag of the note
      * @param played flag determining if the note should be played or muted
      */
-    public void setPlayed(boolean played) {
-        isPlayed = played;
-    }
-
-    /**
-     * Inverts flag determining if the note should be played or muted
-     */
-    public void invertPlayable() {
-        this.isPlayed = !this.isPlayed;
-    }
+    public abstract Note setPlayed(boolean played);
 
     @Override
     public boolean equals(Object o) {
