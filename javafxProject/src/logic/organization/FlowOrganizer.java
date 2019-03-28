@@ -43,8 +43,7 @@ public class FlowOrganizer implements Organized {
     public void interpretMode(Mode mode) {
         this.mode = mode;
         trainer.setMode(mode);
-        this.guitar.reset();
-        this.sheets.reset();
+        reset();
         synchronize();
     }
 
@@ -52,7 +51,7 @@ public class FlowOrganizer implements Organized {
     public void sheetNotePressed(int offset) {
         if(Mode.SHEET_FREEPLAY == this.mode) {
             this.guitar.reset();
-            if(this.sheets.getPressedNote(offset) == null) {
+            if(!checkIfToneAlreadySelected(offset)) {
                 this.sheets.reset();
             }
         }
@@ -60,6 +59,17 @@ public class FlowOrganizer implements Organized {
         this.sheets.pressNote(NoteFactory.createSheetNote(offset));
         this.audioConv.playSingleNote(this.sheets.getPressedNote(offset));
         synchronize();
+    }
+
+    private boolean checkIfToneAlreadySelected(int offset) {
+        SheetNote baseNote = NoteFactory.createSheetNote(offset);
+        SheetNote[] pressedNotes = this.sheets.getPressedNotes();
+        for(SheetNote currNote : pressedNotes) {
+            if(currNote.getTone() == baseNote.getTone() && currNote.getOctave() == baseNote.getOctave()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private SheetNote getNoteWithSameOffset(int offset) {
@@ -126,8 +136,14 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void reset() {
-        this.guitar.reset();
         this.sheets.reset();
+        this.guitar.reset();
+
+        if(this.mode == Mode.GUITAR_FREEPLAY) {
+            for(FretboardNote note : Guitar.OPEN_STRINGS) {
+                this.guitar.pressNote(note);
+            }
+        }
     }
 
     @Override

@@ -71,7 +71,7 @@ public abstract class Note {
             return false;
         }
         Note other = (Note) o;
-        return this.tone == other.tone && this.prefix == other.prefix
+        return (this.tone == other.tone && this.prefix == other.prefix || NoteCircle.getId(this.tone, this.prefix) == NoteCircle.getId(other.tone, other.prefix))
                 && this.octave == other.octave && this.isPlayed == other.isPlayed;
     }
 
