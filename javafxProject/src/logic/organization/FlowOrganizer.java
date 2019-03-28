@@ -18,8 +18,8 @@ import logic.note.SheetNote;
  */
 public class FlowOrganizer implements Organized {
 
-    private final Instrument<FretboardNote> guitar;
-    private final Instrument<SheetNote> sheets;
+    private final Instrument<FretboardNote, FretboardPos> guitar;
+    private final Instrument<SheetNote, Integer> sheets;
     private final Trainer trainer;
     private final AudioConnector audioConv;
     private Mode mode;
@@ -50,11 +50,25 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
-        resetFromMode();
-        SheetNote pressedNote = NoteFactory.createSheetNote(offset);
-        this.sheets.pressNote(pressedNote);
-        this.audioConv.playSingleNote(pressedNote);
+        if(Mode.SHEET_FREEPLAY == this.mode) {
+            this.guitar.reset();
+            if(this.sheets.getPressedNote(offset) == null) {
+                this.sheets.reset();
+            }
+        }
+
+        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
+        this.audioConv.playSingleNote(this.sheets.getPressedNote(offset));
         synchronize();
+    }
+
+    private SheetNote getNoteWithSameOffset(int offset) {
+        SheetNote noteWithSameOffset = null;
+        SheetNote[] previouslePressed = this.sheets.getPressedNotes();
+        for (int i = 0; i < previouslePressed.length && null == noteWithSameOffset; i++) {
+            noteWithSameOffset = offset == previouslePressed[i].getOffsetToLowestE() ? previouslePressed[i] : null;
+        }
+        return noteWithSameOffset;
     }
 
     @Override

@@ -7,7 +7,7 @@ public enum Mode {
     GUITAR_FREEPLAY("Freeplay mode for the guitar:"
             + "\nAll selected notes will be displayed on the sheet"
             + "\npage. In this mode there are no excercises so the"
-            + "\nreplay buttons are grayed out."),
+            + "\nreplay button is grayed out."),
     SHEET_FREEPLAY("Freeplay mode for the sheet music:"
             + "\nOnly one note at a time can be selected on the "
             + "\nsheet page. All possible fret positions of the "

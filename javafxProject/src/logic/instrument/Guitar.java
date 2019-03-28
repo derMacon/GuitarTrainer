@@ -12,7 +12,7 @@ import logic.organization.GUIConnector;
 /**
  * Class implementing a instrument with the ability to play notes / chords
  */
-public class Guitar implements Instrument<FretboardNote> {
+public class Guitar implements Instrument<FretboardNote, FretboardPos> {
 
     public static final FretboardNote[] OPEN_STRINGS = new FretboardNote[]{
             new FretboardNote(Tone.E, Prefix.NEUTRAL, 2, true, new FretboardPos(0, 0)),
@@ -60,6 +60,12 @@ public class Guitar implements Instrument<FretboardNote> {
     @Override
     public FretboardNote[] getPressedNotes() {
         return this.pressedStrings;
+    }
+
+    @Override
+    public FretboardNote getPressedNote(FretboardPos pos) {
+        FretboardNote output = this.pressedStrings[pos.getGuitarString()];
+        return output.getFretboardPos().equals(pos) ? output : null;
     }
 
     @Override

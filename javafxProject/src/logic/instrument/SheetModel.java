@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Class implements the sheet pages as an instrument where the user can select and play notes on.
  */
-public class SheetModel implements Instrument<SheetNote> {
+public class SheetModel implements Instrument<SheetNote, Integer> {
 
     private SheetNote[] sheetNotes;
     private final GUIConnector gui;
@@ -62,6 +62,11 @@ public class SheetModel implements Instrument<SheetNote> {
          }
          SheetNote[] outputArr = new SheetNote[0];
          return outputLst.size() == 0 ? outputArr : outputLst.toArray(outputArr);
+    }
+
+    @Override
+    public SheetNote getPressedNote(Integer offsetToLowestE) {
+        return this.sheetNotes[offsetToLowestE].isPlayed() ? this.sheetNotes[offsetToLowestE] : null;
     }
 
     @Override
