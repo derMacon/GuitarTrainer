@@ -72,7 +72,6 @@ public class JavaFXGui implements GUIConnector {
     public void updateSheetNotes(SheetNote sheetNote) {
         GridPane currGrdPn = sheetNote.getOffsetToLowestE() % 2 == 0
                 ? this.sheetNotes[NOTES_BETWEEN_LINES] : this.sheetNotes[NOTES_ONTOP_LINES];
-        System.out.println(sheetNote);
         int spaceCnt = currGrdPn.getRowConstraints().size();
         int invertedOffset = spaceCnt - 1 - (sheetNote.getOffsetToLowestE() / 2);
         ImageView prefix = (ImageView) getNodeFromGridPane(currGrdPn, 0, invertedOffset);

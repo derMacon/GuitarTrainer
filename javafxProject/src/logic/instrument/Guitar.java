@@ -62,16 +62,6 @@ public class Guitar implements Instrument<FretboardNote, FretboardPos> {
         return this.pressedStrings;
     }
 
-    @Override
-    public FretboardNote getPressedNote(FretboardPos pos) {
-        FretboardNote output = this.pressedStrings[pos.getGuitarString()];
-        return output.getFretboardPos().equals(pos) ? output : null;
-    }
-
-    @Override
-    public void playSingleNote(FretboardNote fretboardNote) {
-        this.audioConv.playSingleNote(fretboardNote);
-    }
 
     /**
      * Plays a down strum of all previously selected notes on the instrument fretboard
@@ -98,55 +88,12 @@ public class Guitar implements Instrument<FretboardNote, FretboardPos> {
     }
 
     @Override
-    public void pressNote(FretboardNote note) {
-        FretboardNote prevNote = updateNotes(note);
-//        if (!note.equals(prevNote)) {
-//            playSinglePressedNote(prevNote, this.pressedStrings[note.getBaseString()]);
-//        }
-    }
-
-    /**
-     * Presses a note on the instrument
-     *
-     * @param inputFretboardNote note to be pressed
-     */
-    protected FretboardNote updateNotes(FretboardNote inputFretboardNote) {
+    public FretboardNote pressNote(FretboardNote inputFretboardNote) {
         assert inputFretboardNote != null;
-        FretboardNote prevFretboardNote = updateString(inputFretboardNote);
+        updateNote(inputFretboardNote);
         FretboardNote currFretboardNote = this.pressedStrings[inputFretboardNote.getBaseString()];
         this.gui.updateGuitar(currFretboardNote);
-        return prevFretboardNote;
-    }
-
-    /**
-     * Updates a given guitaar string
-     *
-     * @param fretboardNote note on the instrument neck from which the base string will be updated
-     * @return the previously selected note from the input note's base string
-     */
-    private FretboardNote updateString(FretboardNote fretboardNote) {
-        FretboardNote oldPressed = this.pressedStrings[fretboardNote.getBaseString()];
-        updateNote(fretboardNote);
-        return oldPressed;
-    }
-
-    /**
-     * Current selected FretboardNote will be played if
-     * - the prevFretboardNote and the currFretboardNote are unequal
-     * - or if the currFretboardNote is the open String and the note is actually supposed to be played
-     *
-     * @param prevFretboardNote note previously selected
-     * @param currFretboardNote current note selected by the user
-     */
-    private void playSinglePressedNote(FretboardNote prevFretboardNote, FretboardNote currFretboardNote) {
-        System.out.println(prevFretboardNote + " " + currFretboardNote);
-        if (!prevFretboardNote.equals(currFretboardNote)
-                || currFretboardNote.equals(this.OPEN_STRINGS[currFretboardNote.getBaseString()])
-                && currFretboardNote.isPlayed()) {
-            this.audioConv.playSingleNote(currFretboardNote);
-        } else {
-            this.audioConv.playSingleNote(prevFretboardNote);
-        }
+        return currFretboardNote;
     }
 
     /**

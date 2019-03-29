@@ -2,6 +2,7 @@ package logic.organization;
 
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
+import logic.dataPreservation.Logger;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
 import logic.note.FretboardNote;
@@ -50,15 +51,21 @@ public class FlowOrganizer implements Organized {
     @Override
     public void sheetNotePressed(int offset) {
         if(Mode.SHEET_FREEPLAY == this.mode) {
+            prepareNoteBoards(offset);
+            SheetNote updatedSheetNote = this.sheets.pressNote(NoteFactory.createSheetNote(offset));
+            Logger.getInstance().printAndSafe("Sheet note selected: " + updatedSheetNote);
+            this.audioConv.playSingleNote(updatedSheetNote);
+            synchronize();
+        }
+    }
+
+    private void prepareNoteBoards(int offset) {
+        if (Mode.SHEET_FREEPLAY == this.mode) {
             this.guitar.reset();
-            if(!checkIfToneAlreadySelected(offset)) {
+            if (!checkIfToneAlreadySelected(offset)) {
                 this.sheets.reset();
             }
         }
-
-        this.sheets.pressNote(NoteFactory.createSheetNote(offset));
-        this.audioConv.playSingleNote(this.sheets.getPressedNote(offset));
-        synchronize();
     }
 
     private boolean checkIfToneAlreadySelected(int offset) {
@@ -72,30 +79,16 @@ public class FlowOrganizer implements Organized {
         return false;
     }
 
-    private SheetNote getNoteWithSameOffset(int offset) {
-        SheetNote noteWithSameOffset = null;
-        SheetNote[] previouslePressed = this.sheets.getPressedNotes();
-        for (int i = 0; i < previouslePressed.length && null == noteWithSameOffset; i++) {
-            noteWithSameOffset = offset == previouslePressed[i].getOffsetToLowestE() ? previouslePressed[i] : null;
-        }
-        return noteWithSameOffset;
-    }
 
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
-        this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
-        this.audioConv.playSingleNote(this.guitar.getPressedNotes()[fretboardPos.getGuitarString()]);
-        synchronize();
-    }
-
-
-    private void resetFromMode() {
-        switch (this.mode) {
-            case SHEET_FREEPLAY:
-                this.guitar.reset();
+        if(Mode.GUITAR_FREEPLAY == this.mode) {
+            FretboardNote updatedNote = this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
+            this.audioConv.playSingleNote(updatedNote);
+            Logger.getInstance().printAndSafe("Fretboard note selected: " + updatedNote);
+            synchronize();
         }
     }
-
 
     private void synchronize() {
         switch (mode) {
@@ -139,6 +132,8 @@ public class FlowOrganizer implements Organized {
         this.sheets.reset();
         this.guitar.reset();
 
+        // Depending on the mode a reseted guitar may or may not have the open
+        // strings selected / be completely muted
         if(this.mode == Mode.GUITAR_FREEPLAY) {
             for(FretboardNote note : Guitar.OPEN_STRINGS) {
                 this.guitar.pressNote(note);

@@ -54,7 +54,6 @@ public class Player implements LineListener {
             }
 
             audioClip.close();
-//            System.out.println("Thread closed");
 
         } catch (UnsupportedAudioFileException ex) {
             System.out.println("The specified audio file is not supported.");

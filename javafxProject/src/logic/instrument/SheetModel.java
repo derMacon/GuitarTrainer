@@ -1,6 +1,7 @@
 package logic.instrument;
 
 import logic.audio.AudioConnector;
+import logic.note.FretboardNote;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
@@ -43,13 +44,14 @@ public class SheetModel implements Instrument<SheetNote, Integer> {
     }
 
     @Override
-    public void pressNote(SheetNote note) {
+    public SheetNote pressNote(SheetNote note) {
         int noteOrd = note.getOffsetToLowestE();
         for (int i = 0; i < note.getPrefix().ordinal(); i++) {
             this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
         }
 
         this.gui.updateSheetNotes(this.sheetNotes[noteOrd]);
+        return this.sheetNotes[noteOrd];
     }
 
     @Override
@@ -62,16 +64,6 @@ public class SheetModel implements Instrument<SheetNote, Integer> {
          }
          SheetNote[] outputArr = new SheetNote[0];
          return outputLst.size() == 0 ? outputArr : outputLst.toArray(outputArr);
-    }
-
-    @Override
-    public SheetNote getPressedNote(Integer offsetToLowestE) {
-        return this.sheetNotes[offsetToLowestE].isPlayed() ? this.sheetNotes[offsetToLowestE] : null;
-    }
-
-    @Override
-    public void playSingleNote(SheetNote sheetNote) {
-
     }
 
     @Override
