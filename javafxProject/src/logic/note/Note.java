@@ -81,4 +81,8 @@ public abstract class Note {
                 + this.isPlayed;
     }
 
+    @Override
+    public int hashCode() {
+        return NoteCircle.getId(this.tone, this.prefix).ordinal() + this.octave * NoteCircle.values().length;
+    }
 }

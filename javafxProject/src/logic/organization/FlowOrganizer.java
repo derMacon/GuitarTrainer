@@ -13,6 +13,10 @@ import logic.instrument.SheetModel;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Class distributes a simple allocation to the appropriate interface / class. Is necessary to make it possible to
  * switch the gui implementation. (maybe this app should also work headless / on android)
@@ -108,7 +112,8 @@ public class FlowOrganizer implements Organized {
      */
     private void syncSheetWithGuitar() {
         this.sheets.reset();
-        for (FretboardNote currNote : this.guitar.getPressedNotes()) {
+        Set<FretboardNote> uniqueNotes = new HashSet<>(Arrays.asList(this.guitar.getPressedNotes()));
+        for (FretboardNote currNote : uniqueNotes) {
             this.sheets.pressNote(NoteFactory.createSheetNote(currNote));
         }
     }
