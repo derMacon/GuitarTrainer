@@ -17,4 +17,17 @@ public enum PrefixImages {
     public String getPath() {
         return path;
     }
+
+    public static PrefixImages getId(String path) {
+        for(PrefixImages curr : values()) {
+            if(curr.getPath().equals(path)) {
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    public PrefixImages add(PrefixImages other) {
+        return values()[2 + this.ordinal() + other.ordinal()];
+    }
 }

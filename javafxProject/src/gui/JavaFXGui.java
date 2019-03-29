@@ -81,6 +81,12 @@ public class JavaFXGui implements GUIConnector {
 
         if (sheetNote.isPlayed()) {
             Prefix currPrefix = sheetNote.getPrefix();
+
+//            PrefixImages displayedImage = PrefixImages.values()[currPrefix.ordinal()];
+//            if (prefix.getImage() != null) {
+//                displayedImage = displayedImage.add(PrefixImages.getId(prefix.getImage().));
+//            }
+
             prefix.setImage(new Image(PREFIX_IMG_PATH[currPrefix.ordinal()], SELECTED_PIXEL, SELECTED_PIXEL, true,
                     true));
             note.setImage(NOTE_SHEET_MUSIC);
@@ -95,8 +101,8 @@ public class JavaFXGui implements GUIConnector {
      * Returns the node at the given column / row
      *
      * @param gridPane gridpane from which the node should be returned
-     * @param col column index of the node
-     * @param row row index of the node
+     * @param col      column index of the node
+     * @param row      row index of the node
      * @return the node at the given column / row
      */
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
