@@ -80,9 +80,7 @@ public class Guitar implements Instrument<FretboardNote> {
         for (int i = 0; i < this.pressedStrings.length; i++) {
             curr = this.pressedStrings[i];
             if (!curr.equals(OPEN_STRINGS[i]) || curr.isPlayed()) {
-                FretboardNote temp = NoteFactory.createFretboardNote(new FretboardPos(i, 0));
-                temp = temp.setPlayed(false);
-                this.gui.updateGuitar(temp);
+                pressNote(NoteFactory.createFretboardNote(new FretboardPos(i, 0)).setPlayed(false));
             }
         }
     }
