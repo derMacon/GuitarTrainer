@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
@@ -297,6 +298,7 @@ public class GuitarFretboardController implements Initializable {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
         Label label = new Label(Mode.values()[idx].getDescr());
         label.setTextAlignment(TextAlignment.CENTER);
+        label.setFont(new Font("Forte", 22));
         return label;
     }
 

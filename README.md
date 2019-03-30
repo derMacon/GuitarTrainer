@@ -8,7 +8,7 @@ A program that trains you to recognize heard notes / chords. There will be four 
 Build: [GuitarTrainer1.0](otherDocs/build/GuitarTrainer1.0.jar)
 
 ### Gui (WIP)
-<img src="otherDocs/screenshots/screenshot3003.png" alt="drawing" width="2000"/>
+<img src="otherDocs/screenshots/screenshot3103.png" alt="drawing" width="2000"/>
 
 ## Help
 ### Fretboard 

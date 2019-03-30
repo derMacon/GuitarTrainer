@@ -1,6 +1,7 @@
 package logic.instrument;
 
 import logic.audio.AudioConnector;
+import logic.dataPreservation.Logger;
 import logic.note.FretboardNote;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
@@ -46,12 +47,16 @@ public class SheetModel implements Instrument<SheetNote> {
     @Override
     public SheetNote pressNote(SheetNote note) {
         int noteOrd = note.getOffsetToLowestE();
-        for (int i = 0; i < note.getPrefix().ordinal() && note.isPlayed(); i++) {
-            this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
+        try {
+            for (int i = 0; i < note.getPrefix().ordinal() && note.isPlayed(); i++) {
+                this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
+            }
+            this.gui.updateSheetNotes(this.sheetNotes[noteOrd]);
+            return this.sheetNotes[noteOrd];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Logger.getInstance().printAndSafe("note [" + note + "] cannot be displayed on the sheet page");
         }
-
-        this.gui.updateSheetNotes(this.sheetNotes[noteOrd]);
-        return this.sheetNotes[noteOrd];
+        return null;
     }
 
     @Override

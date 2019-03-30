@@ -57,7 +57,7 @@ public class FlowOrganizer implements Organized {
         if (Mode.SHEET_FREEPLAY == this.mode) {
             prepareNoteBoards(offset);
             SheetNote updatedSheetNote = this.sheets.pressNote(NoteFactory.createSheetNote(offset));
-            Logger.getInstance().printAndSafe("Sheet note selected: " + updatedSheetNote);
+            Logger.getInstance().printAndSafe(updatedSheetNote + " <= Sheet note selected");
             this.audioConv.playSingleNote(updatedSheetNote);
             synchronize();
         }
@@ -101,7 +101,7 @@ public class FlowOrganizer implements Organized {
         if (Mode.GUITAR_FREEPLAY == this.mode) {
             FretboardNote updatedNote = this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
             this.audioConv.playSingleNote(updatedNote);
-            Logger.getInstance().printAndSafe("Fretboard note selected: " + updatedNote);
+            Logger.getInstance().printAndSafe(updatedNote + " <= Fretboard note selected");
             synchronize();
         }
     }

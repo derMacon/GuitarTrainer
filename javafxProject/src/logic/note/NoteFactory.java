@@ -11,6 +11,30 @@ import java.util.List;
  */
 public class NoteFactory {
 
+    public static Note createNote(String str) {
+        // todo validate with pattern matching / regex
+        String[] components = str.substring(1, str.length() - 1).split(",");
+        String[] data = getDataFromComponents(components);
+
+        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
+                getOctave(data[1]), getIsPlayed(data[2]));
+    }
+
+    private static String[] getDataFromComponents(String[] components) {
+        for (int i = 0; i < components.length; i++) {
+            components[i] = components[i].split(" -> ")[1];
+        }
+        return components;
+    }
+
+    private static int getOctave(String octaveRepresentation) {
+        return octaveRepresentation.charAt(octaveRepresentation.length() - 1) - '0';
+    }
+
+    private static boolean getIsPlayed(String str) {
+        return str.matches(".*true");
+    }
+
     /**
      * Translates a given position to a note
      *
