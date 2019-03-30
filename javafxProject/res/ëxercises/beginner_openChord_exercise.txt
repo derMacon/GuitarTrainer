@@ -1,0 +1,6 @@
+[tone ->   F_SHARP, octave -> 0, isPlayed ->  true] 
+[tone ->   C_SHARP, octave -> 1, isPlayed ->  true]
+[tone ->   F_SHARP, octave -> 1, isPlayed ->  true]
+[tone ->   A_SHARP, octave -> 1, isPlayed ->  true]
+[tone ->   C_SHARP, octave -> 2, isPlayed ->  true]
+[tone ->   F_SHARP, octave -> 2, isPlayed ->  true]

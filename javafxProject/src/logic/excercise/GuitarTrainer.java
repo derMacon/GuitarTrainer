@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,10 +23,14 @@ import java.util.List;
  */
 public class GuitarTrainer implements Trainer {
 
+    private static final int WRONG_ANSWER_OFFSET = 10;
+    private static final int POOL_SIZE = 10;
+
     private GUIConnector gui;
     private AudioConnector audioConv;
     private Mode mode;
-    private List<Note> excercises;
+    private List<ExcerciseNote> exercises;
+
 
     /**
      * Constructor setting up the gui and audioocnverter
@@ -36,7 +41,7 @@ public class GuitarTrainer implements Trainer {
     public GuitarTrainer(GUIConnector gui, AudioConverter audioConverter) {
         this.gui = gui;
         this.audioConv = audioConverter;
-        this.excercises = new ArrayList<>();
+        this.exercises = new ArrayList<>();
     }
 
     @Override
@@ -46,14 +51,10 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public void setMode(Mode mode) {
-        if(ExcercisePack.contains(mode)) {
+        if (ExcercisePack.contains(mode)) {
             this.mode = mode;
             gui.setReplayButtonGrayedout(this.mode == Mode.GUITAR_FREEPLAY);
             generateExerciseLst();
-
-            for(Note note : this.excercises) {
-                System.out.println(note);
-            }
         }
     }
 
@@ -64,25 +65,35 @@ public class GuitarTrainer implements Trainer {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                this.excercises.add(NoteFactory.createNote(line));
+                this.exercises.add(NoteFactory.createNote(line));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        Collections.shuffle(this.exercises);
+        this.exercises = this.exercises.subList(0, POOL_SIZE - 1);
     }
 
 
     @Override
-    public void giveExcercise() {
-
-        Logger.getInstance().printAndSafe("Trainer gives excercise");
+    public Note giveExcercise() {
+        Logger.getInstance().printAndSafe(this.exercises.get(0) + " <= Trainer gives excercise");
+        return this.exercises.get(0);
     }
 
     @Override
-    public void checkResult() {
-        Logger.getInstance().printAndSafe("Trainer evaluates excercise");
+    public void checkResult(ExcerciseNote note) {
+        // todo check for np exception
+        if (this.exercises.get(0).equals(note)) {
+            insertLst(note);
+        } else {
+            this.exercises.add(WRONG_ANSWER_OFFSET, note);
+        }
+    }
+
+    private void insertLst(ExcerciseNote note) {
+
     }
 }

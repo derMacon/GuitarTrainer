@@ -68,6 +68,7 @@ public class Note {
      * @return a new note instance with the updated flag
      */
     public  Note setPlayed(boolean played) {
+        // todo check if inherenting classes override...
         return new Note(this.tone, this.prefix, this.octave, played);
     }
 

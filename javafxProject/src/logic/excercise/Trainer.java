@@ -1,5 +1,6 @@
 package logic.excercise;
 
+import logic.note.Note;
 import logic.note.SheetNote;
 import logic.organization.Mode;
 
@@ -17,7 +18,7 @@ public interface Trainer {
     /**
      * Generates a excercise for the user to solve with the gui
      */
-    void giveExcercise();
+    Note giveExcercise();
 
     /**
      * Method to set a new SheetNote selected by the user
@@ -28,7 +29,8 @@ public interface Trainer {
     /**
      * Method to check the result of the user. Will be called once the user uses the check in option for the exercise
      * solution.
+     * @param name
      */
-    void checkResult();
+    void checkResult(ExcerciseNote name);
 
 }

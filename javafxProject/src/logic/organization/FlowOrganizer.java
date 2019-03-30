@@ -175,6 +175,6 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void checkInResult() {
-        this.trainer.checkResult();
+//        this.trainer.checkResult();
     }
 }

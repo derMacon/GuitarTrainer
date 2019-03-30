@@ -1,5 +1,6 @@
 package logic.note;
 
+import logic.excercise.ExcerciseNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 
@@ -11,18 +12,18 @@ import java.util.List;
  */
 public class NoteFactory {
 
-    public static Note createNote(String str) {
+    public static ExcerciseNote createNote(String str) {
         // todo validate with pattern matching / regex
         String[] components = str.substring(1, str.length() - 1).split(",");
         String[] data = getDataFromComponents(components);
 
-        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
+        return new ExcerciseNote(Tone.translate(data[0]), Prefix.translate(data[0]),
                 getOctave(data[1]), getIsPlayed(data[2]));
     }
 
     private static String[] getDataFromComponents(String[] components) {
         for (int i = 0; i < components.length; i++) {
-            components[i] = components[i].split(" -> ")[1];
+            components[i] = components[i].split(" -> ")[1].trim();
         }
         return components;
     }
