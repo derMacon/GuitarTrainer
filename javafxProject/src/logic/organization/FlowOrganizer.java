@@ -5,11 +5,11 @@ import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
-import logic.note.FretboardNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 import logic.instrument.Instrument;
 import logic.instrument.SheetModel;
+import logic.note.FretboardNote;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
 
@@ -23,8 +23,8 @@ import java.util.Set;
  */
 public class FlowOrganizer implements Organized {
 
-    private final Instrument<FretboardNote, FretboardPos> guitar;
-    private final Instrument<SheetNote, Integer> sheets;
+    private final Instrument<FretboardNote> guitar;
+    private final Instrument<SheetNote> sheets;
     private final Trainer trainer;
     private final AudioConnector audioConv;
     private Mode mode;
@@ -54,7 +54,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
-        if(Mode.SHEET_FREEPLAY == this.mode) {
+        if (Mode.SHEET_FREEPLAY == this.mode) {
             prepareNoteBoards(offset);
             SheetNote updatedSheetNote = this.sheets.pressNote(NoteFactory.createSheetNote(offset));
             Logger.getInstance().printAndSafe("Sheet note selected: " + updatedSheetNote);
@@ -63,6 +63,13 @@ public class FlowOrganizer implements Organized {
         }
     }
 
+    /**
+     * Resets guitar if the mode of the program equals the sheet free play mode.
+     * If the note is not already selected on the sheet page the sheet page will be reset.
+     * -> the prefix will be iterated later on so it's necessary to NOT reset if the previous note is on the same
+     * position as the current selected note
+     * @param offset offset to lowest E note
+     */
     private void prepareNoteBoards(int offset) {
         if (Mode.SHEET_FREEPLAY == this.mode) {
             this.guitar.reset();
@@ -72,11 +79,16 @@ public class FlowOrganizer implements Organized {
         }
     }
 
+    /**
+     * Checks if there is a already a note selected on the sheet page with the specified offset
+     * @param offset offset to the lowest note E.
+     * @return true if there is a already a note selected on the sheet page with the specified offset
+     */
     private boolean checkIfToneAlreadySelected(int offset) {
         SheetNote baseNote = NoteFactory.createSheetNote(offset);
         SheetNote[] pressedNotes = this.sheets.getPressedNotes();
-        for(SheetNote currNote : pressedNotes) {
-            if(currNote.getTone() == baseNote.getTone() && currNote.getOctave() == baseNote.getOctave()) {
+        for (SheetNote currNote : pressedNotes) {
+            if (currNote.getTone() == baseNote.getTone() && currNote.getOctave() == baseNote.getOctave()) {
                 return true;
             }
         }
@@ -86,7 +98,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
-        if(Mode.GUITAR_FREEPLAY == this.mode) {
+        if (Mode.GUITAR_FREEPLAY == this.mode) {
             FretboardNote updatedNote = this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
             this.audioConv.playSingleNote(updatedNote);
             Logger.getInstance().printAndSafe("Fretboard note selected: " + updatedNote);
@@ -94,6 +106,9 @@ public class FlowOrganizer implements Organized {
         }
     }
 
+    /**
+     * Calls the appropriate methods to synchronize the instruments according to the specified mode
+     */
     private void synchronize() {
         switch (mode) {
             case GUITAR_FREEPLAY:
@@ -123,7 +138,7 @@ public class FlowOrganizer implements Organized {
      */
     private void syncGuitarWithSheet() {
         SheetNote[] selectedSheetNotes = this.sheets.getPressedNotes();
-        if(1 == selectedSheetNotes.length) {
+        if (1 == selectedSheetNotes.length) {
             this.guitar.reset();
             SheetNote singlePressedNote = selectedSheetNotes[0];
             for (FretboardNote currPossiblity : NoteFactory.createFretboardNote(singlePressedNote)) {
@@ -139,11 +154,13 @@ public class FlowOrganizer implements Organized {
 
         // Depending on the mode a reseted guitar may or may not have the open
         // strings selected / be completely muted
-        if(this.mode == Mode.GUITAR_FREEPLAY) {
-            for(FretboardNote note : Guitar.OPEN_STRINGS) {
+        if (this.mode == Mode.GUITAR_FREEPLAY) {
+            for (FretboardNote note : Guitar.OPEN_STRINGS) {
                 this.guitar.pressNote(note);
             }
         }
+
+        synchronize();
     }
 
     @Override

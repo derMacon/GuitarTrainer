@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Class implements the sheet pages as an instrument where the user can select and play notes on.
  */
-public class SheetModel implements Instrument<SheetNote, Integer> {
+public class SheetModel implements Instrument<SheetNote> {
 
     private SheetNote[] sheetNotes;
     private final GUIConnector gui;

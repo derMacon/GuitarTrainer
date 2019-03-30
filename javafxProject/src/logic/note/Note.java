@@ -62,6 +62,7 @@ public abstract class Note {
     /**
      * Setter for the is played flag of the note
      * @param played flag determining if the note should be played or muted
+     * @return a new note instance with the updated flag
      */
     public abstract Note setPlayed(boolean played);
 
@@ -71,7 +72,7 @@ public abstract class Note {
             return false;
         }
         Note other = (Note) o;
-        return (this.tone == other.tone && this.prefix == other.prefix || NoteCircle.getId(this.tone, this.prefix) == NoteCircle.getId(other.tone, other.prefix))
+        return NoteCircle.getId(this.tone, this.prefix) == NoteCircle.getId(other.tone, other.prefix)
                 && this.octave == other.octave && this.isPlayed == other.isPlayed;
     }
 

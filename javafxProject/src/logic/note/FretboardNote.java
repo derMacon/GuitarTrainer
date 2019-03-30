@@ -83,15 +83,15 @@ public class FretboardNote extends Note implements Comparable {
         return diff == 0 ? p1.getFret() - p2.getFret() : diff;
     }
 
-    public FretboardNote copy() {
-        return new FretboardNote(this.tone, this.prefix, this.octave, this.isPlayed, this.fretboardPos);
-    }
-
     @Override
     public FretboardNote setPlayed(boolean played) {
         return new FretboardNote(this.tone, this.prefix, this.octave, played, this.fretboardPos);
     }
 
+    /**
+     * Inverts the muted flag
+     * @return inverted muted flag
+     */
     public FretboardNote invertPlayable() {
         return setPlayed(!isPlayed);
     }
