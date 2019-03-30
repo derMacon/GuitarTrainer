@@ -46,7 +46,7 @@ public class SheetModel implements Instrument<SheetNote> {
     @Override
     public SheetNote pressNote(SheetNote note) {
         int noteOrd = note.getOffsetToLowestE();
-        for (int i = 0; i < note.getPrefix().ordinal(); i++) {
+        for (int i = 0; i < note.getPrefix().ordinal() && note.isPlayed(); i++) {
             this.sheetNotes[noteOrd] = this.sheetNotes[noteOrd].iteratePrefix();
         }
 

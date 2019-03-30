@@ -66,6 +66,7 @@ public abstract class Note {
      */
     public abstract Note setPlayed(boolean played);
 
+    // Important: Muted flag not considered when checking for equality
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Note)) {
@@ -73,7 +74,7 @@ public abstract class Note {
         }
         Note other = (Note) o;
         return NoteCircle.getId(this.tone, this.prefix) == NoteCircle.getId(other.tone, other.prefix)
-                && this.octave == other.octave && this.isPlayed == other.isPlayed;
+                && this.octave == other.octave;
     }
 
     @Override

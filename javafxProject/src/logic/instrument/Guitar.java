@@ -90,8 +90,7 @@ public class Guitar implements Instrument<FretboardNote> {
     @Override
     public FretboardNote pressNote(FretboardNote inputFretboardNote) {
         assert inputFretboardNote != null;
-        updateNote(inputFretboardNote);
-        FretboardNote currFretboardNote = this.pressedStrings[inputFretboardNote.getBaseString()];
+        FretboardNote currFretboardNote = updateNote(inputFretboardNote);
         this.gui.updateGuitar(currFretboardNote);
         return currFretboardNote;
     }
