@@ -1,12 +1,14 @@
 package logic.note;
 
-import logic.instrument.FretboardNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Static factory for the note class implementations
+ */
 public class NoteFactory {
 
     /**
@@ -23,13 +25,19 @@ public class NoteFactory {
         return note;
     }
 
+    /**
+     * Translates a given SheetNote instance to a FretboardNote instance
+     *
+     * @param note SheetNote instance to translate
+     * @return Corresponding FrerboardNote instance
+     */
     public static List<FretboardNote> createFretboardNote(SheetNote note) {
         List<FretboardNote> output = new ArrayList<>();
         FretboardNote currNote;
-        for(FretboardNote currOpenString : Guitar.OPEN_STRINGS) {
+        for (FretboardNote currOpenString : Guitar.OPEN_STRINGS) {
             currNote = currOpenString;
             for (int i = 0; i < Guitar.FRET_CNT - 1; i++) {
-                if(note.equals(currNote)) {
+                if (note.equals(currNote)) {
                     output.add(currNote);
                 }
                 currNote = currNote.nextSemiTone();
@@ -38,6 +46,12 @@ public class NoteFactory {
         return output;
     }
 
+    /**
+     * Creates a SheetNote from the given offset
+     *
+     * @param offset offset of the note to the lowest Note E
+     * @return SheetNote with the given offset to the lowest Note e
+     */
     public static SheetNote createSheetNote(int offset) {
         Tone tone = Tone.values()[(Tone.E.ordinal() + offset) % Tone.values().length];
         Prefix prefix = Prefix.NEUTRAL;
@@ -47,6 +61,12 @@ public class NoteFactory {
         return new SheetNote(tone, prefix, octave, isPlayed);
     }
 
+    /**
+     * Translates a given FretboardNote instance to a SheetNote instance
+     *
+     * @param note FretboardNote to translate
+     * @return Corresponding SheetNote instance
+     */
     public static SheetNote createSheetNote(FretboardNote note) {
         return new SheetNote(note.getTone(), note.getPrefix(), note.getOctave(), note.isPlayed());
     }

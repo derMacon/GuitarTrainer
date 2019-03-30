@@ -152,6 +152,12 @@ public class GuitarFretboardController implements Initializable {
 
     // --- initializing gui with textures / buttons ---
 
+    /**
+     * Initializes the given button with a given logo
+     *
+     * @param btn  button to be initialized
+     * @param icon icon to be put on the button
+     */
     private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
         btn.setStyle(
                 "-fx-background-color: #d6e1fc;\n"
@@ -212,8 +218,9 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Inits the givin menu item with the a given icon
+     *
      * @param mnItem menu item to initialize
-     * @param icon icon that will be shown on the menu item
+     * @param icon   icon that will be shown on the menu item
      */
     private void initMenu(MenuItem mnItem, FontAwesomeIcon icon) {
         GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
@@ -282,6 +289,7 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Page factory for the pagination
+     *
      * @param idx index of the page
      * @return page for the given index
      */
@@ -292,6 +300,10 @@ public class GuitarFretboardController implements Initializable {
         return label;
     }
 
+    /**
+     * User presses / selects a note on the sheet page
+     * @param event Action event called by the user / gui
+     */
     @FXML
     public void sheetNoteBtnPressed(ActionEvent event) {
         int offset = Integer.parseInt(((JFXButton) event.getSource()).getId().split("_")[2]);
@@ -362,11 +374,19 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Resets the notes on the guitar / sheet page
+     * @param event Action event called by the user / gui
+     */
     @FXML
     private void reset(ActionEvent event) {
         this.flowOrganizer.reset();
     }
 
+    /**
+     * Replays the excercise
+     * @param event Action event called by the user / gui
+     */
     @FXML
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");

@@ -60,7 +60,7 @@ public class AudioConverter implements AudioConnector {
 
     @Override
     public void playSingleNote(Note note) {
-        if (note.isPlayed()) {
+        if (null != note && note.isPlayed()) {
             MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
             Thread fstThread = new Thread(fstRunner);
             fstThread.start();
@@ -69,7 +69,6 @@ public class AudioConverter implements AudioConnector {
 
     @Override
     public void playMultipleNotes(Note[] notes) {
-        System.out.println("Play downstrum");
         for (int i = notes.length - 1; i >= 0; i--) {
             playSingleNote(notes[i]);
         }

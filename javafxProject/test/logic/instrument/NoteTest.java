@@ -1,5 +1,6 @@
 package logic.instrument;
 
+import logic.note.FretboardNote;
 import logic.note.Prefix;
 import logic.note.Note;
 import logic.note.Tone;

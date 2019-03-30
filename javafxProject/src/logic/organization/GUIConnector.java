@@ -1,6 +1,6 @@
 package logic.organization;
 
-import logic.instrument.FretboardNote;
+import logic.note.FretboardNote;
 import logic.note.SheetNote;
 
 /**

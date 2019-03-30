@@ -3,6 +3,9 @@ package logic.note;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Enum representing a Tone, used as a component from the Note class as well as the NoteCircle interface.
+ */
 public enum Tone {
     C(Prefix.NEUTRAL, Prefix.SHARP),
     D(Prefix.FLAT, Prefix.NEUTRAL, Prefix.SHARP),
@@ -14,18 +17,21 @@ public enum Tone {
 
     private final List<Prefix> possiblePrefix;
 
+    /**
+     * Constructor setting the possible prefixes for the tone
+     * @param possiblePrefix possible prefixes a Note with the given tone can have
+     */
     Tone(Prefix... possiblePrefix) {
         this.possiblePrefix = Arrays.asList(possiblePrefix);
     }
 
+    /**
+     * Getter for the possible prefixes of a tone
+     * @return possible prefixes of a tone
+     */
     public List<Prefix> getPossiblePrefix() {
         return possiblePrefix;
     }
-
-    public Tone next() {
-        return values()[(ordinal() + 1) % values().length];
-    }
-
 
     /**
      * Gets the primary note of a given note.
@@ -38,8 +44,4 @@ public enum Tone {
         return values()[(E.ordinal() + offset) % values().length];
     }
 
-    public static int translateToOffset(Tone tone) {
-        int offset = tone.ordinal() - E.ordinal();
-        return offset < 0 ? offset + values().length : offset;
-    }
 }

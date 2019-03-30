@@ -1,5 +1,6 @@
 package logic.instrument;
 
+import logic.note.FretboardNote;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 
