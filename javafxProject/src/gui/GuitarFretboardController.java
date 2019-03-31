@@ -395,6 +395,7 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");
+        this.flowOrganizer.playExcercise();
     }
 
 

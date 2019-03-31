@@ -18,11 +18,18 @@ public interface Trainer {
     void setMode(Mode mode);
 
     /**
-     * Generates a excercise for the user to solve with the gui
+     * Getter for the current exercise
      *
      * @return note array / chord the user has to recognize
      */
-    Note[] giveExcercise();
+    Note[] currExercise();
+
+    /**
+     * Generates a new chord the user has to recognize
+     *
+     * @return note array / chord the user has to recognize
+     */
+    Note[] nextExercise();
 
     /**
      * Method to set a new SheetNote selected by the user

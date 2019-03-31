@@ -11,11 +11,6 @@ import java.util.List;
  */
 public class NoteFactory {
 
-    public static ExerciseChord createChord(String block) {
-        // todo implementation
-        return null;
-    }
-
     public static Note createNote(String line) {
         // todo validate with pattern matching / regex
         String[] components = line.substring(1, line.length() - 1).split(",");
@@ -25,7 +20,6 @@ public class NoteFactory {
     }
 
     /**
-     *
      * @param components
      * @return
      */

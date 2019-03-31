@@ -30,6 +30,10 @@ public class ExerciseChord {
         this.pressedNotes.add(note);
     }
 
+    public Note[] toArray() {
+        return this.pressedNotes.toArray(new Note[0]);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || !(o instanceof ExerciseChord)) {
@@ -42,6 +46,15 @@ public class ExerciseChord {
 
         return this.pressedNotes.size() == other.pressedNotes.size()
                 && temp.size() == this.pressedNotes.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder strb = new StringBuilder();
+        for(Note curr : pressedNotes) {
+            strb.append(curr.toString() + "\n");
+        }
+        return strb.toString();
     }
 
 }

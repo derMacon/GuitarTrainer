@@ -10,6 +10,7 @@ import logic.instrument.Guitar;
 import logic.instrument.Instrument;
 import logic.instrument.SheetModel;
 import logic.note.FretboardNote;
+import logic.note.Note;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
 
@@ -28,6 +29,7 @@ public class FlowOrganizer implements Organized {
     private final Trainer trainer;
     private final AudioConnector audioConv;
     private Mode mode;
+    private Note[] currExercise;
 
     /**
      * Constructor setting all necessary attributes
@@ -38,7 +40,7 @@ public class FlowOrganizer implements Organized {
      */
     public FlowOrganizer(GUIConnector gui, AudioConverter audioConv, Mode mode) {
         this.guitar = new Guitar(gui, audioConv);
-        this.trainer = new GuitarTrainer(gui, audioConv);
+        this.trainer = new GuitarTrainer(gui);
         this.sheets = new SheetModel(gui, audioConv);
         this.audioConv = audioConv;
         interpretMode(mode);
@@ -119,6 +121,8 @@ public class FlowOrganizer implements Organized {
             case SHEET_FREEPLAY:
                 syncGuitarWithSheet();
                 break;
+            case HEARING_SINGLE_NOTE:
+                prepareTrainer();
             default:
                 System.out.println("not implemented yet [interpret mode - floworg]");
         }
@@ -149,6 +153,12 @@ public class FlowOrganizer implements Organized {
         }
     }
 
+    private void prepareTrainer() {
+        this.guitar.reset();
+        this.sheets.reset();
+        playExcercise();
+    }
+
     @Override
     public void reset() {
         this.sheets.reset();
@@ -167,7 +177,8 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void playExcercise() {
-        this.trainer.giveExcercise();
+        this.currExercise = this.trainer.currExercise();
+        this.audioConv.playMultipleNotes(this.currExercise);
     }
 
     @Override
