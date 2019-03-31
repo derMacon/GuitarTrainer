@@ -1,11 +1,11 @@
 package logic.instrument;
 
-import logic.note.FretboardNote;
-import logic.note.NoteFactory;
-import logic.note.Prefix;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.audio.SoundPack;
+import logic.note.FretboardNote;
+import logic.note.NoteFactory;
+import logic.note.Prefix;
 import logic.note.Tone;
 import logic.organization.GUIConnector;
 
@@ -24,11 +24,9 @@ public class Guitar implements Instrument<FretboardNote> {
 
     public static final int FRET_CNT = 20;
     public static final int GUITAR_STRING_CNT = 6;
-
-
-    protected FretboardNote[] pressedStrings;
     private final GUIConnector gui;
     private final AudioConnector audioConv;
+    protected FretboardNote[] pressedStrings;
 
     /**
      * Constructor setting gui and the audio converter component

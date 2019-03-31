@@ -56,6 +56,7 @@ public class Note {
 
     /**
      * Getter for the isPlayed flag of the note
+     *
      * @return the isPlayed flag of the note
      */
     public boolean isPlayed() {
@@ -64,10 +65,11 @@ public class Note {
 
     /**
      * Setter for the is played flag of the note
+     *
      * @param played flag determining if the note should be played or muted
      * @return a new note instance with the updated flag
      */
-    public  Note setPlayed(boolean played) {
+    public Note setPlayed(boolean played) {
         // todo check if inherenting classes override...
         return new Note(this.tone, this.prefix, this.octave, played);
     }

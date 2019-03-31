@@ -13,14 +13,26 @@ public enum ExcercisePack {
     private Mode mode;
     private String pathToFile;
 
+    /**
+     * Constructor
+     *
+     * @param mode       mode of the program (determines the difficulty of the chord that needs to be recognized by the user
+     * @param pathToFile path to the text file containing the possible exercises for the mode
+     */
     ExcercisePack(Mode mode, String pathToFile) {
         this.mode = mode;
         this.pathToFile = pathToFile;
     }
 
+    /**
+     * Returns the corresponding File for the mode
+     *
+     * @param mode mode of the program
+     * @return the corresponding File for the mode
+     */
     public static File translate(Mode mode) {
-        for(ExcercisePack currPack : values()) {
-            if(currPack.mode == mode) {
+        for (ExcercisePack currPack : values()) {
+            if (currPack.mode == mode) {
                 return new File(currPack.pathToFile);
             }
         }

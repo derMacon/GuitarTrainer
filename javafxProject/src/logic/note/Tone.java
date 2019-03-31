@@ -19,6 +19,7 @@ public enum Tone {
 
     /**
      * Constructor setting the possible prefixes for the tone
+     *
      * @param possiblePrefix possible prefixes a Note with the given tone can have
      */
     Tone(Prefix... possiblePrefix) {
@@ -26,20 +27,27 @@ public enum Tone {
     }
 
     /**
-     * Getter for the possible prefixes of a tone
-     * @return possible prefixes of a tone
+     * Parses the string to a tone
+     *
+     * @param str string to parse to a tone
+     * @return tone that equals the string description
      */
-    public List<Prefix> getPossiblePrefix() {
-        return possiblePrefix;
-    }
-
     public static Tone translate(String str) {
-        for(Tone curr : values()) {
+        for (Tone curr : values()) {
             if (curr.name().charAt(0) == str.charAt(0)) {
                 return curr;
             }
         }
         return null;
+    }
+
+    /**
+     * Getter for the possible prefixes of a tone
+     *
+     * @return possible prefixes of a tone
+     */
+    public List<Prefix> getPossiblePrefix() {
+        return possiblePrefix;
     }
 
 }

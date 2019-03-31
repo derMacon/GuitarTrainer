@@ -3,6 +3,7 @@ package logic.excercise;
 import logic.audio.AudioConnector;
 import logic.audio.AudioConverter;
 import logic.dataPreservation.Logger;
+import logic.note.ExerciseChord;
 import logic.note.Note;
 import logic.note.NoteFactory;
 import logic.note.SheetNote;
@@ -29,7 +30,7 @@ public class GuitarTrainer implements Trainer {
     private GUIConnector gui;
     private AudioConnector audioConv;
     private Mode mode;
-    private List<ExcerciseNote> exercises;
+    private List<ExerciseChord> exercises;
 
 
     /**
@@ -65,7 +66,7 @@ public class GuitarTrainer implements Trainer {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                this.exercises.add(NoteFactory.createNote(line));
+                this.exercises.add(NoteFactory.createChord(line));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -78,22 +79,27 @@ public class GuitarTrainer implements Trainer {
 
 
     @Override
-    public Note giveExcercise() {
+    public Note[] giveExcercise() {
         Logger.getInstance().printAndSafe(this.exercises.get(0) + " <= Trainer gives excercise");
-        return this.exercises.get(0);
+        return this.exercises.toArray(new Note[0]);
     }
 
     @Override
-    public void checkResult(ExcerciseNote note) {
+    public void checkResult(ExerciseChord chord) {
         // todo check for np exception
-        if (this.exercises.get(0).equals(note)) {
-            insertLst(note);
+        if (this.exercises.get(0).equals(chord)) {
+            insertLst(chord);
         } else {
-            this.exercises.add(WRONG_ANSWER_OFFSET, note);
+            this.exercises.add(WRONG_ANSWER_OFFSET, chord);
         }
     }
 
-    private void insertLst(ExcerciseNote note) {
-
+    /**
+     * Inserts the chord to the appropriate spot in the list. The iteration count is the main concern at this point,
+     *
+     * @param chord chord that will be inserted into the list
+     */
+    private void insertLst(ExerciseChord chord) {
+        System.out.println("todo");
     }
 }

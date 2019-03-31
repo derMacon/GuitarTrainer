@@ -1,8 +1,8 @@
 package logic.instrument;
 
 import logic.note.FretboardNote;
-import logic.note.Prefix;
 import logic.note.Note;
+import logic.note.Prefix;
 import logic.note.Tone;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +12,7 @@ public class NoteTest {
     @Test
     public void testNextSemiTone() {
         FretboardNote note = new FretboardNote(Tone.E, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 0));
-        Note expOutput= new FretboardNote(Tone.F, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 0));
+        Note expOutput = new FretboardNote(Tone.F, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 0));
         Assert.assertEquals(expOutput, note.nextSemiTone());
 
         note = new FretboardNote(Tone.F, Prefix.NEUTRAL, 0, true, new FretboardPos(5, 1));

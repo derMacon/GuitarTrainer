@@ -16,8 +16,9 @@ public enum SoundPack {
 
     /**
      * Constructor
-     * @param name name of the soundpack
-     * @param path path to the audio files of the soundpack
+     *
+     * @param name          name of the soundpack
+     * @param path          path to the audio files of the soundpack
      * @param highestOctave highest octave of the highest note from the soundpack
      */
     SoundPack(String name, String path, int highestOctave) {
@@ -28,6 +29,7 @@ public enum SoundPack {
 
     /**
      * Getter for the name of the soundpack
+     *
      * @return name of the soundpack
      */
     public String getName() {
@@ -36,6 +38,7 @@ public enum SoundPack {
 
     /**
      * Getter for the path of the audio files
+     *
      * @return path of the audio files
      */
     public String getPath() {
@@ -44,6 +47,7 @@ public enum SoundPack {
 
     /**
      * Getter for the highest octave
+     *
      * @return highest octave
      */
     public int getHighestOctave() {

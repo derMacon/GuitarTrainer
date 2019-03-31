@@ -1,6 +1,5 @@
 package logic.note;
 
-import logic.excercise.ExcerciseNote;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 
@@ -12,15 +11,24 @@ import java.util.List;
  */
 public class NoteFactory {
 
-    public static ExcerciseNote createNote(String str) {
-        // todo validate with pattern matching / regex
-        String[] components = str.substring(1, str.length() - 1).split(",");
-        String[] data = getDataFromComponents(components);
+    public static ExerciseChord createChord(String block) {
+        // todo implementation
+        return null;
+    }
 
-        return new ExcerciseNote(Tone.translate(data[0]), Prefix.translate(data[0]),
+    public static Note createNote(String line) {
+        // todo validate with pattern matching / regex
+        String[] components = line.substring(1, line.length() - 1).split(",");
+        String[] data = getDataFromComponents(components);
+        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
                 getOctave(data[1]), getIsPlayed(data[2]));
     }
 
+    /**
+     *
+     * @param components
+     * @return
+     */
     private static String[] getDataFromComponents(String[] components) {
         for (int i = 0; i < components.length; i++) {
             components[i] = components[i].split(" -> ")[1].trim();
@@ -28,10 +36,22 @@ public class NoteFactory {
         return components;
     }
 
+    /**
+     * Parses the octave from a given string
+     *
+     * @param octaveRepresentation string representing the octave of a note
+     * @return int representing the octave of a note
+     */
     private static int getOctave(String octaveRepresentation) {
         return octaveRepresentation.charAt(octaveRepresentation.length() - 1) - '0';
     }
 
+    /**
+     * Parses the flag determining if a note is muted or not
+     *
+     * @param str string representing a the muted flag of a note
+     * @return the flag determining if a note is muted or not
+     */
     private static boolean getIsPlayed(String str) {
         return str.matches(".*true");
     }

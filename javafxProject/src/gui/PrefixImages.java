@@ -1,5 +1,9 @@
 package gui;
 
+/**
+ * Enum representing the images of the prefix from the notes on the sheet pages. Mostly a help to make it easier to
+ * update the gui.
+ */
 public enum PrefixImages {
     NEUTRAL("sheetNotes\\prefix_flat.png"),
     SHARP("sheetNotes\\prefix_neutral.png"),
@@ -10,21 +14,30 @@ public enum PrefixImages {
 
     private String path;
 
+    /**
+     * Construcotr
+     * @param path path to the image of the prefix
+     */
     PrefixImages(String path) {
         this.path = path;
     }
 
-    public String getPath() {
-        return path;
-    }
-
+    /**
+     * Getter for the id from a given path
+     * @param path path to an image
+     * @return the id from a given path
+     */
     public static PrefixImages getId(String path) {
-        for(PrefixImages curr : values()) {
-            if(curr.getPath().equals(path)) {
+        for (PrefixImages curr : values()) {
+            if (curr.getPath().equals(path)) {
                 return curr;
             }
         }
         return null;
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public PrefixImages add(PrefixImages other) {

@@ -1,9 +1,5 @@
 package logic.instrument;
 
-import logic.note.NoteCircle;
-import org.junit.Assert;
-import org.junit.Test;
-
 public class GuitarTest {
 
     /*

@@ -11,9 +11,10 @@ public class SheetNote extends Note {
 
     /**
      * Constructor
-     * @param tone tone of the note
-     * @param prefix prefix of the note
-     * @param octave octave of the note
+     *
+     * @param tone     tone of the note
+     * @param prefix   prefix of the note
+     * @param octave   octave of the note
      * @param isPlayed flag determining if the note is played or not
      */
     public SheetNote(Tone tone, Prefix prefix, int octave, boolean isPlayed) {
@@ -28,6 +29,7 @@ public class SheetNote extends Note {
 
     /**
      * Generates the offset measured in tones to the note new Note(Tone.E, Prefix.NEUTRAL, 0, true);
+     *
      * @return offset to the lowest note E with the octave 0
      */
     public int getOffsetToLowestE() {
@@ -36,6 +38,7 @@ public class SheetNote extends Note {
 
     /**
      * Generates the lowest possible note of a the notes tone
+     *
      * @return lowest possible note of a the notes tone
      */
     public SheetNote getLowestNoteOfTone() {
@@ -71,7 +74,6 @@ public class SheetNote extends Note {
             return new SheetNote(this.tone, possiblePrefix.get(idxNewPrefix), this.octave, this.isPlayed);
         }
     }
-
 
 
 }

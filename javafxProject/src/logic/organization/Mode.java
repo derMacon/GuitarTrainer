@@ -24,6 +24,7 @@ public enum Mode {
 
     /**
      * Constructor setting the description of the mode used to display on the gui
+     *
      * @param descr the description of the mode used to display on the gui
      */
     Mode(String descr) {
@@ -32,6 +33,7 @@ public enum Mode {
 
     /**
      * Getter for the description
+     *
      * @return description of the mode
      */
     public String getDescr() {

@@ -1,7 +1,7 @@
 package logic.instrument;
 
-import logic.note.Prefix;
 import logic.note.NoteFactory;
+import logic.note.Prefix;
 import logic.note.SheetNote;
 import logic.note.Tone;
 import org.junit.Assert;
@@ -114,7 +114,7 @@ public class SheetNoteTest {
         Assert.assertEquals(inputOffset, note.getOffsetToLowestE());
     }
 
-//    @Test
+    //    @Test
 //    public void testNextMajorTone() {
 //        SheetNote input = new SheetNote(NoteCircle.B, 0, true);
 //        SheetNote expNote = new SheetNote(NoteCircle.C, 1, true);

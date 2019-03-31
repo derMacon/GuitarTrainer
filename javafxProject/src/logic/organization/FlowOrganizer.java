@@ -68,6 +68,7 @@ public class FlowOrganizer implements Organized {
      * If the note is not already selected on the sheet page the sheet page will be reset.
      * -> the prefix will be iterated later on so it's necessary to NOT reset if the previous note is on the same
      * position as the current selected note
+     *
      * @param offset offset to lowest E note
      */
     private void prepareNoteBoards(int offset) {
@@ -81,6 +82,7 @@ public class FlowOrganizer implements Organized {
 
     /**
      * Checks if there is a already a note selected on the sheet page with the specified offset
+     *
      * @param offset offset to the lowest note E.
      * @return true if there is a already a note selected on the sheet page with the specified offset
      */

@@ -27,7 +27,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         // Pop up window alert when an exception is not handled
         // todo delete before final commit
-        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex)-> {
+        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex) -> {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

@@ -304,6 +304,7 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * User presses / selects a note on the sheet page
+     *
      * @param event Action event called by the user / gui
      */
     @FXML
@@ -378,6 +379,7 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Resets the notes on the guitar / sheet page
+     *
      * @param event Action event called by the user / gui
      */
     @FXML
@@ -387,6 +389,7 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Replays the excercise
+     *
      * @param event Action event called by the user / gui
      */
     @FXML

@@ -6,15 +6,24 @@ import java.util.Set;
 /**
  * Class to manage the collection of possible exercises in the Trainer implementation
  */
-public class ExcerciseChord {
+public class ExerciseChord {
 
     private Set<Note> pressedNotes;
 
     /**
      * Default constructor
      */
-    public ExcerciseChord() {
+    public ExerciseChord() {
         this.pressedNotes = new HashSet<>();
+    }
+
+    /**
+     * Constructor
+     *
+     * @param pressedNotes list of pressed notes
+     */
+    public ExerciseChord(Set<Note> pressedNotes) {
+        this.pressedNotes = pressedNotes;
     }
 
     public void add(Note note) {
@@ -23,10 +32,10 @@ public class ExcerciseChord {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || !(o instanceof ExcerciseChord)) {
+        if (o == null || !(o instanceof ExerciseChord)) {
             return false;
         }
-        ExcerciseChord other = (ExcerciseChord) o;
+        ExerciseChord other = (ExerciseChord) o;
 
         Set<Note> temp = new HashSet<>(this.pressedNotes);
         temp.addAll(other.pressedNotes);

@@ -28,10 +28,11 @@ public class FretboardNote extends Note implements Comparable {
 
     /**
      * Constructor setting all attribute
-     * @param tone tone to set
-     * @param prefix prefix of the note
-     * @param octave octave of the note
-     * @param isPlayed flag to state if note is muted or not
+     *
+     * @param tone         tone to set
+     * @param prefix       prefix of the note
+     * @param octave       octave of the note
+     * @param isPlayed     flag to state if note is muted or not
      * @param fretboardPos fretboard position of the note
      */
     public FretboardNote(Tone tone, Prefix prefix, int octave, boolean isPlayed, FretboardPos fretboardPos) {
@@ -59,6 +60,7 @@ public class FretboardNote extends Note implements Comparable {
 
     /**
      * Generates a new fretboardnote instance of the next semi tone
+     *
      * @return a new fretboardnote instance of the next semi tone
      */
     public FretboardNote nextSemiTone() {
@@ -90,6 +92,7 @@ public class FretboardNote extends Note implements Comparable {
 
     /**
      * Inverts the muted flag
+     *
      * @return inverted muted flag
      */
     public FretboardNote invertPlayable() {
