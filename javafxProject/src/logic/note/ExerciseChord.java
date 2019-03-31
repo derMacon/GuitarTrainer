@@ -3,11 +3,17 @@ package logic.note;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Chord {
+/**
+ * Class to manage the collection of possible exercises in the Trainer implementation
+ */
+public class ExcerciseChord {
 
     private Set<Note> pressedNotes;
 
-    public Chord() {
+    /**
+     * Default constructor
+     */
+    public ExcerciseChord() {
         this.pressedNotes = new HashSet<>();
     }
 
@@ -17,10 +23,10 @@ public class Chord {
 
     @Override
     public boolean equals(Object o) {
-        if(o == null || !(o instanceof Chord)) {
+        if (o == null || !(o instanceof ExcerciseChord)) {
             return false;
         }
-        Chord other = (Chord) o;
+        ExcerciseChord other = (ExcerciseChord) o;
 
         Set<Note> temp = new HashSet<>(this.pressedNotes);
         temp.addAll(other.pressedNotes);
