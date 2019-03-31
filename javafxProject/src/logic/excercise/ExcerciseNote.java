@@ -22,5 +22,4 @@ public class ExcerciseNote extends Note {
         return new ExcerciseNote(this.tone, this.prefix, this.octave, this.isPlayed, this.iterationCnt + 1);
     }
 
-
 }
