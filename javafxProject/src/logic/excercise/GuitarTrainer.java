@@ -70,6 +70,9 @@ public class GuitarTrainer implements Trainer {
         return this.exercises.get(0).toArray();
     }
 
+    /**
+     * Parses an appropriate text file to an list of ExerciseChords
+     */
     private void generateExerciseLst() {
         assert null != this.mode;
         File file = ExcercisePack.translate(this.mode);

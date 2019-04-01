@@ -16,7 +16,8 @@ public enum ExcercisePack {
     /**
      * Constructor
      *
-     * @param mode       mode of the program (determines the difficulty of the chord that needs to be recognized by the user
+     * @param mode       mode of the program (determines the difficulty of the chord that needs to be recognized by
+     *                   the user
      * @param pathToFile path to the text file containing the possible exercises for the mode
      */
     ExcercisePack(Mode mode, String pathToFile) {
@@ -39,6 +40,11 @@ public enum ExcercisePack {
         return null;
     }
 
+    /**
+     * Checks if there is an enum member containing the given mode
+     * @param mode mode to check the enum values for
+     * @return true if there is an enum member containing the given mode
+     */
     public static boolean contains(Mode mode) {
         return translate(mode) != null;
     }

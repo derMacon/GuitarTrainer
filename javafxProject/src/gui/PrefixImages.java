@@ -36,10 +36,19 @@ public enum PrefixImages {
         return null;
     }
 
+    /**
+     * Getter for the path of an prefix image
+     * @return the path of an prefix image
+     */
     public String getPath() {
         return path;
     }
 
+    /**
+     * Adds another prefix to a given prefix
+     * @param other other prefix image instance
+     * @return enum member with the added prefix
+     */
     public PrefixImages add(PrefixImages other) {
         return values()[2 + this.ordinal() + other.ordinal()];
     }

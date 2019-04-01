@@ -15,6 +15,7 @@ public class Main extends Application {
 
     private static final int WIDTH = 1346;
     private static final int HEIGHT = 700;
+    private static final int MIN_HEIGHT = 700;
 
     /**
      * @param args the command line arguments
@@ -43,7 +44,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setMinWidth(WIDTH);
         stage.setMaxWidth(HEIGHT);
-        stage.setMinHeight(700);
+        stage.setMinHeight(MIN_HEIGHT);
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
         stage.show();

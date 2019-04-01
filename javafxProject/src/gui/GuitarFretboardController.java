@@ -347,6 +347,9 @@ public class GuitarFretboardController implements Initializable {
         this.flowOrganizer.playDownStrum();
     }
 
+    /**
+     * Checks in the solution which the user selected on the gui
+     */
     @FXML
     public void checkInSolution() {
         this.flowOrganizer.checkInResult();

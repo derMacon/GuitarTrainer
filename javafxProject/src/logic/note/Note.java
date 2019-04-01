@@ -87,8 +87,8 @@ public class Note {
 
     @Override
     public String toString() {
-        String template = OPENING_DELIMITER + "tone -> %9s, octave -> " + this.octave +
-                ", isPlayed -> %5s" + CLOSING_DELIMITER;
+        String template = OPENING_DELIMITER + "tone -> %9s, octave -> " + this.octave
+                + ", isPlayed -> %5s" + CLOSING_DELIMITER;
         return String.format(String.format(template, this.tone + "_" + this.prefix, String.valueOf(this.isPlayed)));
     }
 

@@ -1,7 +1,5 @@
 package logic.note;
 
-import logic.excercise.ExcerciseNote;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +19,10 @@ public class ExerciseChord {
         this.iterations = 0;
     }
 
+    /**
+     * Constructor
+     * @param notes notes of the chord
+     */
     public ExerciseChord(Note... notes) {
         this.pressedNotes = new HashSet<>();
         for (Note curr : notes) {
@@ -29,21 +31,37 @@ public class ExerciseChord {
         this.iterations = 0;
     }
 
+    /**
+     * Increments the iteration count of the chord
+     * @return the instance with an incremented iteration count
+     */
     public ExerciseChord incIterations() {
         this.iterations++;
         return this;
     }
 
+    /**
+     * Getter for the iteration
+     * @return number of times the chord was already played in the trainer
+     */
     public int getIterations() {
         return iterations;
     }
 
+    /**
+     * Adds another note to the chord
+     * @param note note to add to the chords
+     */
     public void add(Note note) {
         if (note.isPlayed) {
             this.pressedNotes.add(note);
         }
     }
 
+    /**
+     * Generates an array out of the chord to display / play on the top level class
+     * @return an array out of the chord to display / play on the top level class
+     */
     public Note[] toArray() {
         return this.pressedNotes.toArray(new Note[0]);
     }

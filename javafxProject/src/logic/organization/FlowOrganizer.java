@@ -184,8 +184,8 @@ public class FlowOrganizer implements Organized {
             ExerciseChord guitarChord = new ExerciseChord(this.guitar.getPressedNotes());
             ExerciseChord sheetChord = new ExerciseChord(this.sheets.getPressedNotes());
             if (guitarChord.equals(sheetChord)) {
-                Logger.getInstance().printAndSafe("Both solution " +
-                        "correct: " + this.trainer.checkResult(guitarChord.toArray()));
+                Logger.getInstance().printAndSafe("Both solution "
+                        + "correct: " + this.trainer.checkResult(guitarChord.toArray()));
 //                this.trainer.nextExercise();
                 playExcercise();
             }

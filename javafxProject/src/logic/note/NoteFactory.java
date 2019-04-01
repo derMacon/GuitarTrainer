@@ -11,6 +11,11 @@ import java.util.List;
  */
 public class NoteFactory {
 
+    /**
+     * Parses the a given line from a text file to a note instance
+     * @param line line to parse`
+     * @return a given line from a text file to a note instance
+     */
     public static Note createNote(String line) {
         // todo validate with pattern matching / regex
         String[] components = line.substring(1, line.length() - 1).split(",");
@@ -20,8 +25,9 @@ public class NoteFactory {
     }
 
     /**
-     * @param components
-     * @return
+     * Generates the data blocks containing the string representation of the various components of the notes
+     * @param components Components of a note
+     * @return // todo revise javadoc
      */
     private static String[] getDataFromComponents(String[] components) {
         for (int i = 0; i < components.length; i++) {

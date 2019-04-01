@@ -42,6 +42,7 @@ public interface Trainer {
      * solution.
      *
      * @param chord chord the user checks in as a solution of the given exercise
+     * @return flag that shows if the corresponding note array equals the internal expected chord
      */
     boolean checkResult(Note[] chord);
 
