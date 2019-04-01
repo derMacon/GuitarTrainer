@@ -3,6 +3,7 @@
 *.iml
 **/META-INF/
 **/dataOutput/
+**.swp
 
 .flooignore
 .floo

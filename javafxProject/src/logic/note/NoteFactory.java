@@ -12,6 +12,54 @@ import java.util.List;
 public class NoteFactory {
 
     /**
+     * Parses the a given line from a text file to a note instance
+     *
+     * @param line line to parse`
+     * @return a given line from a text file to a note instance
+     */
+    public static Note createNote(String line) {
+        // todo validate with pattern matching / regex
+        String[] components = line.substring(1, line.length() - 1).split(",");
+        String[] data = getDataFromComponents(components);
+        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]), getOctave(data[1]));
+//        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
+//                getOctave(data[1]), getIsPlayed(data[2]));
+    }
+
+    /**
+     * Generates the data blocks containing the string representation of the various components of the notes
+     *
+     * @param components Components of a note
+     * @return // todo revise javadoc
+     */
+    private static String[] getDataFromComponents(String[] components) {
+        for (int i = 0; i < components.length; i++) {
+            components[i] = components[i].split(" -> ")[1].trim();
+        }
+        return components;
+    }
+
+    /**
+     * Parses the octave from a given string
+     *
+     * @param octaveRepresentation string representing the octave of a note
+     * @return int representing the octave of a note
+     */
+    private static int getOctave(String octaveRepresentation) {
+        return octaveRepresentation.charAt(octaveRepresentation.length() - 1) - '0';
+    }
+
+    /**
+     * Parses the flag determining if a note is muted or not
+     *
+     * @param str string representing a the muted flag of a note
+     * @return the flag determining if a note is muted or not
+     */
+    private static boolean getIsPlayed(String str) {
+        return str.matches(".*true");
+    }
+
+    /**
      * Translates a given position to a note
      *
      * @param pos position of the note on the fretboard

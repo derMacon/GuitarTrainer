@@ -25,12 +25,14 @@ public interface Organized {
     /**
      * User pressed a note with the given position on the fretboard, the organizer then evaluates the mode and handles
      * it appropriately.
+     *
      * @param fretboardPos position of the selected note on the fretboard
      */
     void pressNoteOnFretboard(FretboardPos fretboardPos);
 
     /**
      * User pressed a note with the given offset, the organizer then evaluates the mode and handles it appropriately.
+     *
      * @param offset offset of the selected note to the lowest note E with the octave 0
      */
     void sheetNotePressed(int offset);

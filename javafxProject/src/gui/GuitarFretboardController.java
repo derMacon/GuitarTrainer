@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
@@ -287,6 +288,9 @@ public class GuitarFretboardController implements Initializable {
         this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
     }
 
+
+    // --- actual methods needed for the interaction with the logic ---
+
     /**
      * Page factory for the pagination
      *
@@ -297,11 +301,13 @@ public class GuitarFretboardController implements Initializable {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
         Label label = new Label(Mode.values()[idx].getDescr());
         label.setTextAlignment(TextAlignment.CENTER);
+        label.setFont(new Font("Forte", 22));
         return label;
     }
 
     /**
      * User presses / selects a note on the sheet page
+     *
      * @param event Action event called by the user / gui
      */
     @FXML
@@ -342,6 +348,14 @@ public class GuitarFretboardController implements Initializable {
     }
 
     /**
+     * Checks in the solution which the user selected on the gui
+     */
+    @FXML
+    public void checkInSolution() {
+        this.flowOrganizer.checkInResult();
+    }
+
+    /**
      * shuts down the whole program
      *
      * @param event Actionevent called by the user
@@ -376,6 +390,7 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Resets the notes on the guitar / sheet page
+     *
      * @param event Action event called by the user / gui
      */
     @FXML
@@ -385,11 +400,13 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Replays the excercise
+     *
      * @param event Action event called by the user / gui
      */
     @FXML
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");
+        this.flowOrganizer.playExcercise();
     }
 
 

@@ -14,8 +14,9 @@ public class ImageButton extends JFXButton {
 
     /**
      * Constructor setting up the imageview dimensions and a actual image
+     *
      * @param imgPixelLength imageview dimensions
-     * @param selectedImg image to be set on the imageview
+     * @param selectedImg    image to be set on the imageview
      */
     public ImageButton(int imgPixelLength, Image selectedImg) {
         this.imgPixelLength = imgPixelLength;
@@ -24,6 +25,7 @@ public class ImageButton extends JFXButton {
 
     /**
      * Sets the flag for the selected image
+     *
      * @param bool flag to be set
      */
     public void selectButton(boolean bool) {

@@ -7,6 +7,7 @@ public class NotOnFretException extends Exception {
 
     /**
      * Constructor setting up the error message
+     *
      * @param message error message to be displayed
      */
     public NotOnFretException(String message) {

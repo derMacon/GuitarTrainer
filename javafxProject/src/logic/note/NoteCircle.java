@@ -52,6 +52,36 @@ public enum NoteCircle {
     }
 
     /**
+     * Generates the appropriate NoteCirle member for a given note. If multiple Ids are possible, the one with the
+     * primary tone / without the prefix == Prefix.FLAT will be picked.
+     *
+     * @param note note to generate the id for
+     * @return Notecirle member for the given note
+     */
+    public static NoteCircle getId(Note note) {
+        return getId(note.getTone(), note.getPrefix());
+    }
+
+    /**
+     * Generates the appropriate NoteCirle member for a given note. If multiple Ids are possible, the one with the
+     * primary tone / without the prefix == Prefix.FLAT will be picked.
+     *
+     * @param tone   tone to generate the id for
+     * @param prefix prefix to generate the id for
+     * @return the NoteCircle member appropriate to the given tone and prefix
+     */
+    public static NoteCircle getId(Tone tone, Prefix prefix) {
+        NoteCircle[] circ = values();
+        for (int i = 0; i < circ.length; i++) {
+            if (circ[i].getNotes().get(tone) == prefix) {
+                return circ[i];
+            }
+        }
+        System.out.println("// todo thow some kind of exception");
+        return null;
+    }
+
+    /**
      * Getter for the the mapping of tone and prefix of this semitone
      *
      * @return the mapping of tone and prefix of this semitone
@@ -81,36 +111,6 @@ public enum NoteCircle {
      */
     public List<Tone> getTones() {
         return new ArrayList<>(this.notes.keySet());
-    }
-
-    /**
-     * Generates the appropriate NoteCirle member for a given note. If multiple Ids are possible, the one with the
-     * primary tone / without the prefix == Prefix.FLAT will be picked.
-     *
-     * @param note note to generate the id for
-     * @return Notecirle member for the given note
-     */
-    public static NoteCircle getId(Note note) {
-        return getId(note.getTone(), note.getPrefix());
-    }
-
-    /**
-     * Generates the appropriate NoteCirle member for a given note. If multiple Ids are possible, the one with the
-     * primary tone / without the prefix == Prefix.FLAT will be picked.
-     *
-     * @param tone tone to generate the id for
-     * @param prefix prefix to generate the id for
-     * @return the NoteCircle member appropriate to the given tone and prefix
-     */
-    public static NoteCircle getId(Tone tone, Prefix prefix) {
-        NoteCircle[] circ = values();
-        for (int i = 0; i < circ.length; i++) {
-            if (circ[i].getNotes().get(tone) == prefix) {
-                return circ[i];
-            }
-        }
-        System.out.println("// todo thow some kind of exception");
-        return null;
     }
 
 }

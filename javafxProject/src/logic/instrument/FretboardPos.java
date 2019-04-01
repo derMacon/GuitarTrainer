@@ -46,6 +46,7 @@ public class FretboardPos {
 
     /**
      * Generates a new fretboardpos instance with an incremented fret id
+     *
      * @return a new fretboardpos instance with an incremented fret id
      */
     public FretboardPos incFret() {

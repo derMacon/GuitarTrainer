@@ -16,8 +16,9 @@ public class GuitarJFXButton extends ImageButton {
 
     /**
      * Constructor setting the instrument string and fret
+     *
      * @param guitarString instrument string the button is located on
-     * @param guitarFret instrument fret the button is located on
+     * @param guitarFret   instrument fret the button is located on
      */
     GuitarJFXButton(int guitarString, int guitarFret) {
         super(SELECTED_PIXEL, SELECTED_SYMBOL);
@@ -27,6 +28,7 @@ public class GuitarJFXButton extends ImageButton {
 
     /**
      * Getter for the instrument string
+     *
      * @return the instrument string the button is located on
      */
     public int getGuitarString() {
@@ -35,6 +37,7 @@ public class GuitarJFXButton extends ImageButton {
 
     /**
      * Getter for the instrument fret
+     *
      * @return the instrument fret the button is located on
      */
     public int getGuitarFret() {

@@ -3,7 +3,10 @@ package logic.note;
 /**
  * Abstract type for a Note on both guitar and sheet page. Used as the type of the generic interface 'instrument'
  */
-public abstract class Note {
+public class Note {
+    public static final String OPENING_DELIMITER = "[";
+    public static final String CLOSING_DELIMITER = "]";
+
     protected final Tone tone;
     protected final Prefix prefix;
     protected final int octave;
@@ -22,6 +25,10 @@ public abstract class Note {
         this.prefix = prefix;
         this.octave = octave;
         this.isPlayed = isPlayed;
+    }
+
+    public Note(Tone tone, Prefix prefix, int octave) {
+        this(tone, prefix, octave, true); 
     }
 
     /**
@@ -53,6 +60,7 @@ public abstract class Note {
 
     /**
      * Getter for the isPlayed flag of the note
+     *
      * @return the isPlayed flag of the note
      */
     public boolean isPlayed() {
@@ -61,10 +69,14 @@ public abstract class Note {
 
     /**
      * Setter for the is played flag of the note
+     *
      * @param played flag determining if the note should be played or muted
      * @return a new note instance with the updated flag
      */
-    public abstract Note setPlayed(boolean played);
+    public Note setPlayed(boolean played) {
+        // todo check if inherenting classes override...
+        return new Note(this.tone, this.prefix, this.octave, played);
+    }
 
     // Important: Muted flag not considered when checking for equality
     @Override
@@ -79,8 +91,9 @@ public abstract class Note {
 
     @Override
     public String toString() {
-        return "tone -> " + this.tone + "_" + this.prefix.name() + ", octave -> " + this.octave + ", isPlayed -> "
-                + this.isPlayed;
+        String template = OPENING_DELIMITER + "tone -> %9s, octave -> " + this.octave
+                + ", isPlayed -> %5s" + CLOSING_DELIMITER;
+        return String.format(String.format(template, this.tone + "_" + this.prefix, String.valueOf(this.isPlayed)));
     }
 
     @Override

@@ -1,7 +1,17 @@
+import logic.excercise.GuitarTrainer;
+import logic.excercise.Trainer;
+import logic.instrument.FretboardPos;
+import logic.note.FretboardNote;
+import logic.note.NoteFactory;
+
 public class Doodle {
 
     public static void main(String[] args) {
-        System.out.println("a_B".matches("^_?[a-z][a-zA-Z0-9]*"));
+//        FretboardNote note = NoteFactory.createFretboardNote(new FretboardPos(5, 0));
+//        while (note.getOctave() < 5) {
+//            System.out.println(note + "\n");
+//            note = note.nextSemiTone();
+//        }
 
     }
 
