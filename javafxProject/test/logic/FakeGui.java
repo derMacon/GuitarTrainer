@@ -1,4 +1,4 @@
-package logic.instrument;
+package logic;
 
 import logic.note.FretboardNote;
 import logic.note.SheetNote;

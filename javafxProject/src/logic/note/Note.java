@@ -27,6 +27,10 @@ public class Note {
         this.isPlayed = isPlayed;
     }
 
+    public Note(Tone tone, Prefix prefix, int octave) {
+        this(tone, prefix, octave, true); 
+    }
+
     /**
      * Getter for the tone
      *

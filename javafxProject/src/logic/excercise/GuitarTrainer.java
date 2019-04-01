@@ -1,7 +1,7 @@
 package logic.excercise;
 
+import logic.MyRandom;
 import logic.dataPreservation.Logger;
-import logic.instrument.FretboardPos;
 import logic.note.ExerciseChord;
 import logic.note.Note;
 import logic.note.NoteFactory;
@@ -15,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -24,13 +23,15 @@ import java.util.Random;
  */
 public class GuitarTrainer implements Trainer {
 
-    private static final int WRONG_ANSWER_OFFSET = 3;
-    private static final int POOL_SIZE = 10;
+    private static final int DEFAULT_WRONG_ANSWER_OFFSET = 3;
+    private static final int DEFAULT_POOL_SIZE = 10;
+    private static final String COMMENT_PREFIX = "//";
 
     private GUIConnector gui;
     private Mode mode;
     private List<ExerciseChord> exercises;
 
+    private int wrongAnswerOffset;
 
     /**
      * Constructor setting up the gui and audioocnverter
@@ -58,7 +59,6 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public Note[] currExercise() {
-        System.out.println(this.exercises.get(0));
         return this.exercises.get(0).toArray();
     }
 
@@ -75,33 +75,12 @@ public class GuitarTrainer implements Trainer {
      */
     private void generateExerciseLst() {
         assert null != this.mode;
-        File file = ExcercisePack.translate(this.mode);
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            ExerciseChord currChord = new ExerciseChord();
-            while ((line = br.readLine()) != null) {
-                // text file must start with something other than a blank line
-                if (line.length() == 0) {
-                    this.exercises.add(currChord);
-                    currChord = new ExerciseChord();
-                } else {
-                    currChord.add(NoteFactory.createNote(line));
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        this.exercises = Parser.parseExercise(this.mode, DEFAULT_POOL_SIZE);
+        if (this.exercises.size() > DEFAULT_POOL_SIZE) {
+            this.exercises = this.exercises.subList(0, DEFAULT_POOL_SIZE - 1);
         }
-
-        if (this.exercises.size() > 1) {
-            Collections.shuffle(this.exercises);
-        }
-        this.exercises = this.exercises.subList(0, POOL_SIZE - 1);
-
-        // todo delete this -> only for testing
-        this.exercises.add(0, new ExerciseChord(NoteFactory.createFretboardNote(new FretboardPos(0, 0))));
+        this.wrongAnswerOffset = this.exercises.size() > DEFAULT_WRONG_ANSWER_OFFSET
+                ? DEFAULT_WRONG_ANSWER_OFFSET : this.exercises.size() - 1;
     }
 
 
@@ -114,10 +93,17 @@ public class GuitarTrainer implements Trainer {
         if (isSame) {
             insertLst(actChord.incIterations());
         } else {
-            this.exercises.add(WRONG_ANSWER_OFFSET, actChord);
+            this.exercises.add(this.wrongAnswerOffset, actChord);
         }
         Logger.getInstance().printAndSafe(expChord + " <= Expechted chord: "
                 + "\n" + actChord + " <= Actual chord");
+
+        // todo delte this - only for testing
+        for (ExerciseChord curr : this.exercises) {
+            System.out.println(curr + " <= only for testing purpose");
+        }
+        System.out.println();
+
         return isSame;
     }
 
@@ -140,8 +126,10 @@ public class GuitarTrainer implements Trainer {
                 upperBound = i - 1;
             }
         }
-        Random rand = new Random();
-        int randomNewIdx = rand.nextInt((lowerBound - upperBound) + 1) + lowerBound;
+        Random rand = new MyRandom();
+        System.out.println(lowerBound + " " + upperBound);
+        int randomNewIdx = rand.nextInt((upperBound - lowerBound) + 1) + lowerBound;
+        System.out.println(randomNewIdx);
         this.exercises.add(randomNewIdx, chord);
     }
 

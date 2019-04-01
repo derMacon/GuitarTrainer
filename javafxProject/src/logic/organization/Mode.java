@@ -13,7 +13,8 @@ public enum Mode {
             + "\nOnly one note at a time can be selected on the "
             + "\nsheet page. All possible fret positions of the "
             + "\nnote will be displayed on the guitar."),
-    HEARING_SINGLE_NOTE("todo default"),
+    HEARING_SINGLE_NOTE("todo single note"),
+    HEARING_MULTIPLE_NOTES("todo multiple notes"),
     SEE_ON_SHEET("todo sheet mode"),
     SEE_ON_FRETBOARD("todo fretboard mode");
 

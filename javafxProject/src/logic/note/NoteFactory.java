@@ -13,6 +13,7 @@ public class NoteFactory {
 
     /**
      * Parses the a given line from a text file to a note instance
+     *
      * @param line line to parse`
      * @return a given line from a text file to a note instance
      */
@@ -20,12 +21,14 @@ public class NoteFactory {
         // todo validate with pattern matching / regex
         String[] components = line.substring(1, line.length() - 1).split(",");
         String[] data = getDataFromComponents(components);
-        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
-                getOctave(data[1]), getIsPlayed(data[2]));
+        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]), getOctave(data[1]));
+//        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
+//                getOctave(data[1]), getIsPlayed(data[2]));
     }
 
     /**
      * Generates the data blocks containing the string representation of the various components of the notes
+     *
      * @param components Components of a note
      * @return // todo revise javadoc
      */

@@ -180,13 +180,12 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void checkInResult() {
-        if (this.mode == Mode.HEARING_SINGLE_NOTE) {
+        if (this.mode != Mode.SHEET_FREEPLAY && this.mode != Mode.GUITAR_FREEPLAY) {
             ExerciseChord guitarChord = new ExerciseChord(this.guitar.getPressedNotes());
             ExerciseChord sheetChord = new ExerciseChord(this.sheets.getPressedNotes());
             if (guitarChord.equals(sheetChord)) {
                 Logger.getInstance().printAndSafe("Both solution "
                         + "correct: " + this.trainer.checkResult(guitarChord.toArray()));
-//                this.trainer.nextExercise();
                 playExcercise();
             }
             // todo implement gui pop up

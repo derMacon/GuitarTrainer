@@ -8,7 +8,8 @@ import java.io.File;
  * Enum representing the difficulty of an excercise
  */
 public enum ExcercisePack {
-    SINGLE_NOTES(Mode.HEARING_SINGLE_NOTE, "res\\ëxercises\\singleNote_excercise.txt");
+    SINGLE_NOTES(Mode.HEARING_SINGLE_NOTE, "res\\ëxercises\\singleNote_excercise.txt"),
+    BEGINNER_MULTI_NOTES(Mode.HEARING_MULTIPLE_NOTES, "res\\ëxercises\\beginner_openChord_exercise.txt");
 
     private Mode mode;
     private String pathToFile;
