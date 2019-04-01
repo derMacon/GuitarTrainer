@@ -1,5 +1,7 @@
 package logic.note;
 
+import logic.excercise.ExcerciseNote;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,25 +11,37 @@ import java.util.Set;
 public class ExerciseChord {
 
     private Set<Note> pressedNotes;
+    private int iterations;
 
     /**
      * Default constructor
      */
     public ExerciseChord() {
         this.pressedNotes = new HashSet<>();
+        this.iterations = 0;
     }
 
-    /**
-     * Constructor
-     *
-     * @param pressedNotes list of pressed notes
-     */
-    public ExerciseChord(Set<Note> pressedNotes) {
-        this.pressedNotes = pressedNotes;
+    public ExerciseChord(Note... notes) {
+        this.pressedNotes = new HashSet<>();
+        for (Note curr : notes) {
+            add(curr);
+        }
+        this.iterations = 0;
+    }
+
+    public ExerciseChord incIterations() {
+        this.iterations++;
+        return this;
+    }
+
+    public int getIterations() {
+        return iterations;
     }
 
     public void add(Note note) {
-        this.pressedNotes.add(note);
+        if (note.isPlayed) {
+            this.pressedNotes.add(note);
+        }
     }
 
     public Note[] toArray() {
@@ -51,10 +65,10 @@ public class ExerciseChord {
     @Override
     public String toString() {
         StringBuilder strb = new StringBuilder();
-        for(Note curr : pressedNotes) {
-            strb.append(curr.toString() + "\n");
+        for (Note curr : pressedNotes) {
+            strb.append(curr.toString());
         }
-        return strb.toString();
+        return strb.length() == 0 ? "[]" : strb.toString();
     }
 
 }

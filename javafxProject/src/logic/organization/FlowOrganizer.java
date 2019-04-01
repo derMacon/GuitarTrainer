@@ -9,6 +9,7 @@ import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 import logic.instrument.Instrument;
 import logic.instrument.SheetModel;
+import logic.note.ExerciseChord;
 import logic.note.FretboardNote;
 import logic.note.Note;
 import logic.note.NoteFactory;
@@ -24,6 +25,7 @@ import java.util.Set;
  */
 public class FlowOrganizer implements Organized {
 
+    private final String MODE_DELIMITER = ".....................................";
     private final Instrument<FretboardNote> guitar;
     private final Instrument<SheetNote> sheets;
     private final Trainer trainer;
@@ -43,11 +45,11 @@ public class FlowOrganizer implements Organized {
         this.trainer = new GuitarTrainer(gui);
         this.sheets = new SheetModel(gui, audioConv);
         this.audioConv = audioConv;
-        interpretMode(mode);
     }
 
     @Override
     public void interpretMode(Mode mode) {
+        Logger.getInstance().printAndSafe("\nCurrent mode: " + mode.name() + "\n" + MODE_DELIMITER);
         this.mode = mode;
         trainer.setMode(mode);
         reset();
@@ -56,7 +58,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void sheetNotePressed(int offset) {
-        if (Mode.SHEET_FREEPLAY == this.mode) {
+        if (Mode.GUITAR_FREEPLAY != this.mode) {
             prepareNoteBoards(offset);
             SheetNote updatedSheetNote = this.sheets.pressNote(NoteFactory.createSheetNote(offset));
             Logger.getInstance().printAndSafe(updatedSheetNote + " <= Sheet note selected");
@@ -102,7 +104,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
-        if (Mode.GUITAR_FREEPLAY == this.mode) {
+        if (Mode.SHEET_FREEPLAY != this.mode) {
             FretboardNote updatedNote = this.guitar.pressNote(NoteFactory.createFretboardNote(fretboardPos));
             this.audioConv.playSingleNote(updatedNote);
             Logger.getInstance().printAndSafe(updatedNote + " <= Fretboard note selected");
@@ -121,8 +123,6 @@ public class FlowOrganizer implements Organized {
             case SHEET_FREEPLAY:
                 syncGuitarWithSheet();
                 break;
-            case HEARING_SINGLE_NOTE:
-                prepareTrainer();
             default:
                 System.out.println("not implemented yet [interpret mode - floworg]");
         }
@@ -153,12 +153,6 @@ public class FlowOrganizer implements Organized {
         }
     }
 
-    private void prepareTrainer() {
-        this.guitar.reset();
-        this.sheets.reset();
-        playExcercise();
-    }
-
     @Override
     public void reset() {
         this.sheets.reset();
@@ -171,8 +165,6 @@ public class FlowOrganizer implements Organized {
                 this.guitar.pressNote(note);
             }
         }
-
-        synchronize();
     }
 
     @Override
@@ -188,6 +180,17 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void checkInResult() {
-//        this.trainer.checkResult();
+        if (this.mode == Mode.HEARING_SINGLE_NOTE) {
+            ExerciseChord guitarChord = new ExerciseChord(this.guitar.getPressedNotes());
+            ExerciseChord sheetChord = new ExerciseChord(this.sheets.getPressedNotes());
+            if (guitarChord.equals(sheetChord)) {
+                Logger.getInstance().printAndSafe("Both solution " +
+                        "correct: " + this.trainer.checkResult(guitarChord.toArray()));
+//                this.trainer.nextExercise();
+                playExcercise();
+            }
+            // todo implement gui pop up
+            this.audioConv.playMultipleNotes(this.trainer.currExercise());
+        }
     }
 }

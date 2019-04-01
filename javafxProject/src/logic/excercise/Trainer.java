@@ -1,6 +1,5 @@
 package logic.excercise;
 
-import logic.note.ExerciseChord;
 import logic.note.Note;
 import logic.note.SheetNote;
 import logic.organization.Mode;
@@ -44,6 +43,6 @@ public interface Trainer {
      *
      * @param chord chord the user checks in as a solution of the given exercise
      */
-    void checkResult(ExerciseChord chord);
+    boolean checkResult(Note[] chord);
 
 }

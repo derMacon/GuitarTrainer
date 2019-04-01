@@ -288,6 +288,9 @@ public class GuitarFretboardController implements Initializable {
         this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
     }
 
+
+    // --- actual methods needed for the interaction with the logic ---
+
     /**
      * Page factory for the pagination
      *
@@ -342,6 +345,11 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     public void playDownStrum() {
         this.flowOrganizer.playDownStrum();
+    }
+
+    @FXML
+    public void checkInSolution() {
+        this.flowOrganizer.checkInResult();
     }
 
     /**
