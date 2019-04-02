@@ -4,16 +4,9 @@ import logic.MyRandom;
 import logic.dataPreservation.Logger;
 import logic.note.ExerciseChord;
 import logic.note.Note;
-import logic.note.NoteFactory;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 import logic.organization.Mode;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

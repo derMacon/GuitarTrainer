@@ -181,6 +181,9 @@ public class GuitarFretboardController implements Initializable {
 
     /**
      * Initializes the reset button
+     *
+     * @param btn  buttonto initialize
+     * @param icon icon to be set on the button
      */
     private void initSwitchModeButton(JFXButton btn, FontAwesomeIcon icon) {
         btn.setStyle(
@@ -414,6 +417,11 @@ public class GuitarFretboardController implements Initializable {
     private void replayExcercise(ActionEvent event) {
         System.out.println("Replay btn pressed [FretContr. l. 386]");
         this.flowOrganizer.playExcercise();
+    }
+
+    @FXML
+    public void switchOverallMode(ActionEvent evnet) {
+        System.out.println("switching mode");
     }
 
 

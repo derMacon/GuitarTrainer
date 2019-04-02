@@ -25,7 +25,7 @@ import java.util.Set;
  */
 public class FlowOrganizer implements Organized {
 
-    private final String MODE_DELIMITER = ".....................................";
+    private static final String MODE_DELIMITER = ".....................................";
     private final Instrument<FretboardNote> guitar;
     private final Instrument<SheetNote> sheets;
     private final Trainer trainer;
@@ -53,6 +53,9 @@ public class FlowOrganizer implements Organized {
         this.mode = mode;
         trainer.setMode(mode);
         reset();
+        if(this.mode != Mode.GUITAR_FREEPLAY && this.mode != Mode.SHEET_FREEPLAY) {
+            this.audioConv.playMultipleNotes(this.trainer.currExercise());
+        }
         synchronize();
     }
 
@@ -122,10 +125,10 @@ public class FlowOrganizer implements Organized {
             case SHEET_FREEPLAY:
                 syncGuitarWithSheet();
                 break;
-            case HEARING_SINGLE_NOTE:
-            case HEARING_MULTIPLE_NOTES:
-                this.audioConv.playMultipleNotes(this.trainer.currExercise());
-                break;
+//            case HEARING_SINGLE_NOTE:
+//            case HEARING_MULTIPLE_NOTES:
+//                this.audioConv.playMultipleNotes(this.trainer.currExercise());
+//                break;
             default:
                 System.out.println("not implemented yet [interpret mode - floworg]");
         }
@@ -179,6 +182,10 @@ public class FlowOrganizer implements Organized {
     @Override
     public void playDownStrum() {
         this.guitar.playStrum();
+//        for(Note curr : guitar.getPressedNotes()) {
+//            System.out.println(curr);
+//        }
+//        System.out.println();
     }
 
     @Override
