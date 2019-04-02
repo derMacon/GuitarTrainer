@@ -1,10 +1,18 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import logic.note.FretboardNote;
 import logic.note.Prefix;
 import logic.note.SheetNote;
@@ -44,6 +52,8 @@ public class JavaFXGui implements GUIConnector {
      */
     private final JFXButton replayBtn;
 
+    private StackPane popUp;
+
     /**
      * Constructor setting up all necessary gui components
      *
@@ -52,10 +62,11 @@ public class JavaFXGui implements GUIConnector {
      *                   of the lines on the sheet page
      * @param replayBtn  replay button for the excercise
      */
-    public JavaFXGui(GridPane[] fretboard, GridPane[] sheetNotes, JFXButton replayBtn) {
+    public JavaFXGui(GridPane[] fretboard, GridPane[] sheetNotes, JFXButton replayBtn, StackPane popUp) {
         this.frets = fretboard;
         this.sheetNotes = sheetNotes;
         this.replayBtn = replayBtn;
+        this.popUp = popUp;
     }
 
     @Override
@@ -126,5 +137,35 @@ public class JavaFXGui implements GUIConnector {
             ((GuitarJFXButton) curr).selectButton(true);
         }
     }
+    /**
+     * Opens a dialog window with the given title and message
+     * @param title title of the dialog window
+     * @param message message of the dialog window
+     */
+    private void showMessage(String title, String message) {
+    StackPane stackpane = this.popUp;
 
+        JFXDialogLayout content = new JFXDialogLayout();
+        content.setHeading(new Text(title));
+        TextFlow flow = new TextFlow(new Text(message));
+        flow.setTextAlignment(TextAlignment.JUSTIFY);
+        content.setBody(flow);
+        content.setMaxWidth(stackpane.getWidth() * 0.9);
+
+        stackpane.setDisable(false);
+        JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+        JFXButton button = new JFXButton("Okay");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dialog.close();
+                stackpane.setDisable(true);
+            }
+        });
+
+        button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
+        button.setPrefHeight(32);
+        content.setActions(button);
+        dialog.show();
+    }
 }

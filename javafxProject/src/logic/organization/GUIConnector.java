@@ -33,4 +33,5 @@ public interface GUIConnector {
      * Initializes gui
      */
     void initGui();
+
 }

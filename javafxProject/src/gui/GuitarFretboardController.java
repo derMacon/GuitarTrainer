@@ -1,11 +1,14 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -15,10 +18,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
@@ -120,6 +126,8 @@ public class GuitarFretboardController implements Initializable {
     private GridPane grdPn_sheetNotes_onLines;
     @FXML
     private GridPane grdPn_totalSumNotes;
+    @FXML
+    private StackPane stPn_popUp;
 
     private Organized flowOrganizer;
 
@@ -150,7 +158,9 @@ public class GuitarFretboardController implements Initializable {
 
         GridPane[] sheetNotes = new GridPane[]{this.grdPn_sheetNotes_onLines, this.grdPn_sheetNotes_betweenLines};
 
-        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, sheetNotes, this.btn_replay),
+        System.out.println("stack pane disabled - initialize contr.");
+        this.stPn_popUp.setDisable(true);
+        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, sheetNotes, this.btn_replay, this.stPn_popUp),
                 new AudioConverter(), Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
     }
 
@@ -308,6 +318,7 @@ public class GuitarFretboardController implements Initializable {
      */
     private Label changeMode(Integer idx) {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
+
         Label label = new Label(Mode.values()[idx].getDescr());
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.CENTER);
@@ -423,6 +434,5 @@ public class GuitarFretboardController implements Initializable {
     public void switchOverallMode(ActionEvent evnet) {
         System.out.println("switching mode");
     }
-
 
 }

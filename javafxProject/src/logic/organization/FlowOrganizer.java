@@ -125,12 +125,8 @@ public class FlowOrganizer implements Organized {
             case SHEET_FREEPLAY:
                 syncGuitarWithSheet();
                 break;
-//            case HEARING_SINGLE_NOTE:
-//            case HEARING_MULTIPLE_NOTES:
-//                this.audioConv.playMultipleNotes(this.trainer.currExercise());
-//                break;
             default:
-                System.out.println("not implemented yet [interpret mode - floworg]");
+                System.out.println("No synchronization for given mode [" + this.mode + "] available");
         }
     }
 
