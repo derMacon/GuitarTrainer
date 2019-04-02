@@ -101,7 +101,6 @@ public class FlowOrganizer implements Organized {
         return false;
     }
 
-
     @Override
     public void pressNoteOnFretboard(FretboardPos fretboardPos) {
         if (Mode.SHEET_FREEPLAY != this.mode) {
@@ -122,6 +121,10 @@ public class FlowOrganizer implements Organized {
                 break;
             case SHEET_FREEPLAY:
                 syncGuitarWithSheet();
+                break;
+            case HEARING_SINGLE_NOTE:
+            case HEARING_MULTIPLE_NOTES:
+                this.audioConv.playMultipleNotes(this.trainer.currExercise());
                 break;
             default:
                 System.out.println("not implemented yet [interpret mode - floworg]");

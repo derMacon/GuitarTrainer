@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
@@ -96,6 +97,8 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private JFXButton btn_reset;
     @FXML
+    private JFXButton btn_switch;
+    @FXML
     private ImageView img_sticky_right;
     @FXML
     private ImageView img_sticky_left;
@@ -126,7 +129,8 @@ public class GuitarFretboardController implements Initializable {
         initMainButtons(this.btn_strum, FontAwesomeIcon.MUSIC);
         initMainButtons(this.btn_checkIn, FontAwesomeIcon.CERTIFICATE);
 
-        initResetButton();
+        initSwitchModeButton(this.btn_reset, FontAwesomeIcon.TRASH_ALT);
+        initSwitchModeButton(this.btn_switch, FontAwesomeIcon.REFRESH);
 
         initMenu(this.mnTm_github, FontAwesomeIcon.GITHUB);
         initMenu(this.mnTm_close, FontAwesomeIcon.EXCLAMATION_TRIANGLE);
@@ -178,20 +182,22 @@ public class GuitarFretboardController implements Initializable {
     /**
      * Initializes the reset button
      */
-    private void initResetButton() {
-        this.btn_reset.setStyle(
+    private void initSwitchModeButton(JFXButton btn, FontAwesomeIcon icon) {
+        btn.setStyle(
                 "-fx-background-color: transparent;\n"
                         + "-fx-font-family: \"Forte\";\n"
                         + "-fx-graphic-text-gap: 15;\n"
                         + "-fx-font-size: 28;");
-        this.btn_reset.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
-        this.btn_reset.setButtonType(JFXButton.ButtonType.FLAT);
-        this.btn_reset.setRipplerFill(Paint.valueOf("#ffffff"));
+        btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        btn.setButtonType(JFXButton.ButtonType.FLAT);
+        btn.setRipplerFill(Paint.valueOf("#ffffff"));
         GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
-                .glyph(FontAwesomeIcon.TRASH_ALT)
+                .glyph(icon)
                 .build();
         glypIcon.setSize("3em");
-        this.btn_reset.setGraphic(glypIcon);
+        btn.setGraphic(glypIcon);
+        Paint ripplerCol = new Color(1, 1, 1, 0);
+        btn.setRipplerFill(ripplerCol);
     }
 
     /**
@@ -300,6 +306,7 @@ public class GuitarFretboardController implements Initializable {
     private Label changeMode(Integer idx) {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
         Label label = new Label(Mode.values()[idx].getDescr());
+        label.setWrapText(true);
         label.setTextAlignment(TextAlignment.CENTER);
         label.setFont(new Font("Forte", 22));
         return label;
