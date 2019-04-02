@@ -351,7 +351,7 @@
                                       <Font size="31.0" />
                                   </font>
                               </JFXButton>
-                        <JFXButton fx:id="btn_switch" onAction="#reset" prefHeight="68.0" prefWidth="175.0" ripplerFill="#fabc98" text="Switch">
+                        <JFXButton fx:id="btn_switch" onAction="#switchOverallMode" prefHeight="68.0" prefWidth="175.0" ripplerFill="#fabc98" text="Switch">
                            <font>
                               <Font size="31.0" />
                            </font>
