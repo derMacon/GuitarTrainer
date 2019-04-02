@@ -1,88 +1,79 @@
-[tone -> E_NEUTRAL, octave -> 0]
+// open strings
 [tone -> E_NEUTRAL, octave -> 2]
+[tone -> B_NEUTRAL, octave -> 1]
+[tone -> G_NEUTRAL, octave -> 1]
+[tone -> D_NEUTRAL, octave -> 1]
+[tone -> A_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
 
+// c
+[tone -> E_NEUTRAL, octave -> 2]
+[tone -> C_NEUTRAL, octave -> 2]
+[tone -> G_NEUTRAL, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 1]
+[tone -> C_NEUTRAL, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 0]
+
+// d
+[tone ->   F_SHARP, octave -> 2]
+[tone -> D_NEUTRAL, octave -> 2]
+[tone -> A_NEUTRAL, octave -> 1]
+[tone -> D_NEUTRAL, octave -> 1]
+[tone -> A_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
+
+// d - minor
+[tone -> F_NEUTRAL, octave -> 2]
+[tone -> D_NEUTRAL, octave -> 2]
+[tone -> A_NEUTRAL, octave -> 1]
+[tone -> D_NEUTRAL, octave -> 1]
+[tone -> A_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
+
+// e
+[tone -> E_NEUTRAL, octave -> 2]
+[tone -> B_NEUTRAL, octave -> 1]
+[tone ->   G_SHARP, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 1]
+[tone -> B_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
+
+// e - minor
+[tone -> E_NEUTRAL, octave -> 2]
+[tone -> B_NEUTRAL, octave -> 1]
+[tone -> G_NEUTRAL, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 1]
+[tone -> B_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
+
+// f
+[tone -> F_NEUTRAL, octave -> 2]
+[tone -> C_NEUTRAL, octave -> 2]
+[tone -> A_NEUTRAL, octave -> 1]
+[tone -> F_NEUTRAL, octave -> 1]
+[tone -> C_NEUTRAL, octave -> 1]
 [tone -> F_NEUTRAL, octave -> 0]
 
-[tone ->   F_SHARP, octave -> 0]
-
+// g
+[tone -> G_NEUTRAL, octave -> 2]
+[tone -> B_NEUTRAL, octave -> 1]
+[tone -> G_NEUTRAL, octave -> 1]
+[tone -> D_NEUTRAL, octave -> 1]
+[tone -> B_NEUTRAL, octave -> 0]
 [tone -> G_NEUTRAL, octave -> 0]
 
-[tone ->   G_SHARP, octave -> 0]
-
-[tone -> A_NEUTRAL, octave -> 0]
-
-[tone ->   A_SHARP, octave -> 0]
-
-[tone -> B_NEUTRAL, octave -> 0]
-
-[tone -> C_NEUTRAL, octave -> 1]
-
-[tone ->   C_SHARP, octave -> 1]
-
-[tone -> D_NEUTRAL, octave -> 1]
-
-[tone ->   D_SHARP, octave -> 1]
-
-[tone -> E_NEUTRAL, octave -> 1]
-
-[tone -> F_NEUTRAL, octave -> 1]
-
-[tone ->   F_SHARP, octave -> 1]
-
-[tone -> G_NEUTRAL, octave -> 1]
-
-[tone ->   G_SHARP, octave -> 1]
-
-[tone -> A_NEUTRAL, octave -> 1]
-
-[tone ->   A_SHARP, octave -> 1]
-
-[tone -> B_NEUTRAL, octave -> 1]
-
-[tone -> C_NEUTRAL, octave -> 2]
-
-[tone ->   C_SHARP, octave -> 2]
-
-[tone -> D_NEUTRAL, octave -> 2]
-
-[tone ->   D_SHARP, octave -> 2]
-
+// a
 [tone -> E_NEUTRAL, octave -> 2]
+[tone ->   C_SHARP, octave -> 2]
+[tone -> A_NEUTRAL, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 1]
+[tone -> A_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
 
-[tone -> F_NEUTRAL, octave -> 2]
-
-[tone ->   F_SHARP, octave -> 2]
-
-[tone -> G_NEUTRAL, octave -> 2]
-
-[tone ->   G_SHARP, octave -> 2]
-
-[tone -> A_NEUTRAL, octave -> 2]
-
-[tone ->   A_SHARP, octave -> 2]
-
-[tone -> B_NEUTRAL, octave -> 2]
-
-[tone -> C_NEUTRAL, octave -> 3]
-
-[tone ->   C_SHARP, octave -> 3]
-
-[tone -> D_NEUTRAL, octave -> 3]
-
-[tone ->   D_SHARP, octave -> 3]
-
-[tone -> E_NEUTRAL, octave -> 3]
-
-[tone -> F_NEUTRAL, octave -> 3]
-
-[tone ->   F_SHARP, octave -> 3]
-
-[tone -> G_NEUTRAL, octave -> 3]
-
-[tone ->   G_SHARP, octave -> 3]
-
-[tone -> A_NEUTRAL, octave -> 3]
-
-[tone ->   A_SHARP, octave -> 3]
-
-[tone -> B_NEUTRAL, octave -> 3]
+// a - minor
+[tone -> E_NEUTRAL, octave -> 2]
+[tone -> C_NEUTRAL, octave -> 2]
+[tone -> A_NEUTRAL, octave -> 1]
+[tone -> E_NEUTRAL, octave -> 1]
+[tone -> A_NEUTRAL, octave -> 0]
+[tone -> E_NEUTRAL, octave -> 0]
