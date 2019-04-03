@@ -1,18 +1,16 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
@@ -25,23 +23,19 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 import logic.organization.FlowOrganizer;
 import logic.organization.Mode;
 import logic.organization.Organized;
-import java.util.List;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -177,7 +171,23 @@ public class GuitarFretboardController implements Initializable {
     // --- initializing gui with textures / buttons ---
 
     private void initMainDrawer(JFXDrawer mainDrawer) {
-//        List<Node> nodes = new ArrayList<>();
+        JFXButton btnOveralMode = new JFXButton("Mode");
+        btnOveralMode.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("asdf");
+            }
+        });
+
+
+        JFXButton btnHelp = new JFXButton("Help");
+        btnHelp.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("todo implement help on drawer option");
+            }
+        });
+
         JFXButton btnOpenRepo = new JFXButton("Github");
         btnOpenRepo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -186,14 +196,40 @@ public class GuitarFretboardController implements Initializable {
             }
         });
 
-        VBox drawerContent = new VBox(btnOpenRepo);
-        this.drw_mainMenu.setSidePane(drawerContent);
-        this.drw_mainMenu.open();
+
+        JFXButton btnClose = new JFXButton("Close");
+        btnClose.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("close");
+                endProgramm(event);
+            }
+        });
+
+        VBox drawerContent = new VBox(btnOveralMode, btnHelp, btnOpenRepo, btnClose);
+        mainDrawer.setSidePane(drawerContent);
+
+        mainDrawer.close();
+        mainDrawer.setDisable(true);
     }
 
     @FXML
-    public void iterateDrawer(ActionEvent event) {
-        
+    public void iterateDrawer(Event event) {
+        if (this.drw_mainMenu.isClosed()) {
+            this.drw_mainMenu.setDisable(false);
+            this.drw_mainMenu.open();
+            this.stPn_popUp.setDisable(false);
+        } else {
+            this.drw_mainMenu.setDisable(true);
+            this.drw_mainMenu.close();
+            this.stPn_popUp.setDisable(true);
+        }
+    }
+
+    @FXML
+    public void backToWindow(Event event) {
+        System.out.println("back to window");
+        iterateDrawer(event);
     }
 
     /**
