@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="454.0" prefWidth="210.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="169.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton prefHeight="96.0" prefWidth="519.0" text="asdf" />
+      <JFXButton prefHeight="96.0" prefWidth="519.0" text="asdf" />
+      <JFXButton prefHeight="96.0" prefWidth="519.0" text="lowestButton" />
+   </children>
+</VBox>
