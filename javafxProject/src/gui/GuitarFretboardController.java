@@ -18,7 +18,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -28,6 +30,7 @@ import javafx.scene.text.TextFlow;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
+import logic.organization.Category;
 import logic.organization.FlowOrganizer;
 import logic.organization.Mode;
 import logic.organization.Organized;
@@ -37,12 +40,16 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 /**
  * Controller of the gui
  */
 public class GuitarFretboardController implements Initializable {
+    private static Mode currMode = Mode.SHEET_FREEPLAY;
 
     private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
@@ -130,6 +137,10 @@ public class GuitarFretboardController implements Initializable {
     private StackPane stPn_popUp;
 
     private Organized flowOrganizer;
+
+    String test = "ad";
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -305,7 +316,13 @@ public class GuitarFretboardController implements Initializable {
     private void initDescription() {
         this.pgn_modes.setPageCount(Mode.values().length);
         this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
+//        this.test = "asdf";
+        this.pgn_modes.setCurrentPageIndex(1);
     }
+
+//    private Label test(Integer pgIdx) {
+//        return new Label(test);
+//    }
 
 
     // --- actual methods needed for the interaction with the logic ---
@@ -318,12 +335,77 @@ public class GuitarFretboardController implements Initializable {
      */
     private Label changeMode(Integer idx) {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
-
-        Label label = new Label(Mode.values()[idx].getDescr());
+        Mode selectedMode = showDialog();
+        System.out.println(currMode);
+//        Label label = new Label(Mode.values()[idx].getDescr());
+        Label label = new Label(currMode.getDescr());
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.CENTER);
         label.setFont(new Font("Forte", 22));
         return label;
+    }
+
+    private Mode showDialog() {
+        Stack<Mode> output = new Stack<>();
+        showMessage(Category.FREEPLAY, output);
+        return output.isEmpty() ? null : output.peek();
+    }
+
+    /**
+     * Opens a dialog window with the given title and message
+     * @param category
+     */
+    private void showMessage(Category category, Stack<Mode> output) {
+        StackPane stackpane = this.stPn_popUp;
+
+        JFXDialogLayout content = new JFXDialogLayout();
+        content.setHeading(new Text(category.name()));
+        TextFlow descr = new TextFlow(new Text("todo write description for categories"));
+        descr.setTextAlignment(TextAlignment.JUSTIFY);
+
+        JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);
+        HBox btnCollection = generateBtnCollection(category, dialog, stackpane, output);
+        VBox vBox = new VBox(descr, btnCollection);
+
+        content.setBody(vBox);
+//        content.setMaxWidth(stackpane.getWidth() * 0.9);
+
+        stackpane.setDisable(false);
+        JFXButton button = new JFXButton("Cancel");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dialog.close();
+                stackpane.setDisable(true);
+            }
+        });
+
+        button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
+        button.setPrefHeight(32);
+        content.setActions(button);
+        dialog.show();
+    }
+
+    private HBox generateBtnCollection(Category category, JFXDialog dialog, StackPane stackpane,
+                                       Stack<Mode> outputMode) {
+        List<JFXButton> btnLst = new ArrayList<>();
+        JFXButton currBtn;
+        for(Mode currImplementation : category.getImplementations()) {
+            currBtn = new JFXButton(currImplementation.name());
+            Pagination pgn = this.pgn_modes;
+            currBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    dialog.close();
+                    stackpane.setDisable(true);
+                    outputMode.push(currImplementation);
+                    currMode = currImplementation;
+                    pgn.setCurrentPageIndex(1);
+                }
+            });
+            btnLst.add(currBtn);
+        }
+        return new HBox(btnLst.toArray(new JFXButton[0]));
     }
 
     /**
