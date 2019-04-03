@@ -18,27 +18,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuitarFretboardController">
    <children>
       <BorderPane layoutX="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1346.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-          <top>
-              <MenuBar prefHeight="0.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
-                  <menus>
-                      <Menu mnemonicParsing="false" text="File">
-                          <items>
-                              <MenuItem fx:id="mnTm_close" mnemonicParsing="false" onAction="#endProgramm" text="Close" />
-                          </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                          <items>
-                              <MenuItem fx:id="mnTm_info" mnemonicParsing="false" text="About" />
-                              <MenuItem fx:id="mnTm_github" mnemonicParsing="false" onAction="#openRepo" text="Github" />
-                          </items>
-                      </Menu>
-                  </menus>
-              </MenuBar>
-          </top>
           <bottom>
               <AnchorPane fx:id="imgParent" prefHeight="237.0" prefWidth="1346.0" BorderPane.alignment="CENTER">
                   <children>
@@ -474,5 +456,6 @@
           </center>
       </BorderPane>
       <StackPane fx:id="stPn_popUp" prefHeight="668.0" prefWidth="1346.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXDrawer fx:id="drw_mainMenu" defaultDrawerSize="200.0" prefHeight="668.0" prefWidth="190.0" />
    </children>
 </AnchorPane>

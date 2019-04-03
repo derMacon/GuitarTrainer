@@ -3,6 +3,7 @@ package gui;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXDrawer;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -11,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
@@ -19,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -31,12 +34,14 @@ import logic.instrument.Guitar;
 import logic.organization.FlowOrganizer;
 import logic.organization.Mode;
 import logic.organization.Organized;
+import java.util.List;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -128,6 +133,8 @@ public class GuitarFretboardController implements Initializable {
     private GridPane grdPn_totalSumNotes;
     @FXML
     private StackPane stPn_popUp;
+    @FXML
+    private JFXDrawer drw_mainMenu;
 
     private Organized flowOrganizer;
 
@@ -143,6 +150,8 @@ public class GuitarFretboardController implements Initializable {
         initMenu(this.mnTm_github, FontAwesomeIcon.GITHUB);
         initMenu(this.mnTm_close, FontAwesomeIcon.EXCLAMATION_TRIANGLE);
         initMenu(this.mnTm_info, FontAwesomeIcon.INFO_CIRCLE);
+
+        initMainDrawer(this.drw_mainMenu);
 
         initGuitarTexture();
         initNotePadTexture();
@@ -166,6 +175,26 @@ public class GuitarFretboardController implements Initializable {
 
 
     // --- initializing gui with textures / buttons ---
+
+    private void initMainDrawer(JFXDrawer mainDrawer) {
+//        List<Node> nodes = new ArrayList<>();
+        JFXButton btnOpenRepo = new JFXButton("Github");
+        btnOpenRepo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                openRepo(new ActionEvent());
+            }
+        });
+
+        VBox drawerContent = new VBox(btnOpenRepo);
+        this.drw_mainMenu.setSidePane(drawerContent);
+        this.drw_mainMenu.open();
+    }
+
+    @FXML
+    public void iterateDrawer(ActionEvent event) {
+        
+    }
 
     /**
      * Initializes the given button with a given logo
@@ -243,11 +272,11 @@ public class GuitarFretboardController implements Initializable {
      * @param icon   icon that will be shown on the menu item
      */
     private void initMenu(MenuItem mnItem, FontAwesomeIcon icon) {
-        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
-                .glyph(icon)
-                .build();
-        glypIcon.setSize("1em");
-        mnItem.setGraphic(glypIcon);
+//        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
+//                .glyph(icon)
+//                .build();
+//        glypIcon.setSize("1em");
+//        mnItem.setGraphic(glypIcon);
     }
 
     /**
