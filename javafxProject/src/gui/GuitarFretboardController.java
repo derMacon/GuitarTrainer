@@ -224,15 +224,14 @@ public class GuitarFretboardController implements Initializable {
 
         mainDrawer.close();
         mainDrawer.setDisable(true);
-
-//        this.drw_mainMenu.setDisable(true);
     }
 
     @FXML
-    public void iterateDrawer(Event event) {
+    public void iterateMainDrawer(Event event) {
         if (this.drw_mainMenu.isClosed()) {
             this.drw_mainMenu.setDisable(false);
             this.drw_mainMenu.open();
+
             this.stPn_popUp.setDisable(false);
         } else {
             this.drw_mainMenu.setDisable(true);
@@ -241,10 +240,22 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    private void iterateModeImplementationDrawer(Event event) {
+        if(this.drw_modeImplementations.isClosed()) {
+            this.drw_modeImplementations.setDisable(false);
+            this.drw_modeImplementations.open();
+        } else {
+            this.drw_modeImplementations.setDisable(true);
+            this.drw_modeImplementations.close();
+            this.stPn_popUp.setDisable(true);
+        }
+    }
+
     @FXML
     public void backToWindow(Event event) {
         System.out.println("back to window");
-        iterateDrawer(event);
+        iterateMainDrawer(event);
+        iterateModeImplementationDrawer(event);
     }
 
     /**

@@ -449,7 +449,7 @@
                                   </font>
                               </Label>
                               <Pagination fx:id="pgn_modes" layoutX="78.0" layoutY="112.0" prefHeight="219.0" prefWidth="355.0" />
-                        <JFXHamburger layoutX="72.0" layoutY="66.0" onMouseClicked="#iterateDrawer" prefHeight="55.0" prefWidth="62.0" />
+                        <JFXHamburger layoutX="72.0" layoutY="66.0" onMouseClicked="#iterateMainDrawer" prefHeight="55.0" prefWidth="62.0" />
                           </children>
                       </AnchorPane>
                   </children>
@@ -457,7 +457,7 @@
           </center>
       </BorderPane>
       <StackPane fx:id="stPn_popUp" onMouseClicked="#backToWindow" prefHeight="668.0" prefWidth="1346.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <JFXDrawer fx:id="drw_modeImplementations" defaultDrawerSize="400.0" direction="TOP" layoutX="183.0" layoutY="-3.0" prefHeight="394.0" prefWidth="198.0" />
+      <JFXDrawer fx:id="drw_modeImplementations" defaultDrawerSize="800.0" direction="TOP" layoutX="181.0" prefHeight="668.0" prefWidth="190.0" />
       <JFXDrawer fx:id="drw_mainMenu" defaultDrawerSize="200.0" prefHeight="668.0" prefWidth="190.0" />
    </children>
 </AnchorPane>
