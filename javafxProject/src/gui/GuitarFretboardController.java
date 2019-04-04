@@ -129,6 +129,8 @@ public class GuitarFretboardController implements Initializable {
     private StackPane stPn_popUp;
     @FXML
     private JFXDrawer drw_mainMenu;
+    @FXML
+    private JFXDrawer drw_modeImplementations;
 
     private Organized flowOrganizer;
 
@@ -146,6 +148,7 @@ public class GuitarFretboardController implements Initializable {
         initMenu(this.mnTm_info, FontAwesomeIcon.INFO_CIRCLE);
 
         initMainDrawer(this.drw_mainMenu);
+        initModeDrawerStack(this.drw_modeImplementations);
 
         initGuitarTexture();
         initNotePadTexture();
@@ -170,12 +173,22 @@ public class GuitarFretboardController implements Initializable {
 
     // --- initializing gui with textures / buttons ---
 
+    private void initModeDrawerStack(JFXDrawer modeDrawer) {
+        JFXButton btn = new JFXButton("btn1");
+        VBox vbox = new VBox(btn);
+        modeDrawer.setSidePane(vbox);
+        modeDrawer.close();
+        modeDrawer.setDisable(true);
+    }
+
+
     private void initMainDrawer(JFXDrawer mainDrawer) {
         JFXButton btnOveralMode = new JFXButton("Mode");
         btnOveralMode.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("asdf");
+                drw_modeImplementations.setDisable(false);
+                drw_modeImplementations.open();
             }
         });
 
@@ -211,6 +224,8 @@ public class GuitarFretboardController implements Initializable {
 
         mainDrawer.close();
         mainDrawer.setDisable(true);
+
+//        this.drw_mainMenu.setDisable(true);
     }
 
     @FXML
