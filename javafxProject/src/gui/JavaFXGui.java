@@ -61,6 +61,7 @@ public class JavaFXGui implements GUIConnector {
      * @param sheetNotes array containing two gridpanes, on for the sheet notes between and one for the notes on top
      *                   of the lines on the sheet page
      * @param replayBtn  replay button for the excercise
+     * @param popUp      pane to display the pop up on
      */
     public JavaFXGui(GridPane[] fretboard, GridPane[] sheetNotes, JFXButton replayBtn, StackPane popUp) {
         this.frets = fretboard;
@@ -137,13 +138,15 @@ public class JavaFXGui implements GUIConnector {
             ((GuitarJFXButton) curr).selectButton(true);
         }
     }
+
     /**
      * Opens a dialog window with the given title and message
-     * @param title title of the dialog window
+     *
+     * @param title   title of the dialog window
      * @param message message of the dialog window
      */
     private void showMessage(String title, String message) {
-    StackPane stackpane = this.popUp;
+        StackPane stackpane = this.popUp;
 
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text(title));

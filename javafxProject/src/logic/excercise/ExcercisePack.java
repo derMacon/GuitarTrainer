@@ -43,6 +43,7 @@ public enum ExcercisePack {
 
     /**
      * Checks if there is an enum member containing the given mode
+     *
      * @param mode mode to check the enum values for
      * @return true if there is an enum member containing the given mode
      */

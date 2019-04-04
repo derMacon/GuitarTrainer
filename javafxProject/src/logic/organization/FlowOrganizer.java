@@ -53,7 +53,7 @@ public class FlowOrganizer implements Organized {
         this.mode = mode;
         trainer.setMode(mode);
         reset();
-        if(this.mode != Mode.GUITAR_FREEPLAY && this.mode != Mode.SHEET_FREEPLAY) {
+        if (this.mode != Mode.GUITAR_FREEPLAY && this.mode != Mode.SHEET_FREEPLAY) {
             this.audioConv.playMultipleNotes(this.trainer.currExercise());
         }
         synchronize();

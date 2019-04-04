@@ -21,6 +21,7 @@ public class ExerciseChord {
 
     /**
      * Constructor
+     *
      * @param notes notes of the chord
      */
     public ExerciseChord(Note... notes) {
@@ -33,6 +34,7 @@ public class ExerciseChord {
 
     /**
      * Increments the iteration count of the chord
+     *
      * @return the instance with an incremented iteration count
      */
     public ExerciseChord incIterations() {
@@ -42,6 +44,7 @@ public class ExerciseChord {
 
     /**
      * Getter for the iteration
+     *
      * @return number of times the chord was already played in the trainer
      */
     public int getIterations() {
@@ -50,6 +53,7 @@ public class ExerciseChord {
 
     /**
      * Adds another note to the chord
+     *
      * @param note note to add to the chords
      */
     public void add(Note note) {
@@ -60,6 +64,7 @@ public class ExerciseChord {
 
     /**
      * Generates an array out of the chord to display / play on the top level class
+     *
      * @return an array out of the chord to display / play on the top level class
      */
     public Note[] toArray() {

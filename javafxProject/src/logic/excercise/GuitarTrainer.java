@@ -7,6 +7,7 @@ import logic.note.Note;
 import logic.note.SheetNote;
 import logic.organization.GUIConnector;
 import logic.organization.Mode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

@@ -16,6 +16,7 @@ public enum PrefixImages {
 
     /**
      * Construcotr
+     *
      * @param path path to the image of the prefix
      */
     PrefixImages(String path) {
@@ -24,6 +25,7 @@ public enum PrefixImages {
 
     /**
      * Getter for the id from a given path
+     *
      * @param path path to an image
      * @return the id from a given path
      */
@@ -38,6 +40,7 @@ public enum PrefixImages {
 
     /**
      * Getter for the path of an prefix image
+     *
      * @return the path of an prefix image
      */
     public String getPath() {
@@ -46,6 +49,7 @@ public enum PrefixImages {
 
     /**
      * Adds another prefix to a given prefix
+     *
      * @param other other prefix image instance
      * @return enum member with the added prefix
      */

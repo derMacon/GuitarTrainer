@@ -1,6 +1,6 @@
+import logic.FakeGui;
 import logic.excercise.GuitarTrainer;
 import logic.excercise.Trainer;
-import logic.FakeGui;
 import logic.note.Note;
 import logic.note.Prefix;
 import logic.note.Tone;

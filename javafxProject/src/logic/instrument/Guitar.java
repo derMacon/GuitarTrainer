@@ -60,7 +60,6 @@ public class Guitar implements Instrument<FretboardNote> {
         return this.pressedStrings;
     }
 
-
     /**
      * Plays a down strum of all previously selected notes on the instrument fretboard
      */

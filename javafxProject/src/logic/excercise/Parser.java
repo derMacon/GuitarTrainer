@@ -21,7 +21,8 @@ public class Parser {
 
     /**
      * Generates a list of Excercise chords from a given mode and a the desired length of the output list
-     * @param mode mode of the game
+     *
+     * @param mode     mode of the game
      * @param poolSize length of the output list
      * @return a list of Excercise chords from a given mode and a the desired length of the output list
      */

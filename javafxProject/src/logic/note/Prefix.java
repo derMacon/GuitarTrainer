@@ -8,6 +8,7 @@ public enum Prefix {
 
     /**
      * Translates a given String representation from one of the enum members to the appropriate member
+     *
      * @param str String to translate
      * @return the appropriate member
      */

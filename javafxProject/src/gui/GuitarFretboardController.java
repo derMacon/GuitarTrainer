@@ -27,6 +27,7 @@ import javafx.scene.text.TextAlignment;
 import logic.audio.AudioConverter;
 import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
+import logic.organization.Category;
 import logic.organization.FlowOrganizer;
 import logic.organization.Mode;
 import logic.organization.Organized;
@@ -36,6 +37,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -132,10 +134,14 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private JFXDrawer drw_modeImplementations;
 
+    private Category selectedModeCategory;
+
     private Organized flowOrganizer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.selectedModeCategory = Category.FREEPLAY;
+
         initMainButtons(this.btn_replay, FontAwesomeIcon.UNDO);
         initMainButtons(this.btn_strum, FontAwesomeIcon.MUSIC);
         initMainButtons(this.btn_checkIn, FontAwesomeIcon.CERTIFICATE);
@@ -173,15 +179,35 @@ public class GuitarFretboardController implements Initializable {
 
     // --- initializing gui with textures / buttons ---
 
+    /**
+     * Initializes the second / inner drawer containing the buttons used to select an overall selectedModeCategory
+     * e.g. FREEPLAY, HEARING, TRANSLATING
+     *
+     * @param modeDrawer drawer instance to update
+     */
     private void initModeDrawerStack(JFXDrawer modeDrawer) {
-        JFXButton btn = new JFXButton("btn1");
-        VBox vbox = new VBox(btn);
+        JFXButton btnHearing = new JFXButton("btn1");
+        btnHearing.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedModeCategory = Category.HEARING_EXERCISE;
+                pgn_modes.setPageCount(Category.HEARING_EXERCISE.getModes().size());
+                pgn_modes.setCurrentPageIndex(0);
+                iterateMainDrawer(new ActionEvent());
+                iterateModeImplementationDrawer(new ActionEvent());
+            }
+        });
+        VBox vbox = new VBox(btnHearing);
         modeDrawer.setSidePane(vbox);
         modeDrawer.close();
         modeDrawer.setDisable(true);
     }
 
-
+    /**
+     * Initializes the main / outer drawer containing the menu items
+     *
+     * @param mainDrawer drawer instance to update
+     */
     private void initMainDrawer(JFXDrawer mainDrawer) {
         JFXButton btnOveralMode = new JFXButton("Mode");
         btnOveralMode.setOnAction(new EventHandler<ActionEvent>() {
@@ -191,7 +217,6 @@ public class GuitarFretboardController implements Initializable {
                 drw_modeImplementations.open();
             }
         });
-
 
         JFXButton btnHelp = new JFXButton("Help");
         btnHelp.setOnAction(new EventHandler<ActionEvent>() {
@@ -226,12 +251,16 @@ public class GuitarFretboardController implements Initializable {
         mainDrawer.setDisable(true);
     }
 
+    /**
+     * Opcens / closes the main / outer drawer
+     *
+     * @param event event triggered by the user
+     */
     @FXML
     public void iterateMainDrawer(Event event) {
         if (this.drw_mainMenu.isClosed()) {
             this.drw_mainMenu.setDisable(false);
             this.drw_mainMenu.open();
-
             this.stPn_popUp.setDisable(false);
         } else {
             this.drw_mainMenu.setDisable(true);
@@ -240,8 +269,13 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Opens / closes the inner drawer
+     *
+     * @param event event triggered by the user
+     */
     private void iterateModeImplementationDrawer(Event event) {
-        if(this.drw_modeImplementations.isClosed()) {
+        if (this.drw_modeImplementations.isClosed()) {
             this.drw_modeImplementations.setDisable(false);
             this.drw_modeImplementations.open();
         } else {
@@ -251,6 +285,11 @@ public class GuitarFretboardController implements Initializable {
         }
     }
 
+    /**
+     * Returns to the normal game window (closing the drawers)
+     *
+     * @param event event triggered by the user
+     */
     @FXML
     public void backToWindow(Event event) {
         System.out.println("back to window");
@@ -394,7 +433,8 @@ public class GuitarFretboardController implements Initializable {
      * Initializes the pagination
      */
     private void initDescription() {
-        this.pgn_modes.setPageCount(Mode.values().length);
+        this.selectedModeCategory = Category.values()[0];
+        this.pgn_modes.setPageCount(this.selectedModeCategory.getModes().size());
         this.pgn_modes.setPageFactory((Integer pageIdx) -> changeMode(pageIdx));
     }
 
@@ -410,7 +450,8 @@ public class GuitarFretboardController implements Initializable {
     private Label changeMode(Integer idx) {
         this.flowOrganizer.interpretMode(Mode.values()[idx]);
 
-        Label label = new Label(Mode.values()[idx].getDescr());
+        Label label = new Label(this.selectedModeCategory.getModes().get(idx).getDescr());
+//        Label label = new Label(Mode.values()[idx].getDescr());
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.CENTER);
         label.setFont(new Font("Forte", 22));
@@ -521,6 +562,11 @@ public class GuitarFretboardController implements Initializable {
         this.flowOrganizer.playExcercise();
     }
 
+    /**
+     * Switches the overal game mode of the program
+     *
+     * @param evnet event triggered by the user
+     */
     @FXML
     public void switchOverallMode(ActionEvent evnet) {
         System.out.println("switching mode");
