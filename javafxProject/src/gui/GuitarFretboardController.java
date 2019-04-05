@@ -452,7 +452,8 @@ public class GuitarFretboardController implements Initializable {
      * @return page for the given index
      */
     private Label changeMode(Integer idx) {
-        this.flowOrganizer.interpretMode(Mode.values()[idx]);
+        this.flowOrganizer.interpretMode(this.selectedModeCategory.getModes().get(idx));
+        System.out.println(this.selectedModeCategory);
 
         Label label = new Label(this.selectedModeCategory.getModes().get(idx).getDescr());
 //        Label label = new Label(Mode.values()[idx].getDescr());
