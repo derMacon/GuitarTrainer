@@ -9,8 +9,8 @@ import java.util.List;
 public enum Category {
 
     FREEPLAY ("Freeplay", Mode.GUITAR_FREEPLAY, Mode.SHEET_FREEPLAY),
-    HEARING_EXERCISE ("Hearing exercise", Mode.HEARING_SINGLE_NOTE, Mode.HEARING_MULTIPLE_NOTES),
-    TRANSLATION_EXERCISE ("Reading exercise", Mode.SEE_ON_FRETBOARD, Mode.SEE_ON_SHEET);
+    HEARING_EXERCISE ("Hearing", Mode.HEARING_SINGLE_NOTE, Mode.HEARING_MULTIPLE_NOTES),
+    TRANSLATION_EXERCISE ("Reading", Mode.SEE_ON_FRETBOARD, Mode.SEE_ON_SHEET);
 
     private List<Mode> modes;
     private String name;

@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,6 +39,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -185,26 +189,55 @@ public class GuitarFretboardController implements Initializable {
      * @param modeDrawer drawer instance to update
      */
     private void initModeDrawerStack(JFXDrawer modeDrawer) {
-        JFXButton btnHearing = new JFXButton("btn1");
-        btnHearing.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                refreshPagination(Category.HEARING_EXERCISE);
-                flowOrganizer.interpretMode(selectedModeCategory.getModes().get(pgn_modes.getCurrentPageIndex()));
-                iterateMainDrawer(new ActionEvent());
-                iterateModeImplementationDrawer(new ActionEvent());
-            }
-        });
-        VBox vbox = new VBox(btnHearing);
+        Category[] allCategories = Category.values();
+        JFXButton[] btnModes = new JFXButton[allCategories.length];
+        for (int i = 0; i < allCategories.length; i++) {
+            btnModes[i] = initModeBtn(allCategories[i]);
+            btnModes[i].setStyle("-fx-background-color: #d6e1fc;\n"
+                    + "-fx-font-family: \"Forte\";\n"
+                    + "-fx-graphic-text-gap: 15;\n"
+                    + "-fx-font-size: 25");
+            btnModes[i].setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+            btnModes[i].setButtonType(JFXButton.ButtonType.RAISED);
+            btnModes[i].setRipplerFill(Paint.valueOf("#ffffff"));
+            btnModes[i].setMinWidth(200.0);
+            btnModes[i].setOpacity(1.0);
+        }
+        VBox vbox = new VBox(btnModes);
+
+        // todo make drawer background transparent
+        vbox.setStyle("-fx-background-color: #e4f1ff");
+
+        modeDrawer.setStyle("-fx-fill: #d48e2c");
         modeDrawer.setSidePane(vbox);
         modeDrawer.close();
         modeDrawer.setDisable(true);
     }
 
+    private JFXButton initModeBtn(Category category) {
+        JFXButton outputBtn = new JFXButton("  " + category.getName());
+        outputBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                refreshPagination(category);
+                flowOrganizer.interpretMode(category.getModes().get(pgn_modes.getCurrentPageIndex()));
+                iterateMainDrawer(new ActionEvent());
+                iterateModeImplementationDrawer(new ActionEvent());
+            }
+        });
+        return outputBtn;
+    }
+
+    /**
+     * Refreshes the pagination by setting the global variable holding the current mode. This variable is used
+     * when creating a new page in the page factory of the pagination object.
+     *
+     * @param category category to be displayed on the pagination component of the gui
+     */
     private void refreshPagination(Category category) {
         selectedModeCategory = category;
         pgn_modes.setPageCount(category.getModes().size());
-        pgn_modes.setCurrentPageIndex(1);
+        pgn_modes.setCurrentPageIndex((pgn_modes.getCurrentPageIndex() + 1) % pgn_modes.getPageCount());
     }
 
     /**
@@ -213,6 +246,7 @@ public class GuitarFretboardController implements Initializable {
      * @param mainDrawer drawer instance to update
      */
     private void initMainDrawer(JFXDrawer mainDrawer) {
+        List<JFXButton> buttons = new LinkedList<>();
         JFXButton btnOveralMode = new JFXButton("Mode");
         btnOveralMode.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -221,6 +255,9 @@ public class GuitarFretboardController implements Initializable {
                 drw_modeImplementations.open();
             }
         });
+        buttons.add(btnOveralMode);
+        initMainButtons(btnOveralMode, 25, FontAwesomeIcon.EXCHANGE, 3);
+        btnOveralMode.setMinWidth(200.00);
 
         JFXButton btnHelp = new JFXButton("Help");
         btnHelp.setOnAction(new EventHandler<ActionEvent>() {
@@ -229,6 +266,9 @@ public class GuitarFretboardController implements Initializable {
                 System.out.println("todo implement help on drawer option");
             }
         });
+        buttons.add(btnHelp);
+        initMainButtons(btnHelp, 25, FontAwesomeIcon.INFO_CIRCLE, 3);
+        btnHelp.setMinWidth(200.00);
 
         JFXButton btnOpenRepo = new JFXButton("Github");
         btnOpenRepo.setOnAction(new EventHandler<ActionEvent>() {
@@ -237,7 +277,9 @@ public class GuitarFretboardController implements Initializable {
                 openRepo(new ActionEvent());
             }
         });
-
+        buttons.add(btnOpenRepo);
+        initMainButtons(btnOpenRepo, 25, FontAwesomeIcon.GITHUB, 3);
+        btnOpenRepo.setMinWidth(200.00);
 
         JFXButton btnClose = new JFXButton("Close");
         btnClose.setOnAction(new EventHandler<ActionEvent>() {
@@ -247,8 +289,12 @@ public class GuitarFretboardController implements Initializable {
                 endProgramm(event);
             }
         });
+        buttons.add(btnClose);
+        initMainButtons(btnClose, 25, FontAwesomeIcon.EXCLAMATION_TRIANGLE, 3);
+        btnClose.setMinWidth(200.00);
 
-        VBox drawerContent = new VBox(btnOveralMode, btnHelp, btnOpenRepo, btnClose);
+        VBox drawerContent = new VBox(buttons.toArray(new JFXButton[0]));
+        drawerContent.setStyle("-fx-background-color: #d7d5ff");
         mainDrawer.setSidePane(drawerContent);
 
         mainDrawer.close();
@@ -308,18 +354,36 @@ public class GuitarFretboardController implements Initializable {
      * @param icon icon to be put on the button
      */
     private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
-        btn.setStyle(
-                "-fx-background-color: #d6e1fc;\n"
-                        + "-fx-font-family: \"Forte\";\n"
-                        + "-fx-graphic-text-gap: 15;\n"
-                        + "-fx-font-size: 35;");
+        // todo delete this method -> use other signature
+        initMainButtons(btn, 35, icon, 4);
+//        btn.setStyle(
+//                "-fx-background-color: #d6e1fc;\n"
+//                        + "-fx-font-family: \"Forte\";\n"
+//                        + "-fx-graphic-text-gap: 15;\n"
+//                        + "-fx-font-size: 35;");
+//        btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+//        btn.setButtonType(JFXButton.ButtonType.RAISED);
+//        btn.setRipplerFill(Paint.valueOf("#ffffff"));
+//        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
+//                .glyph(icon)
+//                .build();
+//        glypIcon.setSize("4em");
+//        btn.setGraphic(glypIcon);
+    }
+
+    private void initMainButtons(JFXButton btn, int fontSize, FontAwesomeIcon icon, int iconSize) {
+        String cssFormat = String.format("-fx-background-color: #d6e1fc;\n"
+                + "-fx-font-family: \"Forte\";\n"
+                + "-fx-graphic-text-gap: 15;\n"
+                + "-fx-font-size: %d;", fontSize);
+        btn.setStyle(cssFormat);
         btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
         btn.setButtonType(JFXButton.ButtonType.RAISED);
         btn.setRipplerFill(Paint.valueOf("#ffffff"));
         GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
                 .glyph(icon)
                 .build();
-        glypIcon.setSize("4em");
+        glypIcon.setSize(String.format("%sem", iconSize));
         btn.setGraphic(glypIcon);
     }
 
@@ -456,7 +520,6 @@ public class GuitarFretboardController implements Initializable {
         System.out.println(this.selectedModeCategory);
 
         Label label = new Label(this.selectedModeCategory.getModes().get(idx).getDescr());
-//        Label label = new Label(Mode.values()[idx].getDescr());
         label.setWrapText(true);
         label.setTextAlignment(TextAlignment.CENTER);
         label.setFont(new Font("Forte", 22));

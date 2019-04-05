@@ -10,13 +10,15 @@ public enum Mode {
             + "\nthis mode there are no excercises "
             + "\nso the replay button is grayed out."),
     SHEET_FREEPLAY("Freeplay mode for the sheet music:"
-            + "\nOnly one note at a time can be selected on the "
-            + "\nsheet page. All possible fret positions of the "
+            + "\nOnly one note at a time can be"
+            + "\nselected on the sheet page. All possible fret positions of the "
             + "\nnote will be displayed on the guitar."),
-    HEARING_SINGLE_NOTE("todo single note"),
-    HEARING_MULTIPLE_NOTES("todo multiple notes"),
-    SEE_ON_SHEET("todo sheet mode"),
-    SEE_ON_FRETBOARD("todo fretboard mode");
+    HEARING_SINGLE_NOTE("A single note will be played. This note should be selected on the fretboard as well as on " +
+            "the sheet page."),
+    HEARING_MULTIPLE_NOTES("Multple notes will be played. These notes all should be selected on the freboard as well " +
+            "as on the sheet page."),
+    SEE_ON_SHEET("A note will be displayed on the sheet page. This note should be selected on the fretboard."),
+    SEE_ON_FRETBOARD("A note will be displayed on the fretboard. This note should be selected on the sheet page.");
 
     /**
      * Description of the mode used to display on the gui
