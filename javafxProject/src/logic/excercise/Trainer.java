@@ -1,5 +1,6 @@
 package logic.excercise;
 
+import logic.note.ExerciseChord;
 import logic.note.Note;
 import logic.note.SheetNote;
 import logic.organization.Mode;
@@ -37,13 +38,6 @@ public interface Trainer {
      */
     void userPressedSheetNote(SheetNote sheetNote);
 
-    /**
-     * Method to check the result of the user. Will be called once the user uses the check in option for the exercise
-     * solution.
-     *
-     * @param chord chord the user checks in as a solution of the given exercise
-     * @return flag that shows if the corresponding note array equals the internal expected chord
-     */
-    boolean checkResult(Note[] chord);
+    void checkInResults(ExerciseChord fretboardChord, ExerciseChord sheetChord);
 
 }

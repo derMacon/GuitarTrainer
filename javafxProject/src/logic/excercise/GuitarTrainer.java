@@ -16,7 +16,11 @@ import java.util.Random;
  * Implementation of the instrument trainer interface needed for the excercise modes
  */
 public class GuitarTrainer implements Trainer {
-
+    private static final String MODE_DELIMITER = ".....................................";
+    private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
+    private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected " +
+            "exercise chord.";
+    private static final String EQUAL_EXP_INP_CHORD = "Correct!";
     private static final int DEFAULT_WRONG_ANSWER_OFFSET = 3;
     private static final int DEFAULT_POOL_SIZE = 10;
     private static final String COMMENT_PREFIX = "//";
@@ -77,12 +81,28 @@ public class GuitarTrainer implements Trainer {
                 ? DEFAULT_WRONG_ANSWER_OFFSET : this.exercises.size() - 1;
     }
 
-
     @Override
-    public boolean checkResult(Note[] notes) {
+    public void checkInResults(ExerciseChord guitarChord, ExerciseChord sheetChord) {
+        String message = "";
+        boolean bothInputChordsEqual = guitarChord.equals(sheetChord);
+
+        if (bothInputChordsEqual) {
+            boolean chordsEqualExercise = checkResult(guitarChord);
+            if (chordsEqualExercise) {
+                message = EQUAL_EXP_INP_CHORD;
+            } else {
+                message = UNEQUAL_EXP_INP_CHORD;
+            }
+        } else {
+            message = UNEQUAL_INPUT_CHORDS;
+        }
+        this.gui.showMessage("Result checking", message);
+        Logger.getInstance().printAndSafe(message);
+    }
+
+    private boolean checkResult(ExerciseChord actChord) {
         // todo check for np exception
         ExerciseChord expChord = this.exercises.remove(0);
-        ExerciseChord actChord = new ExerciseChord(notes);
         boolean isSame = expChord.equals(actChord);
         if (isSame) {
             insertLst(actChord.incIterations());

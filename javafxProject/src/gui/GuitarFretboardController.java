@@ -37,7 +37,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -190,9 +189,12 @@ public class GuitarFretboardController implements Initializable {
         btnHearing.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                selectedModeCategory = Category.HEARING_EXERCISE;
-                pgn_modes.setPageCount(Category.HEARING_EXERCISE.getModes().size());
-                pgn_modes.setCurrentPageIndex(0);
+//                selectedModeCategory = Category.HEARING_EXERCISE;
+//                pgn_modes.setPageCount(Category.HEARING_EXERCISE.getModes().size());
+//                pgn_modes.setCurrentPageIndex(pgn_modes.getPageCount() - 1);
+//                pgn_modes.setCurrentPageIndex(0);
+                refreshPagination(Category.HEARING_EXERCISE);
+                flowOrganizer.interpretMode(selectedModeCategory.getModes().get(pgn_modes.getCurrentPageIndex()));
                 iterateMainDrawer(new ActionEvent());
                 iterateModeImplementationDrawer(new ActionEvent());
             }
@@ -201,6 +203,12 @@ public class GuitarFretboardController implements Initializable {
         modeDrawer.setSidePane(vbox);
         modeDrawer.close();
         modeDrawer.setDisable(true);
+    }
+
+    private void refreshPagination(Category category) {
+        selectedModeCategory = category;
+        pgn_modes.setPageCount(category.getModes().size());
+        pgn_modes.setCurrentPageIndex(1);
     }
 
     /**
@@ -565,11 +573,12 @@ public class GuitarFretboardController implements Initializable {
     /**
      * Switches the overal game mode of the program
      *
-     * @param evnet event triggered by the user
+     * @param event event triggered by the user
      */
     @FXML
-    public void switchOverallMode(ActionEvent evnet) {
-        System.out.println("switching mode");
+    public void switchOverallMode(ActionEvent event) {
+        iterateMainDrawer(event);
+        iterateModeImplementationDrawer(event);
     }
 
 }

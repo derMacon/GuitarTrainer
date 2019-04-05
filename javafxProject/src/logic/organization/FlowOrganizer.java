@@ -26,6 +26,10 @@ import java.util.Set;
 public class FlowOrganizer implements Organized {
 
     private static final String MODE_DELIMITER = ".....................................";
+    private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
+    private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected " +
+            "exercise chord.";
+    private static final String EQUAL_EXP_INP_CHORD = "Correct!";
     private final Instrument<FretboardNote> guitar;
     private final Instrument<SheetNote> sheets;
     private final Trainer trainer;
@@ -187,15 +191,9 @@ public class FlowOrganizer implements Organized {
     @Override
     public void checkInResult() {
         if (this.mode != Mode.SHEET_FREEPLAY && this.mode != Mode.GUITAR_FREEPLAY) {
-            ExerciseChord guitarChord = new ExerciseChord(this.guitar.getPressedNotes());
-            ExerciseChord sheetChord = new ExerciseChord(this.sheets.getPressedNotes());
-            if (guitarChord.equals(sheetChord)) {
-                Logger.getInstance().printAndSafe("Both solution "
-                        + "correct: " + this.trainer.checkResult(guitarChord.toArray()));
-                playExcercise();
-            }
-            // todo implement gui pop up
-            this.audioConv.playMultipleNotes(this.trainer.currExercise());
+            this.trainer.checkInResults(new ExerciseChord(this.guitar.getPressedNotes()),
+                    new ExerciseChord(this.sheets.getPressedNotes()));
+            playExcercise();
         }
     }
 }

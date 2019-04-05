@@ -115,7 +115,7 @@ public class JavaFXGui implements GUIConnector {
      * @param gridPane gridpane from which the node should be returned
      * @param col      column index of the node
      * @param row      row index of the node
-     * @return the node at the given column / row
+     * @return the node at the given column / row, null if koordinates are out of bound
      */
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
         for (Node node : gridPane.getChildren()) {
@@ -145,7 +145,8 @@ public class JavaFXGui implements GUIConnector {
      * @param title   title of the dialog window
      * @param message message of the dialog window
      */
-    private void showMessage(String title, String message) {
+    @Override
+    public void showMessage(String title, String message) {
         StackPane stackpane = this.popUp;
 
         JFXDialogLayout content = new JFXDialogLayout();

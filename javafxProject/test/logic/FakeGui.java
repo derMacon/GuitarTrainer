@@ -26,4 +26,9 @@ public class FakeGui implements GUIConnector {
 
     }
 
+    @Override
+    public void showMessage(String title, String message) {
+
+    }
+
 }

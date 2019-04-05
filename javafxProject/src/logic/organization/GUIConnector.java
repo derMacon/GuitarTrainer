@@ -34,4 +34,9 @@ public interface GUIConnector {
      */
     void initGui();
 
+    /**
+     * Shows a given message in a pop up window on the gui
+     * @param message message to be displayed
+     */
+    void showMessage(String title, String message);
 }
