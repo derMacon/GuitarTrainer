@@ -31,15 +31,13 @@ Build: [GuitarTrainer1.0](otherDocs/build/GuitarTrainer1.0.jar)
 ---
 
 ### Todo: near-tearm
-- update UML Diagram 
-- cut height from fretboard texture
-- merge feature branch with master
-- Gui Menu (including icons)
+- tidy up fretboard controller
+- maybe add image header in menu
 
 ### Todo: itermediate-term
-- `inc / decOctave`: Implementation, Tests 
-- Javadoc
-- test project with Checkstyle
+- write / display helping screen
+- update todos
 
 ### Todo: long-term
-- Implement Excercise mode
+- make programm resizable in width
+- update UML Diagram 
