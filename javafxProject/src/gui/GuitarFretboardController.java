@@ -189,10 +189,6 @@ public class GuitarFretboardController implements Initializable {
         btnHearing.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-//                selectedModeCategory = Category.HEARING_EXERCISE;
-//                pgn_modes.setPageCount(Category.HEARING_EXERCISE.getModes().size());
-//                pgn_modes.setCurrentPageIndex(pgn_modes.getPageCount() - 1);
-//                pgn_modes.setCurrentPageIndex(0);
                 refreshPagination(Category.HEARING_EXERCISE);
                 flowOrganizer.interpretMode(selectedModeCategory.getModes().get(pgn_modes.getCurrentPageIndex()));
                 iterateMainDrawer(new ActionEvent());
@@ -456,7 +452,8 @@ public class GuitarFretboardController implements Initializable {
      * @return page for the given index
      */
     private Label changeMode(Integer idx) {
-        this.flowOrganizer.interpretMode(Mode.values()[idx]);
+        this.flowOrganizer.interpretMode(this.selectedModeCategory.getModes().get(idx));
+        System.out.println(this.selectedModeCategory);
 
         Label label = new Label(this.selectedModeCategory.getModes().get(idx).getDescr());
 //        Label label = new Label(Mode.values()[idx].getDescr());
