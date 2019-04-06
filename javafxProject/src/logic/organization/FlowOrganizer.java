@@ -49,6 +49,7 @@ public class FlowOrganizer implements Organized {
         this.trainer = new GuitarTrainer(gui);
         this.sheets = new SheetModel(gui, audioConv);
         this.audioConv = audioConv;
+        interpretMode(mode);
     }
 
     @Override
@@ -182,10 +183,6 @@ public class FlowOrganizer implements Organized {
     @Override
     public void playDownStrum() {
         this.guitar.playStrum();
-//        for(Note curr : guitar.getPressedNotes()) {
-//            System.out.println(curr);
-//        }
-//        System.out.println();
     }
 
     @Override

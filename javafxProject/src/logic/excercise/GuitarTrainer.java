@@ -52,6 +52,8 @@ public class GuitarTrainer implements Trainer {
             this.mode = mode;
             gui.setReplayButtonGrayedout(this.mode == Mode.GUITAR_FREEPLAY);
             generateExerciseLst();
+        } else {
+            this.gui.setReplayButtonGrayedout(true);
         }
     }
 
