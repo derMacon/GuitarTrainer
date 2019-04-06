@@ -311,7 +311,12 @@ public class GuitarFretboardController implements Initializable {
      */
     @FXML
     public void iterateMainDrawer(Event event) {
-        if (this.drw_mainMenu.isClosed()) {
+        setMenuState(this.drw_mainMenu.isClosed());
+    }
+
+
+    private void setMenuState(boolean state) {
+        if (state) {
             this.drw_mainMenu.setDisable(false);
             this.drw_mainMenu.open();
             this.stPn_popUp.setDisable(false);
@@ -328,7 +333,15 @@ public class GuitarFretboardController implements Initializable {
      * @param event event triggered by the user
      */
     private void iterateModeImplementationDrawer(Event event) {
-        if (this.drw_modeImplementations.isClosed()) {
+        setModeImplState(this.drw_modeImplementations.isClosed());
+    }
+
+    /**
+     * Sets the inner drawer in a closed / open state depending on the given flag
+     * @param state state to which the drawer should be transformed
+     */
+    private void setModeImplState(boolean state) {
+        if (state) {
             this.drw_modeImplementations.setDisable(false);
             this.drw_modeImplementations.open();
         } else {
@@ -337,7 +350,6 @@ public class GuitarFretboardController implements Initializable {
             this.stPn_popUp.setDisable(true);
         }
     }
-
     /**
      * Returns to the normal game window (closing the drawers)
      *
@@ -346,8 +358,8 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     public void backToWindow(Event event) {
         System.out.println("back to window");
-        iterateMainDrawer(event);
-        iterateModeImplementationDrawer(event);
+        setMenuState(false);
+        setModeImplState(false);
     }
 
     /**
