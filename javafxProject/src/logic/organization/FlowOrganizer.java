@@ -27,8 +27,8 @@ public class FlowOrganizer implements Organized {
 
     private static final String MODE_DELIMITER = ".....................................";
     private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
-    private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected " +
-            "exercise chord.";
+    private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected "
+            + "exercise chord.";
     private static final String EQUAL_EXP_INP_CHORD = "Correct!";
     private final Instrument<FretboardNote> guitar;
     private final Instrument<SheetNote> sheets;
@@ -181,11 +181,15 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void playDownStrum() {
-        this.guitar.playStrum();
-//        for(Note curr : guitar.getPressedNotes()) {
-//            System.out.println(curr);
-//        }
-//        System.out.println();
+        if(Mode.SHEET_FREEPLAY == this.mode) {
+            // only one note can be selected on the sheet
+            Note[] pressedNotes = this.sheets.getPressedNotes();
+            Note note = pressedNotes.length > 0 ? pressedNotes[0] : null;
+            this.audioConv.playSingleNote(note);
+        } else {
+            this.audioConv.playMultipleNotes(this.guitar.getPressedNotes());
+            this.guitar.playStrum();
+        }
     }
 
     @Override

@@ -38,6 +38,12 @@ public interface Trainer {
      */
     void userPressedSheetNote(SheetNote sheetNote);
 
+    /**
+     * Checks both input chord from the gui
+     *
+     * @param fretboardChord chord generated from the fretboard
+     * @param sheetChord     chord generated from the sheet page
+     */
     void checkInResults(ExerciseChord fretboardChord, ExerciseChord sheetChord);
 
 }

@@ -13,20 +13,6 @@ public class FretboardNote extends Note implements Comparable {
     private final FretboardPos fretboardPos;
 
     /**
-     * Default constructor
-     *
-     * @param id           note id of the note in the note circle
-     * @param octave       octave of the note
-     * @param fretboardPos position on the fretboard
-     */
-    public FretboardNote(NoteCircle id, int octave, FretboardPos fretboardPos) {
-        // todo delete this constructor
-//        super(id, octave, true);
-        super(null, null, 0, true);
-        this.fretboardPos = fretboardPos;
-    }
-
-    /**
      * Constructor setting all attribute
      *
      * @param tone         tone to set

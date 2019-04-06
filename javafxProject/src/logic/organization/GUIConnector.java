@@ -36,6 +36,7 @@ public interface GUIConnector {
 
     /**
      * Shows a given message in a pop up window on the gui
+     * @param title title of the message
      * @param message message to be displayed
      */
     void showMessage(String title, String message);

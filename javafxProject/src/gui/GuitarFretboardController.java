@@ -14,8 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -214,6 +212,11 @@ public class GuitarFretboardController implements Initializable {
         modeDrawer.setDisable(true);
     }
 
+    /**
+     * Generates a button to the corresponding category
+     * @param category category to which the corresponding button should be generated
+     * @return a button to the corresponding category
+     */
     private JFXButton initModeBtn(Category category) {
         JFXButton outputBtn = new JFXButton("  " + category.getName());
         outputBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -354,23 +357,17 @@ public class GuitarFretboardController implements Initializable {
      * @param icon icon to be put on the button
      */
     private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
-        // todo delete this method -> use other signature
+        // todo maybe desmiss this version and use other method signature
         initMainButtons(btn, 35, icon, 4);
-//        btn.setStyle(
-//                "-fx-background-color: #d6e1fc;\n"
-//                        + "-fx-font-family: \"Forte\";\n"
-//                        + "-fx-graphic-text-gap: 15;\n"
-//                        + "-fx-font-size: 35;");
-//        btn.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
-//        btn.setButtonType(JFXButton.ButtonType.RAISED);
-//        btn.setRipplerFill(Paint.valueOf("#ffffff"));
-//        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
-//                .glyph(icon)
-//                .build();
-//        glypIcon.setSize("4em");
-//        btn.setGraphic(glypIcon);
     }
 
+    /**
+     * Initializes a given button with a given font size, icon and icon size
+     * @param btn button to be initialized
+     * @param fontSize font size of the text on the buttons
+     * @param icon icon to be set
+     * @param iconSize size of the icon
+     */
     private void initMainButtons(JFXButton btn, int fontSize, FontAwesomeIcon icon, int iconSize) {
         String cssFormat = String.format("-fx-background-color: #d6e1fc;\n"
                 + "-fx-font-family: \"Forte\";\n"
