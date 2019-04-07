@@ -49,6 +49,7 @@ public class FlowOrganizer implements Organized {
         this.trainer = new GuitarTrainer(gui);
         this.sheets = new SheetModel(gui, audioConv);
         this.audioConv = audioConv;
+        interpretMode(mode);
     }
 
     @Override
