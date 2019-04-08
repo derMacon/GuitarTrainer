@@ -31,14 +31,14 @@ Build: [GuitarTrainer1.0](otherDocs/build/GuitarTrainer1.0.jar)
 ---
 
 ### Todo: near-tearm
-- tidy up fretboard controller
-- modify Runner class with delay time
+- make programm resizable in width
+- Update check in messages
 
 ### Todo: itermediate-term
 - write / display helping screen
-- maybe add image header in menu
+- make drawer background transparent (initModeDrawerStack, etc.)
 
 ### Todo: long-term
-- make programm resizable in width
 - update UML Diagram 
+- take out function in main class to prevent exception shutdown
 

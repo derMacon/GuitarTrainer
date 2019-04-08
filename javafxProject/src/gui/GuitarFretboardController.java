@@ -12,7 +12,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -50,6 +49,9 @@ public class GuitarFretboardController implements Initializable {
     private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
     private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
     private static final String CLEF_TEXTURE_PATH = "sheetNotes\\background_withHelpingLines.png";
+    private static final int MAIN_BTN_FONT_SIZE = 35;
+    private static final int MAIN_ICON_FONT_SIZE = 4;
+
     @FXML
     private GridPane grdPn_fret0;
     @FXML
@@ -95,8 +97,6 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private GridPane grdPn_fret14;
     @FXML
-    private GridPane grpPn_Buttons;
-    @FXML
     private JFXButton btn_replay;
     @FXML
     private JFXButton btn_strum;
@@ -115,19 +115,9 @@ public class GuitarFretboardController implements Initializable {
     @FXML
     private ImageView imgVw_clefTexture;
     @FXML
-    private MenuItem mnTm_github;
-    @FXML
-    private MenuItem mnTm_close;
-    @FXML
-    private MenuItem mnTm_info;
-    @FXML
-    private AnchorPane nchrPn_sheetImg;
-    @FXML
     private GridPane grdPn_sheetNotes_betweenLines;
     @FXML
     private GridPane grdPn_sheetNotes_onLines;
-    @FXML
-    private GridPane grdPn_totalSumNotes;
     @FXML
     private StackPane stPn_popUp;
     @FXML
@@ -149,10 +139,6 @@ public class GuitarFretboardController implements Initializable {
 
         initSwitchModeButton(this.btn_reset, FontAwesomeIcon.TRASH_ALT);
         initSwitchModeButton(this.btn_switch, FontAwesomeIcon.REFRESH);
-
-        initMenu(this.mnTm_github, FontAwesomeIcon.GITHUB);
-        initMenu(this.mnTm_close, FontAwesomeIcon.EXCLAMATION_TRIANGLE);
-        initMenu(this.mnTm_info, FontAwesomeIcon.INFO_CIRCLE);
 
         initMainDrawer(this.drw_mainMenu);
         initModeDrawerStack(this.drw_modeImplementations);
@@ -187,8 +173,7 @@ public class GuitarFretboardController implements Initializable {
      * @param icon icon to be put on the button
      */
     private void initMainButtons(JFXButton btn, FontAwesomeIcon icon) {
-        // todo maybe desmiss this version and use other method signature
-        initMainButtons(btn, 35, icon, 4);
+        initMainButtons(btn, MAIN_BTN_FONT_SIZE, icon, MAIN_ICON_FONT_SIZE);
     }
 
     /**
@@ -245,10 +230,7 @@ public class GuitarFretboardController implements Initializable {
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
         double parentHeight = this.imgParent.getBoundsInParent().getHeight();
-//        this.imgParent.setMinHeight(parentHeight);
-//        this.imgParent.setMinWidth(parentWidth);
         this.imgBase.setImage(new Image(FRETBOARD_TEXUTURE_PATH, parentWidth, parentHeight, true, true));
-        // https://stackoverflow.com/questions/12630296/resizing-images-to-fit-the-parent-node
         this.imgBase.fitWidthProperty().bind(this.imgParent.widthProperty());
         this.imgBase.fitHeightProperty().bind(this.imgParent.heightProperty());
         this.imgBase.setY(this.imgBase.getParent().getTranslateY());
@@ -260,20 +242,6 @@ public class GuitarFretboardController implements Initializable {
     private void initNotePadTexture() {
         this.img_sticky_right.setImage(new Image(STICKY_NOTE_RIGHT_TEXTURE_PATH));
         this.img_sticky_left.setImage(new Image(STICKY_NOTE_LEFT_TEXTURE_PATH));
-    }
-
-    /**
-     * Inits the givin menu item with the a given icon
-     *
-     * @param mnItem menu item to initialize
-     * @param icon   icon that will be shown on the menu item
-     */
-    private void initMenu(MenuItem mnItem, FontAwesomeIcon icon) {
-//        GlyphIcon glypIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
-//                .glyph(icon)
-//                .build();
-//        glypIcon.setSize("1em");
-//        mnItem.setGraphic(glypIcon);
     }
 
     /**
@@ -454,7 +422,6 @@ public class GuitarFretboardController implements Initializable {
      */
     @FXML
     private void replayExcercise(ActionEvent event) {
-        System.out.println("Replay btn pressed [FretContr. l. 386]");
         this.flowOrganizer.playExcercise();
     }
 
@@ -492,7 +459,6 @@ public class GuitarFretboardController implements Initializable {
         }
         VBox vbox = new VBox(btnModes);
 
-        // todo make drawer background transparent
         vbox.setStyle("-fx-background-color: #e4f1ff");
 
         modeDrawer.setStyle("-fx-fill: #d48e2c");
@@ -587,7 +553,7 @@ public class GuitarFretboardController implements Initializable {
         btnClose.setMinWidth(200.00);
 
         VBox drawerContent = new VBox(buttons.toArray(new JFXButton[0]));
-        drawerContent.setStyle("-fx-background-color: #d7d5ff");
+        drawerContent.setStyle("-fx-background-color: #eaebff");
         mainDrawer.setSidePane(drawerContent);
 
         mainDrawer.close();
@@ -604,7 +570,11 @@ public class GuitarFretboardController implements Initializable {
         setMenuState(this.drw_mainMenu.isClosed());
     }
 
-
+    /**
+     * Sets the munu state according to the given flag
+     *
+     * @param state flag after which both drawers will be set
+     */
     private void setMenuState(boolean state) {
         if (state) {
             this.drw_mainMenu.setDisable(false);

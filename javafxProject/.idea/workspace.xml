@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="javafxProject:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf590ae-9bbd-4a0f-a15e-445d603e9c9a" name="Default Changelist" comment="" />
+    <list default="true" id="1bf590ae-9bbd-4a0f-a15e-445d603e9c9a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/res/textures/GTLogoAlpha.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/GTLogoAlpha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/note/NoteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/note/NoteFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +40,13 @@
           <entry key="project.closed" value="35" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="12" />
           <entry key="project.open.time.8" value="10" />
           <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="36" />
+          <entry key="project.opened" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -41,7 +54,7 @@
           <entry key="class" value="4" />
           <entry key="css" value="3" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="258" />
+          <entry key="java" value="261" />
           <entry key="md" value="1" />
           <entry key="png" value="3" />
         </counts>
@@ -51,7 +64,7 @@
           <entry key="CLASS" value="4" />
           <entry key="CSS" value="3" />
           <entry key="Image" value="3" />
-          <entry key="JAVA" value="258" />
+          <entry key="JAVA" value="261" />
           <entry key="Markdown" value="1" />
           <entry key="XML" value="4" />
         </counts>
@@ -62,7 +75,7 @@
           <entry key="css" value="912" />
           <entry key="dummy" value="3" />
           <entry key="fxml" value="2" />
-          <entry key="java" value="79490" />
+          <entry key="java" value="81962" />
           <entry key="txt" value="77" />
         </counts>
       </usages-collector>
@@ -70,7 +83,7 @@
         <counts>
           <entry key="CLASS" value="5" />
           <entry key="CSS" value="918" />
-          <entry key="JAVA" value="79484" />
+          <entry key="JAVA" value="81956" />
           <entry key="PLAIN_TEXT" value="80" />
           <entry key="XML" value="2" />
         </counts>
@@ -87,19 +100,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/Doodle2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="e#0#980#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="252">
+                  <caret line="14" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
             </entry>
@@ -107,8 +109,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="666">
-                  <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+                <state relative-caret-position="493">
+                  <caret line="206" column="32" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -117,10 +119,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/logic/note/NoteFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="781">
+                  <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="648">
-                  <caret line="39" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="252">
+                  <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -128,8 +139,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1296">
-                  <caret line="82" selection-start-line="82" selection-end-line="82" />
+                <state relative-caret-position="817">
+                  <caret line="136" selection-start-line="136" selection-end-line="136" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -141,7 +152,7 @@
             <entry file="file://$PROJECT_DIR$/src/logic/organization/GUIConnector.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="702">
-                  <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+                  <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -192,8 +203,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="515">
-                  <caret line="292" column="67" selection-start-line="292" selection-start-column="67" selection-end-line="292" selection-end-column="67" />
+                <state relative-caret-position="584">
+                  <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="738">
+                  <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -203,6 +226,18 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1008">
                   <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="234">
+                  <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -326,7 +361,6 @@
         <option value="$PROJECT_DIR$/src/gui/PrefixImages.java" />
         <option value="$PROJECT_DIR$/src/logic/instrument/SheetModel.java" />
         <option value="$PROJECT_DIR$/src/gui/jfoenixTheme.css" />
-        <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/logic/excercise/Difficulty.java" />
         <option value="$PROJECT_DIR$/src/logic/note/Tone.java" />
         <option value="$PROJECT_DIR$/src/logic/note/Prefix.java" />
@@ -339,17 +373,18 @@
         <option value="$PROJECT_DIR$/test/logic/MyRandom.java" />
         <option value="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" />
         <option value="$PROJECT_DIR$/src/logic/note/Note.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/NoteFactory.java" />
         <option value="$PROJECT_DIR$/src/logic/excercise/Parser.java" />
         <option value="$PROJECT_DIR$/src/logic/organization/GUIConnector.java" />
         <option value="$PROJECT_DIR$/test/logic/FakeGui.java" />
         <option value="$PROJECT_DIR$/src/gui/JavaFXGui.java" />
         <option value="$PROJECT_DIR$/src/logic/excercise/Trainer.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" />
-        <option value="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" />
         <option value="$PROJECT_DIR$/test/Doodle2.java" />
         <option value="$PROJECT_DIR$/src/logic/organization/Mode.java" />
         <option value="$PROJECT_DIR$/src/logic/organization/Category.java" />
+        <option value="$PROJECT_DIR$/src/logic/note/NoteFactory.java" />
+        <option value="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" />
+        <option value="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" />
+        <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" />
       </list>
     </option>
@@ -371,70 +406,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="audio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="excercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="organization" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -446,10 +418,10 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="F:/Studium/Semesterunterlagen/3.Semester/Rechnernetze/NumConverter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -608,6 +580,7 @@
       <workItem from="1554338175517" duration="65000" />
       <workItem from="1554479785570" duration="14215000" />
       <workItem from="1554676566040" duration="259000" />
+      <workItem from="1554757911221" duration="5941000" />
     </task>
     <servers />
   </component>
@@ -644,10 +617,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306379000" />
+    <option name="totallyTimeSpent" value="312320000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.71313673" weight="0.10055644" />
       <window_info id="Structure" order="1" sideWeight="0.28686327" side_tool="true" weight="0.19872814" />
@@ -658,11 +641,11 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19968799" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1848674" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1848674" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37597504" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299532" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.27457097" />
       <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.3299532" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -725,16 +708,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java</url>
-          <line>197</line>
-          <properties />
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="Guitar.OPEN_STRINGS" language="JAVA" />
@@ -764,6 +737,12 @@
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>Category.HEARING_EXERCISE.getModes().contains(this.mode)
+                &amp;&amp; Category.TRANSLATION_EXERCISE.getModes().contains(this.mode)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>this.pgn_modes.getPage</expression-string>
         <language-id>JAVA</language-id>
@@ -801,17 +780,6 @@
       </expression>
       <expression>
         <expression-string>rand.nextInt((lowerBound - upperBound) + 1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>currFretboardNote.isPlayed()
-                    &amp;&amp; currFretboardNote.getFretboardPos().getFret() == idxFret</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>str.charAt(2)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -959,19 +927,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboard.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6084">
           <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/audio/SoundPack.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1013,13 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/NoteFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="23" column="76" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -1074,37 +1028,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/organization/GUIConnector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1126,13 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3042">
           <caret line="213" column="11" selection-start-line="213" selection-start-column="11" selection-end-line="213" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="292" column="67" selection-start-line="292" selection-start-column="67" selection-end-line="292" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1159,11 +1079,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
-          <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
+        <state relative-caret-position="2232">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/note/NoteFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="206" column="32" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -1173,10 +1141,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>javafxProject:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
