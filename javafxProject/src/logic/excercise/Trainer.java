@@ -25,19 +25,11 @@ public interface Trainer {
     Note[] currExercise();
 
     /**
-     * Generates a new chord the user has to recognize
+     * Checks both input chord from the gui
      *
-     * @return note array / chord the user has to recognize
+     * @param fretboardChord chord generated from the fretboard
+     * @param sheetChord     chord generated from the sheet page
      */
-    Note[] nextExercise();
-
-    /**
-     * Method to set a new SheetNote selected by the user
-     *
-     * @param sheetNote SheetNote which the user selected
-     */
-    void userPressedSheetNote(SheetNote sheetNote);
-
     void checkInResults(ExerciseChord fretboardChord, ExerciseChord sheetChord);
 
 }

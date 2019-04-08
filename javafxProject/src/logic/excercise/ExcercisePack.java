@@ -3,26 +3,29 @@ package logic.excercise;
 import logic.organization.Mode;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Enum representing the difficulty of an excercise
  */
 public enum ExcercisePack {
-    SINGLE_NOTES(Mode.HEARING_SINGLE_NOTE, "res\\ëxercises\\singleNote_excercise.txt"),
-    BEGINNER_MULTI_NOTES(Mode.HEARING_MULTIPLE_NOTES, "res\\ëxercises\\beginner_openChord_exercise.txt");
+    SINGLE_NOTES("res\\ëxercises\\singleNote_excercise.txt", Mode.HEARING_SINGLE_NOTE, Mode.SEE_ON_FRETBOARD, Mode.SEE_ON_SHEET),
+    BEGINNER_MULTI_NOTES("res\\ëxercises\\beginner_openChord_exercise.txt", Mode.HEARING_MULTIPLE_NOTES);
 
-    private Mode mode;
+    private List<Mode> mode;
     private String pathToFile;
 
     /**
      * Constructor
      *
-     * @param mode       mode of the program (determines the difficulty of the chord that needs to be recognized by
+     * @param modes      mode of the program (determines the difficulty of the chord that needs to be recognized by
      *                   the user
      * @param pathToFile path to the text file containing the possible exercises for the mode
      */
-    ExcercisePack(Mode mode, String pathToFile) {
-        this.mode = mode;
+    ExcercisePack(String pathToFile, Mode ... modes) {
+        this.mode = Arrays.asList(modes);
         this.pathToFile = pathToFile;
     }
 
@@ -34,7 +37,7 @@ public enum ExcercisePack {
      */
     public static File translate(Mode mode) {
         for (ExcercisePack currPack : values()) {
-            if (currPack.mode == mode) {
+            if (currPack.mode.contains(mode)) {
                 return new File(currPack.pathToFile);
             }
         }

@@ -21,4 +21,5 @@ public interface AudioConnector {
      * @param notes array of notes to play
      */
     void playMultipleNotes(Note[] notes);
+
 }

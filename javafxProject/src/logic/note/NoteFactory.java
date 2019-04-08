@@ -22,15 +22,15 @@ public class NoteFactory {
         String[] components = line.substring(1, line.length() - 1).split(",");
         String[] data = getDataFromComponents(components);
         return new Note(Tone.translate(data[0]), Prefix.translate(data[0]), getOctave(data[1]));
-//        return new Note(Tone.translate(data[0]), Prefix.translate(data[0]),
-//                getOctave(data[1]), getIsPlayed(data[2]));
     }
 
     /**
-     * Generates the data blocks containing the string representation of the various components of the notes
+     * Generates the data blocks containing the string representation as well as a description of the various
+     * components of the notes
      *
      * @param components Components of a note
-     * @return // todo revise javadoc
+     * @return data blocks containing the string representation as well as a description of the various
+     * components of the notes
      */
     private static String[] getDataFromComponents(String[] components) {
         for (int i = 0; i < components.length; i++) {
