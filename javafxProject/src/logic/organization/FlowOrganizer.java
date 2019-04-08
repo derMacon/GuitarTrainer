@@ -58,7 +58,7 @@ public class FlowOrganizer implements Organized {
         this.mode = mode;
         trainer.setMode(mode);
         reset();
-        if (this.mode != Mode.GUITAR_FREEPLAY && this.mode != Mode.SHEET_FREEPLAY) {
+        if (Category.HEARING_EXERCISE.getModes().contains(mode)) {
             this.audioConv.playMultipleNotes(this.trainer.currExercise());
         }
         synchronize();
@@ -195,7 +195,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void checkInResult() {
-        if (this.mode != Mode.SHEET_FREEPLAY && this.mode != Mode.GUITAR_FREEPLAY) {
+        if (Category.HEARING_EXERCISE.getModes().contains(this.mode)) {
             this.trainer.checkInResults(new ExerciseChord(this.guitar.getPressedNotes()),
                     new ExerciseChord(this.sheets.getPressedNotes()));
             playExcercise();

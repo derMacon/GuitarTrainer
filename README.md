@@ -32,12 +32,13 @@ Build: [GuitarTrainer1.0](otherDocs/build/GuitarTrainer1.0.jar)
 
 ### Todo: near-tearm
 - tidy up fretboard controller
-- maybe add image header in menu
+- modify Runner class with delay time
 
 ### Todo: itermediate-term
 - write / display helping screen
-- update todos
+- maybe add image header in menu
 
 ### Todo: long-term
 - make programm resizable in width
 - update UML Diagram 
+

@@ -42,11 +42,6 @@ public class GuitarTrainer implements Trainer {
     }
 
     @Override
-    public void userPressedSheetNote(SheetNote sheetNote) {
-        this.gui.updateSheetNotes(sheetNote);
-    }
-
-    @Override
     public void setMode(Mode mode) {
         if (ExcercisePack.contains(mode)) {
             this.mode = mode;
@@ -59,14 +54,6 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public Note[] currExercise() {
-        return this.exercises.get(0).toArray();
-    }
-
-    @Override
-    public Note[] nextExercise() {
-        System.out.println("todo next exercise guitar trainer");
-        Logger.getInstance().printAndSafe(this.exercises.get(0) + " <= Trainer gives excercise");
-
         return this.exercises.get(0).toArray();
     }
 
