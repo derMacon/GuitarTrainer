@@ -41,9 +41,9 @@ public class Main extends Application {
         scene.getStylesheets().add("gui/jfoenixTheme.css");
 
         stage.setScene(scene);
-        stage.setMinWidth(WIDTH);
-        stage.setMaxWidth(HEIGHT);
-        stage.setMinHeight(MIN_HEIGHT);
+//        stage.setMinWidth(WIDTH);
+//        stage.setMaxWidth(HEIGHT);
+//        stage.setMinHeight(MIN_HEIGHT);
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("/textures/GTLogoAlpha.png"));
         stage.show();

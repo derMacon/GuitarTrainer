@@ -14,22 +14,27 @@ import java.util.Random;
  * Implementation of the instrument trainer interface needed for the excercise modes
  */
 public class GuitarTrainer implements Trainer {
+    
     private static final String DESCRIPTION =
-            "Main Intro: \n" +
-                    "Welcome to the guitar trainer. In this program you will train to distinguish different notes from each other and selecting its position on the guitar fretboard as well as on the sheet page. To achive this there are three modes implemented:\n" +
+                    "Welcome to the guitar trainer. In this program you will train to distinguish different notes " +
+                            "from each other and selecting their position on the guitar fretboard as well as on the " +
+                            "sheet page. To achive this there are three modes implemented:\n" +
                     "- hearing a note and selecting it on the fretboard and the sheets\n" +
                     "- translating a note from one instrument to the respective counterpart\n" +
-                    "- freeplay mode where the user may select any position on one instrument and see the note on the other instrument. \n" +
+                    "- freeplay mode where the user may select any position on one instrument and see the note on the" +
+                            " other instrument. \n" +
                     "\n" +
                     "The menu can be accessed by clicking on the hamburger next to the title. Here you can: \n" +
                     "- select an overall mode \n" +
                     "- open the git repository in the browser\n" +
                     "- close / end the whole program\n" +
                     "\n" +
-                    "The mode can also be changed by clicking on the switch button. To leave the menu just click on the main window. \n" +
+                    "The mode can also be changed by clicking on the switch button. To leave the menu just click on " +
+                            "the main window. \n" +
                     "\n" +
-                    "When selecting the overall mode the specific implementation can be selected on the pagination. E.g. you select the hearing mode, you now can select if you want to recognize a single note or a whole chord. \n" +
-                    "\n    ";
+                    "When selecting the overall mode the specific implementation can be selected on the pagination. " +
+                            "E.g. you select the hearing mode, you now can select if you want to recognize a single " +
+                            "note or a whole chord. \n";
 
     private static final String MODE_DELIMITER = ".....................................";
     private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
@@ -58,7 +63,7 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public void displayDescription() {
-        this.gui.showMessage("Description", DESCRIPTION);
+        this.gui.showMessage("", DESCRIPTION);
     }
 
     @Override

@@ -66,15 +66,3 @@
     -fx-text-fill: white;
 }
 
-/* --------------------------------------------------------------------------------------------------------- */
-
-/*
-.text-field{
-    -fx-alignment: center;
-}
-.text-field:empty{
-    -fx-alignment: center-left;
-}
-.text-field:focused{
-    -fx-alignment: center;
-}*/

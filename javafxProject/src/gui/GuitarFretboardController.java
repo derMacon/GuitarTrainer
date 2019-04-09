@@ -162,7 +162,6 @@ public class GuitarFretboardController implements Initializable {
         GridPane[] sheetNotes = new GridPane[]{this.grdPn_sheetNotes_onLines, this.grdPn_sheetNotes_betweenLines};
         GUIConnector gui = new JavaFXGui(frets, sheetNotes, this.btn_replay, this.stPn_popUp);
 
-        System.out.println("stack pane disabled - initialize contr.");
         this.stPn_popUp.setDisable(true);
         this.flowOrganizer = new FlowOrganizer(gui, new AudioConverter(),
                 Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
@@ -233,7 +232,7 @@ public class GuitarFretboardController implements Initializable {
     }
 
     /**
-     * Initializes the instrument fret texture
+     * Initializes the guitar fret texture
      */
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
@@ -534,7 +533,8 @@ public class GuitarFretboardController implements Initializable {
         btnHelp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("todo implement help on drawer option");
+                setMenuState(false);
+                flowOrganizer.displayDescription();
             }
         });
         buttons.add(btnHelp);

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class Parser {
      * @return a list of Excercise chords from a given mode and a the desired length of the output list
      */
     public static List<ExerciseChord> parseExercise(Mode mode, int poolSize) {
+        // todo use poolsize var
         List<ExerciseChord> output = new ArrayList<>();
         File file = ExcercisePack.translate(mode);
 
@@ -51,9 +53,8 @@ public class Parser {
         }
 
         if (output.size() > 1) {
-//            Collections.shuffle(this.exercises);
+            Collections.shuffle(output);
         }
         return output;
-
     }
 }
