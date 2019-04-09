@@ -58,10 +58,33 @@ public class FlowOrganizer implements Organized {
         this.mode = mode;
         trainer.setMode(mode);
         reset();
-        if (this.mode != Mode.GUITAR_FREEPLAY && this.mode != Mode.SHEET_FREEPLAY) {
+        synchronize();
+        showExercise(mode);
+    }
+
+    /**
+     * The trainer already generated an exercise for the user. Depending on the given mode this exercise will either
+     * be played through the audio converter or displayed on the gui via pressing the appropriate note on the
+     * instrument.
+     * Important: since the trainer only generates a note object from the supertype note there are multiple possible
+     * fretboard positions. In this program only the first spot will be selected (lowest position).
+     *
+     * @param mode mode to which the appropriate showing method will be called
+     */
+    private void showExercise(Mode mode) {
+        if (Category.HEARING_EXERCISE.getModes().contains(mode)) {
             this.audioConv.playMultipleNotes(this.trainer.currExercise());
         }
-        synchronize();
+        if (Category.TRANSLATION_EXERCISE.getModes().contains(mode)) {
+            Note[] exerciseArr = this.trainer.currExercise();
+            assert exerciseArr.length == 1;
+            Note exercise = exerciseArr[0];
+            if (mode.equals(Mode.SEE_ON_FRETBOARD)) {
+                this.guitar.pressNote(NoteFactory.createFretboardNote(exercise).get(0));
+            } else {
+                this.sheets.pressNote(NoteFactory.createSheetNote(exercise));
+            }
+        }
     }
 
     @Override
@@ -182,7 +205,7 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void playDownStrum() {
-        if(Mode.SHEET_FREEPLAY == this.mode) {
+        if (Mode.SHEET_FREEPLAY == this.mode) {
             // only one note can be selected on the sheet
             Note[] pressedNotes = this.sheets.getPressedNotes();
             Note note = pressedNotes.length > 0 ? pressedNotes[0] : null;
@@ -195,7 +218,8 @@ public class FlowOrganizer implements Organized {
 
     @Override
     public void checkInResult() {
-        if (this.mode != Mode.SHEET_FREEPLAY && this.mode != Mode.GUITAR_FREEPLAY) {
+        if (Category.HEARING_EXERCISE.getModes().contains(this.mode)
+                || Category.TRANSLATION_EXERCISE.getModes().contains(this.mode)) {
             this.trainer.checkInResults(new ExerciseChord(this.guitar.getPressedNotes()),
                     new ExerciseChord(this.sheets.getPressedNotes()));
             playExcercise();

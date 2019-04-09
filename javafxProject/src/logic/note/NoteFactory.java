@@ -79,7 +79,7 @@ public class NoteFactory {
      * @param note SheetNote instance to translate
      * @return Corresponding FrerboardNote instance
      */
-    public static List<FretboardNote> createFretboardNote(SheetNote note) {
+    public static List<FretboardNote> createFretboardNote(Note note) {
         List<FretboardNote> output = new ArrayList<>();
         FretboardNote currNote;
         for (FretboardNote currOpenString : Guitar.OPEN_STRINGS) {
@@ -115,7 +115,7 @@ public class NoteFactory {
      * @param note FretboardNote to translate
      * @return Corresponding SheetNote instance
      */
-    public static SheetNote createSheetNote(FretboardNote note) {
+    public static SheetNote createSheetNote(Note note) {
         return new SheetNote(note.getTone(), note.getPrefix(), note.getOctave(), note.isPlayed());
     }
 

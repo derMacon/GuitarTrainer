@@ -48,11 +48,11 @@ public class AudioConverter implements AudioConnector {
             this.audioFiles.add(new ArrayList<>());
             fileName = String.format(TEMPLATE_BLUEPRINT, prefix, notes[i].name());
             for (int j = 0; j < sPack.getHighestOctave(); j++) {
-                File file = new File(sPack.getPath() + "\\" + fileName + j + ".wav");
+                File file = new File(sPack.getPath() + "/" + fileName + j + ".wav");
                 if (file.exists()) {
                     audioFiles.get(i).add(this.audioFiles.get(i).size(), file);
                 } else {
-                    this.audioFiles.get(i).add(new File(sPack.getPath() + "\\" + "empty.wav"));
+                    this.audioFiles.get(i).add(new File(sPack.getPath() + "/" + "empty.wav"));
                 }
             }
         }

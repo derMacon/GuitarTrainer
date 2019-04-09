@@ -6,9 +6,9 @@ package logic.audio;
 public enum SoundPack {
     // todo check octaves from all soundpacks
     // todo create specified audio files
-    NYLON("Nylon", "res\\audioFiles\\nylon", 4),
-    HARDROCK("Hard-Rock", "res\\hardRock", 4),
-    OLDSCHOOL_E_GUITAR("Old school e-instrument", "res\\oldSchoolEGuitar", 4);
+    NYLON("Nylon", "res/audioFiles/nylon", 4),
+    HARDROCK("Hard-Rock", "/hardRock", 4),
+    OLDSCHOOL_E_GUITAR("Old school e-instrument", "/res/oldSchoolEGuitar", 4);
 
     private final String name;
     private final String path;
