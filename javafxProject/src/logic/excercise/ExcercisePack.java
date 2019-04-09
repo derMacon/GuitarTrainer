@@ -11,8 +11,9 @@ import java.util.List;
  * Enum representing the difficulty of an excercise
  */
 public enum ExcercisePack {
-    SINGLE_NOTES("res\\ëxercises\\singleNote_excercise.txt", Mode.HEARING_SINGLE_NOTE, Mode.SEE_ON_FRETBOARD, Mode.SEE_ON_SHEET),
-    BEGINNER_MULTI_NOTES("res\\ëxercises\\beginner_openChord_exercise.txt", Mode.HEARING_MULTIPLE_NOTES);
+    SINGLE_NOTES("/res/ëxercises/singleNote_excercise.txt", Mode.HEARING_SINGLE_NOTE, Mode.SEE_ON_FRETBOARD,
+            Mode.SEE_ON_SHEET),
+    BEGINNER_MULTI_NOTES("/res/ëxercises/beginner_openChord_exercise.txt", Mode.HEARING_MULTIPLE_NOTES);
 
     private List<Mode> mode;
     private String pathToFile;

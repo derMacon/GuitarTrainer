@@ -24,15 +24,15 @@ import logic.organization.GUIConnector;
 public class JavaFXGui implements GUIConnector {
 
     public static final String[] PREFIX_IMG_PATH = new String[]{
-            "sheetNotes\\prefix_flat.png",
-            "sheetNotes\\prefix_neutral.png",
-            "sheetNotes\\prefix_sharp.png"
+            "/sheetNotes/prefix_flat.png",
+            "/sheetNotes/prefix_neutral.png",
+            "/sheetNotes/prefix_sharp.png"
     };
 
     private static final int NOTES_ONTOP_LINES = 0;
     private static final int NOTES_BETWEEN_LINES = 1;
     private static final int SELECTED_PIXEL = 20;
-    private static final Image NOTE_SHEET_MUSIC = new Image("sheetNotes\\note.png", SELECTED_PIXEL + 20,
+    private static final Image NOTE_SHEET_MUSIC = new Image("/sheetNotes/note.png", SELECTED_PIXEL + 20,
             SELECTED_PIXEL, true, true);
     /**
      * Gridpane array of one dimensional gridpanes representing the frets of the users instrument on the gui. Index

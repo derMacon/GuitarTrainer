@@ -46,7 +46,7 @@ public class Main extends Application {
         stage.setMaxWidth(HEIGHT);
         stage.setMinHeight(MIN_HEIGHT);
         stage.setTitle("Guitar Trainer");
-        stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
+        stage.getIcons().add(new Image("/textures/GTLogoAlpha.png"));
         stage.show();
     }
 

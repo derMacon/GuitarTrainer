@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 public class GuitarJFXButton extends ImageButton {
 
     private static final int SELECTED_PIXEL = 20;
-    private static final Image SELECTED_SYMBOL = new Image("textures\\selected.png", SELECTED_PIXEL,
+    private static final Image SELECTED_SYMBOL = new Image("/textures/selected.png", SELECTED_PIXEL,
             SELECTED_PIXEL, true, true);
 
     private int guitarString;

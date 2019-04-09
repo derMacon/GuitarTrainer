@@ -45,10 +45,10 @@ import java.util.ResourceBundle;
  */
 public class GuitarFretboardController implements Initializable {
 
-    private static final String FRETBOARD_TEXUTURE_PATH = "textures\\guitarGui4_smallHeight.png";
-    private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "textures\\paper.png";
-    private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "textures\\paper3.png";
-    private static final String CLEF_TEXTURE_PATH = "sheetNotes\\background_withHelpingLines.png";
+    private static final String FRETBOARD_TEXUTURE_PATH = "/textures/guitarGui4_smallHeight.png";
+    private static final String STICKY_NOTE_RIGHT_TEXTURE_PATH = "/textures/paper.png";
+    private static final String STICKY_NOTE_LEFT_TEXTURE_PATH = "/textures/paper3.png";
+    private static final String CLEF_TEXTURE_PATH = "/sheetNotes/background_withHelpingLines.png";
     private static final int MAIN_BTN_FONT_SIZE = 35;
     private static final int MAIN_ICON_FONT_SIZE = 4;
 

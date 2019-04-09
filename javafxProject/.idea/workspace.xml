@@ -7,12 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bf590ae-9bbd-4a0f-a15e-445d603e9c9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/res/textures/GTLogoAlpha.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/GTLogoAlpha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GuitarJFXButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GuitarJFXButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/JavaFXGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/JavaFXGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/note/NoteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/note/NoteFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/PrefixImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PrefixImages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/audio/AudioConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/audio/AudioConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/audio/SoundPack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/audio/SoundPack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +57,7 @@
           <entry key="class" value="4" />
           <entry key="css" value="3" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="261" />
+          <entry key="java" value="263" />
           <entry key="md" value="1" />
           <entry key="png" value="3" />
         </counts>
@@ -64,7 +67,7 @@
           <entry key="CLASS" value="4" />
           <entry key="CSS" value="3" />
           <entry key="Image" value="3" />
-          <entry key="JAVA" value="261" />
+          <entry key="JAVA" value="263" />
           <entry key="Markdown" value="1" />
           <entry key="XML" value="4" />
         </counts>
@@ -75,7 +78,7 @@
           <entry key="css" value="912" />
           <entry key="dummy" value="3" />
           <entry key="fxml" value="2" />
-          <entry key="java" value="81962" />
+          <entry key="java" value="82049" />
           <entry key="txt" value="77" />
         </counts>
       </usages-collector>
@@ -83,7 +86,7 @@
         <counts>
           <entry key="CLASS" value="5" />
           <entry key="CSS" value="918" />
-          <entry key="JAVA" value="81956" />
+          <entry key="JAVA" value="82043" />
           <entry key="PLAIN_TEXT" value="80" />
           <entry key="XML" value="2" />
         </counts>
@@ -97,13 +100,26 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
+                <state relative-caret-position="-2152">
+                  <caret line="519" lean-forward="true" selection-start-line="519" selection-end-line="519" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/gui/stockPhotos/grayBackground.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/gui/stockPhotos/largeWood.jpg">
+              <provider selected="true" editor-type-id="images" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -149,24 +165,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/organization/GUIConnector.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="702">
-                  <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/List.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1386">
-                  <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/logic/organization/Mode.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="342">
@@ -200,11 +198,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="584">
-                  <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+                <state relative-caret-position="340">
+                  <caret line="343" column="45" lean-forward="true" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -213,10 +211,28 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/gui/GuitarJFXButton.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="468">
+                  <caret line="43" column="51" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="738">
-                  <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+                <state relative-caret-position="702">
+                  <caret line="45" column="34" lean-forward="true" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
@@ -289,9 +305,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Threa</find>
-      <find>Mode</find>
-      <find>pagefa</find>
       <find>sheetNotes\\</find>
       <find>, NotePrefix.Muted</find>
       <find>Note</find>
@@ -319,6 +332,9 @@
       <find>pagef</find>
       <find>pgn_mode</find>
       <find>background</find>
+      <find>createguitarbu</find>
+      <find>\\</find>
+      <find>Nylon</find>
     </findStrings>
     <replaceStrings>
       <replace>` |</replace>
@@ -335,7 +351,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/logic/guitar/NoteTest.java" />
         <option value="$PROJECT_DIR$/src/logic/guitar/NoteCircle.java" />
         <option value="$PROJECT_DIR$/src/logic/guitar/Guitar.java" />
         <option value="$PROJECT_DIR$/src/logic/guitar/FretboardNote.java" />
@@ -354,7 +369,6 @@
         <option value="$PROJECT_DIR$/src/logic/note/SheetNote.java" />
         <option value="$PROJECT_DIR$/src/logic/instrument/FretboardNote.java" />
         <option value="$PROJECT_DIR$/src/logic/pos/Pos.java" />
-        <option value="$PROJECT_DIR$/src/logic/audio/AudioConverter.java" />
         <option value="$PROJECT_DIR$/src/logic/instrument/Instrument.java" />
         <option value="$PROJECT_DIR$/src/logic/instrument/Guitar.java" />
         <option value="$PROJECT_DIR$/src/logic/note/FretboardNote.java" />
@@ -386,6 +400,8 @@
         <option value="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" />
+        <option value="$PROJECT_DIR$/src/gui/GuitarJFXButton.java" />
+        <option value="$PROJECT_DIR$/src/logic/audio/AudioConverter.java" />
       </list>
     </option>
   </component>
@@ -406,7 +422,83 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="stockPhotos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="audio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="excercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="organization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -414,7 +506,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554504070700" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554769951798" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -617,7 +709,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312320000" />
+    <option name="totallyTimeSpent" value="313319000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -786,25 +878,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/logic/audio/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/pos/Pos.java" />
     <entry file="file://$PROJECT_DIR$/src/logic/instrument/FretboardPos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
@@ -927,12 +1005,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6084">
           <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/audio/SoundPack.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1079,8 +1157,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2232">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        <state relative-caret-position="2736">
+          <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1113,8 +1191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="206" column="32" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
+        <state relative-caret-position="234">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1123,15 +1201,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+        <state relative-caret-position="702">
+          <caret line="45" column="34" lean-forward="true" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="340">
+          <caret line="343" column="45" lean-forward="true" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GuitarJFXButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="43" column="51" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
         </state>
       </provider>
     </entry>
