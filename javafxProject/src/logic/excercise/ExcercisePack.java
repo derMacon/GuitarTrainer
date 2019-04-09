@@ -8,15 +8,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Enum representing the difficulty of an excercise
+ * Enum representing the different exercise packs
  */
 public enum ExcercisePack {
-    SINGLE_NOTES("/res/ëxercises/singleNote_excercise.txt", Mode.HEARING_SINGLE_NOTE, Mode.SEE_ON_FRETBOARD,
+    SINGLE_NOTES("res/exercises/singleNote_excercise.txt", Mode.HEARING_SINGLE_NOTE, Mode.SEE_ON_FRETBOARD,
             Mode.SEE_ON_SHEET),
-    BEGINNER_MULTI_NOTES("/res/ëxercises/beginner_openChord_exercise.txt", Mode.HEARING_MULTIPLE_NOTES);
+    BEGINNER_MULTI_NOTES("res/exercises/beginner_openChord_exercise.txt", Mode.HEARING_MULTIPLE_NOTES);
 
-    private List<Mode> mode;
     private String pathToFile;
+    private List<Mode> mode;
 
     /**
      * Constructor

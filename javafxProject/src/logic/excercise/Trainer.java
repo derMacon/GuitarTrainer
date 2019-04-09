@@ -32,4 +32,8 @@ public interface Trainer {
      */
     void checkInResults(ExerciseChord fretboardChord, ExerciseChord sheetChord);
 
+    /**
+     * Displays a short message on how to use the program (gui)
+     */
+    void displayDescription();
 }

@@ -154,7 +154,9 @@ public class JavaFXGui implements GUIConnector {
         TextFlow flow = new TextFlow(new Text(message));
         flow.setTextAlignment(TextAlignment.JUSTIFY);
         content.setBody(flow);
-        content.setMaxWidth(stackpane.getWidth() * 0.9);
+        System.out.println(stackpane.getWidth());
+        content.setPrefWidth(stackpane.getPrefWidth() * 0.8);
+//        content.setMaxWidth(stackpane.getWidth() * 0.8);
 
         stackpane.setDisable(false);
         JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.CENTER);

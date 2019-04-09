@@ -53,6 +53,11 @@ public class FlowOrganizer implements Organized {
     }
 
     @Override
+    public void displayDescription() {
+        this.trainer.displayDescription();
+    }
+
+    @Override
     public void interpretMode(Mode mode) {
         Logger.getInstance().printAndSafe("\nCurrent mode: " + mode.name() + "\n" + MODE_DELIMITER);
         this.mode = mode;
