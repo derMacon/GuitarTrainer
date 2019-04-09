@@ -5,14 +5,15 @@ A program that trains you to recognize heard notes / chords. There will be four 
 - translating a position on the fretboard to a sheet note
 - freeplay (clicking on the either sheets or fretboard updates both)
 
-Build: [GuitarTrainer1.0](otherDocs/build/GuitarTrainer1.0.jar)
+Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTrainer_2.0.jar?dl=0)
 
-### Gui (WIP)
-<img src="otherDocs/screenshots/screenshot3103.png" alt="drawing" width="2000"/>
+## Gui
+![alt text](otherDocs/screenshots/screenshot0904_main.png)
+![alt text](otherDocs/screenshots/screenshot0904_modes.png)
 
 ## Help
 ### Fretboard 
-![alt text](https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/fretboard-diagram.jpg)
+![alt text](therDocs/diagrams/fretboard-diagram.jpg)
 
 ### Chromatic Circle
 <img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
