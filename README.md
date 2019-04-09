@@ -1,5 +1,5 @@
 # GuitarTrainer: 
-A program that trains you to recognize heard notes / chords. There will be four modes:
+A program that trains you to recognize heard notes / chords. There are be four modes available:
 - hearing a note and selecting it on the fretboard and the sheets
 - translating a sheet note to the possible positions on the fretboard
 - translating a position on the fretboard to a sheet note
@@ -8,12 +8,15 @@ A program that trains you to recognize heard notes / chords. There will be four 
 Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTrainer_2.0.jar?dl=0)
 
 ## Gui
+### Main Window
 ![alt text](otherDocs/screenshots/screenshot0904_main.png)
+
+### Mode selection
 ![alt text](otherDocs/screenshots/screenshot0904_modes.png)
 
 ## Help
 ### Fretboard 
-![alt text](therDocs/diagrams/fretboard-diagram.jpg)
+![alt text](otherDocs/diagrams/fretboard-diagram.jpg)
 
 ### Chromatic Circle
 <img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
@@ -34,6 +37,8 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTraine
 ### Todo: near-tearm
 - make programm resizable in width
 - Update check in messages
+- delete todos in src
+- change exercise pack output to input stream -> make it compatible with a .jar release
 
 ### Todo: itermediate-term
 - write / display helping screen

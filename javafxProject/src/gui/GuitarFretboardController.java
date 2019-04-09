@@ -28,6 +28,7 @@ import logic.instrument.FretboardPos;
 import logic.instrument.Guitar;
 import logic.organization.Category;
 import logic.organization.FlowOrganizer;
+import logic.organization.GUIConnector;
 import logic.organization.Mode;
 import logic.organization.Organized;
 
@@ -40,6 +41,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+//import logic.audio.AudioConverter;
+
 /**
  * Controller of the gui
  */
@@ -51,6 +54,7 @@ public class GuitarFretboardController implements Initializable {
     private static final String CLEF_TEXTURE_PATH = "/sheetNotes/background_withHelpingLines.png";
     private static final int MAIN_BTN_FONT_SIZE = 35;
     private static final int MAIN_ICON_FONT_SIZE = 4;
+
 
     @FXML
     private GridPane grdPn_fret0;
@@ -156,11 +160,14 @@ public class GuitarFretboardController implements Initializable {
                 grdPn_fret19};
 
         GridPane[] sheetNotes = new GridPane[]{this.grdPn_sheetNotes_onLines, this.grdPn_sheetNotes_betweenLines};
+        GUIConnector gui = new JavaFXGui(frets, sheetNotes, this.btn_replay, this.stPn_popUp);
 
-        System.out.println("stack pane disabled - initialize contr.");
         this.stPn_popUp.setDisable(true);
-        this.flowOrganizer = new FlowOrganizer(new JavaFXGui(frets, sheetNotes, this.btn_replay, this.stPn_popUp),
-                new AudioConverter(), Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
+        this.flowOrganizer = new FlowOrganizer(gui, new AudioConverter(),
+                Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
+
+        // init help
+        this.flowOrganizer.displayDescription();
     }
 
 
@@ -225,7 +232,7 @@ public class GuitarFretboardController implements Initializable {
     }
 
     /**
-     * Initializes the instrument fret texture
+     * Initializes the guitar fret texture
      */
     private void initGuitarTexture() {
         double parentWidth = this.imgParent.getBoundsInParent().getWidth();
@@ -382,6 +389,10 @@ public class GuitarFretboardController implements Initializable {
         System.exit(0);
     }
 
+    void displayDescription(ActionEvent event) {
+        this.flowOrganizer.displayDescription();
+    }
+
     /**
      * Opens git repository in browser
      *
@@ -522,7 +533,8 @@ public class GuitarFretboardController implements Initializable {
         btnHelp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("todo implement help on drawer option");
+                setMenuState(false);
+                flowOrganizer.displayDescription();
             }
         });
         buttons.add(btnHelp);
