@@ -348,8 +348,10 @@
                         </VBox>
                         <AnchorPane prefHeight="396.0" prefWidth="494.0" GridPane.columnIndex="2">
                             <children>
+                                <ImageView fx:id="img_sticky_left" fitHeight="381.0" fitWidth="479.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
                                 <AnchorPane fx:id="nchrPn_sheetImg" layoutX="48.0" layoutY="69.0" prefHeight="267.0" prefWidth="368.0">
                                     <children>
+                                        <ImageView fx:id="imgVw_clefTexture" fitHeight="232.0" fitWidth="198.0" layoutX="89.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                         <GridPane fx:id="grdPn_sheetNotes_betweenLines" layoutX="180.0" layoutY="12.0" prefHeight="246.0" prefWidth="67.0">
                                             <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="28.0" minWidth="10.0" prefWidth="25.0" />
@@ -423,6 +425,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                             <children>
+                                <ImageView fx:id="img_sticky_right" fitHeight="390.0" fitWidth="478.0" layoutX="24.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="lbl_description" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="48.0" prefHeight="90.0" prefWidth="362.0" text="Guitar Trainer">
                                     <font>
                                         <Font name="Forte" size="39.0" />

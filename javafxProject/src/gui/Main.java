@@ -8,6 +8,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.io.File;
+import java.net.URL;
+
 /**
  * Main method starting the gui application
  */
@@ -28,25 +33,29 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         // Pop up window alert when an exception is not handled
         // todo delete before final commit
-        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex) -> {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Unhandled exception - Please report");
-            alert.showAndWait();
-        });
+//        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex) -> {
+//            ex.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setContentText("Unhandled exception - Please report");
+//            alert.showAndWait();
+//        });
 
-        Parent root = FXMLLoader.load(getClass().getResource("GuitarFretboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GuitarFretboard.fxml"));
+//        Parent root = FXMLLoader.load(img);
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("gui/jfoenixTheme.css");
+//        scene.getStylesheets().add("gui/jfoenixTheme.css");
 
         stage.setScene(scene);
         stage.setMinWidth(WIDTH);
         stage.setMaxWidth(HEIGHT);
         stage.setMinHeight(MIN_HEIGHT);
         stage.setTitle("Guitar Trainer");
-        stage.getIcons().add(new Image("textures\\GTLogoAlpha.png"));
+//        URL url = getClass().getResource("textures\\GTLogoAlpha.png");
+        Image img = new Image("/textures/GTLogoAlpha.png");
+        stage.getIcons().add(img);
+//        stage.getIcons().add(new Image("\\textures\\GTLogoAlpha.png"));
         stage.show();
     }
 
