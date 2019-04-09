@@ -6,7 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf590ae-9bbd-4a0f-a15e-445d603e9c9a" name="Default Changelist" comment="" />
+    <list default="true" id="3b2bc57f-3cd2-4f75-a2c7-587fc87ce79b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/javafxProject_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/javafxProject_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ëxercises/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ëxercises/beginner_openChord_exercise.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ëxercises/singleNote_excercise.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/JavaFXGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/JavaFXGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/excercise/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/excercise/Trainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/organization/Organized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/organization/Organized.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,318 +37,147 @@
       </map>
     </option>
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/javafxProject$Main.ic" NAME="Main Coverage Results" MODIFIED="1554484718399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>logic.organization.*</FILTER>
-    </SUITE>
-  </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="307424440">
+    <session id="-966412508">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="36" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="12" />
-          <entry key="project.open.time.8" value="10" />
-          <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="37" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="4" />
-          <entry key="css" value="3" />
-          <entry key="fxml" value="4" />
-          <entry key="java" value="264" />
-          <entry key="md" value="1" />
-          <entry key="png" value="3" />
+          <entry key="java" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="4" />
-          <entry key="CSS" value="3" />
-          <entry key="Image" value="3" />
-          <entry key="JAVA" value="264" />
-          <entry key="Markdown" value="1" />
-          <entry key="XML" value="4" />
+          <entry key="JAVA" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="class" value="5" />
-          <entry key="css" value="912" />
-          <entry key="dummy" value="3" />
-          <entry key="fxml" value="2" />
-          <entry key="java" value="82073" />
-          <entry key="txt" value="77" />
+          <entry key="java" value="1294" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CLASS" value="5" />
-          <entry key="CSS" value="918" />
-          <entry key="JAVA" value="82067" />
-          <entry key="PLAIN_TEXT" value="80" />
-          <entry key="XML" value="2" />
+          <entry key="JAVA" value="1294" />
         </counts>
       </usages-collector>
     </session>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="javafxProject" />
-  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="617">
-                  <caret line="603" column="50" lean-forward="true" selection-start-line="603" selection-start-column="50" selection-end-line="603" selection-end-column="50" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="206" column="32" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/note/NoteFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="781">
-                  <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="817">
-                  <caret line="136" selection-start-line="136" selection-end-line="136" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/organization/Mode.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/layout/VBox.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3042">
-                  <caret line="213" column="11" selection-start-line="213" selection-start-column="11" selection-end-line="213" selection-end-column="11" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2232">
-                  <caret line="140" selection-start-line="140" selection-end-line="140" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="343" column="45" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/gui/GuitarJFXButton.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/audio/SoundPack.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/JFXDrawer.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1008">
-                  <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/organization/Category.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/JFXDrawersStack.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2736">
-                  <caret line="152" column="44" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Interface" />
-        <option value="JUnit4 Test Class" />
-        <option value="Class" />
-        <option value="Enum" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>sheetNotes\\</find>
-      <find>, NotePrefix.Muted</find>
-      <find>Note</find>
-      <find>true</find>
-      <find>MUTED</find>
-      <find>new SheetNote(inputOffset)</find>
-      <find>printAnd</find>
-      <find>Syst</find>
-      <find>fretboard note sele</find>
-      <find>sheet note sele</find>
-      <find>todo update</find>
-      <find>pagin</find>
-      <find>buffere</find>
-      <find>new Guitar</find>
-      <find>not imple</find>
-      <find>&lt;= Trainer</find>
-      <find>not imp</find>
-      <find>trainer gives</find>
-      <find>fretboard note</find>
-      <find>shuffle</find>
-      <find>system.out</find>
-      <find>only for test</find>
-      <find>this.</find>
-      <find>pagefac</find>
-      <find>pagef</find>
-      <find>pgn_mode</find>
-      <find>background</find>
-      <find>createguitarbu</find>
-      <find>\\</find>
-      <find>Nylon</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>` |</replace>
-      <replace>`</replace>
-      <replace>FretboardNote</replace>
-      <replace>new FretboardNote</replace>
-      <replace>true, new FretboardPos()</replace>
-      <replace>NoteFactory.createSheetNote(inputOffset)</replace>
-    </replaceStrings>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/logic/instrument/NoteTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5950">
+              <caret line="393" column="48" selection-start-line="393" selection-start-column="48" selection-end-line="393" selection-end-column="48" />
+              <folding>
+                <element signature="e#8539#8540#0" expanded="true" />
+                <element signature="e#8616#8617#0" expanded="true" />
+                <element signature="e#13365#13366#0" expanded="true" />
+                <element signature="e#13395#13396#0" expanded="true" />
+                <element signature="e#13594#13595#0" expanded="true" />
+                <element signature="e#13615#13616#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/organization/Mode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-374" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+              <folding>
+                <element signature="e#2921#2922#0" expanded="true" />
+                <element signature="e#2959#2960#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1533#1534#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/excercise/Parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="56" column="42" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+              <folding>
+                <element signature="e#2136#2137#0" expanded="true" />
+                <element signature="e#2185#2186#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/organization/Organized.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -340,57 +185,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/logic/guitar/NoteCircle.java" />
-        <option value="$PROJECT_DIR$/src/logic/guitar/Guitar.java" />
-        <option value="$PROJECT_DIR$/src/logic/guitar/FretboardNote.java" />
-        <option value="$PROJECT_DIR$/src/logic/instrument/NoteFactory.java" />
-        <option value="$PROJECT_DIR$/test/logic/guitar/SheetNoteTest.java" />
-        <option value="$PROJECT_DIR$/test/logic/sheets/SheetModelTest.java" />
-        <option value="$PROJECT_DIR$/src/logic/guitar/SheetNote.java" />
-        <option value="$PROJECT_DIR$/src/logic/sheets/SheetModel.java" />
-        <option value="$PROJECT_DIR$/src/logic/guitar/Note.java" />
-        <option value="$PROJECT_DIR$/test/logic/instrument/NoteCircleTest.java" />
-        <option value="$PROJECT_DIR$/src/gui/SheetPrefixJFXButton.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/PrefixComparator.java" />
-        <option value="$PROJECT_DIR$/test/logic/note/NoteTest.java" />
-        <option value="$PROJECT_DIR$/test/logic/instrument/FretboardNoteTest.java" />
-        <option value="$PROJECT_DIR$/test/logic/instrument/GuitarTest.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/SheetNote.java" />
-        <option value="$PROJECT_DIR$/src/logic/instrument/FretboardNote.java" />
-        <option value="$PROJECT_DIR$/src/logic/pos/Pos.java" />
-        <option value="$PROJECT_DIR$/src/logic/instrument/Instrument.java" />
-        <option value="$PROJECT_DIR$/src/logic/instrument/Guitar.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/FretboardNote.java" />
-        <option value="$PROJECT_DIR$/src/gui/PrefixImages.java" />
-        <option value="$PROJECT_DIR$/src/logic/instrument/SheetModel.java" />
-        <option value="$PROJECT_DIR$/src/gui/jfoenixTheme.css" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/Difficulty.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/Tone.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/Prefix.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/Chord.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/ExcerciseNote.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/ExerciseChord.java" />
-        <option value="$PROJECT_DIR$/test/logic/excercise/GuitarTrainerTest.java" />
-        <option value="$PROJECT_DIR$/src/Doodle.java" />
-        <option value="$PROJECT_DIR$/test/Doodle.java" />
-        <option value="$PROJECT_DIR$/test/logic/MyRandom.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/Note.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/Parser.java" />
-        <option value="$PROJECT_DIR$/src/logic/organization/GUIConnector.java" />
-        <option value="$PROJECT_DIR$/test/logic/FakeGui.java" />
-        <option value="$PROJECT_DIR$/src/gui/JavaFXGui.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/Trainer.java" />
-        <option value="$PROJECT_DIR$/test/Doodle2.java" />
-        <option value="$PROJECT_DIR$/src/logic/organization/Mode.java" />
-        <option value="$PROJECT_DIR$/src/logic/organization/Category.java" />
-        <option value="$PROJECT_DIR$/src/logic/note/NoteFactory.java" />
-        <option value="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" />
-        <option value="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" />
-        <option value="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" />
-        <option value="$PROJECT_DIR$/src/gui/GuitarJFXButton.java" />
-        <option value="$PROJECT_DIR$/src/logic/audio/AudioConverter.java" />
+        <option value="$PROJECT_DIR$/src/logic/audio/AudioConnector.java" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/gui/JavaFXGui.java" />
+        <option value="$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java" />
+        <option value="$PROJECT_DIR$/src/logic/excercise/Trainer.java" />
+        <option value="$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java" />
+        <option value="$PROJECT_DIR$/src/logic/organization/Organized.java" />
+        <option value="$PROJECT_DIR$/src/gui/GuitarFretboardController.java" />
+        <option value="$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java" />
       </list>
     </option>
   </component>
@@ -401,10 +204,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1416" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -429,7 +231,7 @@
               <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
+              <item name="exercises" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
@@ -441,13 +243,6 @@
               <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="stockPhotos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
@@ -462,31 +257,11 @@
               <item name="logic" type="462c0819:PsiDirectoryNode" />
               <item name="audio" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="excercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="organization" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javafxProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javafxProject" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,34 +270,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554771441909" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="create.test.in.the.same.root" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554821797182" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="logic.excercise" />
-      <recent name="logic.instrument" />
-      <recent name="logic.note" />
-      <recent name="logic.guitar" />
-      <recent name="logic.sheets" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="logic" />
-      <recent name="logic.instrument" />
-      <recent name="logic.guitar" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -536,27 +291,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Doodle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Doodle" />
-      <module name="javafxProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Doodle2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Doodle2" />
-      <module name="javafxProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Main" />
       <module name="javafxProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="logic.organization.*" />
+          <option name="PATTERN" value="gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -564,655 +305,238 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FretboardNoteTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="javafxProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="logic.note.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="logic.instrument" />
-      <option name="MAIN_CLASS_NAME" value="logic.instrument.FretboardNoteTest" />
-      <option name="METHOD_NAME" value="testEquals" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NoteTest.testNextSemiTone" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="javafxProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="logic.note.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="logic.instrument" />
-      <option name="MAIN_CLASS_NAME" value="logic.instrument.NoteTest" />
-      <option name="METHOD_NAME" value="testNextSemiTone" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.NoteTest.testNextSemiTone" />
-      <item itemvalue="JUnit.FretboardNoteTest.testEquals" />
-      <item itemvalue="Application.Doodle" />
-      <item itemvalue="Application.Doodle2" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Doodle2" />
-        <item itemvalue="Application.Doodle" />
-        <item itemvalue="JUnit.FretboardNoteTest.testEquals" />
-        <item itemvalue="JUnit.NoteTest.testNextSemiTone" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1bf590ae-9bbd-4a0f-a15e-445d603e9c9a" name="Default Changelist" comment="" />
-      <created>1552174314217</created>
+      <changelist id="3b2bc57f-3cd2-4f75-a2c7-587fc87ce79b" name="Default Changelist" comment="" />
+      <created>1554819258435</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1552174314217</updated>
-      <workItem from="1552174316931" duration="7505000" />
-      <workItem from="1552183197784" duration="890000" />
-      <workItem from="1552237450446" duration="25114000" />
-      <workItem from="1552321946840" duration="613000" />
-      <workItem from="1552323996521" duration="83000" />
-      <workItem from="1552331983653" duration="9006000" />
-      <workItem from="1552432314362" duration="2199000" />
-      <workItem from="1552435795114" duration="9768000" />
-      <workItem from="1552500557429" duration="2087000" />
-      <workItem from="1552504353799" duration="9388000" />
-      <workItem from="1552523227836" duration="8101000" />
-      <workItem from="1552606942403" duration="9833000" />
-      <workItem from="1552763729247" duration="8259000" />
-      <workItem from="1552846008061" duration="9059000" />
-      <workItem from="1552866454574" duration="10479000" />
-      <workItem from="1553032929191" duration="13907000" />
-      <workItem from="1553107681127" duration="18659000" />
-      <workItem from="1553202968214" duration="1709000" />
-      <workItem from="1553292330323" duration="16326000" />
-      <workItem from="1553458866888" duration="16879000" />
-      <workItem from="1553544830965" duration="11078000" />
-      <workItem from="1553638929917" duration="7693000" />
-      <workItem from="1553713962675" duration="7249000" />
-      <workItem from="1553789881877" duration="16677000" />
-      <workItem from="1553894385632" duration="9193000" />
-      <workItem from="1553976139431" duration="12867000" />
-      <workItem from="1554053333085" duration="6015000" />
-      <workItem from="1554070324050" duration="10509000" />
-      <workItem from="1554153037594" duration="11563000" />
-      <workItem from="1554245710660" duration="12669000" />
-      <workItem from="1554326570026" duration="242000" />
-      <workItem from="1554331043192" duration="6221000" />
-      <workItem from="1554338175517" duration="65000" />
-      <workItem from="1554479785570" duration="14215000" />
-      <workItem from="1554676566040" duration="259000" />
-      <workItem from="1554757911221" duration="5941000" />
+      <updated>1554819258435</updated>
+      <workItem from="1554819262674" duration="568000" />
+      <workItem from="1554829045564" duration="3713000" />
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 21h 50m 36s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 21h 51m 55s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 21h 52m 19s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 21h 53m 20s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 22h 05m 55s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 22h 06m 36s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NoteTest_testNextSemiTone - 2019.03.25 at 22h 08m 05s.xml">
-      <configuration name="NoteTest.testNextSemiTone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FretboardNoteTest_testEquals - 2019.03.26 at 23h 36m 44s.xml">
-      <configuration name="FretboardNoteTest.testEquals" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FretboardNoteTest_testEquals - 2019.03.26 at 23h 37m 24s.xml">
-      <configuration name="FretboardNoteTest.testEquals" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FretboardNoteTest_testEquals - 2019.03.26 at 23h 37m 26s.xml">
-      <configuration name="FretboardNoteTest.testEquals" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315266000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="4281000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.71313673" weight="0.10055644" />
-      <window_info id="Structure" order="1" sideWeight="0.28686327" side_tool="true" weight="0.19872814" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.47613764" side_tool="true" weight="0.17885533" />
-      <window_info id="Capture Tool" order="6" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.19968799" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1848674" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37597504" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299532" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27457097" />
-      <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.3299532" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3299532" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3299532" />
-      <window_info anchor="bottom" id="Floobits" order="13" weight="0.22230889" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3298887" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.71313673" visible="true" weight="0.10055644" />
-      <window_info id="Structure" order="1" sideWeight="0.28686327" side_tool="true" weight="0.19872814" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.47613764" side_tool="true" weight="0.17885533" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.19968799" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1848674" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37597504" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27457097" />
-      <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.3299532" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3299532" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3299532" />
-      <window_info anchor="bottom" id="Floobits" order="13" weight="0.22230889" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3298887" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25658807" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="SHOW_OTHER_BRANCHES" value="true" />
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="Guitar.OPEN_STRINGS" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
-    <expressions id="breakpointCondition">
-      <expression>
-        <expression-string>sheetNote.equals(new SheetNote(Tone.D, Prefix.NEUTRAL, 2, true))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>logic.note.Tone</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>sheetNote.equals(new SheetNote(Tone.B, Prefix.NEUTRAL, 2, true))</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>logic.note.Tone</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-    <expressions id="watch">
-      <expression>
-        <expression-string>Guitar.OPEN_STRINGS</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>Category.HEARING_EXERCISE.getModes().contains(this.mode)
-                &amp;&amp; Category.TRANSLATION_EXERCISE.getModes().contains(this.mode)</expression-string>
+        <expression-string>stackpane.getPrefWidth()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.pgn_modes.getPage</expression-string>
+        <expression-string>stackpane.getWidth()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.pgn_modes.getChildrenUnmodifiable()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>vBox.getChildren()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>content.getChildren().get(0)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>content.getChildren()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(lowerBound - upperBound) + 1</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>lowerBound - upperBound) + 1</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>rand.nextInt((lowerBound - upperBound) + 1)</expression-string>
+        <expression-string>stackpane.getScaleX()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/logic/instrument/Instrument.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="453">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/FretboardNote.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state relative-caret-position="68">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Comparable.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PrefixImages.java">
+    <entry file="file://$PROJECT_DIR$/test/logic/instrument/NoteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/HashSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3222">
-          <caret line="202" selection-start-line="202" selection-end-line="202" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Override.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44784">
-          <caret line="2580" selection-start-line="2580" selection-end-line="2580" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/logic/instrument/NoteCircleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/NoteCircle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/Chord.java" />
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/ExcerciseNote.java" />
-    <entry file="file://$PROJECT_DIR$/src/logic/note/SheetNote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/ëxercises/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/instrument/Guitar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/Tone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/ExerciseChord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/instrument/SheetModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/jfoenixTheme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboard.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6084">
-          <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Doodle.java" />
-    <entry file="file://$PROJECT_DIR$/src/logic/MyRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/logic/excercise/GuitarTrainerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/Prefix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9648">
-          <caret line="567" selection-start-line="567" selection-end-line="567" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/Pagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4086">
-          <caret line="268" column="54" selection-start-line="268" selection-start-column="54" selection-end-line="268" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/beans/property/IntegerPropertyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/logic/FakeGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Doodle2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#980#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/organization/GUIConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/organization/Mode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/layout/VBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3042">
-          <caret line="213" column="11" selection-start-line="213" selection-start-column="11" selection-end-line="213" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/JFXDrawer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/organization/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar!/com/jfoenix/controls/JFXDrawersStack.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/JavaFXGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2232">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="215">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/note/NoteFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="781">
-          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+        <state relative-caret-position="40">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/excercise/GuitarTrainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        <state relative-caret-position="292">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+            <element signature="e#2959#2960#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/organization/FlowOrganizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="206" column="32" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
+        <state relative-caret-position="255">
+          <caret line="56" column="42" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2185#2186#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GuitarJFXButton.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/organization/Organized.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+        <state relative-caret-position="204">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/audio/AudioConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/excercise/Trainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+        <state>
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/audio/SoundPack.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/organization/Mode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/stockPhotos/largeWood.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/stockPhotos/grayBackground.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
+        <state relative-caret-position="-374" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GuitarFretboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="603" column="50" lean-forward="true" selection-start-line="603" selection-start-column="50" selection-end-line="603" selection-end-column="50" />
+        <state relative-caret-position="5950">
+          <caret line="393" column="48" selection-start-line="393" selection-start-column="48" selection-end-line="393" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#8539#8540#0" expanded="true" />
+            <element signature="e#8616#8617#0" expanded="true" />
+            <element signature="e#13365#13366#0" expanded="true" />
+            <element signature="e#13395#13396#0" expanded="true" />
+            <element signature="e#13594#13595#0" expanded="true" />
+            <element signature="e#13615#13616#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/excercise/ExcercisePack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1275,6 +599,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

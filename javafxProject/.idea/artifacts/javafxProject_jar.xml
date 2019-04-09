@@ -4,7 +4,7 @@
     <root id="archive" name="javafxProject.jar">
       <element id="module-output" name="javafxProject" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../otherDocs/libraries/jfoenix-8.0.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../Programme/fontawesomefx-glyphsbrowser/lib/fontawesomefx-8.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../otherDocs/libraries/fontawesomefx-8.9.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

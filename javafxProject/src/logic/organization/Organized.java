@@ -8,6 +8,11 @@ import logic.instrument.FretboardPos;
 public interface Organized {
 
     /**
+     * Displays a short message on how to use the program (gui)
+     */
+    void displayDescription();
+
+    /**
      * (re-)plays the exercise given by the trainer
      */
     void playExcercise();

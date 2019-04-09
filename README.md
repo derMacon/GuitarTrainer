@@ -8,12 +8,15 @@ A program that trains you to recognize heard notes / chords. There will be four 
 Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTrainer_2.0.jar?dl=0)
 
 ## Gui
+### Main Window
 ![alt text](otherDocs/screenshots/screenshot0904_main.png)
+
+### Mode selection
 ![alt text](otherDocs/screenshots/screenshot0904_modes.png)
 
 ## Help
 ### Fretboard 
-![alt text](therDocs/diagrams/fretboard-diagram.jpg)
+![alt text](otherDocs/diagrams/fretboard-diagram.jpg)
 
 ### Chromatic Circle
 <img src="https://github.com/derMacon/GuitarTrainer/blob/master/otherDocs/diagrams/chromatic-circle.png" width="600">
