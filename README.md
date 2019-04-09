@@ -37,6 +37,8 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTraine
 ### Todo: near-tearm
 - make programm resizable in width
 - Update check in messages
+- delete todos in src
+- change exercise pack output to input stream -> make it compatible with a .jar release
 
 ### Todo: itermediate-term
 - write / display helping screen
