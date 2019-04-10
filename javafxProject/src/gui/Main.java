@@ -8,6 +8,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 /**
  * Main method starting the gui application
  */
@@ -44,6 +48,8 @@ public class Main extends Application {
 //        stage.setMinWidth(WIDTH);
 //        stage.setMaxWidth(HEIGHT);
 //        stage.setMinHeight(MIN_HEIGHT);
+
+
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("/textures/GTLogoAlpha.png"));
         stage.show();

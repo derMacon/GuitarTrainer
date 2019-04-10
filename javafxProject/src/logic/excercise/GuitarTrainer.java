@@ -14,7 +14,7 @@ import java.util.Random;
  * Implementation of the instrument trainer interface needed for the excercise modes
  */
 public class GuitarTrainer implements Trainer {
-    
+
     private static final String DESCRIPTION =
                     "Welcome to the guitar trainer. In this program you will train to distinguish different notes " +
                             "from each other and selecting their position on the guitar fretboard as well as on the " +
@@ -73,7 +73,7 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public void setMode(Mode mode) {
-        if (ExcercisePack.contains(mode)) {
+        if (ExercisePack.contains(mode)) {
             this.mode = mode;
             gui.setReplayButtonGrayedout(this.mode == Mode.GUITAR_FREEPLAY);
             generateExerciseLst();
