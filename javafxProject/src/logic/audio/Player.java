@@ -21,6 +21,7 @@ import java.net.URL;
 public class Player implements LineListener {
 
     private static final int DELAY_TIME = 1000;
+    private static final String PATH_BLUEPRINT = "/audioFiles/%s/%s";
     private File audioFile;
     private boolean playCompleted = false;
 
@@ -38,7 +39,11 @@ public class Player implements LineListener {
      */
     public void play() {
         try {
-            URL soundURL = this.getClass().getResource("/test.wav");
+//            URL soundURL = this.getClass().getResource("/audioFiles/nylon/test.wav");
+
+            String path = "/audioFiles/nylon/" + this.audioFile.getName();
+            System.out.println(path);
+            URL soundURL = this.getClass().getResource(path);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);

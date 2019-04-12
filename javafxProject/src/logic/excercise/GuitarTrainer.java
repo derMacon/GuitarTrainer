@@ -37,10 +37,11 @@ public class GuitarTrainer implements Trainer {
                             "note or a whole chord. \n";
 
     private static final String MODE_DELIMITER = ".....................................";
-    private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
+    private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up. Please try " +
+            "again.";
     private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected "
-            + "exercise chord.";
-    private static final String EQUAL_EXP_INP_CHORD = "Correct!";
+            + "exercise chord. The exercise will be shown agin in a few rounds.";
+    private static final String EQUAL_EXP_INP_CHORD = "Correct! The next exercise will be played.";
     private static final int DEFAULT_WRONG_ANSWER_OFFSET = 3;
     private static final int DEFAULT_POOL_SIZE = 10;
     private static final String COMMENT_PREFIX = "//";
@@ -68,7 +69,9 @@ public class GuitarTrainer implements Trainer {
 
     @Override
     public Note[] currExercise() {
-        return this.exercises.get(0).toArray();
+        ExerciseChord chord = this.exercises.get(0);
+        Logger.getInstance().printAndSafe("Current excercise:" + chord);
+        return chord.toArray();
     }
 
     @Override
