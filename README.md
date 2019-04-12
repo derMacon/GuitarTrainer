@@ -44,6 +44,7 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTraine
 ### Todo: itermediate-term
 - write / display helping screen
 - make drawer background transparent (initModeDrawerStack, etc.)
+- make two new releases (with and without developer message)
 
 ### Todo: long-term
 - update UML Diagram 
