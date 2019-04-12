@@ -5,7 +5,7 @@ A program that trains you to recognize heard notes / chords. There are be four m
 - translating a position on the fretboard to a sheet note
 - freeplay (clicking on the either sheets or fretboard updates both)
 
-Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTrainer_2.0.jar?dl=0)
+Build: [GuitarTrainer2.0](https://www.dropbox.com/s/ern1pzkzqi5ofmk/GuitarTrainer_2.0.jar?dl=0)
 
 ## Gui
 ### Main Window
