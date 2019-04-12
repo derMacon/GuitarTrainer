@@ -21,6 +21,11 @@ public class MusicRunner implements Runnable {
         this.player = new Player(file);
     }
 
+
+    public MusicRunner(String audioPath) {
+//        this.player = new Player(audioPath);
+    }
+
     @Override
     public void run() {
         player.play();

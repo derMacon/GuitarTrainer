@@ -167,7 +167,7 @@ public class GuitarFretboardController implements Initializable {
                 Mode.values()[this.pgn_modes.getCurrentPageIndex()]);
 
         // init help
-        this.flowOrganizer.displayDescription();
+//        this.flowOrganizer.displayDescription();
     }
 
 

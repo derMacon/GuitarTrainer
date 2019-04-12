@@ -27,6 +27,7 @@ public class AudioConverter implements AudioConnector {
      * audioFiles.get(2).get(0)
      */
     private List<List<File>> audioFiles = new ArrayList<>();
+    private List<List<String>> audioPaths = new ArrayList<>();
 
     /**
      * Default constructor setting the nylon sound pack as the default
@@ -62,6 +63,7 @@ public class AudioConverter implements AudioConnector {
     public void playSingleNote(Note note) {
         if (null != note && note.isPlayed()) {
             MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
+//            MusicRunner fstRunner = new MusicRunner(loadAudioFile(note));
             Thread fstThread = new Thread(fstRunner);
             fstThread.start();
         }
@@ -82,5 +84,10 @@ public class AudioConverter implements AudioConnector {
      */
     private File loadAudioFile(Note note) {
         return this.audioFiles.get(NoteCircle.getId(note).ordinal()).get(note.getOctave());
+    }
+
+    private String loadAudioPath(Note note) {
+//        return this.audioFiles.get(NoteCircle.getId(note).ordinal()).get(note.getOctave());
+        return null;
     }
 }

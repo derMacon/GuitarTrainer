@@ -8,9 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.URL;
 
 /**
  * Main method starting the gui application
@@ -45,10 +48,30 @@ public class Main extends Application {
         scene.getStylesheets().add("gui/jfoenixTheme.css");
 
         stage.setScene(scene);
-//        stage.setMinWidth(WIDTH);
-//        stage.setMaxWidth(HEIGHT);
-//        stage.setMinHeight(MIN_HEIGHT);
+        stage.setMinWidth(WIDTH);
+        stage.setMaxWidth(HEIGHT);
+        stage.setMinHeight(MIN_HEIGHT);
 
+        String path = "/audioFiles/nylon/test.wav";
+
+        URL url = this.getClass().getResource(path);
+
+//        InputStream is = getClass().getResourceAsStream(url.toString().replaceFirst("file:/", "file:///"));
+//        AudioInputStream ais = AudioSystem.getAudioInputStream(is);
+//        Clip clip = AudioSystem.getClip();
+//        clip.open(ais);
+//        clip.start();
+
+
+//        String urls=url.toString();
+//        urls=urls.replaceFirst("file:/", "file:///");
+//        AudioClip ac= Applet.newAudioClip(new URL(urls));
+//        ac.play();
+//        ac
+
+
+        File test = new File(path);
+        System.out.println(test.getPath());
 
         stage.setTitle("Guitar Trainer");
         stage.getIcons().add(new Image("/textures/GTLogoAlpha.png"));
