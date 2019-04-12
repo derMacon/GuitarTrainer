@@ -35,6 +35,7 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTraine
 ---
 
 ### Todo: near-tearm
+- implement file exists check in AudioConverter
 - make programm resizable in width
 - Update check in messages
 - delete todos in src
