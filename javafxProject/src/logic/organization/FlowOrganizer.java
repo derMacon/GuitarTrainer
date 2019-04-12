@@ -26,10 +26,6 @@ import java.util.Set;
 public class FlowOrganizer implements Organized {
 
     private static final String MODE_DELIMITER = ".....................................";
-    private static final String UNEQUAL_INPUT_CHORDS = "The input chords from the user don't match up.";
-    private static final String UNEQUAL_EXP_INP_CHORD = "Both input chords are equal, but don't math the expected "
-            + "exercise chord.";
-    private static final String EQUAL_EXP_INP_CHORD = "Correct!";
     private final Instrument<FretboardNote> guitar;
     private final Instrument<SheetNote> sheets;
     private final Trainer trainer;
@@ -195,7 +191,7 @@ public class FlowOrganizer implements Organized {
 
         // Depending on the mode a reseted guitar may or may not have the open
         // strings selected / be completely muted
-        if (this.mode == Mode.GUITAR_FREEPLAY) {
+        if (Category.FREEPLAY.getModes().contains(this.mode)) {
             for (FretboardNote note : Guitar.OPEN_STRINGS) {
                 this.guitar.pressNote(note);
             }

@@ -5,10 +5,10 @@ import logic.note.NoteFactory;
 import logic.organization.Mode;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,9 +30,13 @@ public class Parser {
     public static List<ExerciseChord> parseExercise(Mode mode, int poolSize) {
         // todo use poolsize var
         List<ExerciseChord> output = new ArrayList<>();
-        File file = ExcercisePack.translate(mode);
+        String filePath = ExercisePack.translate(mode);
+        System.out.println(filePath);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try {
+            InputStream in = Parser.class.getResourceAsStream(filePath);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
             String line;
             ExerciseChord currChord = new ExerciseChord();
             while ((line = br.readLine()) != null) {

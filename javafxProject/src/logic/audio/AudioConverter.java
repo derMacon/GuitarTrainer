@@ -49,13 +49,20 @@ public class AudioConverter implements AudioConnector {
             fileName = String.format(TEMPLATE_BLUEPRINT, prefix, notes[i].name());
             for (int j = 0; j < sPack.getHighestOctave(); j++) {
                 File file = new File(sPack.getPath() + "/" + fileName + j + ".wav");
-                if (file.exists()) {
+                System.out.println("audioconv: " + file + " bool: " + file.exists());
+                if (checkIfFileExists(file)) {
                     audioFiles.get(i).add(this.audioFiles.get(i).size(), file);
                 } else {
                     this.audioFiles.get(i).add(new File(sPack.getPath() + "/" + "empty.wav"));
                 }
             }
+            System.out.println();
         }
+    }
+
+    private boolean checkIfFileExists(File file) {
+        // todo implement with ressources as stream
+        return true;
     }
 
     @Override

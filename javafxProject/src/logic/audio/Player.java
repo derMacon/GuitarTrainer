@@ -11,6 +11,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * Class to play a given audio file
@@ -20,6 +21,7 @@ import java.io.IOException;
 public class Player implements LineListener {
 
     private static final int DELAY_TIME = 1000;
+    private static final String PATH_BLUEPRINT = "/audioFiles/%s/%s";
     private File audioFile;
     private boolean playCompleted = false;
 
@@ -37,7 +39,12 @@ public class Player implements LineListener {
      */
     public void play() {
         try {
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+//            URL soundURL = this.getClass().getResource("/audioFiles/nylon/test.wav");
+
+            String path = "/audioFiles/nylon/" + this.audioFile.getName();
+            System.out.println(path);
+            URL soundURL = this.getClass().getResource(path);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             Clip audioClip = (Clip) AudioSystem.getLine(info);
