@@ -40,6 +40,7 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/f7b4vtv5wjefqzd/GuitarTraine
 - Update check in messages
 - delete todos in src
 - change exercise pack output to input stream -> make it compatible with a .jar release
+- update build with an uncommented intro screen message
 
 ### Todo: itermediate-term
 - write / display helping screen
