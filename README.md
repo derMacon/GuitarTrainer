@@ -40,10 +40,12 @@ Build: [GuitarTrainer2.0](https://www.dropbox.com/s/ern1pzkzqi5ofmk/GuitarTraine
 - Update check in messages
 - delete todos in src
 - change exercise pack output to input stream -> make it compatible with a .jar release
+- update build with an uncommented intro screen message
 
 ### Todo: itermediate-term
 - write / display helping screen
 - make drawer background transparent (initModeDrawerStack, etc.)
+- make two new releases (with and without developer message)
 
 ### Todo: long-term
 - update UML Diagram 
