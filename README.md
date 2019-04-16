@@ -1,5 +1,5 @@
 # GuitarTrainer: 
-A program that trains you to recognize heard notes / chords. There are be four modes available:
+A program that trains you to recognize heard notes / chords. There are four modes available:
 - hearing a note and selecting it on the fretboard and the sheets
 - translating a sheet note to the possible positions on the fretboard
 - translating a position on the fretboard to a sheet note
