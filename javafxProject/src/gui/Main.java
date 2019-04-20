@@ -8,10 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 /**
  * Main method starting the gui application
  */
@@ -31,13 +27,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Pop up window alert when an exception is not handled - only for testing
-        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex) -> {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Unhandled exception - Please report");
-            alert.showAndWait();
-        });
+//        Thread.currentThread().setUncaughtExceptionHandler((Thread th, Throwable ex) -> {
+//            ex.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setContentText("Unhandled exception - Please report");
+//            alert.showAndWait();
+//        });
 
         Parent root = FXMLLoader.load(getClass().getResource("GuitarFretboard.fxml"));
 
